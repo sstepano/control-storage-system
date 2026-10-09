@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Tooltip?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="btnWidth" fx:value="180" />
+        <Integer fx:id="smallTextFieldWidth" fx:value="40" />
+        <Integer fx:id="mediumTextFieldWidth" fx:value="80" />
+        <Integer fx:id="normalTextFieldWidth" fx:value="140" />
+        <Integer fx:id="minimalDateFieldWidth" fx:value="90" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+        <ToggleGroup fx:id="tgpPrimerak" />
+        <String fx:id="labelStyle" fx:value="-fx-font-size:13" />
+        <String fx:id="labelAddressStyle" fx:value="-fx-font-size:12" />
+    </fx:define>
+    
+    <children>
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor ="0">
+            <HBox>
+                <VBox HBox.hgrow="ALWAYS">
+                    <HBox>
+                    	<padding><Insets top="5" right="0" bottom="0" left="5"/></padding>
+                    	<VBox styleClass="box-with-border" minWidth="160">
+		                    <HBox alignment="CENTER_RIGHT">
+		                        <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>
+		                        <Label text="Račun" />
+		                        <CSTextField fx:id="tfInvoiceId" prefWidth="${mediumTextFieldWidth}" disable="true" />
+	                        </HBox>
+		                    <HBox alignment="CENTER_RIGHT">
+		                    	<padding><Insets top="0" right="5" bottom="0" left="5"/></padding>
+		                        <Label text="Otpremnica" minWidth="30" />
+		                        <CSTextField fx:id="tfDispatchNoteId" prefWidth="${mediumTextFieldWidth}" disable="true" />
+		                    </HBox>
+		                    <HBox>
+		                    	<padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+		                        <Button fx:id="btnInvoiceApprove" text="Overa" maxWidth="${DOUBLE_MAX_VALUE}" HBox.hgrow="ALWAYS" disable="true" >
+		                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-check" iconColor="GREEN" /></graphic>
+		                        </Button>
+		                    </HBox>
+	                    </VBox>
+	                    <VBox HBox.hgrow="ALWAYS">
+	                    	<HBox>
+	                    	    <TextArea fx:id="taClientDescription" styleClass="font-color-red, font-size-08em, box-with-border" wrapText="true" editable="false" HBox.hgrow="ALWAYS" />
+	                    		<VBox styleClass="box-with-border, font-size-1em, bold, padding-0px" alignment="CENTER" minWidth="400" HBox.hgrow="SOMETIMES">
+		                    		<padding><Insets top="0" right="5" bottom="0" left="5"/></padding>
+		                    		<HBox alignment="CENTER_LEFT">
+			                    		<padding><Insets top="-2" right="5" bottom="-2" left="5"/></padding>
+			                    		<Label fx:id="lblClientId" style="${labelStyle}" styleClass="red-text" />
+			                    		<Label fx:id="lblClientName" style="${labelStyle}" styleClass="green-text" />
+		                    		</HBox>
+			                    	<HBox alignment="CENTER_LEFT">
+			                    		<padding><Insets top="-2" right="5" bottom="-2" left="5"/></padding>
+										<Label fx:id="lblClientFullName" style="${labelStyle}" wrapText="true" styleClass="blue-text" />			                    	    
+		                    	    </HBox>
+		                    	    <HBox alignment="CENTER_LEFT">
+			                    		<padding><Insets top="-2" right="5" bottom="-2" left="5"/></padding>
+		                    	    	<Label fx:id="lblClientAddress" style="${labelAddressStyle}" />
+	                    	    	</HBox>
+		                    	</VBox>
+	                    	</HBox>
+	                    </VBox>
+                    </HBox>
+
+                    <!-- REVERS/RESERVATION BUTTONS -->
+                    <HBox fx:id="hbReservationAndRevers" styleClass="box-with-border" managed="false" visible="false">
+                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                        <Button fx:id="btnOvera" text="RT-R Overa">
+                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-printer" iconColor="YELLOW" /></graphic>
+                        </Button>
+                        <Button fx:id="btnOvera" text="RT-R ->V">
+                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-printer" iconColor="YELLOW" /></graphic>
+                        </Button>
+                        <Button fx:id="btnOvera" text="RT-R ->M">
+                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-printer" iconColor="YELLOW" /></graphic>
+                        </Button>
+                        <Button fx:id="btnOvera" text="RT-R Otvaranje">
+                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-printer" iconColor="YELLOW" /></graphic>
+                        </Button>
+                    </HBox>
+
+                    <HBox>
+                    	<padding><Insets top="0" right="0" bottom="0" left="5"/></padding>
+                        <VBox HBox.hgrow="ALWAYS">
+	                        <CSTable fx:id="tblInvoice"
+	                            prefHeight="250"
+	                            prefWidth="530"
+	                            HBox.hgrow="ALWAYS"
+	                            topLabelText="VELEPRODAJA"
+	                            DTOName="Invoice" 
+	                            topSectionVisible="true"
+	                            searchVisible="false"
+	                            viewButtonVisible="false"
+	                            VBox.vgrow="ALWAYS"
+	                            tableRequestFocus="true">
+	                            <tableColumns>
+	                                <CSTableColumn displayName="GOD" methodName="Year" />
+	                                <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+	                                <CSTableColumn displayName="TIP" methodName="InvoiceType" />
+	                                <CSTableColumn displayName="RAČUN" methodName="InvoiceNumber" />
+	                                <CSTableColumn displayName="OTPREMNICA" methodName="DispatchNoteId" />
+	                                <CSTableColumn displayName="UKUPNO" methodName="TotalAmt" />
+	                                <CSTableColumn displayName="DATUM" methodName="InvoiceDate" />
+	                                <CSTableColumn displayName="OBRADIO" methodName="CreatedByName" />
+	                            </tableColumns>                   
+	                        </CSTable>
+	                        <VBox>
+		                        <HBox alignment="CENTER" styleClass="box-with-border" HBox.hgrow="SOMETIMES" prefWidth="350">
+		                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                            <Label text="Zaduženje" minWidth="50" />
+		                            <CSTextField fx:id="tfAccountDebitAmt" text="0.00" prefWidth="${normalTextFieldWidth}" validationType="MONEY" disable="true" />
+		                            <Label text="Uplaćeno" minWidth="50" />
+		                            <CSTextField fx:id="tfAccountCreditAmt" text="0.00" prefWidth="${normalTextFieldWidth}" validationType="MONEY" disable="true" />
+		                            <Label text="Saldo" minWidth="30" />
+		                            <CSTextField fx:id="tfAccountBalanceAmt" text="0.00" prefWidth="${normalTextFieldWidth}" validationType="MONEY" disable="true" />
+		                        </HBox>
+		                        <HBox styleClass="box-with-border">
+		                            <TextArea fx:id="taInvoiceDescription" disable="true" styleClass="font-color-red" HBox.hgrow="ALWAYS"/>
+		                        </HBox>
+	                        </VBox>
+                            <VBox fx:id="vbTransferOrder" styleClass="box-with-border">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <HBox alignment="CENTER_LEFT">
+	                                <Label text="Datum prometa"/>
+	                                <CSDatePicker fx:id="dtTransactionDate" prefWidth="${minimalDateFieldWidth}" defaultToday="true"/>
+	                                <HBox fx:id="hboxFiller" HBox.hgrow="ALWAYS"></HBox>
+	                                <Label text="Rok"/>
+	                                <CSDatePicker fx:id="dtDate" prefWidth="${minimalDateFieldWidth}"/>
+                                    <CSTextField fx:id="tfTime" validationType="TIME" text="12:24" prefWidth="${smallTextFieldWidth}"/>
+			                        <Button fx:id="btnTransferOrderPrint" text="Prenosnica" prefWidth="100">
+			                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-printer" iconColor="BLUE" /></graphic>
+			                        </Button>
+                                </HBox>
+                                <HBox prefWidth="100" prefHeight="50">
+	                                <TextArea fx:id="taBlueField" styleClass="blue-field" HBox.hgrow="ALWAYS"/>
+	                                <VBox>
+	                                	<CSComboBox fx:id="cbDeliveryType" prefWidth="100">
+										    <items>
+										       <FXCollections fx:factory="observableArrayList">
+										            <String fx:value="POŠTA" />
+										            <String fx:value="DOSTAVA" />
+										            <String fx:value="KOM.VOZI" />
+										        </FXCollections>
+										    </items>
+	                                	</CSComboBox>
+		                                <Button fx:id="btnSaveTransferOrderDueDateAndDescription" text="Sačuvaj" maxHeight="${DOUBLE_MAX_VALUE}" maxWidth="${DOUBLE_MAX_VALUE}" HBox.hgrow="SOMETIMES">
+		                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-check-circle" iconColor="GREEN" /></graphic>
+		                                </Button>
+	                                </VBox>
+                                </HBox>
+                            </VBox>                       
+                        </VBox>
+
+                        <VBox styleClass="box-with-border" spacing="5" maxWidth="160">
+                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <Button fx:id="btnPreinvoice" text="Predračun" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnInvoice" text="Račun" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnInvoiceDispatchNote" text="Račun-Otpremnica" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnDispatchNote" text="Otpremnica" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnDispatchNoteNoPrices" text="Otpremnica bez cena" prefWidth="${btnWidth}" wrapText="true" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnInvoiceNoYear" text="Račun bez godine" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnInvoiceDispatchNoteNoYear" text="Račun - Otpr. bez godine" prefWidth="${btnWidth}" wrapText="true" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnInvoiceToFK" text="Faktura u FK" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnExcelExport" text="Excel Export" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnXmlTehnomedia" text="XML Tehnomedia" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnXmlGigatron" text="XML Gigatron" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" />
+                            <Button fx:id="btnAutoInvoiceLoad" text="Automatska faktura" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="true" visible="false" />
+                        </VBox>
+                        <VBox minWidth="100" maxWidth="125">
+	                        <VBox styleClass="box-with-border">
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <Label text="Primerak" />
+	                            <RadioButton fx:id="rbNothing" text="Ništa" selected="true" toggleGroup="${tgpPrimerak}" />
+	                            <RadioButton fx:id="rbOriginal" text="Original" toggleGroup="${tgpPrimerak}" />
+	                            <RadioButton fx:id="rbCopy" text="Kopija" toggleGroup="${tgpPrimerak}" />
+	                            
+	                            <CheckBox fx:id="chkWithStamp" text="Sa pečatom" />
+	                            <CheckBox fx:id="chkWithBarcode" text="Sa barkodom" />
+	                            <CheckBox fx:id="chkDisplayDiscount" text="Iskazati rabat" />
+	                            <CheckBox fx:id="chkWithDOMCode" text="Po DOM šifri" />
+	                        </VBox>
+	                        <VBox styleClass="box-with-border" VBox.vgrow="ALWAYS">
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <Button fx:id="btnF6" text="Izbor artikala" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="false">
+	                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-shape-outline" iconColor="GREEN" /></graphic>
+	                            </Button>
+	                            <Button fx:id="btnElectronicInvoice" text="E - Fakture" prefWidth="${btnWidth}" alignment="CENTER_LEFT" disable="false" visible="false">
+	                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-columns-gap" iconColor="RED" /></graphic>
+	                            </Button>
+	                        </VBox>
+                        </VBox>
+                        
+                        <!-- KLIJENT INFO -->
+                        <VBox styleClass="box-with-border" maxWidth="220">
+                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <GridPane hgap="5" vgap="5">
+                                <!--
+	                             <columnConstraints>
+	                                 <ColumnConstraints prefWidth="60" />
+                                     <ColumnConstraints prefWidth="${smallTextFieldWidth}" />
+	                             </columnConstraints>
+	                             -->                            
+                                <Button fx:id="btnClientChange" text="Promeni kupca" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="3" maxWidth="${DOUBLE_MAX_VALUE}">
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-person-plus" iconColor="YELLOW" /></graphic>
+                                </Button>
+                                <Label text="Šifra" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfClientId" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true" />
+                                
+                                <Label text="Naziv" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfName" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true" />
+
+                                <Label text="Pun naziv" minWidth="47" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfFullName" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true" />
+
+                                <Label text="P.broj" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfPOBox" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true" />
+
+                                <Label text="Mesto" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfCity" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true" />
+
+                                <Label text="Adresa" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfAddress" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true" />
+
+                                <Label text="Zemlja" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfCountry" GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true" />
+
+                                <Label text="Limit" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+                                <CSTextField fx:id="tfLimitEur" validationType="MONEY" GridPane.rowIndex="8" GridPane.columnIndex="1" disable="true" />
+
+                                <CSTextField fx:id="tfDebitAmt" validationType="MONEY" GridPane.rowIndex="8" GridPane.columnIndex="2" disable="true">
+                                    <tooltip>
+								        <Tooltip text="Iznos zaduženja"/>
+								    </tooltip>
+                                </CSTextField>
+								<!--
+                                <CSTextField fx:id="tfLimit3" GridPane.rowIndex="7" GridPane.columnIndex="3" prefWidth="${smallTextFieldWidth}" disable="true" />
+                                -->
+                            </GridPane>
+			                
+			                <CSTable fx:id="tblTransferOrderDetail"
+			                    maxHeight="200" 
+			                    DTOName="TransferOrderDetail"
+			                    topSectionVisible="false"
+			                    HBox.hgrow="ALWAYS">
+			                    <tableColumns>
+			                        <CSTableColumn displayName="KOLIČINA" methodName="Qty" />
+			                        <CSTableColumn displayName="IZ MAG" methodName="WarehouseIdOrigin" tooltip="ŠIFRA IZ MAGACINA" />
+			                        <CSTableColumn displayName="U MAG" methodName="WarehouseIdDestination" tooltip="ŠIFRA U MAGACIN" />
+			                    </tableColumns>                   
+			                </CSTable>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox />
+            </HBox>
+            
+            <!-- DETAILS TABLE -->
+            <VBox spacing="5">
+                <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                <CSTable fx:id="tblInvoiceDetail"
+                    topLabelText="DETALJI"
+                    DTOName="InvoiceDetail" 
+                    topSectionVisible="true" 
+                    topLabelVisible="true"
+                    searchVisible="false"
+                    editButtonVisible="false"
+                    deleteButtonVisible="true"
+                    viewButtonVisible="false" 
+                    HBox.hgrow="ALWAYS">
+                    <tableColumns>
+                        <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                        <CSTableColumn displayName="DOM" methodName="Id" />
+                        <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="350" />
+                        <CSTableColumn displayName="KOLIČINA" methodName="ItemQty" />
+                        <CSTableColumn displayName="NETO JM" methodName="UnitOfMeasureNetValue" />
+                        <CSTableColumn displayName="R%" methodName="DiscountRate" />
+                        <CSTableColumn displayName="NETO VREDNOST" methodName="AmountNet" />
+                        <CSTableColumn displayName="PDV%" methodName="VatRate" />
+                        <CSTableColumn displayName="PDV" methodName="AmountVat" />
+                        <CSTableColumn displayName="BRUTO" methodName="AmountGross" />
+                    </tableColumns>                   
+                </CSTable>
+                <HBox>
+                    <HBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                        <Button fx:id="btnDeleteInvoiceDiscount" text="Obriši rabat celog računa">
+                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-trash" iconColor="RED" /></graphic>
+                        </Button>
+                        <Button fx:id="btnDeleteItemDiscount" text="Obriši rabat stavke">
+                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-trash" iconColor="RED" /></graphic>
+                        </Button>
+                        <Button fx:id="" text="DOM" disable="true">
+                            <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-arrow-bar-right" /></graphic>
+                        </Button>
+                    </HBox>
+                    <HBox HBox.hgrow="ALWAYS"></HBox>
+                    <HBox styleClass="box-with-border" alignment="CENTER">
+                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                        <Label text="Broj stavki" />
+                        <CSTextField fx:id="tfTotalCount" validationType="NUMBER_ONLY" prefWidth="$mediumTextFieldWidth" text="0" />
+
+                        <Label text="Ukupno" />
+                        <CSTextField fx:id="tfTotalAmount" validationType="MONEY" prefWidth="$mediumTextFieldWidth" text="0.00" />
+                    </HBox>
+                </HBox>
+            </VBox>
+        </VBox>
+    </children>        
+</AnchorPane>

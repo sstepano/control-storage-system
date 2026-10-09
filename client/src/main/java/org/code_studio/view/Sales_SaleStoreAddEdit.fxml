@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+
+    <fx:define>
+        <Integer fx:id="textFieldWidth" fx:value="300" />
+    </fx:define>
+
+    <GridPane hgap="5" vgap="5" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+        <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>
+        
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Klijent" GridPane.halignment="RIGHT"/>
+        <TextField fx:id="tfClientName" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="${textFieldWidth}" disable="true" />
+        
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Naziv prodavnice" GridPane.halignment="RIGHT"/>
+        <TextField fx:id="tfStoreName" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="${textFieldWidth}"/>
+
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Mesto i PTT broj" GridPane.halignment="RIGHT"/>
+        <TextField fx:id="tfCity" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="${textFieldWidth}"/>
+
+        <Label GridPane.rowIndex="3" GridPane.columnIndex="0" text="Adresa" GridPane.halignment="RIGHT"/>
+        <TextField fx:id="tfAddress" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="${textFieldWidth}"/>
+
+	    <!-- SAVE/CANCEL BUTTONS -->
+	    <HBox GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
+	        <padding><Insets top="10" right="0" bottom="10" left="5"/></padding>
+		    <Button fx:id="btnSave" text="%button.save.text">
+			    <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+			</Button>
+			<Button fx:id="btnCancel" text="%button.cancel.text">
+			    <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+			</Button>
+	     </HBox>
+	     
+    </GridPane>	     
+</AnchorPane>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsonDataAdapter class="net.sf.jasperreports.data.json.JsonDataAdapterImpl">
+  <name>offer_header</name>
+  <dataFile type="httpDataLocation">
+    <url>http://localhost:33377/api/v1/offer/8953</url>
+  </dataFile>
+  <selectExpression></selectExpression>
+  <locale>en_US</locale>
+  <timeZone>Europe/Prague</timeZone>
+  <useConnection>true</useConnection>
+  <language>json</language>
+</jsonDataAdapter>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="textFieldWidth" fx:value="105" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                        
+                        <!-- RM INDIKATORI -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="RM INDIKATORI"></Label>
+                            </HBox>
+                            <HBox>
+		                        <HBox spacing="5" alignment="CENTER_LEFT">
+		                           <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+		                            <children>
+		                                <Label text="Šifra ordera"></Label>
+		                                <TextField fx:id="tfOrderId" prefWidth="$textFieldWidth" disable="true"></TextField>
+		                            </children>
+		                        </HBox>
+		                        <HBox spacing="5" alignment="CENTER_LEFT">
+		                           <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+		                            <children>
+		                                <Label text="Godina"></Label>
+		                                <TextField fx:id="tfYear" prefWidth="$textFieldWidth" disable="true"></TextField>
+		                            </children>
+		                        </HBox>
+		                        <!-- Ovo je visak, sifra ordera je ujedno i broj ordera
+		                        <HBox spacing="5" alignment="CENTER_LEFT">
+		                           <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+		                            <children>
+		                                <Label text="Broj ordera"></Label>
+		                                <TextField fx:id="tfOrderNumber" prefWidth="$textFieldWidth" disable="true"></TextField>
+		                            </children>
+		                        </HBox>
+		                        -->
+	                        </HBox>
+                        </VBox>
+                        
+                        
+                        <!-- DOBAVLJAC -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="DOBAVLJAČ"></Label>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Šifra"></Label>
+                                        <TextField fx:id="tfSupplierId" prefWidth="$textFieldWidth" disable="true"></TextField>
+                                    </children>
+                                </HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Naziv"></Label>
+                                        <TextField fx:id="tfSupplierName" prefWidth="$longTextFieldWidth" disable="true"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Att:"></Label>
+                                        <TextField fx:id="tfSupplierAtt" prefWidth="$longTextFieldWidth" />
+                                    </children>
+                                </HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Fax:"></Label>
+                                        <TextField fx:id="tfSupplierAttFax" prefWidth="$longTextFieldWidth"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="CC:"></Label>
+                                        <TextField fx:id="tfSupplierCC" prefWidth="$longTextFieldWidth" />
+                                    </children>
+                                </HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Fax:"></Label>
+                                        <TextField fx:id="tfSupplierCCFax" prefWidth="$longTextFieldWidth"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="From:"></Label>
+                                        <TextField fx:id="tfEmailFrom" text="Slobodan Mileković" prefWidth="$longTextFieldWidth" />
+                                    </children>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                        <!-- ORDER -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="ORDER"></Label>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Broj ordera za dobavljača"></Label>
+                                        <TextField fx:id="tfSupplierOrderId" prefWidth="$textFieldWidth" disable="true"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <CheckBox fx:id="ckbIsImport" text="Uvoz" />
+                                        <Label text="Zemlja uvoza"></Label>
+                                        <CSComboBox fx:id="cbImportCountry" initFactory="true" factoryMethodName="Name" prefWidth="$longTextFieldWidth" />
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <!-- Mozda ne treba, videcu sa Banetom
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Šifra Brenda:"></Label>
+                                        <TextField fx:id="tfBrandId" prefWidth="$textFieldWidth" disable="true"></TextField>
+                                        <Label text="Naziv Brenda:"></Label>
+                                        <TextField fx:id="tfBrandName" prefWidth="$longTextFieldWidth" disable="true"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            -->
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Datum ordera"></Label>
+                                        <CSDatePicker fx:id="dtOrderDate" prefWidth="$textFieldWidth" disable="true" />
+                                        <Label text="Šifra valute"></Label>
+                                        <CSComboBox fx:id="cbCurrency" initFactory="true" factoryMethodName="IsoCurrencyCode" prefWidth="$textFieldWidth" />
+                                        <Label text="Vrednost (Order)"></Label>
+                                        <TextField fx:id="tfOrderValue" prefWidth="$textFieldWidth" disable="true"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Napomena"></Label>
+                                        <TextArea fx:id="taDescription" prefWidth="400" prefHeight="75" />
+                                    </children>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+                        
+                        
+                        <!-- ISPORUKA -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="ISPORUKA"></Label>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Datum utovara"></Label>
+                                        <CSDatePicker fx:id="dtLoadDate" prefWidth="$textFieldWidth" disable="false" />
+                                        <Label text="Očekivani datum isporuke"></Label>
+                                        <CSDatePicker fx:id="dtExpectedDeliveryDate" prefWidth="$textFieldWidth" disable="false" />
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <!-- OVO SE TRRENUTNO NE KORISTI, VIDETI SA BANETOM DA LI DA DODAM
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Naziv špeditera"></Label>
+                                        <TextField fx:id="tfForwarderName" prefWidth="$longTextFieldWidth" disable="false"></TextField>
+                                        <Label text="Troškovi špeditera"></Label>
+                                        <TextField fx:id="tfForwarderCosts" prefWidth="$textFieldWidth" disable="false"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Broj carinskog lista:"></Label>
+                                        <TextField fx:id="tfBrojCarinskogLista" prefWidth="$longTextFieldWidth"></TextField>
+                                        <Label text="Datum carinskog lista:"></Label>
+                                        <TextField fx:id="tfDatumCarinskogLista" prefWidth="$textFieldWidth" disable="true"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                             -->
+                        </VBox>
+
+
+                        <!-- PRIJEM -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="PRIJEM"></Label>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Datum otvaranja"></Label>
+                                        <CSDatePicker fx:id="dtOpenDate" prefWidth="$textFieldWidth" disable="true" />
+                                        <Label text="Datum prijema"></Label>
+                                        <CSDatePicker fx:id="dtReceiveDate" prefWidth="$textFieldWidth" disable="true" />
+                                    </children>
+                                </HBox>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Datum overe"></Label>
+                                        <CSDatePicker fx:id="dtValidationDate" prefWidth="$longTextFieldWidth" disable="true" />
+                                        <Label text="Overio"></Label>
+                                        <TextField fx:id="tfValidatedByUserName" prefWidth="$longTextFieldWidth" disable="true"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+
+                        <!-- SAVE | CANCEL BUTTONS -->
+                        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <children>                    
+                               <Button fx:id="btnSave" text="%button.save.text">
+                                   <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                               </Button>
+                               <Button fx:id="btnCancel" text="%button.cancel.text">
+                                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                               </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

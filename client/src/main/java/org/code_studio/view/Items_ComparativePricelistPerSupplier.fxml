@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.ui.CSClientTable?>
+<?import org.code_studio.component.ui.CSItemTable?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortColumnWidth" fx:value="50" />
+        <Integer fx:id="longColumnWidth" fx:value="200" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+           <children>
+                    
+               <!-- LEFT VERTICAL PART -->
+               <VBox maxWidth="250">
+                   <CSClientTable
+                       fx:id="tblClient" 
+                       supplier="true">
+                       <tableColumns>
+                           <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                           <CSTableColumn displayName="NAZIV" methodName="Name" />
+                       </tableColumns>
+                   </CSClientTable>               
+                   <CSItemTable
+                       fx:id="tblItemAll"
+                       mode="2"
+                       topLabelText="SVI ARTIKLI">
+                       <tableColumns>
+                           <CSTableColumn displayName="ŠIFRA" methodName="Code" />
+                           <CSTableColumn displayName="NAZIV" methodName="Name" />
+                       </tableColumns>
+                   </CSItemTable>
+               </VBox>
+
+               <!-- RIGHT PART: MAIN TABLE -->
+               <VBox HBox.hgrow="ALWAYS">
+                   <CSTable 
+                       fx:id="tblSupplierPricelist"
+                       DTOName="SupplierPricelist"  
+                       topLabelText="CENOVNIK ARTIKALA"
+                       addButtonVisible="true"
+                       viewButtonVisible="false"
+                       editButtonVisible="true"
+                       deleteButtonVisible="true"
+                       searchVisible="false"
+                       searchTooltipText="Pretraga po: Šifra, Šifra dobavljača"
+                       VBox.vgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="ŠIFRA" methodName="ItemId" width="$shortColumnWidth" />
+                           <CSTableColumn displayName="ŠIFRA DOB" methodName="SupplierItemCode" />
+                           <CSTableColumn displayName="NAZIV" methodName="ItemName" width="$longColumnWidth" />
+                           <CSTableColumn displayName="CENA" methodName="PurchaseAmt" width="$shortColumnWidth" />
+                           <CSTableColumn displayName="SPEC" methodName="PurchaseAmtSpec" width="$shortColumnWidth" />
+                           <CSTableColumn displayName="MIN.KOL" methodName="MinQty" width="$shortColumnWidth" />
+                           <CSTableColumn displayName="CENA STARA" methodName="PurchaseAmtPrevious" width="$shortColumnWidth" />
+                           <CSTableColumn displayName="SPEC STARA" methodName="PurchaseAmtSpecPrevious" width="$shortColumnWidth" />
+                           <CSTableColumn displayName="MIN.KOL.STARA" methodName="MinQtyPrevious" width="$shortColumnWidth" />
+                       </tableColumns>
+                   </CSTable>   
+               </VBox>
+
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

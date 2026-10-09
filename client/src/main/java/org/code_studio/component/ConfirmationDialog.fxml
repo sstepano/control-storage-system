@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<fx:root
+    type="javafx.scene.layout.AnchorPane"
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    prefWidth="400"
+    stylesheets="@../view/Main.css">
+    <children>
+	    <VBox fx:id="vBox"
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+    	    <children>
+    	         <VBox>
+    	             <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+   	                 <GridPane>
+                         <padding><Insets top="10" right="0" bottom="5" left="10"/></padding>
+                         <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="15.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="85.0" />
+                         </columnConstraints>
+   	                     <children>
+							 <ImageView fx:id="img_questionmark" GridPane.rowIndex="0" GridPane.columnIndex="0">
+							     <image>
+							         <Image url="/questionmark.png" />
+							     </image>
+							 </ImageView>
+                                <Label fx:id="topLabel" GridPane.rowIndex="0" GridPane.columnIndex="1" text="%label.are-you-sure.text"></Label>
+   	                     </children>
+   	                 </GridPane>    	                 
+                     <CSDialogButtons fx:id="dialogButtons" />
+    	         </VBox>
+        	 </children>
+		</VBox>
+	</children>
+</fx:root>
+ 

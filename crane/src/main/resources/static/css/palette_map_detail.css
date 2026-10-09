@@ -1,0 +1,235 @@
+*, .container-detail { margin: 0; padding:0; font-family: Arial, Helvetica, sans-serif; }
+
+.toast-container {
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0px);
+    z-index: 9999;
+}
+
+.toast-header {
+	background-color: gray;
+	color: white;
+}
+
+.toast-buttons-container {
+	margin-top: 20px;
+	border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.toast-buttons-container > .btn {
+	margin-right: 5px;
+}
+
+.unoccupied {
+    background-color: green;
+}
+
+.occupied {
+    background-color: red;
+}
+
+.processing {
+    background-color: burlywood;
+    /**animation: pulse 1s infinite;**/
+}
+
+.locked {
+    background-color: darkslategrey;
+    /**animation: pulse 1s infinite;**/
+}
+
+.container1 {
+    border: 0px solid red;
+    position: relative;
+    height: 70vh;
+    min-height: 635px;
+    display: flex;
+}
+
+.column-group {
+    padding-right: 50px;
+    gap: 15px;
+    display: grid;
+    grid-template-rows: repeat(7, auto);
+    grid-template-columns: repeat(3, auto);
+    min-width: 500px;
+}
+
+.p-cell {
+    border: 1px solid black;
+    min-height: 70px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column-0 {
+    border: 0px solid orange;
+    gap: auto;
+    display: grid;
+    grid-template-rows: repeat(7, auto);
+    grid-template-columns: repeat(1, auto);
+    height: auto;
+    width: auto;
+    min-width: 90px;
+}
+
+.column-0 div {
+    margin:auto;
+    border: 1px solid black;
+    min-height: 50px;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 4px black;
+}
+
+.p-cell:hover {
+    filter: brightness(80%);
+}
+
+.row-column-enum {
+    border: 0px solid orange;
+    margin: 20px 0px 50px 90px;
+    gap: 50px;
+    display: grid;
+    grid-template-rows: repeat(1, auto);
+    grid-template-columns: repeat(50, auto);
+    height: auto;
+}
+
+.col-0 {
+    border: 0px solid blue;
+    width: 450px;
+    text-align: center;
+}
+
+.col-0 div {
+    border: 1px solid black;
+    min-width: 50px;
+    max-width: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 50px 0px 50px;
+    padding: 15px 0px;
+	box-sizing: border-box;
+}
+
+
+.row-0 {
+    border: 0px solid green;
+    display: inline-flex;
+    margin-left: 90px;
+}
+
+.row-0 > .header-data {
+    border: 1px solid black;
+    width: 250px;
+    height: 130px;
+    margin: 10px 15px 10px 0px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: x-large;
+}
+
+#wh-id1 {
+    font-size: 5em;
+}
+
+
+@keyframes pulse {
+    0% {
+        filter: brightness(100%);
+    }
+
+    50% {
+        filter: brightness(70%);
+    }
+
+    100% {
+        filter: brightness(100%);
+    }
+}
+
+/* ==========================================================================
+   ANOTHER HTML LAYOUT SYSTEM: PERFECT HORIZONTAL TOP BAR
+   ========================================================================== */
+
+   /* 1. Turns off absolute layout filters inside the modal, sets the wide row canvas */
+   .modal-body .row-0 {
+       position: static !important;       /* Deactivates the absolute floating trap inside the modal view */
+       display: flex !important;
+       flex-direction: row !important;    /* FORCES all 5 blocks to sit side-by-side horizontally */
+       flex-wrap: nowrap !important;      /* Prevents any boxes from dropping onto a second line */
+       width: 100% !important;
+       height: auto !important;
+       pointer-events: auto !important;
+       gap: 15px !important;              /* Clean gap spacing width between your 5 dashboard boxes */
+       margin: 0 0 20px 0 !important;     /* Creates perfect breathing space above your green cells */
+       
+       /* ==========================================================================
+          THE ALIGNMENT RESOLUTION:
+          Pads the left side by exactly 55px (the width of the vertical numbers column).
+          This forces the second card box ("Ukupno") to line up flush with the 
+          first green cell column, matching your original design parameter perfectly.
+          ========================================================================== */
+       padding-left: 90px !important;     
+       padding-right: 0px !important;
+   }
+   
+   /* 2. Strips the blocking sub-row wrapper blocks so all 5 cards merge inline */
+   .modal-body .header-top-row,
+   .modal-body .header-bottom-row {
+       display: contents !important;      /* Removes structural isolation layers inside the modal view */
+   } 
+   
+   /* 5. Force elements inside the layout boxes to center perfectly and scale up */
+   .modal-body .header-data span,
+   .modal-body .header-data-broken span {
+       display: block !important;
+       width: 100% !important;
+       text-align: center !important;
+       white-space: nowrap !important;    /* PREVENTS description text from wrapping or shrinking down */
+   }
+
+   /* Sizing for labels inside the modal top bar cards (Ukupno, Zauzeto, Slobodno) */
+   .modal-body .header-data span:first-child {
+       font-size: 0.95rem !important;     /* ENLARGED: Larger description text matching your layout theme */
+       color: #555555 !important;
+       font-weight: normal !important;
+       margin-bottom: 5px !important;     /* Spacing separator directly above the value counters */
+   }
+
+   /* Sizing for results strings data values counters (189, 0, 189) */
+   .modal-body .header-data span:last-child,
+   .modal-body span[id] {
+       font-size: xx-large !important;    /* ENLARGED: Makes the numbers bold, large, and centered inside the box */
+       font-weight: bold !important;
+       color: black !important;
+       margin-top: 0px !important;
+   }     
+
+   /* 6. Fixes overlapping fieldset legends for Row B coordinates labels inside the modal */
+   .modal-body .fieldset-label {
+       position: static !important;       /* Disables absolute overlap shifts only inside the modal */
+       font-size: 0.85rem !important;
+       font-weight: bold !important;
+       color: #555555 !important;
+       margin-bottom: 4px !important;
+   }   

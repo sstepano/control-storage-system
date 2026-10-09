@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.ui.CSClientTable?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <VBox
+        AnchorPane.leftAnchor   ="0"
+        AnchorPane.rightAnchor  ="0"
+        AnchorPane.topAnchor    ="0"
+        AnchorPane.bottomAnchor ="0"
+        spacing="5">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        <HBox VBox.vgrow="ALWAYS">
+        	<!--
+            <CSTable fx:id="tblSupplier"
+                minWidth="200"
+                maxWidth="200"
+                DTOName="Client" 
+                styleClass="additional-table1" 
+                GridPane.rowIndex="0" 
+                GridPane.columnIndex="0" 
+                topLabelText="DOBAVLJAČI"
+                addButtonVisible="false"
+                viewButtonVisible="true"
+                editButtonVisible="false"
+                deleteButtonVisible="false">
+                <columnResizePolicy><CSTable fx:constant="LASTCOLUMN_RESIZE_POLICY"/></columnResizePolicy>
+                <tableColumns>
+                    <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+                    <CSTableColumn displayName="NAZIV" methodName="Name" width="200"/>
+                </tableColumns>
+            </CSTable>
+            -->
+            <CSClientTable fx:id="tblSupplier" supplier="true" />
+	        <CSTable HBox.hgrow="ALWAYS"
+	            fx:id="tblItemBarcode"
+	            DTOName="ItemBarcode"
+	            VBox.vgrow="ALWAYS"
+	            topLabelText="BARKODOVI"
+	            addButtonVisible="true"
+	            viewButtonVisible="false"
+	            editButtonVisible="true"
+	            deleteButtonVisible="true"
+	            searchVisible="true"
+	            searchTooltipText="Pretraga po barkodu">
+	            <tableColumns>
+	                <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+	                <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="400" />
+	                <CSTableColumn displayName="BARKOD" methodName="Barcode" width="150" />
+	            </tableColumns>
+	        </CSTable>
+        </HBox>        
+    </VBox>
+</AnchorPane>

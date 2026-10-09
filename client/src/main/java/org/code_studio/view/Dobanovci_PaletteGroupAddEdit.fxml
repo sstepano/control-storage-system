@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="65" />
+        <Integer fx:id="mediumTextFieldWidth" fx:value="80" />
+        <Integer fx:id="textFieldWidth" fx:value="110" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="shortDatePickerWidth" fx:value="75" />
+        <Integer fx:id="datePickerWidth" fx:value="100" />
+        <Integer fx:id="longComboBoxdWidth" fx:value="230" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="PODEŠAVANJA KRANA"></Label>
+                            </HBox>
+                            <HBox alignment="CENTER_RIGHT" spacing="5">
+                            	<padding><Insets top="0" right="5" bottom="0" left="5"/></padding>
+                                <Label text="Kran" />
+                                <CSComboBox fx:id="cbCrane" initFactory="true" factoryMethodName="Description" prefWidth="$longComboBoxdWidth" maxWidth="${maxComponentWidth}" />
+                            </HBox>
+                            <HBox alignment="CENTER_RIGHT" spacing="5">
+                                <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                <Label text="Red" />
+                                <CSTextField fx:id="tfRowId" validationType="NUMBER_ONLY" maxWidth="$shortTextFieldWidth" />
+
+                                <Label text="Dubina" />
+                                <CSTextField fx:id="tfShelfId" validationType="NUMBER_ONLY" maxWidth="$shortTextFieldWidth"  />
+
+                                <Label text="Visina" />
+                                <CSTextField fx:id="tfVerticalId" validationType="NUMBER_ONLY" maxWidth="$shortTextFieldWidth" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="NOVA GRUPA PALETA"></Label>
+                            </HBox>
+                            
+                            <GridPane hgap="5" vgap="5">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <Label GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Šifra klijenta:" />
+                                <TextField fx:id="tfClientId" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" maxWidth="$shortTextFieldWidth" />
+                                
+                                <Label GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Naziv klijenta:" />
+                                <TextField fx:id="tfClientName" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" prefWidth="$longTextFieldWidth" GridPane.columnSpan="5"/>                           
+
+                                <Label GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Broj paleta" />
+                                <CSTextField fx:id="tfPaletteCount" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.Halignment="LEFT" validationType="NUMBER_ONLY" text="1" maxWidth="$shortTextFieldWidth" />
+
+                                <Label GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Šifra artikla" />
+                                <TextField fx:id="tfItemId" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.Halignment="LEFT" text="AUTO" disable="true" maxWidth="$shortTextFieldWidth" />
+                                <Button fx:id="btnItemList" text="Lista artikala" GridPane.rowIndex="3" GridPane.columnIndex="2" focusTraversable="false" GridPane.columnSpan="4">
+                                    <graphic><Glyph styleClass="glyph" icon="BARCODE" textFill="black"/></graphic>
+                                </Button> 
+                                
+                                <Label GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Naziv artikla" />
+                                <TextField fx:id="tfItemName" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.Halignment="LEFT" GridPane.columnSpan="5" /> 
+                                
+                                <Label GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Količina" />
+                                <CSTextField fx:id="tfItemQty" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.Halignment="LEFT" validationType="NUMBER_ONLY" GridPane.columnSpan="5" text="1" maxWidth="$shortTextFieldWidth" />
+
+                                <Label GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Magacin" />
+                                <CSComboBox fx:id="cbWarehouse" GridPane.rowIndex="7" GridPane.columnIndex="1" initFactory="true" factoryMethodName="Name" maxWidth="${maxComponentWidth}" GridPane.columnSpan="5" disable="true" /> 
+                                
+                                <Label GridPane.rowIndex="8" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Širina(cm)" />
+                                <CSTextField fx:id="tfWidth" text="80" GridPane.rowIndex="8" GridPane.columnIndex="1" GridPane.Halignment="LEFT" validationType="NUMBER_ONLY" maxWidth="$shortTextFieldWidth" />
+                                <Label GridPane.rowIndex="8" GridPane.columnIndex="2" GridPane.Halignment="RIGHT" text="Dužina(cm)" />
+                                <CSTextField fx:id="tfHeight" text="120" GridPane.rowIndex="8" GridPane.columnIndex="3" GridPane.Halignment="LEFT" validationType="NUMBER_ONLY" maxWidth="$shortTextFieldWidth" />
+                                <Label GridPane.rowIndex="8" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" text="Visina(cm)" />
+                                <CSTextField fx:id="tfLength" text="20" GridPane.rowIndex="8" GridPane.columnIndex="5" GridPane.Halignment="LEFT" validationType="NUMBER_ONLY" maxWidth="$shortTextFieldWidth" />
+                            </GridPane>
+                        </VBox>
+                        
+                        <CSDialogButtons fx:id="dialogButtons" />
+                        
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

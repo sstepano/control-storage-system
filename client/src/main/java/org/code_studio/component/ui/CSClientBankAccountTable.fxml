@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE VBox>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+
+<fx:root
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    type="javafx.scene.layout.VBox">
+
+    <fx:define>
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="60" />
+    </fx:define>
+
+    <CSTable fx:id="csTable"
+        DTOName="ClientBankAccount"
+        VBox.vgrow="ALWAYS"
+        topLabelText="RAČUNI KLIJENATA"
+        topLabelVisible="true"
+        addButtonVisible="false"
+        viewButtonVisible="false"
+        editButtonVisible="false"
+        deleteButtonVisible="false"
+        searchVisible="true"
+        searchTooltipText="Pretraga po: Broj računa klijenta">
+    </CSTable>
+
+</fx:root>

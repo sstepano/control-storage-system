@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.ui.CSClientTable?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<AnchorPane
+    prefWidth="800"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <VBox
+        AnchorPane.leftAnchor   ="0"
+        AnchorPane.rightAnchor  ="0"
+        AnchorPane.topAnchor    ="0"
+        AnchorPane.bottomAnchor ="0"
+        spacing="5">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        <HBox spacing="5" VBox.vgrow="ALWAYS">
+	        <CSClientTable HBox.hgrow="ALWAYS"
+	            fx:id="tblClient"
+	            VBox.vgrow="ALWAYS"
+	            addButtonVisible="false"
+	            viewButtonVisible="false"
+	            editButtonVisible="false"
+	            deleteButtonVisible="false">
+	        </CSClientTable>
+        </HBox>
+
+        <!-- SAVE | CANCEL BUTTONS -        
+        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <children>                    
+               <Button fx:id="btnSave" text="Izaberi">
+                   <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+               </Button>
+               <Button fx:id="btnCancel" text="%button.cancel.text">
+                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+               </Button>
+            </children>
+        </HBox>
+        -->
+        
+        <CSDialogButtons fx:id="dialogButtons" />        
+    </VBox>
+</AnchorPane>

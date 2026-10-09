@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<fx:root type="javafx.scene.layout.HBox"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@../view/Main.css"
+    spacing="10" alignment="BOTTOM_RIGHT">
+        
+    <fx:define>
+        <!--
+        <Double fx:id="actionButtonWidth" fx:value="10"  />
+        <Double fx:id="searchBoxWidth"    fx:value="200" />
+        -->
+    </fx:define>
+    
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>                  
+    <Button fx:id="btnSave" text="Sačuvaj">
+        <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-check-circle" iconColor="GREEN" /></graphic>
+    </Button>
+    <Button fx:id="btnCancel" text="Odustani">
+        <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-x-circle" iconColor="RED" /></graphic>
+    </Button>
+</fx:root>

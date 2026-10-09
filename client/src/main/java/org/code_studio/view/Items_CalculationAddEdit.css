@@ -1,0 +1,40 @@
+.custom-hbox {
+    -fx-background-color: -gk-base;
+}
+
+.text-field {
+    -fx-max-width: 63px;
+    -fx-border-color: -gk-border-color;
+    -fx-font-size: 0.8em;
+    -fx-padding: 3px 1px 3px 1px;
+}
+
+/* OVO MORAM AKO POSTAVLJAM TEXTFIELD COLOR NA NESTO, ONDA FOCUS NE RADI */
+.text-field:focused {
+    -fx-border-width: 1px;
+    -fx-border-color: -gk-focus-color;
+}
+
+.text-field-green {
+    -fx-background-color: "LIGHTGREEN";
+}
+
+.text-field-blue {
+    -fx-background-color: "DEEPSKYBLUE";
+}
+
+.text-field-yellow {
+    -fx-background-color: "LEMONCHIFFON";
+}
+
+.text-field-plum {
+    -fx-background-color: "PLUM";
+}
+
+.text-field-white {
+    -fx-background-color: "WHITE";
+}
+
+.text-field-wide {
+    -fx-min-width: 200px;
+}

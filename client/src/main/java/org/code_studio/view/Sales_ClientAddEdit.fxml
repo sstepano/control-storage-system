@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import java.lang.String?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+<?import org.code_studio.component.ui.CSComboBoxWarehouse?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+	
+	<fx:define>
+        <Integer fx:id="tinyTextFieldWidth"   fx:value="50"  />
+	    <Integer fx:id="smallTextFieldWidth"  fx:value="100" />
+	    <Integer fx:id="normalTextFieldWidth" fx:value="150" />
+	    <Integer fx:id="normalComboboxWidth"   fx:value="160" />
+	    <Integer fx:id="largeComboboxWidth"   fx:value="220" />
+	    <Double  fx:id="maxComponentWidth"    fx:value="1.7976931348623157E308" />
+	</fx:define>
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+    <children>
+        <GridPane hgap="5" vgap="5">
+            <Label text="Šifra" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfClientId" text="AUTOMATSKI GENERISANO" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true"/>
+            <Label text="Naziv" GridPane.rowIndex="0" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfClientName" GridPane.rowIndex="0" GridPane.columnIndex="5" GridPane.columnSpan="4" />
+            
+            <Label text="Grupa" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSComboBox fx:id="cbClientGroup" initFactory="true" factoryMethodName="Name" maxWidth="${maxComponentWidth}" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+            <Label text="Pun naziv" GridPane.rowIndex="1" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfFullName" GridPane.rowIndex="1" GridPane.columnIndex="5" GridPane.columnSpan="4" />
+            
+            <Label text="Kategorija" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSComboBox fx:id="cbClientCategory" initFactory="true" factoryMethodName="Name" maxWidth="${maxComponentWidth}" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+            <Label text="Drugi naziv" GridPane.rowIndex="2" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfAdditionalName" GridPane.rowIndex="2" GridPane.columnIndex="5" GridPane.columnSpan="4" />
+ 
+            <Label text="MB" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfIdentificationId" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+            <Label text="Država" GridPane.rowIndex="3" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSComboBox fx:id="cbCountry" initFactory="true" factoryMethodName="Name" maxWidth="${maxComponentWidth}" GridPane.rowIndex="3" GridPane.columnIndex="5" />
+            <Label text="Mesto" GridPane.rowIndex="3" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfCity" GridPane.rowIndex="3" GridPane.columnIndex="7" GridPane.columnSpan="2" />
+
+            <Label text="PIB" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfTaxId" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+
+            <Label text="PTT Broj" GridPane.rowIndex="4" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfPOBox" validationType="POSITIVE_NUMBER" GridPane.rowIndex="4" GridPane.columnIndex="5" />
+            <Label text="Opština" GridPane.rowIndex="4" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfMunicipality" GridPane.rowIndex="4" GridPane.columnIndex="7" GridPane.columnSpan="2"/>
+
+            <Label text="Adresa" GridPane.rowIndex="5" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfAddress" prefWidth="${wideTextFieldWidth}" GridPane.rowIndex="5" GridPane.columnIndex="5" GridPane.columnSpan="4" />            
+            
+            
+            <Label text="Telefon" GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfClientPhone" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+            <Label text="FAX" GridPane.rowIndex="7" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfClientFax" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="7" GridPane.columnIndex="5" />
+            <Label text="E-Mail" GridPane.rowIndex="7" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfClientEmail" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="7" GridPane.columnIndex="7" GridPane.columnSpan="2" />
+            <Label text="Delatnost" GridPane.rowIndex="8" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfActivity" prefWidth="${wideTextFieldWidth}" GridPane.rowIndex="8" GridPane.columnIndex="5" GridPane.columnSpan="4" /> 
+            <!--
+            <Label text="Direktor/Vlasnik" GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfDirectorName" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+            -->
+            
+            <Label text="Telefon" GridPane.rowIndex="6" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfDirectorPhone" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="6" GridPane.columnIndex="5" />
+            <Label text="Mobilni" GridPane.rowIndex="6" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfDirectorCellphone" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="6" GridPane.columnIndex="7" GridPane.columnSpan="2" />
+
+            <Label text="Šifra delatnosti" GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfActivityCode" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+           
+            <Label text="Referent" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSComboBox fx:id="cbSalesOfficer" initFactory="true" factoryMethodName="Name" maxWidth="${maxComponentWidth}" GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+ 
+            <Label text="Limit DIN" GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfLimitDIN" validationType="MONEY" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="9" GridPane.columnIndex="1" />
+            <Label text="Limit EUR" GridPane.rowIndex="9" GridPane.columnIndex="2" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfLimitEUR" validationType="MONEY" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="9" GridPane.columnIndex="3" />
+            <Label text="Stanje" GridPane.rowIndex="9" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfSaldo" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="5" />
+            <Label text="Web sajt" GridPane.rowIndex="9" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfWebsite" GridPane.rowIndex="9" GridPane.columnIndex="7" GridPane.columnSpan="2" />
+
+            <Label text="Kontakt od" GridPane.rowIndex="10" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfContactFrom" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="10" GridPane.columnIndex="1" />
+            <Label text="Prekinut" GridPane.rowIndex="10" GridPane.columnIndex="2" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfContactEnded" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="10" GridPane.columnIndex="3" />
+            <Label text="Ugovor" GridPane.rowIndex="10" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfContract" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="10" GridPane.columnIndex="5" />
+            <Label text="Datum" GridPane.rowIndex="10" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <CSDatePicker fx:id="dtContractDateFrom" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="10" GridPane.columnIndex="7" />
+            <HBox spacing="5" alignment="CENTER" GridPane.rowIndex="10" GridPane.columnIndex="8" >
+	            <Label text="do"/>
+	            <CSDatePicker fx:id="dtContractDateTo" prefWidth="${smallTextFieldWidth}" />
+            </HBox>
+             
+            <Label text="Menica" GridPane.rowIndex="8" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfBillOfExchangeId" validationType="ALPHANUMERIC" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="8" GridPane.columnIndex="1" disable="false"/>
+            <Label text="Vrednost" GridPane.rowIndex="8" GridPane.columnIndex="2" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfBillOfExchangeValue" validationType="MONEY" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="8" GridPane.columnIndex="3" disable="false"/>
+            
+            <Label text="Kurs (€) DOM" GridPane.rowIndex="11" GridPane.columnIndex="0" />
+            <CSTextField fx:id="tfRateEURDOM" validationType="MONEY" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="11" GridPane.columnIndex="1" />
+            <Label text="Kurs (€) Radni" GridPane.rowIndex="11" GridPane.columnIndex="2" />
+            <CSTextField fx:id="tfRateEURWorking" validationType="MONEY" prefWidth="${smallTextFieldWidth}" GridPane.rowIndex="11" GridPane.columnIndex="3" />
+            
+            <Label text="Zbirna šifra" GridPane.rowIndex="12" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" />
+            <HBox GridPane.rowIndex="12" GridPane.columnIndex="1">
+                <CSTextField fx:id="tfParentId" validationType="NUMBER_ONLY" disable="true" />
+			    <Button fx:id="btnParentChoose" text="" styleClass="btnAdd">
+			        <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-plus-circle" /></graphic>
+				    <tooltip>
+				        <Tooltip text="Klijenti" />
+				    </tooltip>
+			    </Button>
+            </HBox>
+            
+            <Label text="Valuta dana" GridPane.rowIndex="12" GridPane.columnIndex="2" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfDelayedPaymentDays" validationType="NUMBER_ONLY" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="12" GridPane.columnIndex="3" />
+            
+            <Label text="Broj panoa" GridPane.rowIndex="11" GridPane.columnIndex="4" GridPane.Halignment="RIGHT" />
+            <CSTextField fx:id="tfPanelsGiven" prefWidth="${normalTextFieldWidth}" GridPane.rowIndex="11" GridPane.columnIndex="5" />
+            <Label text="Org.jed." GridPane.rowIndex="11" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <CSComboBox fx:id="cbDivision" initFactory="true" factoryMethodName="Name" prefWidth="${largeComboboxWidth}" GridPane.rowIndex="11" GridPane.columnIndex="7" GridPane.columnSpan="2" />
+
+            <Label text="Fakture" GridPane.rowIndex="12" GridPane.columnIndex="6" GridPane.Halignment="RIGHT" />
+            <ComboBox fx:id="cbInvoiceGenType" prefWidth="${largeComboboxWidth}" GridPane.rowIndex="12" GridPane.columnIndex="7" GridPane.columnSpan="2" value="Jedna faktura - jedna otpremnica">
+  				<items>
+		      		<FXCollections fx:factory="observableArrayList">
+			      		<String fx:value="Jedna faktura - jedna otpremnica" />
+			      		<String fx:value="Jedna faktura - više otpremnica" />
+			      		<String fx:value="Više faktura - više otpremnica" />
+		       		</FXCollections>
+		     	</items>
+            </ComboBox>
+
+            <Button fx:id="btnDiscount" text="Rabat" GridPane.rowIndex="13" GridPane.columnIndex="8" GridPane.Halignment="RIGHT" GridPane.Valignment="TOP">
+				<graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-percent" iconColor="GREEN" /></graphic>
+            </Button>
+            
+            <GridPane hgap="5" vgap="5" GridPane.rowIndex="13" GridPane.columnIndex="1" GridPane.RowSpan="2" GridPane.columnSpan="8">
+                <CheckBox fx:id="ckbWholesale" text="Veleprodaja" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <CheckBox fx:id="ckbRetailSale" text="Maloprodaja" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                <CheckBox fx:id="ckbDiscountSale" text="Diskontna prodaja" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                <CheckBox fx:id="ckbCommissionSale" text="Komisiona prodaja" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+	            <HBox fx:id="hbWarehouse" GridPane.rowIndex="0" GridPane.columnIndex="4" GridPane.columnSpan="2" disable="true">
+	                <!-- <CSComboBox fx:id="cbWarehouse" initFactory="true" factoryMethodName="Name" prefWidth="${normalComboboxWidth}" maxWidth="${maxComponentWidth}" HBox.hgrow="ALWAYS" /> -->
+	                <CSComboBoxWarehouse fx:id="cbWarehouse" mode="2" prefWidth="${largeComboboxWidth}" maxWidth="${maxComponentWidth}" HBox.hgrow="ALWAYS" />
+				    <Button fx:id="btnWarehouseSelect" text="" styleClass="btnAdd">
+				        <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-plus-circle" /></graphic>
+					    <tooltip>
+					        <Tooltip text="Magacini" />
+					    </tooltip>
+				    </Button>
+	            </HBox>
+            
+                <CheckBox fx:id="ckbIsVAT" text="U sistemu PDV" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <CheckBox fx:id="ckbIsSupplier" text="Dobavljač" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <CheckBox fx:id="ckbIsSupplierPriceOnly" text="Samo DOM cene" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                <CheckBox fx:id="ckbIsForeignClient" text="Inostrani kupac" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+            </GridPane>
+
+            <Label text="Napomena" GridPane.rowIndex="15" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" GridPane.Valignment="TOP"/>
+            <TextArea fx:id="tfDescription" wrapText="true" GridPane.rowIndex="15" GridPane.columnIndex="1" GridPane.columnSpan="8" /> 
+        </GridPane>
+        
+        <CSDialogButtons fx:id="dialogButtons" />
+        
+         <!-- SAVE | CANCEL BUTTONS
+         <HBox spacing="10" alignment="BOTTOM_RIGHT">
+            <padding><Insets top="10" right="5" bottom="5" left="5"/></padding>
+             <children>                    
+                <Button fx:id="btnSave" text="%button.save.text">
+                    <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                </Button>
+                <Button fx:id="btnCancel" text="%button.cancel.text">
+                    <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                </Button>
+             </children>
+         </HBox>
+         -->
+        
+    </children>
+</VBox>

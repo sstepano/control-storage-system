@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import java.lang.String?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.UserAccess.*?>
+
+<?import org.controlsfx.control.StatusBar?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<!-- cacheHint="QUALITY" cacheShape="false" depthTest="DISABLE" pickOnBounds="false" scaleShape="false" snapToPixel="false" style="-fx-background-color: white;" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="0.0"
+-->
+ 
+<BorderPane 
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    fx:id="mainBorderPane" 
+    stylesheets="@Main.css"
+    fx:controller="org.code_studio.controller.MainController">
+
+    <fx:define>
+        <Double fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+    </fx:define> 
+        
+    <top>
+        <MenuBar fx:id="mainMenubar">
+             
+             <!-- PRODAJA -->
+             <Menu mnemonicParsing="false" text="%menubar.menu1.text">
+                     <!--<userData>
+                         <FXCollections fx:factory="observableArrayList" fx:id="lstUserAccessRole">
+                             <CSUserRole value="ROLE1"/>
+                             <CSUserRole value="ROLE2"/>
+                         </FXCollections>
+                     </userData> -->
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu1.submenu1.text" accelerator="F3"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="MONEY"/>
+                     </graphic>
+                     <!--
+                     <userData>
+                         <FXCollections fx:factory="observableArrayList" fx:id="lstUserAccessRole">
+                             <CSUserRole value="ROLE1"/>
+                             <CSUserRole value="ROLE2"/>
+                         </FXCollections>
+                     </userData>
+                     -->
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu1.submenu2.text" accelerator="F2"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="CALENDAR" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu1.submenu3.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="USERS" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu1.submenu4.text">
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="VIACOIN" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu1.submenu5.text" disable="true">
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="YEN" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Rezervacija"> 
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-capslock" iconColor="RED" /></graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Virman"> 
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-credit-card" iconColor="DARKORANGE" /></graphic>
+                 </MenuItem>
+            </Menu>
+            
+            
+            <!-- NABAVKA -->
+             <Menu mnemonicParsing="false" text="%menubar.menu2.text">
+                 <!--
+                 <graphic>
+                    <Glyph fontFamily="FontAwesome" icon="TRUCK"/>
+                 </graphic>
+                 -->
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu2.submenu1.text" accelerator="F4"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BELL_SLASH"/>
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu2.submenu2.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="DATABASE" />
+                     </graphic>
+                 </MenuItem>
+            </Menu>
+            
+            
+            <!-- MAGACIN -->
+             <Menu mnemonicParsing="false" text="%menubar.menu3.text">
+                 <!--
+                 <graphic>
+                    <Glyph fontFamily="FontAwesome" icon="DATABASE" />
+                 </graphic>
+                 -->
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu1.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="HAND_ALT_UP" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu2.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="HAND_ALT_DOWN" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu3.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="HAND_ALT_RIGHT" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu4.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="HAND_ALT_LEFT" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu5.text"> 
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-diamond-half"/></graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu6.text" visible="false"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="MAP_MARKER" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu7.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SITEMAP" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu8.text" visible="false"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="MORTAR_BOARD" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu9.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="CARET_SQUARE_ALT_RIGHT" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu10.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="CALCULATOR" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu11.text" disable="false"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="CALCULATOR" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu12.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BOOKMARK" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu13.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BOOKMARK_ALT" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu3.submenu14.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BOOKMARK_ALT" />
+                     </graphic>
+                 </MenuItem>
+            </Menu>
+            
+            
+            <!-- FINANSIJE -->
+			<Menu mnemonicParsing="false" text="%menubar.menu4.text">
+                 <!--
+                 <graphic>
+                     <Glyph fontFamily="FontAwesome" icon="MONEY" />
+                 </graphic>
+                 -->
+			     <MenuItem mnemonicParsing="false" text="%menubar.menu4.submenu1.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BANK" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu4.submenu2.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BAR_CHART_O" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu4.submenu3.text"> 
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-columns-gap" iconColor="RED" /></graphic>
+                 </MenuItem>
+                 <!--
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu4.submenu3.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BITCOIN" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu4.submenu4.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="MONEY" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu4.submenu5.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="LINE_CHART" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu4.submenu6.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="LINE_CHART" />
+                     </graphic>
+                 </MenuItem>
+                 -->
+			</Menu>
+			
+			
+			<!-- ARTIKLI -->
+            <Menu mnemonicParsing="false" text="Artikli">
+                 <!--
+                 <graphic>
+                     <Glyph fontFamily="FontAwesome" icon="BARCODE" />
+                 </graphic>
+                 -->
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu1.text" accelerator="F6"> 
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-shape-outline" iconColor="GREEN" /></graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu2.text" accelerator="CTRL+A"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="GROUP" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu3.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BOOKMARK_ALT" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu4.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="MONEY" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu5.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="EXCHANGE" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu6.text">
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="VENUS" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu7.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="STAR" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu8.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BOOK" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu9.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BOOK" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu5.submenu10.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BARCODE" />
+                     </graphic>
+                 </MenuItem>
+            </Menu>
+            
+            
+            
+            <!--  OVDE FALI MENI IZVESTAJI -->
+            
+            
+            
+            <!-- CENOVNICI -->
+            <Menu mnemonicParsing="false" text="%menubar.menu6.text">
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu6.submenu1.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BITCOIN" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu6.submenu2.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BRIEFCASE" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu6.submenu3.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BUYSELLADS" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu6.submenu4.text" accelerator="CTRL+K"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="CALCULATOR" />
+                     </graphic>
+                 </MenuItem>
+            </Menu>
+            
+            
+            <!-- SIFARNICI -->
+            <Menu mnemonicParsing="false" text="%menubar.menu8.text">
+                 <!--
+                 <graphic>
+                     <Glyph fontFamily="FontAwesome" icon="COG" />
+                 </graphic>
+                 -->
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu1.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SIMPLYBUILT" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu2.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="DIAMOND" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu3.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="HAND_ALT_UP" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu4.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="MONEY" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu5.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="STACK_OVERFLOW" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu6.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="INSTITUTION" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu7.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="DATABASE" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu8.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="USER_MD" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu9.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="USER_SECRET" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu10.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BANK" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu11.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="HAND_ALT_LEFT" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu12.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="MONEY" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu13.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BANK" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu14.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="QRCODE" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu15.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="APPLE" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu16.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="GROUP" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu17.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="BRIEFCASE" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu8.submenu18.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="GROUP" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Brand"> 
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2a-alpha-b-box-outline" iconColor="BLUE" /></graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Podešavanje parametara"> 
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2c-cog-outline" iconColor="RED" /></graphic>
+                 </MenuItem>
+            </Menu>
+            
+            
+            <!--  DOBANOVCI -->
+            <Menu mnemonicParsing="false" text="Dobanovci">
+                 <MenuItem mnemonicParsing="false" text="Ulaz robe"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Izlaz robe"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SORT_UP" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Mapa paleta">
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-sitemap" iconColor="RED" /></graphic>
+                     <userData><String fx:id="pageUrl" fx:value="paletteMap" /></userData>
+                 </MenuItem>
+                 <!--
+                 <MenuItem mnemonicParsing="false" text="Magacin">
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-sitemap" iconColor="BLUE" /></graphic>
+                     <userData><String fx:id="pageUrl" fx:value="warehouse" /></userData>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Telegram poruke za kran">
+                     <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-sitemap" iconColor="GREEN" /></graphic>
+                     <userData><String fx:id="pageUrl" fx:value="manualMessages" /></userData>
+                 </MenuItem>
+                 -->
+            </Menu>
+            
+            
+            <!--  BRZA POŠTA -->
+            <Menu mnemonicParsing="false" text="Brza pošta" visible="false">
+                 <!--
+                 <graphic>
+                     <Glyph fontFamily="FontAwesome" icon="COGS" />
+                 </graphic>
+                 -->
+                 <MenuItem mnemonicParsing="false" text="Pregled slanja robe"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Pregled slanja pisama"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_DESC" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Štampa zapakovanih pošiljki u periodu"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Štampa poslatih pošiljki u periodu"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Mesto import pošte"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Inicijalno slanje stanja"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Ažuriranje broja isporučenih"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Kontrola izlaza PTT"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="Kontrola izlaza isporuke"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+            </Menu>
+
+
+            <!--  POVRAT ROBE -->
+            <Menu mnemonicParsing="false" text="Povrat" visible="false">
+                <!--
+                <graphic>
+                    <Glyph fontFamily="FontAwesome" icon="COGS" />
+                </graphic>
+                -->
+                <MenuItem mnemonicParsing="false" text="Povrat po barkodu"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Povrat po šifri artikla"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Povrat po DOM šifri"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Prijem robe - upoređivanje" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Uporedi dok i robu povrata" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Uporedi dok i robu prijema" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+            </Menu>
+            
+            <!--  RAČUNI -->
+            <Menu mnemonicParsing="false" text="Računi" visible="false">
+                <!--
+                <graphic>
+                    <Glyph fontFamily="FontAwesome" icon="COGS" />
+                </graphic>
+                -->
+                <MenuItem mnemonicParsing="false" text="Prikaz računa"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Prikaz uplata"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <!-- disableovano za sad, verovatno cu morati i ovo da napravim
+                <MenuItem mnemonicParsing="false" text="Salda kupaca"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Salda kupaca različito od 0,00"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Analiza docnje" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="IOS za više kupaca" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Zbirna kartica - svi računi " disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Salda kupaca jedne zbirne šifre" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="IOS zbirne šifre - kartice" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="IOS zbirne šifre - samo saldo" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Upis svih računa tekuće godine" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Upis uplata tekuće godine" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Rekonstrukcija plaćanja" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Kontrola veza uplata sa računima" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Prikaz početnog stanja tekuće godine" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+                -->
+            </Menu>
+            
+            
+           <!--  RM POMOĆNI PROGRAMI, menu 12, ostavljam za sad, ali not visible, da ne bih menjao opet index-e menija -->
+            <Menu mnemonicParsing="false" text="RM pomoćni programi" visible="false">
+                <!--
+                <graphic>
+                    <Glyph fontFamily="FontAwesome" icon="COGS" />
+                </graphic>
+                -->
+                <MenuItem mnemonicParsing="false" text="Ova stavka menija mi deluje suvišno" disable="true"> 
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                    </graphic>
+                </MenuItem>
+            </Menu>
+            
+            
+            <!--  SISTEM, menu 14 -->
+            <Menu mnemonicParsing="false" text="%menubar.menu14.text" disable="true" visible="false">
+                 <!--
+                 <graphic>
+                     <Glyph fontFamily="FontAwesome" icon="COGS" />
+                 </graphic>
+                 -->
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu14.submenu1.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_ASC" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu14.submenu2.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="SORT_NUMERIC_DESC" />
+                     </graphic>
+                 </MenuItem>
+                 <MenuItem mnemonicParsing="false" text="%menubar.menu14.submenu3.text"> 
+                     <graphic>
+                         <Glyph fontFamily="FontAwesome" icon="ANGELLIST" />
+                     </graphic>
+                 </MenuItem>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+            <!-- Ovde ne moze da se stavi slika jer se dinamicki kroz kod kreira tabpane AKO je tabmode true 
+	        <Label fx:id="topLabel" text="label.are-you-sure.text"></Label>
+	        <ImageView fx:id="img_1">
+	            <image>
+	                <Image url="/questionmark.png" />
+	            </image>
+	        </ImageView>
+            -->
+    </center>
+    <!--
+    <bottom>
+	    <StatusBar text="">
+	    	<padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	    	<leftItems>
+    			<Label text="Operater:" />
+    			<Label text="Goran Kljajić" />
+	    	</leftItems>
+	    </StatusBar>
+    </bottom>
+    -->
+ 
+    <bottom>
+    	<HBox styleClass="box-with-border" prefHeight="15" disable="false">
+    	    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+    		<HBox alignment="CENTER_LEFT" styleClass="sunken-label">
+    		    <Label><graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-person-circle"/></graphic></Label>
+                <Label text="Korisnik:" />
+    			<Label fx:id="lblUsername" text="Neprijavljen korisnik" />
+    		</HBox>
+    		<HBox alignment="CENTER_LEFT" styleClass="sunken-label">
+    		    <Label><graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-wifi"/></graphic></Label>
+    			<Label text="Adresa klijenta:" />
+    			<Label fx:id="lblClientIPAddress" text="0.0.0.0" />
+    		</HBox>
+			<!--  <HBox HBox.hgrow="ALWAYS"></HBox> -->
+			<HBox HBox.hgrow="ALWAYS" styleClass="sunken-label">
+			    <ProgressBar fx:id="pbProgressIndicator" HBox.hgrow="ALWAYS" visible="false" maxWidth="$maxComponentWidth" />
+			</HBox>			
+			<HBox styleClass="sunken-label">
+			    <Label fx:id="lblDate" text="00.00.0000" />
+			</HBox>
+			<HBox styleClass="sunken-label">
+			    <Label fx:id="lblTime" text="00:00" minWidth="30" />
+			</HBox>
+			<HBox>
+    		    <Button fx:id="btnSecurity" focusTraversable="false" disable="true">
+	                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-key"/></graphic>
+                </Button>
+    		    <Button fx:id="btnLog" focusTraversable="false" disable="false">
+	                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2n-note-text-outline"/></graphic>
+                </Button>
+			</HBox>
+		</HBox>
+   	</bottom>
+</BorderPane>

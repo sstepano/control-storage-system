@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="120" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+    </fx:define>
+
+    <children>
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor ="0">
+            <HBox>
+                <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>
+                <CSDatePicker fx:id="dtPlanDate" prefWidth="120" />
+                <Button fx:id="btnInsertDate" text="Upis">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="BLACK"/></graphic>
+                </Button> 
+                <Button fx:id="btnTransferToSalePlanner" text="Prenesi u rokovnik">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="BLACK"/></graphic>
+                </Button>
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
+                    <CSComboBox fx:id="cbSaleOfficer" emptySelectionText="SVI REFERENTI" prefWidth="$longTextFieldWidth" initFactory="true" factoryMethodName="Name" />
+                </HBox>
+            </HBox>
+            <CSTable fx:id="tblClient"
+                topLabelText="PLAN RADA"
+                DTOName="Client" 
+                topSectionVisible="true" 
+                topLabelVisible="true"
+                searchVisible="false"
+                addButtonVisible="false"
+                editButtonVisible="false"
+                deleteButtonVisible="false"
+                viewButtonVisible="false"
+                searchTooltipText=""
+                tableRequestFocus="true"
+                VBox.vgrow="ALWAYS">
+                <tableColumns>
+                    <CSTableColumn displayName="PLAN" methodName="PlanDate" width="100" />
+                    <CSTableColumn displayName="ŠIFRA KLIJENTA" methodName="Id" width="120" />
+                    <CSTableColumn displayName="NAZIV" methodName="Name" />
+                    <CSTableColumn displayName="MESTO" methodName="FullName" width="300" />
+                </tableColumns>                   
+            </CSTable>
+        </VBox>
+    </children>        
+</AnchorPane>

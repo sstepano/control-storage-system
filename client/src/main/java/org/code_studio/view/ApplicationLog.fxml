@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css"
+    prefWidth="600"
+    prefHeight="480">
+    <VBox
+       AnchorPane.leftAnchor   ="0"
+       AnchorPane.rightAnchor  ="0"
+       AnchorPane.topAnchor    ="0"
+       AnchorPane.bottomAnchor ="0">
+    	<padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        <VBox VBox.vgrow="ALWAYS">
+	        <HBox spacing="10" styleClass="hb-header" alignment="CENTER">
+	            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	         	<Label fx:id="lblHeader" styleClass="header-label" text="KLIJENTSKI LOG"></Label>
+       		</HBox>
+           <HBox VBox.vgrow="ALWAYS" spacing="5">
+               <TextArea HBox.hgrow="ALWAYS" fx:id="taLogContent" wrapText="true" editable="false" ></TextArea>
+           </HBox>
+         </VBox>
+    </VBox>
+</AnchorPane>

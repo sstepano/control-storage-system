@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE VBox>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSPhotoView?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<VBox
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Double  fx:id="maxComponentWidth"    fx:value="1.7976931348623157E308" />
+        <Integer fx:id="normalTextFieldWidth" fx:value="160" />
+        <Integer fx:id="normalComboBoxWidth"  fx:value="160" />
+        <Integer fx:id="shortTextFieldWidth"  fx:value="60" />
+    </fx:define>  
+    
+
+<HBox>
+    <VBox>
+        <padding><Insets top="5" right="0" bottom="0" left="5"/></padding>
+        <VBox>
+            <VBox styleClass="box-with-border">
+
+                <HBox styleClass="box-header, box-no-spacing" alignment="CENTER">
+                    <Label text="OSNOVNI PODACI"></Label>
+                </HBox>
+                
+    	        <GridPane styleClass="box-no-spacing" fx:id="gridpane" hgap="5" vgap="5">
+    	            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER_RIGHT">
+    	                <Label text="Šifra"></Label>
+    	                <CSTextField fx:id="tfId" prefWidth="$normalTextFieldWidth" disable="true" text="AUTOGENERISANO" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
+    	                <Label text="Naziv"></Label>
+    	                <CSTextField fx:id="tfName" prefWidth="405" /> <!-- 415 -->
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
+    	                <Label text="Naziv ENG"></Label>
+    	                <CSTextField fx:id="tfNameEng" prefWidth="405" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="3" alignment="CENTER_RIGHT">
+    	                <Label text="Tip" />
+    	                <CSComboBox fx:id="cbItemType" prefWidth="$normalComboBoxWidth" initFactory="true" factoryMethodName="Name" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="4" alignment="CENTER_RIGHT">
+    	                <Label text="JM" />
+    	                <CSComboBox fx:id="cbMeasurementUnit" prefWidth="$normalComboBoxWidth" initFactory="true" factoryMethodName="Name" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="5" alignment="CENTER_RIGHT">
+    	                <Label text="Količina" />
+    	                <CSTextField fx:id="tfQuantity" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="6" alignment="CENTER_RIGHT">
+    	                <Label text="Težina" />
+    	                <CSTextField fx:id="tfWeight" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="7" alignment="CENTER_RIGHT">
+    	                <Label text="Zapremina" />
+    	                <CSTextField fx:id="tfVolume" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="8" alignment="CENTER_RIGHT">
+    	                <Label text="Pakovanje" />
+    	                <CSComboBox fx:id="cbPackageType" prefWidth="$normalComboBoxWidth" initFactory="true" factoryMethodName="Name" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="9" alignment="CENTER_RIGHT">
+    	                <Label text="Status" />
+    	                <CSComboBox fx:id="cbItemStatus" prefWidth="$normalComboBoxWidth" initFactory="true" factoryMethodName="Name" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="10" alignment="CENTER_RIGHT">
+    	                <Label text="PDV grupa" />
+    	                <CSComboBox fx:id="cbVatGroup" prefWidth="$normalComboBoxWidth" initFactory="true" factoryMethodName="Description" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="0" GridPane.rowIndex="11" alignment="CENTER_RIGHT">
+    	                <Label text="Zemlja porekla" />
+    	                <CSComboBox fx:id="cbCountryOfOrigin" prefWidth="$normalComboBoxWidth" initFactory="true" factoryMethodName="Name" />
+    	            </HBox>
+    	            <CSPhotoView fx:id="phItemImage" GridPane.columnIndex="0" GridPane.rowIndex="12" GridPane.rowSpan="8" />
+	         
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="0" alignment="CENTER_RIGHT">
+                        <Label text="DOM šifra" />
+                        <CSTextField fx:id="tfCode" prefWidth="$normalTextFieldWidth" />
+                    </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="3" alignment="CENTER_RIGHT">
+    	                <Label text="Nabavna cena" />
+    	                <CSTextField fx:id="tfPurchasePrice" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="4" alignment="CENTER_RIGHT">
+    	                <Label text="Spec.cena" />
+    	                <CSTextField fx:id="tfPurchasePriceSpec" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="5" alignment="CENTER_RIGHT">
+    	                <Label text="Min.količina" />
+    	                <CSTextField fx:id="tfMinQty" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="6" alignment="CENTER_RIGHT">
+    	                <Label text="Besplatni" />
+    	                <CSTextField fx:id="tfFree" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="7" alignment="CENTER_RIGHT">
+    	                <Label text="Kol. besplatnih" />
+    	                <CSTextField fx:id="tfFreeQty" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="8" alignment="CENTER_RIGHT">
+    	                <Label text="Barkod" />
+    	                <CSTextField fx:id="tfBarcode" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="9" alignment="CENTER_RIGHT">
+    	                <Label text="TF.BR.SRB" />
+    	                <CSTextField fx:id="tfTariffNumberSER" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="10" alignment="CENTER_RIGHT">
+    	                <Label text="TF.BR.EU" />
+    	                <CSTextField fx:id="tfTariffNumberEU" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    	            <HBox GridPane.columnIndex="1" GridPane.rowIndex="11" alignment="CENTER_RIGHT">
+    	                <Label text="TF.BR.US" />
+    	                <CSTextField fx:id="tfTariffNumberUS" prefWidth="$normalTextFieldWidth" />
+    	            </HBox>
+    
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="12" alignment="CENTER_RIGHT">
+                        <Label text="Pakovanje" />
+                        <CSTextField fx:id="tfPackageQty" validationType="NUMBER_ONLY" prefWidth="$normalTextFieldWidth" />
+                    </HBox>
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="13" alignment="CENTER_RIGHT">
+                        <Label text="Master box kol." />
+                        <CSTextField fx:id="tfMasterBoxQty" prefWidth="$normalTextFieldWidth" />
+                    </HBox>
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="14" alignment="CENTER_RIGHT">
+                        <Label text="Broj kutija" />
+                        <CSTextField fx:id="tfCardboardUnits" prefWidth="$normalTextFieldWidth" />
+                    </HBox>
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="15" alignment="CENTER_RIGHT">
+                        <Label text="Kol. na paleti" />
+                        <CSTextField fx:id="tfPaletteUnits" prefWidth="$normalTextFieldWidth" />
+                    </HBox>
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="16" alignment="CENTER_RIGHT">
+                        <Label text="Kontejner 20 in." />
+                        <CSTextField fx:id="tfContainer20InchQty" prefWidth="$normalTextFieldWidth" />
+                    </HBox>
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="17" alignment="CENTER_RIGHT">
+                        <Label text="Internet grupa" />
+                        <CSComboBox fx:id="cbInternetCatalog" prefWidth="$normalComboBoxWidth" initFactory="true" factoryMethodName="CodeAndName" />
+                    </HBox>
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="18" alignment="CENTER_RIGHT">
+                        <Label text="Rok trajanja" />
+                        <CSDatePicker fx:id="dtExpirationDate" prefWidth="$normalTextFieldWidth" />
+                    </HBox>
+                </GridPane>
+            </VBox>
+        </VBox>
+     </VBox>
+
+    <VBox>
+    <padding><Insets top="5" right="5" bottom="0" left="0"/></padding>
+        <VBox styleClass="box-with-border, box-no-spacing" VBox.vgrow="ALWAYS">
+     	    <HBox styleClass="box-header" alignment="CENTER">
+    	        <Label text="POTREBNA DOKUMENTA"></Label>
+    	    </HBox>
+    	    <TextArea fx:id="taCommercial" VBox.vgrow="ALWAYS" wrapText="true" prefHeight="120" />
+    
+    	    <HBox styleClass="box-header, box-header-top-border" alignment="CENTER">
+    	        <Label text="TEHNIČKE KARAKTERISTIKE"></Label>
+    	    </HBox>
+    	    <TextArea fx:id="taTechCharasteristics" VBox.vgrow="ALWAYS" wrapText="true" prefHeight="120" />
+    
+            <HBox styleClass="box-header, box-header-top-border" alignment="CENTER">
+                <Label text="OPIS"></Label>
+            </HBox>
+            <TextArea fx:id="taDescription" VBox.vgrow="ALWAYS" wrapText="true" prefHeight="120" />
+        </VBox>
+    </VBox>
+</HBox>
+
+<CSDialogButtons fx:id="dialogButtons" />
+
+</VBox>

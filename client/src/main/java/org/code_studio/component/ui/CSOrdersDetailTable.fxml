@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE VBox>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+
+<fx:root
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    type="javafx.scene.layout.VBox">
+
+    <fx:define>
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="60" />
+    </fx:define>    
+
+    <CSTable fx:id="csTable"
+        DTOName="OrdersDetail"
+        VBox.vgrow="ALWAYS"
+        topLabelText="NABAVKE"
+        topLabelVisible="true"
+        addButtonVisible="false"
+        viewButtonVisible="false"
+        editButtonVisible="false"
+        deleteButtonVisible="false"
+        searchVisible="false"
+        searchTooltipText="Pretraga po: ŠIFRA, NAZIV, PIB, MB, DRUGI NAZIV, MESTO, ADRESA">
+        <tableColumns>
+	        <CSTableColumn displayName="ŠIF.ORD." methodName="Id" width="20" />
+	        <CSTableColumn displayName="DAT.ORD." methodName="OrderDate" />
+	        <CSTableColumn displayName="ISP.KOL." methodName="DeliveredQty" width="20" />
+	        <CSTableColumn displayName="CENA" methodName="Price" width="40" />
+	        <CSTableColumn displayName="DAT.PRIJEMA" methodName="OrderReceiveDate" />
+        </tableColumns>
+        <componentBarItems>
+            <Label text="Ukupno" />
+            <CSTextField fx:id="tfOrdersTotal" disable="true" validationType="NUMBER_ONLY" text="0" maxWidth="40" />
+        </componentBarItems>
+    </CSTable>
+
+</fx:root>

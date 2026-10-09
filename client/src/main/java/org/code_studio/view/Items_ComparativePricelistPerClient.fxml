@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSPhotoView?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.ui.CSClientTable?>
+<?import org.code_studio.component.ui.CSItemTable?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css, @Items_ComparativePricelistPerClient.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="50" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+           <children>
+                    
+               <!-- UPPER PART -->
+               <HBox>
+                   <CSClientTable fx:id="tblClient" HBox.hgrow="NEVER">
+                       <tableColumns>
+                           <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+                           <CSTableColumn displayName="NAZIV" methodName="Name" width="200"/>
+                       </tableColumns>
+                   </CSClientTable>
+                   <CSItemTable fx:id="tblItem" HBox.hgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="ID" methodName="Id" width="40"/>
+                           <CSTableColumn displayName="ŠIFRA" methodName="Code" />
+                           <CSTableColumn displayName="NAZIV" methodName="Name" />
+                           <CSTableColumn displayName="NAZIV ENG" methodName="NameEng" />
+                       </tableColumns>
+                   </CSItemTable>
+
+                   <!-- PHOTO -->
+                   <CSPhotoView fx:id="phtItemImage" maxWidth="10" />
+               </HBox>
+
+               <HBox styleClass="box-with-border" alignment="CENTER">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Cena:" />
+                   <CSTextField fx:id="tfNetPriceDFak" text="0.00" validationType="MONEY" disable="true" />
+                   <Label text="Specijalna cena:" />
+                   <CSTextField fx:id="tfNetPriceDFakSpec" text="0.00" validationType="MONEY" disable="true" />
+               </HBox>
+
+               <!-- BOTTOM PART: DETAILS TABLE -->
+               <VBox HBox.hgrow="ALWAYS">
+                   <CSTable 
+                       fx:id="tblClientPricelist"
+                       DTOName="ClientPricelist"  
+                       topLabelText="UPOREDNI PRIKAZ ARTIKALA"
+                       addButtonVisible="false"
+                       viewButtonVisible="false"
+                       editButtonVisible="false"
+                       deleteButtonVisible="false"
+                       searchVisible="false"
+                       VBox.vgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                           <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="200" />
+                           <CSTableColumn displayName="NAZIV KLIJENTA" methodName="ClientName" width="200" />
+                           <CSTableColumn displayName="A" methodName="IsActive" tooltip="Aktivan" width="5" />
+                           <CSTableColumn displayName="I" methodName="IsDelivered" tooltip="Isporučivan" width="5" />
+                           <CSTableColumn displayName="N" methodName="IsNew" tooltip="Novi" width="5" />
+                           <CSTableColumn displayName="KOLIČINA" methodName="Qty" />
+                           <CSTableColumn displayName="CENA" methodName="MeasureUnitNetAmt" />
+                           <CSTableColumn displayName="RAZ" methodName="Qty" />
+                           <CSTableColumn displayName="R%" methodName="DiscountRate" />
+                           <CSTableColumn displayName="NETO CENA" methodName="MeasureUnitBaseVatAmt" />
+                           <CSTableColumn displayName="PDV" methodName="MeasureUnitVatAmt" />
+                           <CSTableColumn displayName="BRUTO" methodName="MeasureUnitGrossAmt" />
+                       </tableColumns>
+                   </CSTable>               
+               </VBox>
+
+            </children>
+        </VBox>
+    </children>        
+</AnchorPane>

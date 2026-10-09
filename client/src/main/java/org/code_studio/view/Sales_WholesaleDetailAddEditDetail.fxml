@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTextField?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="textFieldWidth" fx:value="75" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="smallTableHeight" fx:value="250" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="10">
+           <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+           <children>
+
+               <!-- DATE -->
+	           <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+	               <HBox styleClass="box-header" alignment="CENTER">
+	                   <Label text="Promena količine za artikal"></Label>
+	               </HBox>
+	               <VBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                      <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                       <children>
+	                           <Label text="Količina"></Label>
+	                           <CSTextField fx:id="tfQty" prefWidth="$longTextFieldWidth" validationType="NUMBER_ONLY" />
+	                       </children>
+	                   </HBox>
+	               </VBox>
+	           </VBox>
+
+               <!-- SAVE | CANCEL BUTTONS -->
+               <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                  <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <children>                    
+                      <Button fx:id="btnSave" text="%button.save.text" disable="true">
+                          <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                      </Button>
+                      <Button fx:id="btnCancel" text="%button.cancel.text">
+                          <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                      </Button>
+                   </children>
+               </HBox>
+
+
+            </children>
+        </VBox>
+    </children>        
+</AnchorPane>

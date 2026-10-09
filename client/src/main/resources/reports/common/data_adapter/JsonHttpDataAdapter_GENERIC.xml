@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsonDataAdapter class="net.sf.jasperreports.data.json.JsonDataAdapterImpl">
+  <name>JSON Http Data Adapter GENERIC</name>
+  <dataFile type="httpDataLocation">
+    <method>GET</method>
+    <url>http://localhost:33377/api/v1/transferOrderDetail/allDifferencesByTransferOrderId/520606</url>
+  </dataFile>
+  <selectExpression>data</selectExpression>
+  <locale>ro_RO</locale>
+  <timeZone>Europe/Bucharest</timeZone>
+  <useConnection>true</useConnection>
+  <language>json</language>
+</jsonDataAdapter>

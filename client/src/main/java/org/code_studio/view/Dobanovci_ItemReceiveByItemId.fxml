@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+
+<AnchorPane
+    prefWidth="1024"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css"
+    fx:controller="org.code_studio.controller.Dobanovci_ItemReceiveByItemIdController">
+    
+    <fx:define>
+        <Integer fx:id="glyphFontSize" fx:value="24" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="longButtonWidth" fx:value="170" />
+    </fx:define>    
+    
+    <children>
+        <VBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0"
+            spacing="5"
+            >
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <HBox spacing="5">
+                <CSTable fx:id="tblBillOfLading"
+                    HBox.hgrow="ALWAYS"
+                    DTOName="ItemSet"  
+                    topLabelText="ZAGLAVLJE"
+                    addButtonVisible="true"
+                    viewButtonVisible="false"
+                    editButtonVisible="true"
+                    deleteButtonVisible="false">
+                    <componentBarItems>
+                        <!--
+                        <Label text="Filter:" />
+                        <ComboBox fx:id="cbOrderFilter" />
+                        -->
+                    </componentBarItems>
+                    <tableColumns>
+                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+                    </tableColumns>
+                </CSTable>
+                
+                <HBox styleClass="box-with-border">
+                    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                    <VBox>
+                        <Button fx:id="btn1" prefWidth="$longButtonWidth" text="Print" alignment="CENTER_LEFT">
+                            <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                        </Button>
+                        <Button fx:id="btn1" prefWidth="$longButtonWidth" text="Štampa uputstva" alignment="CENTER_LEFT">
+                            <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                        </Button>
+                        <Button fx:id="btn1" prefWidth="$longButtonWidth" text="Nalepnice GU 32x (2021)" alignment="CENTER_LEFT">
+                            <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                        </Button>
+                        <Button fx:id="btn1" prefWidth="$longButtonWidth" text="Nalepnice GU 32x" alignment="CENTER_LEFT">
+                            <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                        </Button>
+                        <Button fx:id="btn1" prefWidth="$longButtonWidth" text="Ručni prijem barkodom" alignment="CENTER_LEFT" visible="false">
+                            <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                        </Button>
+                    </VBox>
+                    <VBox>
+                        <Label text="Potrebna dokumenta"/>
+                        <TextArea VBox.vgrow="ALWAYS" wrapText="true"/>
+                    </VBox>                
+                </HBox>
+                
+            </HBox>
+            <HBox VBox.vgrow="SOMETIMES">
+                <CSTable fx:id="tblBillOfLadingDetail"
+                    HBox.hgrow="ALWAYS"
+                    DTOName="ItemSet" 
+                    topLabelText="ARTIKLI"
+                    addButtonVisible="true"
+                    viewButtonVisible="false"
+                    editButtonVisible="true"
+                    deleteButtonVisible="true">
+                    <tableColumns>
+                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+                    </tableColumns>
+                </CSTable>
+            </HBox>
+
+        </VBox>
+    </children>        
+</AnchorPane>

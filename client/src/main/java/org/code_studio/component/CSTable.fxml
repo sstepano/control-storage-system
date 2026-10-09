@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<fx:root
+    type="javafx.scene.layout.AnchorPane"
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@CSTable.css"
+    >
+    
+    <fx:define>
+        <Double fx:id="actionButtonWidth" fx:value="13" />
+        <Double fx:id="searchBoxWidth"    fx:value="200" />
+    </fx:define>
+    
+    <children>
+	    <BorderPane fx:id="borderPane"
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+	    >
+		    <top>
+                <HBox spacing="5">
+                    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                    <children>
+                        <HBox fx:id="hbSearch" spacing="5">
+                            <CSTextField fx:id="tfSearchBox" minWidth="100" focusTraversable="false">
+                                <tooltip>
+                                    <Tooltip fx:id="searchTooltip" />
+                                </tooltip>
+                            </CSTextField>
+                            <Button fx:id="btnSearch" minWidth="25">
+                                <graphic><FontIcon styleClass="glyph" iconLiteral="bi-search"/></graphic>
+                            </Button>
+                        </HBox>
+                        <HBox fx:id="componentBar" alignment="CENTER" spacing="5" HBox.hgrow="SOMETIMES"></HBox>
+                        <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                            <Label fx:id="topLabel" styleClass="header-label" text="GRID LABEL"></Label>
+                        </HBox>
+                         <HBox spacing="5">
+                             <children>
+                                <Button fx:id="btnAdd">
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-plus-thick"/></graphic>
+                                    <tooltip>
+                                        <Tooltip text="Dodavanje" />
+                                    </tooltip>
+                                </Button>
+                                <Button fx:id="btnView" maxHeight="$actionButtonWidth">
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2e-eye-outline"/></graphic>
+                                    <tooltip>
+                                        <Tooltip text="Pregled" />
+                                    </tooltip>
+                                </Button>
+                                <Button fx:id="btnEdit" maxHeight="$actionButtonWidth">
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2r-rhombus-outline"/></graphic>
+                                    <tooltip>
+                                        <Tooltip text="Izmena" />
+                                    </tooltip>
+                                </Button>
+                                <Button fx:id="btnDelete">
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2m-minus-thick"/></graphic>
+                                    <tooltip>
+                                        <Tooltip text="Brisanje" />
+                                    </tooltip>
+                                </Button>
+                                <Button fx:id="btnRefresh" visible="false" managed="false">
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2r-refresh"/></graphic>
+                                    <tooltip>
+                                        <Tooltip text="Osveži" />
+                                    </tooltip>
+                                </Button>
+                                <Button fx:id="btnExcelExport" maxHeight="$actionButtonWidth" visible="false" managed="false" >
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="file-microsoft-excel" iconColor="GREEN" /></graphic>
+                                    <tooltip>
+                                        <Tooltip text="Export u Microsoft Excel" />
+                                    </tooltip>
+                                </Button>
+                                <Button fx:id="btnPdfExport" maxHeight="$actionButtonWidth" visible="false" managed="false" >
+                                    <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="file-adobe" iconColor="RED" /></graphic>
+                                    <tooltip>
+                                        <Tooltip text="Export u PDF" />
+                                    </tooltip>
+                                </Button>
+                             </children>
+                        </HBox>
+                    </children>
+                </HBox>		        
+		    </top>
+			<center>
+			    <TableView fx:id="tableView">
+				    <placeholder>
+				        <Label text=""/>
+				    </placeholder>
+					<items></items>	    
+			    </TableView>
+			</center>
+		</BorderPane>
+	</children>
+</fx:root>
+ 

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane fx:id="apMaster"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css, @Items_CalculationAddEdit.css"
+    maxHeight="700">
+    <VBox 
+       AnchorPane.leftAnchor   ="0"
+       AnchorPane.rightAnchor  ="0"
+       AnchorPane.topAnchor    ="0"
+       AnchorPane.bottomAnchor ="0"
+       spacing="5">
+         <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+         <HBox styleClass="box-with-border">
+             <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+             <HBox alignment="CENTER_LEFT">
+                 <Label text="Šifra klijenta" />
+                 <CSTextField fx:id="tfClientId" alignment="CENTER_RIGHT" disable="true" />
+                 <Label text="Naziv klijenta" />
+                 <CSTextField fx:id="tfClientName" styleClass="text-field-wide" disable="true" />
+             </HBox>
+             <HBox HBox.hgrow="ALWAYS"></HBox>
+             <HBox alignment="CENTER_RIGHT">
+                 <Label text="Šifra kalkulacije" />
+                 <CSTextField fx:id="tfClientCalculationId" alignment="CENTER_RIGHT" disable="true" text="AUTO" />
+                 <Label text="Naziv kalkulacije" />
+                 <CSTextField fx:id="tfCalculationName" styleClass="text-field-wide" />
+             </HBox>
+         </HBox>
+         <GridPane hgap="1" vgap="1" styleClass="box-with-border">
+             <padding><Insets top="1" right="1" bottom="1" left="1"/></padding>
+             <HBox alignment="CENTER" styleClass="custom-hbox" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <padding><Insets top="5" right="25" bottom="5" left="25"/></padding>
+                <Label text="KURSEVI"/>
+             </HBox>
+             <Label text="Carinski" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfCustomsExchangeRate" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="2" styleClass="text-field-blue" />
+             <Label text="Banka kupovni" GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfBankBuyExchangeRate" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="4" styleClass="text-field-white" />
+             <Label text="Banka prodajni" GridPane.rowIndex="0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfBankSellExchangeRate" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="6" styleClass="text-field-yellow" />
+             <Label text="Diskontni" GridPane.rowIndex="0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfDiscountExchangeRate" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="8" styleClass="text-field-green"/>
+             <Label text="Dnevni" GridPane.rowIndex="0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfDailyExchangeRate" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="10" styleClass="text-field-white" />
+
+             <HBox alignment="CENTER" styleClass="custom-hbox" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                 <Label text="OSTALO"  />
+             </HBox>
+             <Label text="Carina" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfCustomsRate" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="2" styleClass="text-field-white" />
+             <Label text="Špediter" GridPane.rowIndex="1" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfForwarderRate" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="4" styleClass="text-field-white" />
+             <Label text="Banka" GridPane.rowIndex="1" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfBankRate" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="6" styleClass="text-field-white" />
+             <Label text="Reklama" GridPane.rowIndex="1" GridPane.columnIndex="7" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfOtherRate" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="8" styleClass="text-field-white" />
+             <Label text="Porez na dobit" GridPane.rowIndex="1" GridPane.columnIndex="9" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfIncomeTaxRate" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="10" styleClass="text-field-white" />
+             <Label text="PDV" GridPane.rowIndex="1" GridPane.columnIndex="11" GridPane.halignment="RIGHT" />
+             <CSTextField fx:id="tfVatRate" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="12" styleClass="text-field-white" />
+         </GridPane>
+         <HBox spacing="5" VBox.vgrow="ALWAYS">
+             <HBox styleClass="box-with-border" HBox.hgrow="ALWAYS">
+                 <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                 <GridPane hgap="1" vgap="1">
+                     <Label     GridPane.rowIndex="0" GridPane.columnIndex="0" text="Nabavna cena" />
+                     <CSTextField fx:id="tfPurchasePriceRm" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="4" styleClass="text-field-white" />
+                     <CSTextField fx:id="tfPurchasePriceDinRm" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <Label       GridPane.rowIndex="0" GridPane.columnIndex="6" text="Popust %" />
+                     <CSTextField fx:id="tfPurchasePriceDiscountRate" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="7" styleClass="text-field-white" />
+                     <CSTextField fx:id="tfPurchasePriceDisDiscountedAmt" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="9" disable="true" />
+                     <CSTextField fx:id="tfPurchasePriceDinRmDis" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfPurchasePriceDinFak" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label       GridPane.rowIndex="1" GridPane.columnIndex="0" text="Transport %" />
+                     <CSTextField fx:id="tfTransportCostRateRm" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="text-field-white" />
+                     <Label       GridPane.rowIndex="1" GridPane.columnIndex="2" text="€/kg" />
+                     <CSTextField fx:id="tfTransportCostRateKgRm" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="3" styleClass="text-field-white" disable="true" />
+                     <CSTextField fx:id="tfTransportCostRm" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfTransportCostDinRm" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <Label       GridPane.rowIndex="1" GridPane.columnIndex="6" text=" %" />
+                     <CSTextField fx:id="tfTransportCostRateFak" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="7" styleClass="text-field-white" />
+                     <Label       GridPane.rowIndex="1" GridPane.columnIndex="8" text="€" />
+                     <CSTextField fx:id="tfTransportCostFak" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="9" disable="true" />
+                     <CSTextField fx:id="tfTransportCostDinRmDisSpec" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfTransportCostDinFak" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+
+                     <Label       GridPane.rowIndex="2" GridPane.columnIndex="0" text="CARINA OSNOVICA" />
+                     <CSTextField fx:id="tfCustomsBaseRm" validationType="MONEY" GridPane.rowIndex="2" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfCustomsBaseDinRm" validationType="MONEY" GridPane.rowIndex="2" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfCustomsBaseDinRmDis" validationType="MONEY" GridPane.rowIndex="2" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfCustomsBaseDinFak" validationType="MONEY" GridPane.rowIndex="2" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+
+                     <Label       GridPane.rowIndex="3" GridPane.columnIndex="0" text="Carina" />
+                     <CSTextField fx:id="tfCustomsRm" validationType="MONEY" GridPane.rowIndex="3" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfCustomsDinRm" validationType="MONEY" GridPane.rowIndex="3" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfCustomsDinRmDis" validationType="MONEY" GridPane.rowIndex="3" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfCustomsDinFak" validationType="MONEY" GridPane.rowIndex="3" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label       GridPane.rowIndex="4" GridPane.columnIndex="0" text="Špediter" />
+                     <CSTextField fx:id="tfForwarderRm" validationType="MONEY" GridPane.rowIndex="4" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfForwarderDinRm" validationType="MONEY" GridPane.rowIndex="4" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfForwarderDinRmDis" validationType="MONEY" GridPane.rowIndex="4" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfForwarderDinFak" validationType="MONEY" GridPane.rowIndex="4" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label       GridPane.rowIndex="5" GridPane.columnIndex="0" text="UVOZNA CENA" />
+                     <CSTextField fx:id="tfImportPriceRm" validationType="MONEY" GridPane.rowIndex="5" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfImportPriceDinRm" validationType="MONEY" GridPane.rowIndex="5" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfImportPriceDinRmDis" validationType="MONEY" GridPane.rowIndex="5" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfImportPriceDinFak" validationType="MONEY" GridPane.rowIndex="5" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label       GridPane.rowIndex="6" GridPane.columnIndex="0" text="Banka troškovi" />
+                     <CSTextField fx:id="tfBankingCostRm" validationType="MONEY" GridPane.rowIndex="6" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfBankingCostDinRm" validationType="MONEY" GridPane.rowIndex="6" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfBankingCostDinRmDis" validationType="MONEY" GridPane.rowIndex="6" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfBankingCostDinFak" validationType="MONEY" GridPane.rowIndex="6" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+
+                     <Label       GridPane.rowIndex="7" GridPane.columnIndex="0" text="Reklama i sl." />
+                     <CSTextField fx:id="tfOtherCostRm" validationType="MONEY" GridPane.rowIndex="7" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfOtherCostDinRm" validationType="MONEY" GridPane.rowIndex="7" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfOtherCostDinRmDis" validationType="MONEY" GridPane.rowIndex="7" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfOtherCostDinFak" validationType="MONEY" GridPane.rowIndex="7" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+
+                     <Label       GridPane.rowIndex="8" GridPane.columnIndex="0" text="UKUP.TROŠKOVI" />
+                     <CSTextField fx:id="tfTotalPurchaseCostDinRm" validationType="MONEY" GridPane.rowIndex="8" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfTotalPurchaseCostDinDis" validationType="MONEY" GridPane.rowIndex="8" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfTotalPurchaseCostDinRmDis" validationType="MONEY" GridPane.rowIndex="8" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfTotalPurchaseCostDinFak" validationType="MONEY" GridPane.rowIndex="8" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+
+                     <Label       GridPane.rowIndex="9" GridPane.columnIndex="0" text="Marža %" />
+                     <CSTextField fx:id="tfMarginRateRm" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="1" styleClass="text-field-white" />
+                     <Label       GridPane.rowIndex="9" GridPane.columnIndex="2" text="(%/VP)" />
+                     <CSTextField fx:id="tfMarginRateWholesaleRm" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="3" disable="true" />
+                     <CSTextField fx:id="tfMarginRm" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfMarginDinRm" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <Label       GridPane.rowIndex="9" GridPane.columnIndex="8" text="Marža DIS %" />
+                     <CSTextField fx:id="tfMarginRateRmDis" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="9" styleClass="text-field-white" />
+                     <CSTextField fx:id="tfMarginDinRmDis" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfMarginDinFak" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     <Label       GridPane.rowIndex="9" GridPane.columnIndex="12" text="(+/-)" />
+                     <CSTextField fx:id="tfMarginRateFak" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="13" styleClass="text-field-white" />
+                     <CSTextField fx:id="tfMarginRateDinFak" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="14" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label       GridPane.rowIndex="10" GridPane.columnIndex="0" text="Porez na dobit" />
+                     <CSTextField fx:id="tfIncomeTaxRm" validationType="MONEY" GridPane.rowIndex="10" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfIncomeTaxDinRm" validationType="MONEY" GridPane.rowIndex="10" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfIncomeTaxDinRmDis" validationType="MONEY" GridPane.rowIndex="10" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfIncomeTaxDinFax" validationType="MONEY" GridPane.rowIndex="10" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label     GridPane.rowIndex="11" GridPane.columnIndex="0" text="NETO (VP) CENA" />
+                     <CSTextField fx:id="tfNetAmtRm" validationType="MONEY" GridPane.rowIndex="11" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfNetAmtDinRm" validationType="MONEY" GridPane.rowIndex="11" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfNetAmtDinRmDis" validationType="MONEY" GridPane.rowIndex="11" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfNetAmtDinFak" validationType="MONEY" GridPane.rowIndex="11" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label       GridPane.rowIndex="12" GridPane.columnIndex="0" text="PDV" />
+                     <CSTextField fx:id="tfVatRm" validationType="MONEY" GridPane.rowIndex="12" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfVatDinRm" validationType="MONEY" GridPane.rowIndex="12" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfVatDinRmDis" validationType="MONEY" GridPane.rowIndex="12" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfVatDinFak" validationType="MONEY" GridPane.rowIndex="12" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label       GridPane.rowIndex="13" GridPane.columnIndex="0" text="BRUTO (MP) CENA" />
+                     <CSTextField fx:id="tfGrossAmtRm" validationType="MONEY" GridPane.rowIndex="13" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="tfGrossAmtDinRm" validationType="MONEY" GridPane.rowIndex="13" GridPane.columnIndex="5" styleClass="text-field-yellow" disable="true" />
+                     <CSTextField fx:id="tfGrossAmtDinRmDis" validationType="MONEY" GridPane.rowIndex="13" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfGrossAmtDinFak" validationType="MONEY" GridPane.rowIndex="13" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <CSTable GridPane.rowIndex="14" GridPane.columnIndex="0" GridPane.columnSpan="15" topSectionVisible="false" />
+                     
+                     <HBox styleClass="hb-header" alignment="CENTER_LEFT" GridPane.rowIndex="15" GridPane.columnIndex="0" GridPane.columnSpan="15">
+                         <padding><Insets top="2" right="2" bottom="2" left="2"/></padding>
+                         <Label text="SPECIJALNE CENE" />
+                     </HBox>
+                     
+                     <!-- SPECIJALNE CENE -->
+                     <Label     GridPane.rowIndex="16" GridPane.columnIndex="0" text="Nabavna cena SPEC" />
+                     <Region    GridPane.rowIndex="16" GridPane.columnIndex="1" GridPane.columnSpan="3"></Region>
+                     <CSTextField fx:id="tfPurchaseAmtRmSpec" validationType="MONEY" GridPane.rowIndex="16" GridPane.columnIndex="4" styleClass="text-field-white" />
+                     <CSTextField fx:id="tfPurchaseAmtDinRmSpec" validationType="MONEY" GridPane.rowIndex="16" GridPane.columnIndex="5" disable="true" />
+                     <Region    GridPane.rowIndex="16" GridPane.columnIndex="6" GridPane.columnSpan="3"></Region>
+                     <CSTextField fx:id="tfPurchaseAmtDiscountedSpec" validationType="MONEY" GridPane.rowIndex="16" GridPane.columnIndex="9" disable="true" />
+                     <CSTextField fx:id="tfPurchaseAmtDinDisSpec" validationType="MONEY" GridPane.rowIndex="16" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="tfPurchaseAmtDinFakSpec" validationType="MONEY" GridPane.rowIndex="16" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+
+                     <Label     GridPane.rowIndex="17" GridPane.columnIndex="0" text="NETO cena SPEC" />
+                     <Region    GridPane.rowIndex="17" GridPane.columnIndex="1" GridPane.columnSpan="3"></Region>
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="17" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="17" GridPane.columnIndex="5" disable="true" />
+                     <Region    GridPane.rowIndex="17" GridPane.columnIndex="6" GridPane.columnSpan="4"></Region>
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="17" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="17" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                     
+                     <Label     GridPane.rowIndex="18" GridPane.columnIndex="0" text="BRUTO cena SPEC" />
+                     <Region    GridPane.rowIndex="18" GridPane.columnIndex="1" GridPane.columnSpan="3"></Region>
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="18" GridPane.columnIndex="4" disable="true" />
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="18" GridPane.columnIndex="5" disable="true" />
+                     <Region    GridPane.rowIndex="18" GridPane.columnIndex="6" GridPane.columnSpan="4" minWidth="210"></Region>
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="18" GridPane.columnIndex="10" styleClass="text-field-green" disable="true" />
+                     <CSTextField fx:id="" validationType="MONEY" GridPane.rowIndex="18" GridPane.columnIndex="11" styleClass="text-field-blue" disable="true" />
+                </GridPane>
+            </HBox>
+        </HBox>
+		<HBox styleClass="box-with-border" alignment="CENTER_RIGHT">
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <Button fx:id="btnSave" text="%button.save.text">
+                    <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                 </Button>
+                 <Button fx:id="btnCancel" text="%button.close.text">
+                     <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                 </Button>
+            </HBox>
+        </HBox>
+    </VBox>
+</AnchorPane>

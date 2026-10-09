@@ -1,0 +1,10 @@
+#csTable .table-row-cell {
+	-fx-cell-size: 25px;
+}
+
+/* fix for huge checkboxes when table row cell size is increased **
+ * TODO: Delete this. It was moved to CSTable.
+#csTable .check-box {
+	-fx-font-size: 0.9em;
+}
+**/

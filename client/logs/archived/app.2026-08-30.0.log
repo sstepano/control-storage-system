@@ -1,0 +1,11 @@
+2026-08-30 10:59:57.481 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-30 11:00:55.253 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/349/0
+2026-08-30 11:00:55.810 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/350/0
+2026-08-30 18:26:30.620 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allOutputByClientId/50001
+2026-08-30 18:26:30.795 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteDocument/allPageableByClientIdAndStatusIdAndTypeIdOrderByIdDesc/50001/1/2/0
+2026-08-30 18:26:31.135 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableStoredByClientId/50001/0
+2026-08-30 18:26:32.137 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByClientId/50001/0
+2026-08-30 18:26:49.251 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allOutputByClientId/50008
+2026-08-30 18:26:49.350 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableByDocumentId/4/0
+2026-08-30 18:26:49.395 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableStoredByClientId/50008/0
+2026-08-30 18:26:49.411 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByClientId/50008/0

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.ui.CSClientTable?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.code_studio.component.CSPhotoView?>
+
+<AnchorPane
+    prefWidth="800"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css, @Items_PricelistPerClient.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="50" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <ToggleGroup fx:id="toggleGroup1" />
+        <ToggleGroup fx:id="toggleGroup2" />
+        <ToggleGroup fx:id="toggleGroup3" />
+        <Integer fx:id="reportsButtonWidth" fx:value="200" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+           <children>
+                    
+               <!-- UPPER PART -->
+               <HBox>
+                   <CSClientTable fx:id="tblClient" HBox.hgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                           <CSTableColumn displayName="NAZIV" methodName="Name" />
+                           <CSTableColumn displayName="ADRESA" methodName="Address" width="300" />
+                           <CSTableColumn displayName="MESTO" methodName="City" />
+                       </tableColumns>
+                   </CSClientTable>
+
+                   <!-- PHOTO -->
+                   <CSPhotoView fx:id="phtItemImage" />
+               </HBox>
+
+               <HBox spacing="5" styleClass="box-with-border" alignment="CENTER_LEFT">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Cena:" />
+                   <CSTextField fx:id="tfNetPriceDFak" text="0.00" validationType="MONEY" disable="true" />
+                   <Label text="Razlika:" />
+                   <CSTextField fx:id="tfPriceDifferenceAmt" text="0.00" validationType="MONEY" disable="true" />
+                   <Label text="Procenat razlike:" />
+                   <CSTextField fx:id="tfPriceDifferenceRate" text="0.00" validationType="MONEY" disable="true" />
+                   <Label text="Specijalna cena:" />
+                   <CSTextField fx:id="tfNetPriceDFakSpec" text="0.00" validationType="MONEY" disable="true" />
+                   
+                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                       <Button fx:id="btnDeleteEntirePricelist" HBox.hgrow="ALWAYS" text="Brisanje kompletnog cenovnika">
+                           <graphic><Glyph styleClass="glyph" icon="CLOSE"/></graphic>
+                       </Button>
+                   </HBox>
+               </HBox>
+
+               <!-- BOTTOM PART: DETAILS TABLE -->
+               <VBox HBox.hgrow="ALWAYS">
+                   <HBox>
+                   <CSTable 
+                       fx:id="tblClientPricelist"
+                       DTOName="ClientPricelist"  
+                       topLabelText="ARTIKLI"
+                       addButtonVisible="true"
+                       viewButtonVisible="false"
+                       editButtonVisible="true"
+                       deleteButtonVisible="true"
+                       searchVisible="false"
+                       VBox.vgrow="ALWAYS">
+                       <tableColumns>
+                           <!-- <CSTableColumn displayName="ŠIFRA" methodName="Id" /> misleading je, user ce d amisli da je ovo sifra artikla -->
+                           <CSTableColumn displayName="NAZIV" methodName="ItemName" width="200" />
+                           <CSTableColumn displayName="A" methodName="IsActive" tooltip="Aktivan" width="5" />
+                           <CSTableColumn displayName="I" methodName="IsDelivered" tooltip="Isporučivan" width="5" />
+                           <CSTableColumn displayName="N" methodName="IsNew" tooltip="Novi" width="5" />
+                           <CSTableColumn displayName="KOLIČINA" methodName="Qty" />
+                           <CSTableColumn displayName="CENA" methodName="MeasureUnitNetAmt" />
+                           <CSTableColumn displayName="RAZ" methodName="Qty" />
+                           <CSTableColumn displayName="R%" methodName="DiscountRate" />
+                           <CSTableColumn displayName="NETO CENA" methodName="MeasureUnitBaseVatAmt" />
+                           <CSTableColumn displayName="PDV" methodName="MeasureUnitVatAmt" />
+                           <CSTableColumn displayName="BRUTO" methodName="MeasureUnitGrossAmt" />
+                           <CSTableColumn displayName="CENA" methodName="Qty" />
+                           <CSTableColumn displayName="NETO CENA" methodName="Qty" />
+                           <CSTableColumn displayName="RAZLIKA (DIN)" methodName="Qty" />
+                           <CSTableColumn displayName=" %" methodName="Qty" />
+                           <CSTableColumn displayName="NETO SPEC" methodName="Qty" />
+                           <CSTableColumn displayName="MPC" methodName="Qty" />
+                       </tableColumns>
+                   </CSTable>
+                   <CSTable  minWidth="200"
+                       fx:id="tblItemWarehouse"
+                       DTOName="ItemWarehouse"  
+                       topLabelText="MAGACIN"
+                       addButtonVisible="false"
+                       viewButtonVisible="false"
+                       editButtonVisible="false"
+                       deleteButtonVisible="false"
+                       searchVisible="false"
+                       HBox.hgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="MAGACIN" methodName="WarehouseId" />
+                           <CSTableColumn displayName="KOL" methodName="Qty" tooltip="Količina" width="15" />
+	                       <CSTableColumn displayName="RED" methodName="RowId" width="30" />
+	                       <CSTableColumn displayName="DUBINA" methodName="ShelfId" />
+	                       <CSTableColumn displayName="VISINA" methodName="VerticalId" />
+                       </tableColumns>
+                   </CSTable>
+                   </HBox>
+                   
+	               <!-- UKUPNO -->
+	               <HBox spacing="5" styleClass="box-with-border" alignment="CENTER_LEFT">
+	                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                   <Label text="Ukupno:" />
+	                   <CSTextField fx:id="tfClientPricelistTotalCnt" text="0" validationType="NUMBER_ONLY" prefWidth="$shortTextFieldWidth" disable="true" />
+	                   <Label text="Ukupan iznos:" />
+	                   <CSTextField fx:id="tfClientPricelistTotalAmt" text="0.00" validationType="MONEY" disable="true" />
+	                   
+                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                       <Label text="Aktivnih:" />
+                       <CSTextField fx:id="tfClientPricelistActiveCnt" text="0" validationType="NUMBER_ONLY" prefWidth="$shortTextFieldWidth" disable="true" />
+                       <Label text="Iznos aktivnih:" />
+                       <CSTextField fx:id="tfClientPricelistActiveAmt" text="0.00" validationType="MONEY" disable="true" />
+                       
+                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                       <Label text="Neaktivnih:" />
+                       <CSTextField fx:id="tfClientPricelistInactiveCnt" text="0" validationType="NUMBER_ONLY" prefWidth="$shortTextFieldWidth" disable="true" />
+                       <Label text="Iznos neaktivnih:" />
+                       <CSTextField fx:id="tfClientPricelistInactiveAmt" text="0.00" validationType="MONEY" disable="true" />
+	               </HBox> 
+               </VBox>
+               
+               <!-- DONJI DUGMICI -->
+               <HBox spacing="5" styleClass="box-with-border" alignment="CENTER_LEFT">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+                   <!-- CENOVNIK STAMPA -->
+                   <VBox styleClass="box-with-border">
+                       <HBox styleClass="box-header" alignment="CENTER">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+                               <Label styleClass="header-label" text="CENOVNIK - ŠTAMPA"></Label>
+                           </HBox>
+                       </HBox>
+                       
+	                   <HBox spacing="5" alignment="CENTER_LEFT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                       <Label text="Naslov dokumenta:" />
+	                       <CSTextField HBox.hgrow="SOMETIMES" fx:id="tf1" text="" alignment="CENTER_RIGHT"/>
+	                   </HBox> 
+
+                       <GridPane hgap="5" vgap="5">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="0" toggleGroup="$toggleGroup1" text="Bez cena" selected="true" />
+                           <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="1" toggleGroup="$toggleGroup1" text="Samo cena" />
+                           <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="2" toggleGroup="$toggleGroup1" text="Samo bruto" />
+
+                           <RadioButton GridPane.rowIndex="1" GridPane.columnIndex="0" toggleGroup="$toggleGroup1" text="Obe" />
+                           <RadioButton GridPane.rowIndex="1" GridPane.columnIndex="1" toggleGroup="$toggleGroup1" text="Neto i rabat" />
+                           <RadioButton GridPane.rowIndex="1" GridPane.columnIndex="2" toggleGroup="$toggleGroup1" text="Samo neto" />
+
+                           <RadioButton GridPane.rowIndex="2" GridPane.columnIndex="0" toggleGroup="$toggleGroup2" text="Svi" selected="true" />
+                           <RadioButton GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$toggleGroup2" text="Stari" />
+                           <RadioButton GridPane.rowIndex="2" GridPane.columnIndex="2" toggleGroup="$toggleGroup2" text="Novi" />
+                           <CheckBox GridPane.rowIndex="3" GridPane.columnIndex="0" text="Samo izabrani" />
+                       </GridPane>
+                       <HBox alignment="CENTER">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                       <Button HBox.hgrow="ALWAYS" text="Štampa">
+	                           <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+	                       </Button>
+                       </HBox>            
+                   </VBox>
+                  
+                   <!-- PROMENA CENA i RABATA -->
+                   <VBox styleClass="box-with-border" HBox.hgrow="NEVER" spacing="5">
+                       <HBox styleClass="box-header" alignment="CENTER">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+                               <Label styleClass="header-label" text="PROMENA CENA i RABATA"></Label>
+                           </HBox>
+                       </HBox>
+                       
+                       <VBox spacing="5" alignment="CENTER_LEFT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <HBox spacing="5" alignment="CENTER_LEFT">
+                               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                           <Label text="Rabat (%)" />
+	                           <CSTextField HBox.hgrow="NEVER" fx:id="tfDiscountRate" text="0.00" validationType="MONEY" prefWidth="$shortTextFieldWidth"/>
+	                           <Button fx:id="btnDiscountRateChange"  VBox.vgrow="ALWAYS" text="Promeni rabat">
+                                   <!--
+	                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                                   -->
+	                           </Button>
+                           </HBox>
+                           <VBox>
+                               <HBox spacing="5" alignment="CENTER_LEFT">
+                                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                           <Label text="Cene treba" />
+		                           <RadioButton fx:id="rbIncrease" text="Uvećati" toggleGroup="$toggleGroup3" selected="true"/>
+		                           <RadioButton fx:id="rbDecrease" text="Umanjiti" toggleGroup="$toggleGroup3" />
+	                           </HBox>
+	                           <HBox spacing="5" alignment="CENTER_LEFT">
+	                               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                               <Label text="Za (%)" />
+	                               <CSTextField HBox.hgrow="NEVER" fx:id="tfDiscountPercent" text="0.00" prefWidth="$shortTextFieldWidth" validationType="MONEY" />
+	                           </HBox>
+	                           <HBox spacing="5" alignment="CENTER_LEFT">
+	                               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                           <Button fx:id="btnSelectedChange" VBox.vgrow="ALWAYS" text="Promeni označeno">
+                                   <!--
+                                   <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                                   -->
+		                            </Button>
+		                           <Button fx:id="btnAllChange" VBox.vgrow="ALWAYS" text="Promeni sve">
+                                   <!--
+                                   <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                                   -->
+		                           </Button>
+	                           </HBox>
+                           </VBox>
+                       </VBox>
+                   </VBox>
+
+                   <!-- IZVESTAJI -->
+                   <VBox styleClass="box-with-border">
+                       <HBox styleClass="box-header" alignment="CENTER">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+                               <Label styleClass="header-label" text="IZVEŠTAJI"></Label>
+                           </HBox>
+                       </HBox>
+                       
+                       <VBox spacing="5" alignment="CENTER_LEFT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <Button prefWidth="$reportsButtonWidth" text="Sve razlike u ceni">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button prefWidth="$reportsButtonWidth" text="Rabat veći od 18% ili 0">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button prefWidth="$reportsButtonWidth" text="Razlike u ceni (svi kupci)">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                       </VBox>
+                   </VBox>
+
+                   <!-- IZVOZ PODATAKA -->
+                   <VBox styleClass="box-with-border">
+                       <HBox styleClass="box-header" alignment="CENTER">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+                               <Label styleClass="header-label" text="IZVOZ PODATAKA"></Label>
+                           </HBox>
+                       </HBox>
+                       
+                       <VBox spacing="5" alignment="CENTER_LEFT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <Button prefWidth="$reportsButtonWidth" text="Uslužna porudžbenica">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button prefWidth="$reportsButtonWidth" text="Izvoz za internet">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button prefWidth="$reportsButtonWidth" text="Izvoz u excel">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                       </VBox>
+                   </VBox>
+
+               </HBox>               
+               
+
+            </children>
+        </VBox>
+    </children>        
+</AnchorPane>

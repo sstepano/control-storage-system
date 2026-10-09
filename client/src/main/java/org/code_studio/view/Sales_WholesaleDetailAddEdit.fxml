@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSPhotoView?>
+
+<?import org.code_studio.component.ui.CSItemTable?>
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane
+    maxWidth="1024"
+    maxHeight="700"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="smallTextFieldWidth" fx:value="60" />
+        <Integer fx:id="mediumTextFieldWidth" fx:value="80" />
+        <Integer fx:id="dateFieldWidth" fx:value="110" />
+        <Integer fx:id="textFieldWidth" fx:value="200" />
+        <ToggleGroup fx:id="tgpPrice" />
+        <Integer fx:id="longComboBoxWidth" fx:value="200" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+    </fx:define>
+    
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+            <HBox>
+	            <VBox HBox.hgrow="NEVER">
+	                <padding><Insets top="5" right="0" bottom="0" left="5"/></padding>
+	                <CSTable 
+	                    fx:id="tblInvoiceDetail"
+	                    DTOName="InvoiceDetail"
+	                    VBox.vgrow="ALWAYS"
+	                    topLabelText="STAVKE RAČUNA"
+	                    addButtonVisible="false"
+	                    viewButtonVisible="false"
+	                    editButtonVisible="false"
+	                    deleteButtonVisible="false"
+	                    searchVisible="false"
+	                    minWidth="280">
+	                    <tableColumns>
+	                       <CSTableColumn displayName="ID" methodName="ItemId" width="50" />
+	                       <CSTableColumn displayName="ŠIFRA" methodName="ItemCode" width="120" />
+	                       <CSTableColumn displayName="KOLIČINA" methodName="ItemQty" width="80" />
+	                       <!-- <CSTableColumn displayName="UKUPNO" methodName="AmountGross" /> -->
+	                    </tableColumns>
+	                </CSTable>
+	                <HBox styleClass="box-with-border, box-padding-5" alignment="CENTER">
+					    <Button fx:id="btnAddItemsFromF6" text="Dodaj odabrane artikle iz izbora artikala (F6)">
+					        <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-plus-circle" iconColor="GREEN" /></graphic>
+					    </Button>
+	                </HBox>
+	            </VBox>
+	            
+	            <!-- DESNI VBOX -->
+	            <VBox HBox.hgrow="ALWAYS">
+	                <padding><Insets top="5" right="5" bottom="5" left="0"/></padding>
+	                <CSItemTable 
+	                	fx:id="tblItem" 
+	                	mode="2">
+	                    <tableColumns>
+			                <CSTableColumn displayName="ŠIFRA" methodName="Code" />
+			                <CSTableColumn displayName="NAZIV" methodName="Name" />
+			                <CSTableColumn displayName="RM-D SPEC" methodName="GrossPriceRmD" />
+			                <CSTableColumn displayName="DIS NETO SPEC" methodName="NetPriceRmD" />
+			                <CSTableColumn displayName="DIS BRUTO SPEC" methodName="GrossPriceD" />
+			                <CSTableColumn displayName="NETO-D SPEC" methodName="NetPriceDFak" />
+			                <CSTableColumn displayName="BRUTO-D SPEC" methodName="GrossPriceDFak" />
+			                <CSTableColumn displayName="OPIS" methodName="Purpose" width="400" />
+			                <CSTableColumn displayName="TEHNIČKE KARAKTERISTIKE" methodName="TechnicalCharacteristics" width="400" />
+	                    </tableColumns>
+	                </CSItemTable>
+	                
+	                <HBox>
+		                <GridPane hgap="5" vgap="5" styleClass="box-with-border">
+		                    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                    <Label text="Količina" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+		                    <Label text="JM Neto" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+		                    <Label text="Rabat (%)" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+		                    <Label text="Rabat" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+		                    <Label text="PDV" GridPane.rowIndex="0" GridPane.columnIndex="4" />
+		                    <Label text="JM Bruto" GridPane.rowIndex="0" GridPane.columnIndex="5" />
+		                    <Label text="Ukupno" GridPane.rowIndex="0" GridPane.columnIndex="6" />
+		                    
+		                    <CSTextField fx:id="tfQty" text="1" validationType="POSITIVE_NUMBER" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="${mediumTextFieldWidth}" />
+		                    <CSTextField fx:id="tfMeasureUnitNetAmt" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="${mediumTextFieldWidth}" />
+		                    <CSTextField fx:id="tfDiscountRate" validationType="NUMBER_ONLY" GridPane.rowIndex="1" GridPane.columnIndex="2" prefWidth="${mediumTextFieldWidth}" />
+		                    <CSTextField fx:id="tfDiscountAmt" GridPane.rowIndex="1" GridPane.columnIndex="3" prefWidth="${mediumTextFieldWidth}" disable="true" alignment="CENTER_RIGHT" />
+		                    <CSTextField fx:id="tfVatAmt" GridPane.rowIndex="1" GridPane.columnIndex="4" prefWidth="${mediumTextFieldWidth}" disable="true" alignment="CENTER_RIGHT" />
+		                    <CSTextField fx:id="tfMeasureUnitGrossAmt" GridPane.rowIndex="1" GridPane.columnIndex="5" prefWidth="${mediumTextFieldWidth}" disable="true" alignment="CENTER_RIGHT" />
+		                    <CSTextField fx:id="tfTotalAmt" GridPane.rowIndex="1" GridPane.columnIndex="6" prefWidth="${mediumTextFieldWidth}" disable="true" alignment="CENTER_RIGHT" />
+		                    
+		                    <VBox styleClass="box-with-border" alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.rowSpan="3" GridPane.columnSpan="2">
+		                    	<Label text="SPEC" />
+		                    </VBox>
+		                    <Label text="RM" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+		                    <Label text="DIS Neto" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+		                    <Label text="DIS Bruto" GridPane.rowIndex="2" GridPane.columnIndex="4" />
+		                    <Label text="Neto" GridPane.rowIndex="2" GridPane.columnIndex="5" />
+		                    <Label text="Bruto" GridPane.rowIndex="2" GridPane.columnIndex="6" />
+		                    
+		                    <CSTextField fx:id="tfRMAmt" GridPane.rowIndex="3" GridPane.columnIndex="2" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+		                    <CSTextField fx:id="tfDisNetAmt" GridPane.rowIndex="3" GridPane.columnIndex="3" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+		                    <CSTextField fx:id="tfDisGrossAmt" GridPane.rowIndex="3" GridPane.columnIndex="4" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+		                    <CSTextField fx:id="tfNetAmt" GridPane.rowIndex="3" GridPane.columnIndex="5" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+		                    <CSTextField fx:id="tfGrossAmt" GridPane.rowIndex="3" GridPane.columnIndex="6" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+		                    
+	                        <CSTextField fx:id="tfRMAmtSpec" GridPane.rowIndex="4" GridPane.columnIndex="2" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+	                        <CSTextField fx:id="tfDisNetAmtSpec" GridPane.rowIndex="4" GridPane.columnIndex="3" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+	                        <CSTextField fx:id="tfDisGrossAmtSpec" GridPane.rowIndex="4" GridPane.columnIndex="4" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+	                        <CSTextField fx:id="tfNetAmtSpec" GridPane.rowIndex="4" GridPane.columnIndex="5" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+	                        <CSTextField fx:id="tfGrossAmtSpec" GridPane.rowIndex="4" GridPane.columnIndex="6" prefWidth="${mediumTextFieldWidth}" alignment="CENTER_RIGHT" disable="true" />
+		                </GridPane>
+		                <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+		                    <HBox styleClass="box-header" alignment="CENTER">
+		                        <Label text="VRSTA CENE" />
+		                    </HBox>
+		                    <VBox fx:id="vbRadioButtons">
+		                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                        <RadioButton fx:id="rbRegularPrice" text="Obična" toggleGroup="$tgpPrice" userData="O" />
+		                        <RadioButton fx:id="rbSpecialPrice" text="Specijalna" toggleGroup="$tgpPrice" userData="S" />
+		                        <RadioButton fx:id="rbFreePrice" text="Slobodna" toggleGroup="$tgpPrice" userData="L" />
+		                        <RadioButton fx:id="rbDOMPrice" text="DOM" toggleGroup="$tgpPrice" disable="true" userData="D" /> 
+		                    </VBox>
+		                </VBox>
+	                </HBox>
+	                
+	                <CSTable
+	                    prefHeight="320"
+	                    fx:id="tblClientPricelist"
+	                    DTOName="ClientPricelist"
+	                    VBox.vgrow="NEVER"
+	                    topLabelText="CENOVNIK PO KUPCU"
+					    topSectionVisible="false">
+	                    <tableColumns>
+	                       <CSTableColumn displayName="DOM ŠIFRA" methodName="ClientDOMCode" />
+	                       <CSTableColumn displayName="NETO JM" methodName="MeasureUnitNetAmt" />
+	                       <CSTableColumn displayName="R(%)" methodName="DiscountRate" />
+	                       <CSTableColumn displayName="RABAT JM" methodName="DiscountAmt" />
+	                       <CSTableColumn displayName="OSNOV.PDV" methodName="MeasureUnitVatAmt" />
+	                       <CSTableColumn displayName="PDV JM" methodName="MeasureUnitBaseVatAmt" />
+	                       <CSTableColumn displayName="BRUTO JM" methodName="MeasureUnitGrossAmt" />
+	                    </tableColumns>
+	                </CSTable>
+	                
+	                <HBox prefHeight="200">
+		                <CSTable 
+		                    fx:id="tblItemWarehouse"
+		                    DTOName="ItemWarehouse"
+		                    topLabelText="MAGACIN"
+	                        addButtonVisible="false"
+	                        viewButtonVisible="false"
+	                        editButtonVisible="false"
+	                        deleteButtonVisible="false"
+	                        searchVisible="false"
+	                        HBox.hgrow="SOMETIMES">
+		                    <tableColumns>
+		                       <CSTableColumn displayName="#" methodName="WarehouseId" width="25" />
+		                       <CSTableColumn displayName="MAGACIN" methodName="WarehouseName" width="150" />
+		                       <CSTableColumn displayName="SLOBODNO" methodName="AvailableQty" />
+		                       <CSTableColumn displayName="REZERVISANO" methodName="ReservedQty" />
+		                       <CSTableColumn displayName="UKUPNO" methodName="Qty" />
+		                       <CSTableColumn displayName="PRODATO" methodName="SoldQty" conditionalFormattingParams="gt,0" />
+		                       <CSTableColumn displayName="RED" methodName="RowId" />
+		                       <CSTableColumn displayName="POLICA" methodName="ShelfId" />
+		                       <CSTableColumn displayName="VERTIKALA" methodName="VerticalId" />
+		                    </tableColumns>
+		                </CSTable>
+		                <VBox styleClass="box-with-border" minWidth="80">
+		                	<padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                	<Button fx:id="btnItemWarehouseAddSingle" text="Unos" prefWidth="70" disable="true" />
+			                <Button fx:id="btnItemWarehouseAdd" text="Po redu" prefWidth="70" disable="true" />
+					        <Button fx:id="btnItemWarehouseEdit" text="Promena" prefWidth="70" disable="true" />
+					        <Button fx:id="btnItemWarehouseDelete" text="Brisanje" prefWidth="70" disable="false" />
+		                </VBox>
+	                </HBox>
+	                
+	                <HBox>
+		                <VBox HBox.hgrow="ALWAYS" styleClass="box-with-border, box-padding-5">
+			                <VBox VBox.vgrow="ALWAYS">
+			                   <HBox styleClass="box-with-border, darkblue-background" alignment="CENTER_RIGHT">
+			                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+			                       <Label text="REPROMARKET" />
+			                       <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+		
+		                           <CSTextField fx:id="tfRepromarketAvailableQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                           <CSTextField fx:id="tfRepromarketReservedQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                           <CSTextField fx:id="tfRepromarketTotalQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+			                   </HBox>
+			                </VBox>
+		                    
+		                    <VBox VBox.vgrow="ALWAYS">
+		                        <HBox styleClass="box-with-border, khaki-background" alignment="CENTER_RIGHT">
+		                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                            <Label text="KOMISION" />
+		                            <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+		                           
+		                            <CSTextField fx:id="tfCommissionAvailableQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                            <CSTextField fx:id="tfCommissionReservedQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                            <CSTextField fx:id="tfCommissionTotalQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>                       
+		                        </HBox>
+		                    </VBox>
+		                    
+		                    <VBox VBox.vgrow="ALWAYS">
+		                       <HBox styleClass="box-with-border, blanche-background" alignment="CENTER_RIGHT">
+		                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                           <Label text="UKUPNO" />
+		                           <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+		                           
+		                           <CSTextField fx:id="tfTotalAvailableQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                           <CSTextField fx:id="tfTotalReservedQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                           <CSTextField fx:id="tfTotalTotalQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                       </HBox>
+		                    </VBox>
+		                    
+		                    <VBox VBox.vgrow="ALWAYS">
+		                       <HBox styleClass="box-with-border, lightgreen-background" alignment="CENTER_RIGHT">
+			                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                           <Label text="PRODATO" />
+		                           <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+		                           <CSTextField fx:id="tfTotalSoldQty" text="0" prefWidth="${smallTextFieldWidth}" validationType="NUMBER_ONLY"/>
+		                       </HBox>
+		                    </VBox>
+	                    </VBox>
+                        <CSPhotoView fx:id="pvImage" minWidth="150" maxWidth="150" maxHeight="150"/>
+                    </HBox>
+	                
+	            </VBox>
+	            
+            </HBox>
+        	<CSDialogButtons fx:id="dialogButtons" />
+        </VBox>
+</AnchorPane>

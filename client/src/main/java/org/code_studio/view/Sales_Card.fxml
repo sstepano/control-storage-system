@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="datePickerWidth" fx:value="90" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="75" />
+        <Integer fx:id="textFieldWidth" fx:value="90" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="buttonWidth" fx:value="120" />
+    </fx:define>
+    
+    <children>
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor ="0">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        
+        	<HBox styleClass="box-with-border">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	        	<VBox>
+		            <HBox alignment="CENTER_RIGHT">
+		                <Label text="Šifra klijenta" />
+		                <CSTextField fx:id="tfId" prefWidth="${shortTextFieldWidth}" disable="true" />
+		            </HBox>
+		            <HBox alignment="CENTER_RIGHT">
+		                <Label text="Poštanski broj" />
+	                    <CSTextField fx:id="tfPOBox" prefWidth="${shortTextFieldWidth}" disable="true" />
+		            </HBox>
+	            </VBox>
+	
+				<VBox>
+				    <HBox alignment="CENTER_RIGHT">
+			            <Label text="Naziv klijenta" />
+		                <CSTextField fx:id="tfName" HBox.hgrow="ALWAYS" disable="true" />
+				    </HBox>
+		            <HBox alignment="CENTER_RIGHT">
+		                <Label text="Mesto" prefWidth="65" />
+		                <CSTextField fx:id="tfCity" prefWidth="${longTextFieldWidth}" disable="true" />
+		                <Label text="Adresa" />
+		                <CSTextField fx:id="tfAddress" prefWidth="${longTextFieldWidth}" disable="true" />
+		            </HBox>
+				</VBox>
+                <VBox HBox.hgrow="ALWAYS">
+                    <HBox prefHeight="3"></HBox>
+                    <HBox alignment="CENTER_RIGHT">
+                        <Label text="Današnji saldo" />
+                        <CSTextField fx:id="tfTodayBalanceAmt" validationType="MONEY" prefWidth="${longTextFieldWidth}" styleClass="red-field-large-text" disable="true" />
+                    </HBox>
+                </VBox>
+            </HBox>
+            
+            <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <HBox alignment="CENTER_LEFT" disable="false">
+	                <Label text="Datum valute od" /> 
+	                <CSDatePicker fx:id="dtValueDateFrom" prefWidth="$datePickerWidth" />
+	                <Label text="do" />
+	                <CSDatePicker fx:id="dtValueDateTo" prefWidth="$datePickerWidth" />
+	                <Button fx:id="btnFilter" text="Filtriraj" prefWidth="${buttonWidth}">
+	                    <graphic><Glyph styleClass="glyph" icon="FILTER" textFill="black"/></graphic>
+	                </Button>
+                </HBox>
+                <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+	            <HBox>
+	                <Button fx:id="" text="Datum" prefWidth="${buttonWidth}">
+	                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+	                </Button>
+	                <Button fx:id="" text="Valuta" prefWidth="${buttonWidth}">
+	                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+	                </Button>
+	            </HBox>
+            </HBox>
+            
+            <CSTable fx:id="tblClientCard"
+                topLabelText="KARTICA KLIJENTA"
+                DTOName="ClientAccountBalanceCard"
+                topSectionVisible="true" 
+                topLabelVisible="true"
+                searchVisible="false"
+                searchTooltipText=""
+                addButtonVisible="false"
+                editButtonVisible="false"
+                viewButtonVisible="true"
+                deleteButtonVisible="false" 
+                VBox.vgrow="ALWAYS">
+                <tableColumns>
+                    <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                    <CSTableColumn displayName="DATUM VALUTE" methodName="ValueDate" />
+                    <CSTableColumn displayName="DATUM KNJIŽENJA" methodName="BookingDate" />
+                    <CSTableColumn displayName="IZNOS FAKTURE" methodName="DebitAmt" width="120" />
+                    <CSTableColumn displayName="IZNOS IZVODA" methodName="CreditAmt" width="120" />
+                    <CSTableColumn displayName="SALDO" methodName="BalanceAmt" width="120" conditionalFormattingParams="lt,0" />
+                    <CSTableColumn displayName="BROJ IZVODA" methodName="BankStatementId" />
+                    <CSTableColumn displayName="BROJ FAKTURE" methodName="InvoiceId" />
+                    <CSTableColumn displayName="ŠIFRA KLIJENTA" methodName="ClientId" />
+                </tableColumns>                   
+            </CSTable>
+            
+            <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <HBox prefWidth="200"></HBox>
+                <Label text="Zaduženje" />
+                <CSTextField fx:id="tfTotalDebitAmt" validationType="MONEY" prefWidth="${textFieldWidth}" disable="true" />
+                
+                <Label text="Uplate" />
+                <CSTextField fx:id="tfTotalCreditAmt" validationType="MONEY" prefWidth="${textFieldWidth}" disable="true" />
+                
+                <Label text="Saldo" />
+                <CSTextField fx:id="tfBalanceAmt" validationType="MONEY" prefWidth="${textFieldWidth}" disable="true" />
+            </HBox>
+            
+        </VBox>
+    </children>        
+</AnchorPane>

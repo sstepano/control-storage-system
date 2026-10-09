@@ -1,0 +1,117 @@
+{"properties": [
+  {
+    "name": "rest.api.version",
+    "type": "java.lang.String",
+    "description": "A description for 'rest.api.version'"
+  },
+  {
+    "name": "rest.basepath",
+    "type": "java.lang.String",
+    "description": "A description for 'rest.basepath'"
+  },
+  {
+    "name": "url.currency",
+    "type": "java.lang.String",
+    "description": "A description for 'url.currency'"
+  },
+  {
+    "name": "url.country",
+    "type": "java.lang.String",
+    "description": "A description for 'url.country'"
+  },
+  {
+    "name": "url.client",
+    "type": "java.lang.String",
+    "description": "A description for 'url.client'"
+  },
+  {
+    "name": "url.deliveryAddressType",
+    "type": "java.lang.String",
+    "description": "A description for 'url.deliveryAddressType'"
+  },
+  {
+    "name": "url.paymentType",
+    "type": "java.lang.String",
+    "description": "A description for 'url.paymentType'"
+  },
+  {
+    "name": "url.paymentTerm",
+    "type": "java.lang.String",
+    "description": "A description for 'url.paymentTerm'"
+  },
+  {
+    "name": "url.deliveryType",
+    "type": "java.lang.String",
+    "description": "A description for 'url.deliveryType'"
+  },
+  {
+    "name": "url.saleType",
+    "type": "java.lang.String",
+    "description": "A description for 'url.saleType'"
+  },
+  {
+    "name": "url.customsGroup",
+    "type": "java.lang.String",
+    "description": "A description for 'url.customsGroup'"
+  },
+  {
+    "name": "url.bankAccount",
+    "type": "java.lang.String",
+    "description": "A description for 'url.bankAccount'"
+  },
+  {
+    "name": "url.cashDesk",
+    "type": "java.lang.String",
+    "description": "A description for 'url.cashDesk'"
+  },
+  {
+    "name": "url.vatGroup",
+    "type": "java.lang.String",
+    "description": "A description for 'url.vatGroup'"
+  },
+  {
+    "name": "url.measurementUnit",
+    "type": "java.lang.String",
+    "description": "A description for 'url.measurementUnit'"
+  },
+  {
+    "name": "url.applicationLanguage",
+    "type": "java.lang.String",
+    "description": "A description for 'url.applicationLanguage'"
+  },
+  {
+    "name": "url.applicationRole",
+    "type": "java.lang.String",
+    "description": "A description for 'url.applicationRole'"
+  },
+  {
+    "name": "url.authenticate",
+    "type": "java.lang.String",
+    "description": "A description for 'url.authenticate'"
+  },
+  {
+    "name": "url.clientLastPaidAmount",
+    "type": "java.lang.String",
+    "description": "A description for 'url.clientLastPaidAmount'"
+  },
+  {
+    "name": "server.pageSize",
+    "type": "java.lang.String",
+    "description": "A description for 'server.pageSize'"
+  },
+  {
+    "name": "url.clientContact",
+    "type": "java.lang.String",
+    "description": "A description for 'url.clientContact'"
+  },
+  {
+    "name": "url.clientStore",
+    "type": "java.lang.String",
+    "description": "A description for 'url.clientStore'"
+  },
+  {
+    "name": "url.clientPricelist",
+    "type": "java.lang.String",
+    "description": "A description for 'url.clientPricelist'"
+  }
+]}

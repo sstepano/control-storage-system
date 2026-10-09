@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="120" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <ToggleGroup fx:id="tgpFilter" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+           <children>
+               <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <HBox visible="false" managed="false">
+	                   <Label text="Filter" />
+	                   <CSComboBox fx:id="cbFilter" prefWidth="${longTextFieldWidth}">  
+					 	   <items>
+						       <FXCollections fx:factory="observableArrayList">
+						           <String fx:value="Termin" />
+						           <String fx:value="Plan" />
+						           <String fx:value="Ref + Kom + Termin" />
+						           <String fx:value="Kom + Termin" />
+						           <String fx:value="Kontaktirao" />
+						           <String fx:value="Danas" />
+						           <String fx:value="Danas svi" />
+						           <String fx:value="Termin + svi ref" />
+						       </FXCollections>
+					       </items>
+	                   </CSComboBox>
+                   </HBox>
+                   <HBox>
+                       <RadioButton toggleGroup="$tgpFilter" text="Termin" />
+                       <RadioButton toggleGroup="$tgpFilter" text="Plan" />
+                       <RadioButton toggleGroup="$tgpFilter" text="Ref + Kom + Termin" />
+                       <RadioButton toggleGroup="$tgpFilter" text="Kom + Termin" />
+                       <RadioButton toggleGroup="$tgpFilter" text="Kontaktirao" />
+                       <RadioButton toggleGroup="$tgpFilter" text="Danas" />
+                       <RadioButton toggleGroup="$tgpFilter" text="Danas svi" />
+                       <RadioButton toggleGroup="$tgpFilter" text="Termin + Svi ref" />
+                   </HBox>
+                   
+                   <HBox visible="false" managed="false">
+                   <Label text="Referent" />
+                       <CSComboBox fx:id="cbSaleOfficer" emptySelectionText="SVI REFERENTI" prefWidth="${longTextFieldWidth}" initFactory="true" factoryMethodName="Name" />
+                       <Label text="Plan:" />
+                       <CSDatePicker fx:id="dtPlanDate" prefWidth="${shortTextFieldWidth}" />
+                   </HBox>
+               </HBox>
+
+               <!-- MAIN TABLE -->
+               <VBox VBox.vgrow="ALWAYS">
+                   <CSTable 
+                       fx:id="tblSalePlanner"
+                       DTOName="SalePlanner"  
+                       topLabelText="%label.saleplanner.text"
+                       addButtonVisible="true"
+                       viewButtonVisible="false"
+                       editButtonVisible="true"
+                       deleteButtonVisible="true"
+                       searchVisible="false"
+                       VBox.vgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="PLAN" methodName="PlanDate" width="100" />
+                           <CSTableColumn displayName="TERMIN" methodName="EventDate" width="100" />
+                           <CSTableColumn displayName="D" methodName="IsCame" tooltip="Klijent je došao" width="10" />
+                           <CSTableColumn displayName="Z" methodName="IsCalled" tooltip="Klijent je zvao" width="10" />
+                           <CSTableColumn displayName="T" methodName="IsWentTo" tooltip="Klijent je posećen na terenu" width="10" />
+                           <CSTableColumn displayName="P" methodName="IsCalledTo" tooltip="Klijent je pozvan" width="10" />
+                           <CSTableColumn displayName="ISPORUČENO" methodName="DeliveredAmt" width="40" />
+                           <CSTableColumn displayName="NAPLAĆENO" methodName="ChargedAmt" width="40" />
+                           <CSTableColumn displayName="OBEĆANO" methodName="PromisedAmt" width="40" />
+                           <CSTableColumn displayName="REFERENT" methodName="SaleOfficerName" width="100" />
+                           <CSTableColumn displayName="KONTAKTIRAO" methodName="SaleOfficerContactedName" width="100" />
+                           <CSTableColumn displayName="NAZIV KLIJENTA" methodName="ClientName" width="150" />
+                           <CSTableColumn displayName="KONTAKTIRANO SA" methodName="ContactedClientName" width="100" />
+                           <CSTableColumn displayName="KONTAKT TELEFON" methodName="ContactedClientPhone" width="80" />
+                       </tableColumns>
+                   </CSTable>
+               </VBox>
+               
+               <!-- NAPOMENA -->
+               <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                   <HBox styleClass="box-header" alignment="CENTER">
+                       <Label text="%label.note.text"></Label>
+                   </HBox>
+                   <VBox>
+                       <HBox spacing="5">
+                          <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                          <TextArea fx:id="taDescription" HBox.hgrow="ALWAYS" editable="false" wrapText="true" />
+                       </HBox>
+                   </VBox>
+               </VBox>
+               
+               <!-- STAMPA -->                    
+               <HBox spacing="5" styleClass="box-with-border" alignment="CENTER_LEFT">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Mesec"></Label>
+                   <CSTextField fx:id="tfMonth" validationType="NUMBER_ONLY" prefWidth="$shortTextFieldWidth" />
+                   <Label text="Godina"></Label>
+                   <CSTextField fx:id="tfYear" validationType="NUMBER_ONLY" prefWidth="$shortTextFieldWidth" />
+
+                   <Button fx:id="btnMonthlyReview" text="%saleplannerform.button1.text">
+                       <graphic><Glyph styleClass="glyph" icon="BINOCULARS" textFill="BLACK"/></graphic>
+                   </Button>
+                   <Button fx:id="btnSaleOfficerMonthlyReview" text="Pregled po referentu">
+                       <graphic><Glyph styleClass="glyph" icon="BINOCULARS" textFill="BLACK"/></graphic>
+                   </Button>
+               </HBox>
+               
+
+               <!-- SAVE | CANCEL BUTTONS 
+               <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                  <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <children>                    
+                      <Button fx:id="btnSave" text="%orderForm.button2.text">
+                          <graphic><Glyph styleClass="glyph" icon="CHECK_CIRCLE" textFill="GREEN"/></graphic>
+                      </Button>
+                      <Button fx:id="btnCancel" text="%button.cancel.text">
+                          <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                      </Button>
+                   </children>
+               </HBox>
+               -->
+
+
+            </children>
+        </VBox>
+    </children>        
+</AnchorPane>

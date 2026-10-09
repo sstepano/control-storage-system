@@ -1,0 +1,57 @@
+2026-09-01 12:04:43.881 INFO  o.c.ApplicationCloseListener - <tcpserver><info> ApplicationContextClosedEvent detected
+2026-09-01 12:04:44.014 INFO  org.code_studio.BarcodeConfig - <tcpserver><info> Barcode communication - COM port closed: COM3
+2026-09-01 12:04:44.014 INFO  o.c.ApplicationCloseListener - <tcpserver><info> Waiting for 3000 msec to receive DAYEND confirmation from CRANE, and then close the TCP connection.
+2026-09-01 12:04:47.190 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection closed: 127.0.0.1:18196:58540:505bb4ac-1d07-4756-a6e6-874cd76acd11
+2026-09-01 12:04:47.217 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> Connection closed: 127.0.0.1:58540:18196:2137451e-5cdc-4ab0-8dab-29c7e6262616
+2026-09-01 12:12:06.909 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-09-01 12:12:07.077 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-09-01 12:12:07.336 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-09-01 12:12:07.349 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-09-01 12:12:07.534 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-09-01 12:12:08.761 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Barcode communication enabled. COM port open: COM3
+2026-09-01 12:12:09.312 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> Connection established: 127.0.0.1:49417:18196:c66ea022-069c-4781-8f06-2523743c9e58
+2026-09-01 12:12:09.312 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection established: 127.0.0.1:18196:49417:89f328e0-c1ba-4355-bbaa-7c084774adec
+2026-09-01 12:12:09.319 INFO  o.c.CraneClientConnectedListener - <tcpsvr><info> CraneClientConnectedEvent detected
+2026-09-01 12:12:09.358 WARN  o.c.ApplicationReadyListener - <tcpsvr><info> Message Flow Automation Debug is ENABLED
+2026-09-01 12:12:09.376 INFO  o.c.controller.TcpMessageController - <tcpclient><send> LVS1UST1DA520001092026121209????????01???????001
+2026-09-01 12:12:09.390 INFO  o.c.CraneClientConnectedListener - <tcpclient><send> DAYSTART message sent to Crane server
+2026-09-01 12:12:09.408 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><recv> LVS1UST1DA520001092026121209????????01???????001
+2026-09-01 12:12:09.429 WARN  o.c.m.IncomingMessageProcessor - MessageProcessor::handleError->StatusCode.STATUSUNKNOWN
+2026-09-01 12:12:09.433 INFO  o.c.m.IncomingMessageProcessor - SENDER LVS1 | RECEIVER UST1 | MESSAGETYPE DAYSTART | ORDINAL 52 | ERRORCODE OK | SOURCE 01092026 | TARGET 121209 | REPORTPOINT RPUNKNOWN | LETYPE LEUNKNOWN | STATUSCODE AUTOMATIONENABLED | USERDATA null | RAWMESSAGE LVS1UST1DA520001092026121209????????01???????001
+2026-09-01 12:12:12.457 INFO  o.c.controller.TcpMessageController - <tcpclient><send> UST1LVS111530001092026121209????????01???????001
+2026-09-01 12:12:12.462 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><recv> LVS1UST1DA520001092026121209????????01???????001
+2026-09-01 12:12:12.462 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><recv> UST1LVS111530001092026121209????????01???????001
+2026-09-01 12:12:12.463 WARN  o.c.m.IncomingMessageProcessor - MessageProcessor::handleError->StatusCode.STATUSUNKNOWN
+2026-09-01 12:12:12.463 INFO  o.c.m.IncomingMessageProcessor - SENDER UST1 | RECEIVER LVS1 | MESSAGETYPE DAYSTART | ORDINAL 53 | ERRORCODE OK | SOURCE 01092026 | TARGET 121212 | REPORTPOINT RPUNKNOWN | LETYPE LEUNKNOWN | STATUSCODE AUTOMATIONENABLED | USERDATA null | RAWMESSAGE UST1LVS111530001092026121209????????01???????001
+2026-09-01 12:12:12.465 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><recv> LVS1UST1AA530001092026121209????????01???????001
+2026-09-01 13:28:35.406 INFO  o.c.ApplicationCloseListener - <tcpserver><info> ApplicationContextClosedEvent detected
+2026-09-01 13:28:35.430 INFO  org.code_studio.BarcodeConfig - <tcpserver><info> Barcode communication - COM port closed: COM3
+2026-09-01 13:28:35.432 INFO  o.c.ApplicationCloseListener - <tcpserver><info> Waiting for 3000 msec to receive DAYEND confirmation from CRANE, and then close the TCP connection.
+2026-09-01 13:28:38.554 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection closed: 127.0.0.1:18196:49417:89f328e0-c1ba-4355-bbaa-7c084774adec
+2026-09-01 13:28:38.565 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> Connection closed: 127.0.0.1:49417:18196:c66ea022-069c-4781-8f06-2523743c9e58
+2026-09-01 13:31:25.588 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-09-01 13:31:25.743 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-09-01 13:31:25.923 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-09-01 13:31:25.930 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-09-01 13:31:26.025 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-09-01 13:31:26.526 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Barcode communication enabled. COM port open: COM3
+2026-09-01 13:31:27.454 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> Connection established: 127.0.0.1:59386:18196:2ed5de66-8f34-4d10-8c0a-ab8c3edd6dde
+2026-09-01 13:31:27.456 INFO  o.c.CraneClientConnectedListener - <tcpsvr><info> CraneClientConnectedEvent detected
+2026-09-01 13:31:27.460 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection established: 127.0.0.1:18196:59386:4249822e-ea5a-4fc1-85bf-2af1807c58fc
+2026-09-01 13:31:27.496 WARN  o.c.ApplicationReadyListener - <tcpsvr><info> Message Flow Automation Debug is ENABLED
+2026-09-01 13:31:27.512 INFO  o.c.controller.TcpMessageController - <tcpclient><send> LVS1UST1DA540001092026133127????????01???????001
+2026-09-01 13:31:27.527 INFO  o.c.CraneClientConnectedListener - <tcpclient><send> DAYSTART message sent to Crane server
+2026-09-01 13:31:27.552 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><recv> LVS1UST1DA540001092026133127????????01???????001
+2026-09-01 13:31:27.577 WARN  o.c.m.IncomingMessageProcessor - MessageProcessor::handleError->StatusCode.STATUSUNKNOWN
+2026-09-01 13:31:27.581 INFO  o.c.m.IncomingMessageProcessor - SENDER LVS1 | RECEIVER UST1 | MESSAGETYPE DAYSTART | ORDINAL 54 | ERRORCODE OK | SOURCE 01092026 | TARGET 133127 | REPORTPOINT RPUNKNOWN | LETYPE LEUNKNOWN | STATUSCODE AUTOMATIONENABLED | USERDATA null | RAWMESSAGE LVS1UST1DA540001092026133127????????01???????001
+2026-09-01 13:31:30.601 INFO  o.c.controller.TcpMessageController - <tcpclient><send> UST1LVS111550001092026133127????????01???????001
+2026-09-01 13:31:30.604 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><recv> LVS1UST1DA540001092026133127????????01???????001
+2026-09-01 13:31:30.604 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><recv> UST1LVS111550001092026133127????????01???????001
+2026-09-01 13:31:30.605 WARN  o.c.m.IncomingMessageProcessor - MessageProcessor::handleError->StatusCode.STATUSUNKNOWN
+2026-09-01 13:31:30.606 INFO  o.c.m.IncomingMessageProcessor - SENDER UST1 | RECEIVER LVS1 | MESSAGETYPE DAYSTART | ORDINAL 55 | ERRORCODE OK | SOURCE 01092026 | TARGET 133130 | REPORTPOINT RPUNKNOWN | LETYPE LEUNKNOWN | STATUSCODE AUTOMATIONENABLED | USERDATA null | RAWMESSAGE UST1LVS111550001092026133127????????01???????001
+2026-09-01 13:31:30.607 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><recv> LVS1UST1AA550001092026133127????????01???????001
+2026-09-01 13:56:16.540 INFO  o.c.ApplicationCloseListener - <tcpserver><info> ApplicationContextClosedEvent detected
+2026-09-01 13:56:16.551 INFO  org.code_studio.BarcodeConfig - <tcpserver><info> Barcode communication - COM port closed: COM3
+2026-09-01 13:56:16.552 INFO  o.c.ApplicationCloseListener - <tcpserver><info> Waiting for 3000 msec to receive DAYEND confirmation from CRANE, and then close the TCP connection.
+2026-09-01 13:56:19.607 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection closed: 127.0.0.1:18196:59386:4249822e-ea5a-4fc1-85bf-2af1807c58fc
+2026-09-01 13:56:19.616 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> Connection closed: 127.0.0.1:59386:18196:2ed5de66-8f34-4d10-8c0a-ab8c3edd6dde

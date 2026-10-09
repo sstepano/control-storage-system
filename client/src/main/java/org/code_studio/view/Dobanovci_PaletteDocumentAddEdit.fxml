@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="50" />
+        <Integer fx:id="textFieldWidth" fx:value="110" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="shortDatePickerWidth" fx:value="75" />
+        <Integer fx:id="datePickerWidth" fx:value="110" />
+        <Integer fx:id="longComboBoxWidth" fx:value="230" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                        
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="PODEŠAVANJA KRANA"></Label>
+                            </HBox>
+                            <HBox alignment="CENTER_RIGHT" spacing="5">
+                                <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                                <Label text="Kran" />
+                                <CSComboBox fx:id="cbCrane" initFactory="true" factoryMethodName="Description" minWidth="$longComboBoxWidth" maxWidth="${maxComponentWidth}" />
+                            </HBox>
+                        </VBox>
+                        
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="NOVI DOKUMENT"></Label>
+                            </HBox>
+                            
+                            <GridPane hgap="5" vgap="5">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <Label GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Šifra klijenta:" />
+                                <TextField fx:id="tfClientId" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" maxWidth="$shortTextFieldWidth" />
+                                
+                                <Label GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Naziv klijenta:" />
+                                <TextField fx:id="tfClientName" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" prefWidth="$longTextFieldWidth" GridPane.columnSpan="3"/>
+
+                                <Label GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Broj dokumenta" />
+                                <CSTextField fx:id="tfPaletteDocumentId" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$textFieldWidth" disable="true" text="AUTOGENERISANO"/>
+
+                                <Label GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Vrsta dokumenta" />
+								<CSComboBox fx:id="cbPaletteDocumentType" initFactory="true" factoryMethodName="Name" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$textFieldWidth" disable="true" />
+
+                                <Label GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Datum dokumenta" />
+                                <CSDatePicker fx:id="dtPaletteDocumentDate" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$datePickerWidth" defaultToday="true" disable="true" />
+                            </GridPane>
+                        </VBox>
+                        
+
+                        <!-- SAVE | CANCEL BUTTONS -->
+                        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <children>                    
+                               <Button fx:id="btnSave" text="%button.save.text" styleClass="btnOK">
+                                   <graphic><Glyph styleClass="glyph" icon="CHECK" textFill="LIME"/></graphic>
+                               </Button>
+                               <Button fx:id="btnCancel" text="%button.cancel.text" styleClass="btnCancel">
+                                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="MAROON"/></graphic>
+                               </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

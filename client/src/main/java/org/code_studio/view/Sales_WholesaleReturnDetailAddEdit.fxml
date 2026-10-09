@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Button?>
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    prefWidth="1024"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <children>
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+            <HBox spacing="5" HBox.hgrow="NEVER">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <CSTable 
+                    fx:id="tblClient"
+                    DTOName="Client"
+                    HBox.hgrow="NEVER"
+                    topLabelText="RAČUNI"
+                    addButtonVisible="false"
+                    viewButtonVisible="false"
+                    editButtonVisible="false"
+                    deleteButtonVisible="false"
+                    searchVisible="false">
+                    <tableColumns>
+                       <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                       <CSTableColumn displayName="NAZIV" methodName="Name" />
+                       <CSTableColumn displayName="DRUGI NAZIV" methodName="AdditionalName" />
+                    </tableColumns>
+                </CSTable>
+                <CSTable 
+                    fx:id="tblMain"
+                    DTOName="Client"
+                    HBox.hgrow="ALWAYS"
+                    topLabelText="STAVKE RAČUNA"
+                    addButtonVisible="false"
+                    viewButtonVisible="false"
+                    editButtonVisible="false"
+                    deleteButtonVisible="false"
+                    searchVisible="false">
+                    <tableColumns>
+                       <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                       <CSTableColumn displayName="NAZIV" methodName="Name" />
+                       <CSTableColumn displayName="DRUGI NAZIV" methodName="AdditionalName" />
+                    </tableColumns>
+                </CSTable>
+            </HBox>
+            <HBox spacing="5" HBox.hgrow="ALWAYS">
+                <padding><Insets top="0" right="5" bottom="0" left="5"/></padding>
+                <CSTable 
+                    fx:id="tblDetail"
+                    DTOName="Client"
+                    HBox.hgrow="ALWAYS"
+                    topLabelText="STAVKE POVRATNICE"
+                    addButtonVisible="true"
+                    viewButtonVisible="false"
+                    editButtonVisible="true"
+                    deleteButtonVisible="true"
+                    searchVisible="false">
+                    <tableColumns>
+                       <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                       <CSTableColumn displayName="NAZIV" methodName="Name" />
+                       <CSTableColumn displayName="V"     methodName="IsWholesale" />
+                       <CSTableColumn displayName="M"     methodName="IsRetail" />
+                       <CSTableColumn displayName="D"     methodName="SupplierPriceOnly" />
+                       <CSTableColumn displayName="KM"    methodName="IsCommissionSale" />
+                       <CSTableColumn displayName="DRUGI NAZIV" methodName="AdditionalName" />
+                       <CSTableColumn displayName="ADRESA"  methodName="Address" />
+                       <CSTableColumn displayName="PIB"     methodName="TaxId" />
+                       <CSTableColumn displayName="MB"      methodName="IdentificationId" />
+                       <CSTableColumn displayName="TELEFON" methodName="CentralPhoneNumber" />
+                       <CSTableColumn displayName="FAX"     methodName="FaxNumber" />
+                    </tableColumns>
+                </CSTable>
+            </HBox>
+
+            <!-- SAVE | CANCEL BUTTONS -->
+            <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <children>                    
+                    <Button fx:id="btnSave" text="%button.save.text">
+                        <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                    </Button>
+                    <Button fx:id="btnCancel" text="%button.cancel.text">
+                        <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                    </Button>
+                </children>
+            </HBox>
+
+        </VBox>
+    </children>        
+</AnchorPane>

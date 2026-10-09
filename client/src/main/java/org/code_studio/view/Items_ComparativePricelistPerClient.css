@@ -1,0 +1,11 @@
+#tfNetPriceDFak, #tfNetPriceDFakSpec {
+    -fx-border-color: -gk-border-color;
+}
+
+#tfNetPriceDFak {
+    -fx-background-color: "SKYBLUE";	
+}
+
+#tfNetPriceDFakSpec {
+	-fx-background-color: "LIME";
+}

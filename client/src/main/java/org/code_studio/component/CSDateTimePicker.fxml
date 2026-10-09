@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE HBox>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.HBox?>
+
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSTextField?>
+
+<fx:root type="javafx.scene.layout.HBox"
+	xmlns="http://javafx.com/javafx" 
+	xmlns:fx="http://javafx.com/fxml"
+	stylesheets="@../view/Main.css">
+	
+	<fx:define>
+		 <!-- <Double fx:id="actionButtonWidth" fx:value="10" /> <Double fx:id="searchBoxWidth" 
+		fx:value="200" /> -->
+	</fx:define>
+	
+	<HBox HBox.hgrow="NEVER" maxWidth="200">
+		<CSDatePicker fx:id="dtDatePicker" />
+		<CSTextField fx:id="tfTime" validationType="TIME" maxWidth="105" />
+	</HBox>
+</fx:root>

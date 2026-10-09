@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+OVO JE U RM U MAGACIN -> REZERVACIJE
+ -->
+
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSPhotoView?>
+
+<AnchorPane
+    prefWidth="800"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="50" />
+        <Integer fx:id="normalTextFieldWidth" fx:value="120" />
+        <Integer fx:id="textFieldWidth" fx:value="200" />
+        <Integer fx:id="longTextFieldWidth" fx:value="500" />
+    </fx:define>
+
+        <VBox 
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+		   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+           <!-- HEADER -->
+           <VBox styleClass="box-with-border">
+               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+               <HBox>
+                   <VBox minWidth="400">
+	                   <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+	                       <Label text="Šifra rezervacije"></Label>
+	                       <TextField fx:id="tfToRowId" HBox.hgrow="SOMETIMES" prefWidth="$shortTextFieldWidth" disable="true" />
+	                       <Label text="Godina"></Label>
+	                       <TextField fx:id="tfToRowId" HBox.hgrow="SOMETIMES" prefWidth="$shortTextFieldWidth" disable="true" />
+                       </HBox>
+                       <HBox alignment="CENTER_LEFT">
+	                       <Label text="Pun naziv" minWidth="77" />
+	                       <TextField fx:id="tfFullName" styleClass="blue-field-large-text" HBox.hgrow="ALWAYS" disable="true" />
+	                   </HBox>
+		               <HBox alignment="CENTER_LEFT">
+		                   <Label text="Radi" minWidth="77" />
+		                   <TextField fx:id="tfToRowId" HBox.hgrow="SOMETIMES" prefWidth="$textFieldWidth" disable="true" />
+	                   </HBox>
+	                   <HBox alignment="CENTER_LEFT">
+		                   <Label text="Isporučio" minWidth="77" />
+		                   <TextField fx:id="tfToRowId" HBox.hgrow="SOMETIMES" prefWidth="$textFieldWidth" disable="true" />
+		               </HBox>
+                   </VBox>
+                   <HBox alignment="CENTER_LEFT">
+                       <TextArea fx:id="taBlueField" styleClass="blue-field" prefHeight="100"  wrapText="true" disable="true" />
+                       <CSPhotoView minWidth="150" maxWidth="150" maxHeight="200"/>
+                   </HBox>
+               </HBox>
+           </VBox>
+           
+		   <!-- MAIN TABLE -->
+		   <CSTable 
+			   fx:id="tblReservation" 
+			   VBox.vgrow="ALWAYS" 
+			   topLabelText="%label.reservation.text"
+			   topSectionVisible="false">
+		   </CSTable>
+		   
+           <!-- DETAIL TABLE -->
+           <CSTable 
+               fx:id="tblReservation" 
+               VBox.vgrow="ALWAYS" 
+               topLabelText="%label.reservation.text"
+               topSectionVisible="false">
+           </CSTable>
+           
+           
+           <!-- TOTAL | PRINT BUTTON -->
+           <VBox>
+               <HBox alignment="CENTER_LEFT" styleClass="box-with-border">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Ukupno:"></Label>
+                   <TextField fx:id="tfToRowId" prefWidth="$normalTextFieldWidth" disable="true" />
+	               <Button fx:id="btnPrint" text="%reservationsform.billoflading.print.text">
+	                   <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+	               </Button>
+               </HBox>
+           </VBox>
+    
+        </VBox>
+</AnchorPane>

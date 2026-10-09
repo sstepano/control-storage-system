@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+
+    <fx:define>
+    <!-- 
+        <Integer fx:id="btnWidth" fx:value="160" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+    -->
+    </fx:define>
+
+    <VBox
+        AnchorPane.leftAnchor   ="0"
+        AnchorPane.rightAnchor  ="0"
+        AnchorPane.topAnchor    ="0"
+        AnchorPane.bottomAnchor ="0">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+        <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <Label text="Datum slanja od" />
+            <CSDatePicker fx:id="dtDateFrom" defaultToday="true" />
+            <Label text="do" />
+            <CSDatePicker fx:id="dtDateTo" defaultToday="true" />
+            
+            <Label text="Status" />
+			<ComboBox fx:id="cbElectronicInvoiceStatus" value="POSLATO">
+			    <items>
+			        <FXCollections fx:factory="observableArrayList">
+			            <String fx:value="POSLATO" />
+			            <String fx:value="SPREMNO ZA SLANJE" />
+			            <String fx:value="PRIHVAĆENO" />
+			            <String fx:value="ODBIJENO" />
+                        <String fx:value="SVE" />
+			        </FXCollections>
+			    </items>
+			</ComboBox>
+            
+            <!--
+            <Button fx:id="btnSearch" text="Filter" minWidth="100">
+                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-filter" iconColor="DARKORANGE" /></graphic>
+            </Button> 
+            -->
+        </HBox>
+        
+        <CSTable 
+            fx:id="mainTable" 
+            VBox.vgrow="ALWAYS" 
+            topLabelText="E - FAKTURE"
+            DTOName="ClientCatalog"
+            viewButtonVisible="false"
+            addButtonVisible="false"
+            editButtonVisible="false"
+            deleteButtonVisible="false"
+        />
+        <HBox styleClass="box-with-border" alignment="CENTER_RIGHT">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <Button fx:id="btn1" text="Osveži statuse">
+                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-arrow-repeat" iconColor="ORANGE" /></graphic>
+            </Button>
+            <Button fx:id="btnSend" text="Pošalji u SEF">
+                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-arrow-bar-up" iconColor="RED" /></graphic>
+            </Button>
+        </HBox>
+    </VBox>
+</AnchorPane>

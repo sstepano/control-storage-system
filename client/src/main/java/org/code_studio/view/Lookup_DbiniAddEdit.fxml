@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Tooltip?>
+
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+    	<Integer fx:id="shortTextFieldWidth" fx:value="55" />
+        <Integer fx:id="textFieldWidth" fx:value="150" />
+        <Integer fx:id="textAreaHeight" fx:value="70" />
+    </fx:define>
+
+    <VBox
+       AnchorPane.leftAnchor   ="0"
+       AnchorPane.rightAnchor  ="0"
+       AnchorPane.topAnchor    ="0"
+       AnchorPane.bottomAnchor ="0">
+       <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+
+       <HBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+           <VBox styleClass="box-padding-5">
+               <HBox alignment="CENTER_RIGHT">
+                   <Label text="Šifra"></Label>
+                   <CSTextField fx:id="tfId" disable="true" prefWidth="$textFieldWidth" />
+               </HBox>
+               <HBox alignment="CENTER_RIGHT">
+                   <Label text="Oblast"></Label>
+                   <CSTextField fx:id="tfAttributeName" prefWidth="$textFieldWidth" />
+               </HBox>
+               <HBox alignment="CENTER_RIGHT">
+                   <Label text="Parametar"></Label>
+                   <CSTextField fx:id="tfParameterName" prefWidth="$textFieldWidth" editable="false" />
+               </HBox>
+               <HBox alignment="CENTER_RIGHT">
+                   <Label text="Vrednost"></Label>
+                   <CSTextField fx:id="tfValue" prefWidth="$textFieldWidth" />
+               </HBox>
+           </VBox>
+           <VBox alignment="CENTER" styleClass="box-padding-5">
+               <Label text="Opis"></Label>
+               <TextArea fx:id="taDescription" maxHeight="$textAreaHeight" />
+           </VBox>
+       </HBox>
+
+    <CSDialogButtons fx:id="dialogButtons" />
+    </VBox>
+</AnchorPane>

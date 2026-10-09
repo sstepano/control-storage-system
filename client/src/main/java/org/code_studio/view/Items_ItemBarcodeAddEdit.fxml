@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <HBox
+        AnchorPane.leftAnchor   ="0"
+        AnchorPane.rightAnchor  ="0"
+        AnchorPane.topAnchor    ="0"
+        AnchorPane.bottomAnchor ="0">
+        <VBox>
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <HBox alignment="CENTER_RIGHT">
+                <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>
+                <Label text="Naziv artikla" />
+                <CSTextField fx:id="tfItemName" prefWidth="200" disable="true" />
+                <Button fx:id="btnItemList" text="Lista artikala" focusTraversable="false" prefWidth="100">
+                    <graphic><Glyph styleClass="glyph" icon="BARCODE" textFill="black"/></graphic>
+                </Button>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT">
+                <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>   
+                <Label text="Barkod" />
+                <CSTextField fx:id="tfBarcode" prefWidth="200" validationType="NUMBER_ONLY"/>
+            </HBox>
+
+            <HBox alignment="BOTTOM_RIGHT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>       
+                <Button fx:id="btnSave" text="%button.save.text" disable="true">
+                    <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black" /></graphic>
+                </Button>
+                <Button fx:id="btnCancel" text="%button.cancel.text">
+                    <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black" /></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </HBox>
+</AnchorPane>

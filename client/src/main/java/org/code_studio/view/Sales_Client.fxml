@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.UserAccess.*?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+	    <Integer fx:id="comboBoxWidth" fx:value="140" />
+	    <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+	    <Integer fx:id="hBoxTextAreaHeaderHeight" fx:value="23" />
+    </fx:define>
+    
+    <children>
+        <VBox 
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+             <children>
+		           <CSTable fx:id="tblClient" 
+		               DTOName="Client" 
+		               topSectionVisible="true" 
+		               topLabelVisible="false"
+		               searchVisible="true" 
+		               viewButtonVisible="false"
+		               deleteButtonVisible="false"
+		               searchTooltipText="%clients.searchTooltipText"
+		               tableRequestFocus="true" 
+		               autoNumberColumnVisible="true"
+		               VBox.vgrow="ALWAYS">
+		               <!-- jos uvek ne radi dobro ovo <columnResizePolicy><CSTable fx:constant="LASTCOLUMN_RESIZE_POLICY"/></columnResizePolicy> -->
+		               <tableColumns>
+		                  <CSTableColumn displayName="ŠIFRA" methodName="Id" conditionalFormattingParams="gt,0,5,0,green" />
+		                  <CSTableColumn displayName="NAZIV" methodName="Name" conditionalFormattingParams="gt,0,5,0,green" />
+		                  <CSTableColumn displayName="V"     methodName="IsWholesale" />
+		                  <CSTableColumn displayName="M"     methodName="IsRetail" />
+		                  <CSTableColumn displayName="D"     methodName="SupplierPriceOnly" />
+		                  <CSTableColumn displayName="KM"    methodName="CommissionWarehouseId" />
+		                  <CSTableColumn displayName="DRUGI NAZIV" methodName="AdditionalName" width="150" />
+		                  <CSTableColumn displayName="MESTO"   methodName="City" width="80" />          
+		                  <CSTableColumn displayName="ADRESA"  methodName="Address" width="150" />
+		                  <CSTableColumn displayName="PIB"     methodName="TaxId" width="56" />
+		                  <CSTableColumn displayName="MB"      methodName="IdentificationId" width="50" />
+		                  <CSTableColumn displayName="TELEFON" methodName="CentralPhoneNumber" width="120" />
+		                  <CSTableColumn displayName="FAX"     methodName="FaxNumber" width="90"/>
+		               </tableColumns>
+		               <componentBarItems>
+		                   <Label text="OJ:" minWidth="15"/>
+		                   <CSComboBox fx:id="cbDivision" initFactory="true" factoryMethodName="Name" emptySelectionText="DOBANOVCI" prefWidth="$comboBoxWidth" />
+		                   <CSComboBox fx:id="cbClientGroup" emptySelectionText="SVE GRUPE" initFactory="true" factoryMethodName="Name" prefWidth="$comboBoxWidth" />
+		                   <CSComboBox  fx:id="cbClientCategory" emptySelectionText="SVE KATEGORIJE" initFactory="true" factoryMethodName="Name" prefWidth="$comboBoxWidth" />
+                           <Label text="Zbirna šifra:" minWidth="60" />
+                           <CSTextField fx:id="tfParentId" maxWidth="50" disable="true" alignment="CENTER_RIGHT" />
+		                   <Label text="Referent:" minWidth="45"/>
+		                   <CSTextField fx:id="tfSalesOfficerName" disable="true" />
+		               </componentBarItems>
+	               </CSTable>
+	               <HBox alignment="CENTER_LEFT">
+	                   <HBox styleClass="box-with-border" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+	                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                       <Label text="Valuta" />
+	                       <CSTextField fx:id="tfDelayedPaymentDays" prefWidth="30" disable="true" />
+	                       <Label text="Limit(€)" />
+	                       <CSTextField fx:id="tfLimitEur" validationType="MONEY" prefWidth="70" disable="true" />
+	                       <Label text="Zaduženje(€)" />
+	                       <CSTextField fx:id="tfAccountBalance" validationType="MONEY" prefWidth="70" disable="true" />
+	                       <Label text="Pano" />
+	                       <CSTextField fx:id="tfPanelsGiven" validationType="NUMBER_ONLY" prefWidth="30" disable="true" />
+	                       <CheckBox fx:id="ckbIsVat" text="U PDV" disable="true" />
+	                       <Label text="Ugovor" />
+	                       <CSTextField fx:id="tfContractNumber" prefWidth="50" disable="true" />
+	                       <!--
+	                       <Label text="Sklopljen" />
+	                       <CSTextField fx:id="tfContractValidFrom" prefWidth="65" disable="true" />
+	                       <Label text="Do" />
+	                       <CSTextField fx:id="tfContractValidTo" prefWidth="65" disable="true" />
+	                       -->
+	                       <Label text="Menica" />
+	                       <CSTextField fx:id="tfBillOFExchangeNumber" prefWidth="70" disable="true" />
+	                       <Label text="Vrednost" />
+	                       <CSTextField fx:id="tfBillOFExchangeValue" validationType="MONEY" prefWidth="70" disable="true" />
+	                   </HBox>
+	                   <HBox styleClass="box-with-border" alignment="CENTER_RIGHT">
+	                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+			               <Button prefWidth="105" text="Popusti" fx:id="btnDiscount">
+	                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-percent" iconColor="GREEN" /></graphic>
+	                       </Button>
+	                       <!-- TESTIRANJE CUSTOM FIUNKCIONALNOST KROZ TEST DUGME
+			               <Button text="Test" fx:id="btnTest">
+	                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-percent" iconColor="RED" /></graphic>
+	                       </Button>
+	                       -->
+	                   </HBox>
+                   </HBox>
+		           <GridPane hgap="5" vgap="5" styleClass="box-with-border">
+		               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		               <Button GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="130" text="%clientsform.button1.text" fx:id="btnSalePlanner">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-book" iconColor="GREEN" /></graphic>
+		               </Button>
+		               <Button GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="130" text="%clientsform.button2.text" fx:id="btnWholesale">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-cart-plus" iconColor="RED" /></graphic>
+                           <!-- USER DATA ROLES, NOT FULLY COMPLETE IMPLEMENTATION
+                           <userData>
+				               <FXCollections fx:factory="observableArrayList" fx:id="lstUserAccessRole">
+				                   <CSUserRole value="ROLE1"/>
+				                   <CSUserRole value="ROLE2"/>
+				               </FXCollections>
+				           </userData>
+				           -->
+                       </Button>
+		               <Button GridPane.rowIndex="0" GridPane.columnIndex="2" prefWidth="130" text="Ponuda" fx:id="btnOffer">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-chat-square-text" iconColor="BLUE" /></graphic>
+                       </Button>
+		               <Button fx:id="btnItems" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="130" text="Izbor artikala">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-shape-outline" iconColor="GREEN" /></graphic>
+                       </Button>
+                       <Button fx:id="btnDomPricelist" GridPane.rowIndex="0" GridPane.columnIndex="4" prefWidth="130" text="DOM">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-reply-fill" iconColor="GREEN" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="0" GridPane.columnIndex="5" prefWidth="130" text="Predračun" fx:id="btnPreinvoice">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2v-vote-outline" iconColor="DARKORANGE" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="0" GridPane.columnIndex="6" prefWidth="130" text="%clientsform.button7.text" fx:id="btnPhotograph">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-card-image" iconColor="BLACK" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="0" GridPane.columnIndex="7" prefWidth="130" text="%clientsform.button8.text" fx:id="btnPerCommercialist">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-printer" iconColor="BLUE" /></graphic>
+                       </Button>
+                       <Button fx:id="btnGoodsIn" GridPane.rowIndex="0" GridPane.columnIndex="8" prefWidth="130" text="Ulaz Robe">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-box-arrow-in-down" iconColor="GREEN" /></graphic>
+                       </Button>
+                       
+		               <Button GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="130" text="%clientsform.button9.text" fx:id="btnWorkplan">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-calendar-check" iconColor="BLUE" /></graphic>
+                       </Button>
+                       <Button fx:id="btnSaleStore" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="130" text="Prodavnice">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-shop-window" iconColor="DARKRED" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="1" GridPane.columnIndex="2" prefWidth="130" text="K.otpremnice" fx:id="btnCommissionTransferOrder"> <!-- %clientsform.button10.text -->
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-reply" iconColor="GREEN" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="1" GridPane.columnIndex="3" prefWidth="130" text="K.računi" fx:id="btnCommissionBill"> <!-- %clientsform.button11.text -->
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-card-heading" iconColor="BLACK" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="1" GridPane.columnIndex="4" prefWidth="130" text="%clientsform.button12.text" fx:id="btnRevers">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-arrow-bar-left" iconColor="GREEN" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="1" GridPane.columnIndex="5" prefWidth="130" text="Rezervacija" fx:id="btnReservation">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-capslock" iconColor="RED" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="1" GridPane.columnIndex="6" prefWidth="130" text="%clientsform.button14.text" fx:id="btnWholesaleReturn">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-reply-all" iconColor="GREEN" /></graphic>
+                       </Button>
+		               <Button GridPane.rowIndex="1" GridPane.columnIndex="7" prefWidth="130" text="%clientsform.button15.text" fx:id="btnCard">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-calculator" iconColor="DARKRED" /></graphic>
+                       </Button>
+                       <Button fx:id="btnGoodsOut" GridPane.rowIndex="1" GridPane.columnIndex="8" prefWidth="130" text="Izlaz Robe">
+                           <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-box-arrow-up" iconColor="RED" /></graphic>
+                       </Button>
+		          </GridPane>
+                  <GridPane hgap="5" vgap="5" maxHeight="150">
+				      <columnConstraints>
+					      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="35.0" />
+					      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="35.0" />
+					      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" />
+					  </columnConstraints>
+                      <children>
+                          <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+                              <children>
+	                              <CSTable fx:id="tblDeliveryAddress" HBox.hgrow="ALWAYS"
+	                                  DTOName="DeliveryAddress"
+	                                  viewButtonVisible="false"
+	                                  addButtonVisible="false"
+	                                  deleteButtonVisible="false"  
+                                      topLabelText="%clientsform.addressTable.header.text">
+                                      <!--addEditControllerName="DeliveryAddressAddEdit">
+                                        <columnResizePolicy><CSTable fx:constant="LASTCOLUMN_RESIZE_POLICY"/></columnResizePolicy> -->
+                                      <tableColumns>
+                                          <CSTableColumn displayName="TIP" methodName="DeliveryAddressTypeName" width="65" />
+                                          <CSTableColumn displayName="MESTO" methodName="City" width="120" />
+                                          <CSTableColumn displayName="ADRESA" methodName="Address" width="130" />
+                                          <CSTableColumn displayName="ZEMLJA" methodName="CountryName" width="100" />
+                                      </tableColumns>
+	                              </CSTable> 
+                              </children>
+                          </HBox>
+                          <HBox GridPane.rowIndex="0" GridPane.columnIndex="1" >
+                              <children>
+                                  <CSTable fx:id="bankBillContractTable"
+                                      DTOName="Composite_BankBOFContract" 
+                                      HBox.hgrow="ALWAYS"
+                                      viewButtonVisible="false"
+                                      addButtonVisible="false"
+                                      deleteButtonVisible="false"
+                                      topLabelText="%clientsform.bankBillContractTable.header.text">
+                                      <!-- <columnResizePolicy><CSTable fx:constant="LASTCOLUMN_RESIZE_POLICY"/></columnResizePolicy> -->
+                                      <tableColumns>
+                                          <CSTableColumn displayName="TIP" methodName="ObjectType" />
+                                          <CSTableColumn displayName="VREDNOST" methodName="ObjectValue" width="300" />
+                                      </tableColumns> 
+                                  </CSTable>
+                              </children>
+                          </HBox>
+	                      <VBox styleClass="hb-header" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2" minHeight="150">
+		                      <HBox minHeight="$hBoxTextAreaHeaderHeight" alignment="CENTER">
+		                          <padding><Insets top="10" right="5" bottom="5" left="5"/></padding>
+		                          <HBox HBox.hgrow="ALWAYS" alignment="CENTER"><Label fx:id="lblClientNote" text="%label.note.text" styleClass="header-label"></Label></HBox>
+                                  <HBox HBox.hgrow="NEVER">
+                                      <Button fx:id="btnClientNoteEdit" maxHeight="10" styleClass="btnEdit">
+                                          <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2r-rhombus-outline"/></graphic>
+                                      </Button>
+		                          </HBox>
+		                      </HBox>
+		                      <HBox spacing="5"><TextArea fx:id="txtaClientNote" HBox.hgrow="ALWAYS" wrapText="true" editable="false" styleClass="red-text"/></HBox>
+	                      </VBox>
+                      </children>
+		          </GridPane>
+                  <GridPane hgap="5" vgap="5" maxHeight="150">
+                      <columnConstraints>
+                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="50.0" />
+                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="20.0" />
+                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="30.0" />
+                      </columnConstraints>
+                      <children>
+	                      <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+	                          <children>
+	                              <CSTable fx:id="tblClientContact"
+	                                  DTOName="ClientContact" 
+	                                  HBox.hgrow="ALWAYS"
+	                                  viewButtonVisible="false" 
+	                                  topLabelText="%clientsform.contactsTable.header.text">
+                                      <tableColumns>
+                                          <CSTableColumn displayName="TITULA" methodName="Title" width="70"/>
+                                          <CSTableColumn displayName="IME I PREZIME" methodName="Name" width="105"/>
+                                          <CSTableColumn displayName="MOBILNI" methodName="Mobile" width="90"/>
+                                          <CSTableColumn displayName="E-MAIL" methodName="Email" width="100"/>
+                                          <CSTableColumn displayName="NAPOMENA" methodName="Description" width="100"/>
+                                          <CSTableColumn displayName="TELEFON" methodName="Phone" width="90"/>
+                                      </tableColumns>
+                                      <componentBarItems>
+                                          <Button fx:id="btnContactsEmail" styleClass="btnTableCustomAction" disable="true">
+                                              <graphic><FontIcon styleClass="glyph" iconLiteral="bi-envelope" iconSize="16" /></graphic>
+                                          </Button>
+                                      </componentBarItems>
+                                  </CSTable>
+	                          </children>
+	                      </HBox>
+                          <VBox styleClass="hb-header" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1" minHeight="150">
+                              <HBox minHeight="$hBoxTextAreaHeaderHeight" alignment="CENTER">
+                                  <padding><Insets top="10" right="5" bottom="5" left="5"/></padding>
+                                  <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+                                      <Label fx:id="lblNameAndSurname" text="%label.namesurname.text" styleClass="header-label"></Label>
+                                  </HBox>
+                                  <HBox HBox.hgrow="NEVER">
+                                      <Button fx:id="btnContactNoteEdit" maxHeight="10" styleClass="btnEdit" disable="true">
+                                          <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2r-rhombus-outline"/></graphic>
+                                      </Button>
+                                  </HBox>
+                              </HBox>
+                              <HBox spacing="5"><TextArea fx:id="txtaContactNote" HBox.hgrow="ALWAYS" wrapText="true" editable="false" /></HBox>
+                          </VBox>
+                          <HBox GridPane.rowIndex="0" GridPane.columnIndex="2">
+                              <children>
+                                  <CSTable fx:id="tblSalePlanner"
+                                      DTOName="SalePlanner"
+                                      topLabelText="ROKOVNIK ZA KUPCA"
+                                      HBox.hgrow="ALWAYS"                                     
+                                      viewButtonVisible="false">
+                                      <!--  <columnResizePolicy><CSTable fx:constant="LASTCOLUMN_RESIZE_POLICY"/></columnResizePolicy> -->
+                                      <tableColumns>
+                                          <CSTableColumn displayName="DATUM I VREME" methodName="EventDate" width="120"/>
+                                          <CSTableColumn displayName="VRSTA OBAVEZE" methodName="SalePlannerTypeName" width="80"/>
+                                      </tableColumns>
+                                      <componentBarItems>
+                                          <Button fx:id="btnSalePlannerEdit" maxHeight="10" styleClass="btnTableCustomAction">
+                                               <graphic><FontIcon styleClass="glyph" iconLiteral="bi-book" iconSize="16"/></graphic>
+                                          </Button>
+                                      </componentBarItems>
+                                  </CSTable>
+                              </children>
+                          </HBox>
+                      </children>
+                  </GridPane>
+	          </children>
+        </VBox>
+    </children>        
+</AnchorPane>

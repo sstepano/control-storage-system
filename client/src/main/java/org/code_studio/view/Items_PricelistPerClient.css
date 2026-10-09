@@ -1,0 +1,7 @@
+#tfRMPrice, #tfRMSpecPrice {
+    -fx-border-color: -fx-base;
+}
+
+#tfRMPrice {
+    -fx-background-color: "SKYBLUE";	
+}

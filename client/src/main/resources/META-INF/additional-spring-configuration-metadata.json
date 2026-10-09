@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "ui.language",
+    "type": "java.lang.String",
+    "description": "A description for 'ui.language'"
+  },
+  {
+    "name": "ui.tabmode",
+    "type": "java.lang.String",
+    "description": "A description for 'ui.tabmode'"
+  },
+  {
+    "name": "spring.application.ui.title",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.application.ui.title'"
+  },
+  {
+    "name": "ui.table.autoselectfirstrow",
+    "type": "java.lang.String",
+    "description": "A description for 'ui.table.autoselectfirstrow'"
+  },
+  {
+    "name": "apiversion",
+    "type": "java.lang.String",
+    "description": "A description for 'apiversion'"
+  },
+  {
+    "name": "ui.mainwindow.maximizeonstart",
+    "type": "java.lang.String",
+    "description": "A description for 'ui.mainwindow.maximizeonstart'"
+  },
+  {
+    "name": "ui.mainwindow.resizable",
+    "type": "java.lang.String",
+    "description": "Defines whether main window is resizable by the user"
+  }
+]}

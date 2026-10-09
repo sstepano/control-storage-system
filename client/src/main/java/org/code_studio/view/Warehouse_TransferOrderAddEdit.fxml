@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Spinner?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSComboBox?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="textFieldWidth" fx:value="75" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="comboboxWidth" fx:value="200" />
+        <Integer fx:id="textareaHeight" fx:value="100" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="10">
+           <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+           <children>
+
+               <!-- UNOS -->
+	           <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+	               <HBox styleClass="box-header" alignment="CENTER">
+	                   <Label text="PRENOSNICA"></Label>
+	               </HBox>
+	               <VBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                      <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                       <children>
+	                           <Label text="Šifra prenosnice:"></Label>
+	                           <TextField fx:id="tfOrderId" prefWidth="$textFieldWidth" disable="true" text="AUTO"></TextField>
+	                       </children>
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                      <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                       <children>
+	                           <Label text="Broj knjige prenosnica:"></Label>
+	                           <TextField fx:id="tfTypeCode" prefWidth="$textFieldWidth" disable="true"></TextField>
+	                       </children>
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                      <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                       <children>
+	                           <Label text="Godina:"></Label>
+	                           <TextField fx:id="tfYear" prefWidth="$textFieldWidth" disable="true"></TextField>
+	                       </children>
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                        <Label text="Broj prenosnice:"></Label>
+	                        <TextField fx:id="tfNumber" prefWidth="$textFieldWidth" disable="true" text="AUTO" ></TextField>
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                        <Label text="Otvorena:"></Label>
+	                        <CSDatePicker fx:id="dtOpenedDate" defaultToday="true" disable="true" />
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                        <Label text="Iz magacina:"></Label>
+	                        <CSComboBox fx:id="cbWarehouseOrigin" prefWidth="$comboboxWidth" initFactory="true" factoryMethodName="Name" />
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                        <Label text="U magacin:"></Label>
+	                        <CSComboBox fx:id="cbWarehouseDestination" prefWidth="$comboboxWidth" initFactory="true" factoryMethodName="Name" />
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                        <Label text="Rok - datum:"></Label>
+	                        <CSDatePicker fx:id="dtDueDate" defaultToday="true" />
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+	                        <Label text="Napomena:"></Label>
+	                        <TextArea fx:id="taDescription" styleClass="blue-field" prefWidth="$longTextFieldWidth" prefHeight="$textareaHeight" wrapText="true" />
+	                   </HBox>
+	               </VBox>
+	           </VBox>
+
+               <!-- SAVE | CANCEL BUTTONS -->
+               <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                  <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <children>                    
+                      <Button fx:id="btnSave" text="%button.save.text">
+                          <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                      </Button>
+                      <Button fx:id="btnCancel" text="%button.cancel.text">
+                          <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                      </Button>
+                   </children>
+               </HBox>
+
+
+            </children>
+        </VBox>
+    </children>        
+</AnchorPane>

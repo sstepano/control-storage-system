@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="50" />
+        <Integer fx:id="textFieldWidth" fx:value="110" />
+        <Integer fx:id="longTextFieldWidth" fx:value="150" />
+        <Integer fx:id="shortDatePickerWidth" fx:value="75" />
+        <Integer fx:id="datePickerWidth" fx:value="110" />
+        <Integer fx:id="longComboBoxWidth" fx:value="230" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox>
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="STAVKA IZVODA"></Label>
+                            </HBox>
+                            
+                            <GridPane hgap="5" vgap="5">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <Label GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Šifra izvoda" />
+                                <CSTextField fx:id="tfBankStatementId" validationType="NUMBER_ONLY" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" maxWidth="$shortTextFieldWidth" />
+                                
+                                <Label GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Račun" />
+                                <CSTextField fx:id="tfAccountId" validationType="NUMBER_ONLY" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" maxWidth="$shortTextFieldWidth" />
+
+                                <Label GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Broj izvoda" />
+                                <CSTextField fx:id="tfBankStatementNumber" alignment="CENTER_RIGHT" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$shortTextFieldWidth" disable="true" text="AUTO" />
+
+                                <Label GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Datum izvoda" />
+                                <CSDatePicker fx:id="dtBankStatementDate" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$datePickerWidth" disable="true"/>
+                                
+                                <Label GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Račun uplatioca" />
+                                <HBox  GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.Halignment="LEFT" GridPane.hgrow="ALWAYS">
+                                    <CSTextField fx:id="tfClientAccountNumber" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.Halignment="LEFT" prefWidth="$longTextFieldWidth" disable="true" />
+                                    <Button fx:id="btnClientBankAccountChoose" text="Računi" maxWidth="85">
+                                        <graphic><Glyph styleClass="glyph" icon="MALE" textFill="black"/></graphic>
+                                    </Button>
+                                </HBox>
+
+                                <Label GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Valuta uplate" />
+                                <CSDatePicker fx:id="dtValueDate" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.Halignment="LEFT" defaultToday="true" maxWidth="$datePickerWidth" />
+                                
+                                <Label GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Iznos uplate" />
+                                <CSTextField fx:id="tfPaymentAmt" validationType="MONEY" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$textFieldWidth" />
+                            </GridPane>
+                        </VBox>
+                       
+                        <!-- SAVE | CANCEL BUTTONS -->
+                        <HBox alignment="BOTTOM_RIGHT">
+                           <padding><Insets top="5" right="5" bottom="15" left="5"/></padding>
+                            <children>                    
+                               <Button fx:id="btnSave" text="%button.save.text" styleClass="btnOK" disable="true">
+                                   <graphic><Glyph styleClass="glyph" icon="CHECK" textFill="LIME"/></graphic>
+                               </Button>
+                               <Button fx:id="btnCancel" text="%button.cancel.text" styleClass="btnCancel">
+                                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="MAROON"/></graphic>
+                               </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

@@ -1,0 +1,490 @@
+/* ********************************************************************** *
+ * DEFINICIJA CUSTOM FONTA ZA CELU APP
+ * ********************************************************************** */
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../../../NotoSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Merriweather Sans ExtraBold';
+    src: url('../../../MerriweatherSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Merriweather Sans Bold';
+    src: url('../../../MerriweatherSans-Bold.ttf');
+}
+
+/* ********************************************************************** *
+ * OSNOVA ZA SKINNING, OVE PROMENLJIVE SE KORISTE KROZ CELU APLIKACIJU
+ * ********************************************************************** */
+* {
+    /* -gk-base: rgb(198, 195, 164); */  /*** opcije: DarkGray, Tan, Wheat, ***/
+    -gk-base: LightGray;
+    -gk-background: derive(-gk-base, 50%);
+    -gk-accent: #005797;
+    -gk-highlight: #afc5d6;
+    -gk-border-color: GREY;
+    -gk-focus-color: ORANGE;
+    -gk-focused-text-base-color: WHITE;
+    -gk-table-cell-border: rgb(61,61,61);
+    -gk-ok-button-background-color: DEEPSKYBLUE; /* rgb(0, 191, 255, 0.1); */
+    -gk-cancel-button-background-color: ORANGERED;
+    -gk-add-button-background-color: MEDIUMSEAGREEN;
+    -gk-view-button-background-color: SKYBLUE;
+    -gk-edit-button-background-color: ORANGE;
+    -gk-delete-button-background-color: ORANGERED;
+    -gk-refresh-button-background-color: #4682b4; /* STEEL BLUE */
+    -gk-custom-button-background-color: #00bfff;
+    -gk-table-cell-height: 16px; /* mora da se ide u inkrementima od 4px, u suprotnom se javljaju zadebljanja na hroziontalnim borderima redova */
+}
+
+.root {
+    /*-fx-font-family: "Courier";*/
+    -fx-font-family: "Merriweather Sans Bold";
+    /*-fx-font-family: 'Segoe UI';*/
+    -fx-font-size: 0.8em;
+    /*-fx-font-weight: bold;*/
+    -fx-base: -gk-base;
+    -fx-background: -gk-background;
+    -fx-accent: -gk-accent;
+    -fx-focus-color: -gk-focus-color;
+    -fx-faint-focus-color: TRANSPARENT;
+    -fx-control-inner-background: derive(-gk-base, 25%);
+    -fx-focused-text-base-color: -gk-focused-text-base-color;
+}
+
+.root-small-screen {
+    -fx-font-size: 0.8em;
+}
+/* ********************************************************************** */
+
+HBox, VBox, GridPane {
+    -fx-spacing: 5px;
+}
+
+/* ************************* SPINNER  ************************* */
+.spinner .increment-arrow-button { 
+    -fx-padding: 1 2 1 2; /*caspian.css values are 4 8 4 8 */
+}
+.spinner .decrement-arrow-button {    
+    -fx-padding: 1 2 1 2; /*caspian.css values are 3 8 6 8 */
+}
+
+.box-no-spacing {
+    -fx-spacing: 0px;
+}
+
+.box-spacing-5 {
+    -fx-spacing: 5px;
+}
+
+.box-spacing-10 {
+    -fx-spacing: 10px;
+}
+
+.box-spacing-20 {
+    -fx-spacing: 20px;
+}
+
+.box-padding-5 {
+    -fx-padding: 5px;
+}
+
+
+/** SCROLLBAR **/
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color :transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+
+
+.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 0.0 10.0 0.0;
+
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+
+ .scroll-bar .increment-arrow,
+ .scroll-bar .decrement-arrow{
+    -fx-shape : " ";    
+    -fx-padding :0.15em 0.0;
+}
+
+ .scroll-bar:vertical .increment-arrow,
+ .scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";    
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color :derive(#4D4C4F,10.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+/** SCROLLBAR END **/ 
+
+
+/**
+ * KORISTI SE ZA IKONE NA GLAVNOM MENIJU
+ */
+.menu-item .label {
+    -fx-text-fill: -fx-text-base-color;
+}
+.menu-item:focused > .label {
+    -fx-text-fill: -fx-focused-text-base-color;
+}
+
+.text-input:disabled, .date-picker:disabled, .combo-box:disabled, .combo-box:disabled > *, .radio-button:disabled, .label:disabled, .check-box:disabled {
+    -fx-opacity: 0.85;
+}
+
+/*
+.text-area .content {
+    border-color: transparent;
+    -fx-border-color: transparent;
+}
+*/
+
+/* KORISTI SE ZA LOOKUP LABELE, DA OTVORE LOOKUP TABELE NA KLIK */
+.lookup:hover {
+    -fx-font-weight: BOLD;
+    -fx-text-fill: -fx-focus-color;
+    -fx-cursor: hand;
+}
+
+
+.hb-header {
+    -fx-border-width: 1px;
+    -fx-border-color: -gk-border-color;
+    -fx-background-color: -fx-base;
+}
+
+.box-with-border {
+    -fx-border: 1px;
+    -fx-border-color: -gk-border-color;
+}
+
+.box-header {
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-color: -gk-border-color;
+    -fx-background-color: -fx-base;
+}
+
+.box-header-top-border {
+    -fx-border-width: 1px 0px 1px 0px;
+}
+
+.box-header-no-border {
+    -fx-border-width: 0px 0px 0px 0px;
+}
+
+
+.header-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+}
+
+/* APP BACKGROUND */
+.tab-base {
+  -fx-background-image: url("../../../app-bg.jpg");
+  -fx-background-size: cover;
+}
+
+/* Pozadina iza napravljenih tab headera */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: derive(-gk-base, 25%);
+}
+
+.tab .tab-close-button {
+    -fx-background-color: RED;
+    -fx-scale-shape: true;
+}
+
+
+.blue-field {
+    -fx-text-fill: "WHITE";
+    -fx-opacity: 1.0;
+}
+
+.blue-field .content, .blue-field {
+    -fx-background-color: "BLUE";
+}
+
+.blue-field-large-text {
+    -fx-text-fill: "WHITE";
+    -fx-opacity: 1.0;
+    -fx-font-size: 1.3em;
+}
+
+.blue-field-large-text .content, .blue-field {
+    -fx-background-color: "BLUE";
+}
+
+.red-field {
+    -fx-text-fill: "LIGHTYELLOW";
+    -fx-opacity: 1.0;
+}
+
+.red-field .content, .red-field {
+    -fx-background-color: "RED";
+}
+
+.red-field-large-text, .red-field-large-text .content {
+    -fx-text-fill: "LIGHTYELLOW";
+    -fx-opacity: 1.0;
+    -fx-font-size: 1.3em;
+    -fx-background-color: "RED";
+}
+
+.darkblue-background, .darkblue-background > .label {
+    -fx-background-color: "DARKBLUE";
+    -fx-text-fill: "WHITE";
+}
+
+.red-background {
+    -fx-background-color: "TOMATO";
+}
+
+.khaki-background {
+    -fx-background-color: "KHAKI";
+}
+
+.darkkhaki-background {
+    -fx-background-color: "DARKKHAKI";
+}
+
+.lightgreen-background {
+    -fx-background-color: "LIGHTGREEN";
+}
+
+.lightblue-background {
+    -fx-background-color: "LIGHTBLUE";
+}
+
+.blanche-background {
+    -fx-background-color: rgb(255, 235, 205);
+}
+
+.yellow-background {
+    -fx-background-color: "YELLOW";
+}
+
+.gold-background {
+    -fx-background-color: "GOLD";
+}
+
+.red-text {
+    -fx-text-fill: "RED";
+}
+
+.green-text {
+    -fx-text-fill: "GREEN";
+}
+
+.blue-text {
+    -fx-text-fill: "BLUE";
+}
+
+.black-text {
+    -fx-text-fill: "BLACK";
+}
+/*********************************************
+ * OVO JOS MORAM DA ISTRAZIM KAKO BIH DODAO
+ * STILOVE ZA OK I CANCEL BUTTONS
+ *********************************************/ 
+.btnOK {
+    -fx-background-color: -gk-border-color, -gk-ok-button-background-color;
+    /*-fx-text-fill: GHOSTWHITE;*/
+    -fx-background-radius: 3;
+    -fx-background-insets: 0, 0.75;
+}
+
+.btnOK:hover {
+    -fx-background-color: derive(-gk-ok-button-background-color, 25%);
+    -fx-text-fill: -gk-focused-text-base-color;
+}
+
+.btnCancel {
+    -fx-background-color: -gk-border-color, -gk-cancel-button-background-color;
+    /*-fx-text-fill: GHOSTWHITE;*/
+    -fx-background-radius: 3;
+    -fx-background-insets: 0, 0.75;
+}
+
+.btnCancel:hover {
+    -fx-background-color: derive(-gk-cancel-button-background-color, 25%);
+    -fx-text-fill: -gk-focused-text-base-color;
+}
+
+.btnEdit {
+    -fx-background-radius: 3;
+    -fx-background-insets: 0, 0.75;
+    -fx-background-color: -gk-border-color, -gk-edit-button-background-color;
+}
+
+.btnEdit:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-edit-button-background-color, 25%);
+}
+
+.btnView {
+    -fx-background-color: -gk-border-color, -gk-view-button-background-color;
+}
+
+.btnView:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-view-button-background-color, 25%);
+}
+
+.sunken-label {
+     -fx-background-color: derive(-gk-background, 0.75),
+                           linear-gradient(to bottom, -gk-base 0%, -gk-background 25%);
+     -fx-background-insets: 0,1;
+     -fx-padding: 4px;
+     -fx-background-radius: 3px;
+     -fx-border-radius: 3px;
+     -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.25),1,0,1,1);
+ }
+ 
+ .btnTableCustomAction {
+    -fx-background-radius: 3;
+    -fx-background-insets: 0, 0.75;
+    -fx-background-color: -gk-border-color, -gk-custom-button-background-color;
+}
+
+.btnTableCustomAction:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-custom-button-background-color, 25%);
+}
+
+.value-date-picker {
+    -fx-control-inner-background: RED ;
+}
+
+
+/***********************************
+  CUSTOM FONTS AND COLOR CLASSES
+ **********************************/
+
+.font-size-07em {
+	-fx-font-size: 0.7em;
+}
+
+.font-size-08em {
+	-fx-font-size: 0.8em;
+}
+
+.font-size-09em {
+	-fx-font-size: 0.9em;
+}
+
+.font-size-1em {
+	-fx-font-size: 1.0em;
+}
+
+.bold {
+	-fx-font-weight: BOLD;
+}
+
+.font-color-red {
+	-fx-text-fill: red;
+}
+
+/***********************************
+  CUSTOM PADDING
+ **********************************/
+.padding-5px {
+	-fx-padding: 5px;
+}
+
+.padding-0px {
+	-fx-padding: 0px;
+}
+
+
+.glyph {
+	-fx-font-size: 13px;
+	-fx-font-family: "FontAwesome";
+	-fx-min-width: 0.85em;
+}
+
+.glyph-ikonli {
+	-fx-font-size: 14px;
+	/*
+		-fx-icon-code   
+		An icon literal such as di-java or fa-github.
+		
+		-fx-icon-size   
+		The size of the icon, in pixels.
+		
+		-fx-icon-color  
+		A JavaFX Paint definition, such as a plain color or gradient.
+	*/
+}
+
+/* COMBOBOX odd-even, requested by B on 2023-09-08 */
+.combo-box .list-cell:odd{
+    /*-fx-background-color: derive(-gk-background, -10%);  minus ide tamnije, + svetlije*/
+    -fx-background-color: -fx-focus-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    /* -fx-background-insets: -0.2; */
+    -fx-background-insets: 3;
+
+}
+
+.combo-box .list-cell:hover{
+    -fx-background-color: -gk-accent;
+    -fx-text-fill: -gk-focused-text-base-color;
+}
+
+/* used mainly in CSTable, where we have its separate class, here we use it just to be consistent in the app*/
+.btnAdd {
+    -fx-background-color: -gk-border-color, -gk-add-button-background-color;
+}
+
+.validation-error {
+	-fx-border-color: RED;
+	-fx-border-width: 0.1em;
+	-fx-border-radius: 3; 
+}
+
+.progress-bar > .track {
+  -fx-text-box-border: forestgreen;
+  -fx-control-inner-background: palegreen;
+}
+/*********************************************/
+
+
+/*
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {-fx-border-color: red}
+
+.tab-pane *.tab-header-area *.tab-header-background {
+  -fx-background-color: yellow;
+}
+
+.tab-pane {
+  -fx-tab-min-width:120px;
+  -fx-tab-max-width:120px;
+  -fx-tab-min-height:50px;
+  -fx-tab-max-height:50px;
+}
+*/

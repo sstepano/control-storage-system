@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+
+<AnchorPane
+    prefWidth="1024"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css"
+    fx:controller="org.code_studio.controller.Dobanovci_InternalBillOfLadingController">
+    
+    <fx:define>
+        <Integer fx:id="glyphFontSize" fx:value="24" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="longButtonWidth" fx:value="170" />
+    </fx:define>    
+    
+    <children>
+        <VBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0"
+            spacing="5"
+            >
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <HBox spacing="5">
+                <CSTable fx:id="tblBillOfLading"
+                    HBox.hgrow="ALWAYS"
+                    DTOName="ItemSet"  
+                    topLabelText="INTERNE PRENOSNICE"
+                    addButtonVisible="true"
+                    viewButtonVisible="false"
+                    editButtonVisible="true"
+                    deleteButtonVisible="false">
+                    <componentBarItems>
+                        <!--
+                        <Label text="Filter:" />
+                        <ComboBox fx:id="cbOrderFilter" />
+                        -->
+                    </componentBarItems>
+                    <tableColumns>
+                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+                    </tableColumns>
+                </CSTable>
+                <TextArea styleClass="blue-field" wrapText="true" prefWidth="100"/>
+            </HBox>
+            <HBox>
+                <CSTable fx:id="tblBillOfLadingDetail"
+                    HBox.hgrow="ALWAYS"
+                    DTOName="ItemSet" 
+                    topLabelText="ARTIKLI"
+                    addButtonVisible="true"
+                    viewButtonVisible="false"
+                    editButtonVisible="true"
+                    deleteButtonVisible="true">
+                    <tableColumns>
+                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+                    </tableColumns>
+                </CSTable>
+	        </HBox>
+	        <HBox spacing="5" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <Button fx:id="btnAddDetail" prefWidth="$buttonWidth" text="Unos">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <!--
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Štampa">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                -->
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Overa">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <Button fx:id="btn1"  text="Prenosnica">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Deklaracija artikla">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Otpremnica">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <CheckBox text="Pečat"/>                
+                <Button fx:id="btn1" prefWidth="$longButtonWidth" text="Kopiraj za prijem (garaza)">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+	        </HBox>
+        </VBox>
+    </children>        
+</AnchorPane>

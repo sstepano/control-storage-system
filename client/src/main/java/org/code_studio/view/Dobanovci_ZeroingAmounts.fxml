@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+
+<AnchorPane
+    prefWidth="1024"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css"
+    fx:controller="org.code_studio.controller.Dobanovci_ZeroingAmountsController">
+    
+    <fx:define>
+        <Integer fx:id="glyphFontSize" fx:value="24" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="longButtonWidth" fx:value="170" />
+    </fx:define>    
+    
+    <children>
+        <HBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0"
+            spacing="5">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            
+            <VBox>
+                <VBox styleClass="box-with-border">
+                    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		            <HBox spacing="5">
+		                <Label text="Šifra magacina"/>
+		                <TextField />
+		                <TextField text="0" disable="true"/>
+		            </HBox>
+		            
+	                <Label text="Ako je količina 0, anuliraju se polja ŠTAMPANO i POTROŠENO" />
+                </VBox>
+	
+	            <!-- SAVE/CANCEL BUTTONS -->
+	            <HBox spacing="5" alignment="CENTER_RIGHT">
+	               
+	                <children>                    
+	                   <Button fx:id="btnSave" text="%button.save.text">
+	                       <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+	                   </Button>
+	                   <Button fx:id="btnCancel" text="%button.cancel.text">
+	                       <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+	                   </Button>
+	                </children>
+	            </HBox>
+            </VBox>
+
+        </HBox>
+    </children>        
+</AnchorPane>

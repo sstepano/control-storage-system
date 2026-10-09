@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.ui.CSItemTable?>
+<?import org.code_studio.component.CSPhotoView?>
+
+<AnchorPane
+    prefWidth="1000"
+    prefHeight="700"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="textFieldWidth" fx:value="75" />
+        <Integer fx:id="datePickerWidth" fx:value="105" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="smallTableHeight" fx:value="250" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+           <children>
+                    
+	           <HBox spacing="5" styleClass="box-with-border" VBox.vgrow="ALWAYS">
+	           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		           <VBox HBox.hgrow="ALWAYS">
+		               <HBox spacing="5" alignment="CENTER_RIGHT">
+
+		                   <Label text="Ukupno naručeno:"></Label>
+		                   <TextField fx:id="tfTotalOrderedQty" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+		               </HBox>
+		               <HBox spacing="5" alignment="CENTER_RIGHT">
+		                   <Label text="Ukupno isporučeno:"></Label>
+		                   <TextField fx:id="tfTotalDeliveredQty" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+		               </HBox>
+		               <HBox spacing="5" alignment="CENTER_RIGHT">
+		                   <Label text="Ukupne zalihe:"></Label>
+		                   <TextField fx:id="tfAvailableQty" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+		               </HBox>
+                       <HBox spacing="5" alignment="CENTER_RIGHT">
+                           <Label text="Grupa:"></Label>
+                           <TextField fx:id="tfGroupName" prefWidth="$longTextFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+                       </HBox>
+		           </VBox>
+		           <VBox HBox.hgrow="ALWAYS">
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <Label text="Šifra carinske tarife:"></Label>
+	                       <TextField fx:id="tfCustomsTariffId" prefWidth="$longTextFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+	                   </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <Label text="Poreska stopa:"></Label>
+	                       <TextField fx:id="tfVAT" prefWidth="$longTextFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+                       </HBox>
+	                   <HBox spacing="5" alignment="CENTER_RIGHT">
+	                       <Label text="Napomena:"></Label>
+	                       <TextField fx:id="tfNameEng" prefWidth="$longTextFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>	                           
+	                   </HBox>
+                       <HBox spacing="5" alignment="CENTER_RIGHT">
+                           <Label text="Podgrupa:"></Label>
+                           <TextField fx:id="tfSubgroupName" prefWidth="$longTextFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+                       </HBox>
+		           </VBox>
+		           
+		           <!-- PHOTO
+                   <VBox styleClass="box-with-border" prefWidth="200">
+	                   <HBox styleClass="box-header" alignment="CENTER">
+	                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                       <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+	                           <Label styleClass="header-label" text="%label.photograph.text"></Label>
+	                       </HBox>
+	                       <HBox HBox.hgrow="NEVER">
+	                           <Button fx:id="btnPhotoView" maxHeight="10">
+	                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2e-eye-outline"/></graphic>
+	                           </Button>
+	                       </HBox>
+	                   </HBox>
+	                   <HBox spacing="5"><TextArea fx:id="txtaDummyPhoto" HBox.hgrow="ALWAYS" wrapText="true" editable="false"/></HBox>
+                   </VBox>
+                   -->
+	           </HBox>
+                    
+               <!-- MAIN TABLE -->
+               <HBox VBox.vgrow="ALWAYS">
+                   <CSItemTable
+                       fx:id="tblItem"
+                       mode="2"
+                       addButtonVisible="true"
+                       HBox.hgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                           <CSTableColumn displayName="KOD" methodName="Code" />
+                           <CSTableColumn displayName="NAZIV" methodName="Name" />
+                           <CSTableColumn displayName="RM-D SPEC" methodName="GrossPriceRmD" />
+                           <CSTableColumn displayName="DIS NETO SPEC" methodName="NetPriceRmD" />
+                           <CSTableColumn displayName="DIS BRUTO SPEC" methodName="GrossPriceD" />
+                           <CSTableColumn displayName="NETO-D SPEC" methodName="NetPriceDFak" />
+                           <CSTableColumn displayName="BRUTO-D SPEC" methodName="GrossPriceDFak" />
+                       </tableColumns> 
+                   </CSItemTable>
+                   <CSPhotoView fx:id="pvImage" />
+               </HBox>
+               
+               <!-- THIRD PART -->
+               <HBox VBox.vgrow="ALWAYS" prefHeight="600" spacing="5">
+                   <!-- LEVI -->
+                   <VBox spacing="5" HBox.hgrow="ALWAYS" prefWidth="300">
+                       <!-- GORNJI -->
+                       <HBox spacing="5">
+                               <CSTable
+                                   fx:id="tblItemWarehouse"
+                                   DTOName="ItemWarehouse" 
+                                   HBox.hgrow="SOMETIMES"
+			                       topLabelText="MAGACIN"
+			                       addButtonVisible="false"
+			                       viewButtonVisible="false"
+			                       editButtonVisible="false"
+			                       deleteButtonVisible="false"
+			                       maxWidth="250">
+                                   <tableColumns>
+                                       <!-- <CSTableColumn displayName="MAGACIN" methodName="WarehouseName" width="50"/> -->
+                                       <CSTableColumn displayName="ŠIF.MAG." methodName="Id" width="50" tooltip="Šifra magacina" />
+                                       <CSTableColumn displayName="SLOB." methodName="AvailableQty" tooltip="Slobodna kolicina za prodaju"/>
+                                       <CSTableColumn displayName="REZ." methodName="ReservedQty" tooltip="Rezervisana kolicina"/>
+		                               <CSTableColumn displayName="RED" methodName="RowId" width="30" />
+		                               <CSTableColumn displayName="DUBINA" methodName="ShelfId" />
+		                               <CSTableColumn displayName="VISINA" methodName="VerticalId" />
+                                   </tableColumns>
+		                       </CSTable>
+                               <CSTable
+                                   fx:id="tblItemPrice"
+                                   DTOName="Item" 
+                                   HBox.hgrow="SOMETIMES"
+                                   topLabelText="CENE"
+                                   addButtonVisible="false"
+                                   viewButtonVisible="false"
+                                   editButtonVisible="false"
+                                   deleteButtonVisible="false"
+                                   prefWidth="220">
+	                               <tableColumns>
+			                           <CSTableColumn displayName="CENA" methodName="GrossPriceRmD" />
+			                           <CSTableColumn displayName="SPEC" methodName="NetPriceRmD" />
+			                           <CSTableColumn displayName="MIN Q." methodName="GrossPriceD" />
+	                               </tableColumns>
+                               </CSTable>
+                       </HBox>
+                       
+                       <!-- DONJI -->
+                       <HBox>
+							<CSTable HBox.hgrow="SOMETIMES" 
+							    fx:id="tblPreviousOrders"
+							    DTOName="OrdersDetail"
+							    topLabelText="ORDERI"
+							    addButtonVisible="false"
+							    viewButtonVisible="false"
+							    editButtonVisible="false"
+							    deleteButtonVisible="false">
+	                            <tableColumns>
+		                            <CSTableColumn displayName="ŠIF.ORD." methodName="Id" />
+		                            <CSTableColumn displayName="DATUM ORD." methodName="OrderDate" />
+		                            <CSTableColumn displayName="ISP.KOL." methodName="DeliveredQty" />
+		                            <CSTableColumn displayName="CENA" methodName="Price" />
+		                            <CSTableColumn displayName="DATUM PRIJEMA" methodName="OrderReceiveDate" />
+	                            </tableColumns>
+							</CSTable>
+                       </HBox>
+                   </VBox>
+                   
+                   <!-- DESNI -->
+                   <VBox spacing="5" HBox.hgrow="NEVER">
+                       <!-- GORNJI -->
+                       <VBox styleClass="box-with-border">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                       <HBox spacing="5" alignment="CENTER_LEFT">
+	                           <Label text="Pun naziv dobavljača:"></Label>
+	                           <TextField fx:id="tfFullSupplierName" HBox.hgrow="ALWAYS" disable="true" alignment="CENTER_LEFT"></TextField>
+	                       </HBox>
+	                       <HBox spacing="5" alignment="CENTER_LEFT"> 
+	                           <Label text="Poštanski Broj:"></Label>
+	                           <TextField fx:id="tfPOBox" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+	                           <Label text="Mesto:"></Label>
+	                           <TextField fx:id="tfCity" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+	                           <Label text="Adresa:"></Label>
+	                           <TextField fx:id="tfAddress" prefWidth="$longTextFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+	                       </HBox>                       
+	                       <HBox spacing="5" alignment="CENTER_LEFT"> 
+	                           <Label text="Broj ordera:"></Label>
+	                           <TextField fx:id="tfSupplierOrderId" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+	                           <Label text="Godina:"></Label>
+	                           <TextField fx:id="tfBottomOrderId" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+	                           <Label text="/"></Label>
+	                           <TextField fx:id="tfYear" prefWidth="$textFieldWidth" disable="true" alignment="CENTER_RIGHT"></TextField>
+	                           <Label text="Datum:"></Label>
+	                           <CSDatePicker fx:id="dtOrderOpenDate" prefWidth="$datePickerWidth" disable="true" />
+	                       </HBox>
+                       </VBox>
+                       <!-- DONJI -->
+                       <HBox>
+                            <CSTable HBox.hgrow="SOMETIMES"
+                                fx:id="tblOrdersDetailFxml"
+                                DTOName="OrdersDetail"
+                                topLabelText="STAVKE ORDERA"
+                                addButtonVisible="false"
+                                viewButtonVisible="false"
+                                editButtonVisible="false"
+                                deleteButtonVisible="false"
+                                prefWidth="300">
+			                    <tableColumns>
+			                        <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+			                        <CSTableColumn displayName="ŠIFRA ARTIKLA" methodName="ItemCode" />
+			                        <!-- <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="300"/> -->
+			                        <CSTableColumn displayName="CENA" methodName="PurchasePrice" />
+			                        <CSTableColumn displayName="MIN.KOL." methodName="MinimumQty" />
+			                        <CSTableColumn displayName="SPEC" methodName="PurchasePriceSpec" />
+			                        <CSTableColumn displayName="PRICE" methodName="Price" />
+			                        <CSTableColumn displayName="ISP.KOL." methodName="DeliveredQty" />
+			                                                
+			                        <CSTableColumn displayName="VREDNOST" methodName="DeliveredQty" />
+			                        <CSTableColumn displayName="UKUPNO" methodName="DeliveredQty" />
+			                    </tableColumns>
+                            </CSTable>
+                       </HBox>
+                   </VBox>
+               </HBox>
+               
+
+               <!-- SAVE | CANCEL BUTTONS -->
+               <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                  <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                 	<!-- SAMO dugme zatvori. User vec na formi dodaje akrtikle gde se odmah snimaju.                    
+                    <Button fx:id="btnSave" text="%button.save.text">
+                        <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                    </Button>
+                    -->
+                    <Button fx:id="btnCancel" text="%button.close.text">
+                        <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                    </Button>
+               </HBox>
+
+
+            </children>
+        </VBox>
+    </children>        
+</AnchorPane>

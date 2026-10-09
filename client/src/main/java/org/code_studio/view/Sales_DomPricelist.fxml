@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="75" />
+        <Integer fx:id="textFieldWidth" fx:value="160" />
+        <Integer fx:id="longTextFieldWidth" fx:value="300" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+    </fx:define>
+    
+    <children>
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor ="0">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <Label text="Šifra klijenta" />
+                <CSTextField prefWidth="${shortTextFieldWidth}" disable="true"/>
+                
+                <Label text="Naziv klijenta" />
+                <CSTextField prefWidth="${longTextFieldWidth}" disable="true"/>
+            </HBox>
+            <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <Label text="Podrazumevana količina" />
+                <CSTextField prefWidth="${shortTextFieldWidth}" />
+                <Button fx:id="" text="Preuzmi cenovnik" prefWidth="${buttonWidth}">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+                </Button>
+                <Button fx:id="" text="Provera zaliha" prefWidth="${buttonWidth}">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+                </Button>
+                <Button fx:id="" text="Pregled rezervacija" prefWidth="${buttonWidth}">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+                </Button>
+                <Button fx:id="" text="Štampa" prefWidth="${buttonWidth}">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+                </Button>
+            </HBox>
+
+            <CSTable fx:id="mainTable"
+                topLabelText="ARTIKLI"
+                DTOName="VatGroup" 
+                topSectionVisible="true" 
+                topLabelVisible="true"
+                searchVisible="false"
+                searchTooltipText=""
+                addButtonVisible="false"
+                editButtonVisible="false"
+                viewButtonVisible="false"
+                deleteButtonVisible="false" 
+                VBox.vgrow="ALWAYS">
+                <tableColumns>
+                    <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                </tableColumns>                   
+            </CSTable>
+            
+            <HBox styleClass="box-with-border">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                
+                <VBox styleClass="box-with-border">
+                    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                    <HBox alignment="CENTER_RIGHT">
+                        <Label text="Stavki" />
+                        <CSTextField prefWidth="${textFieldWidth}" />
+                    </HBox>
+                    <HBox alignment="CENTER_RIGHT">
+                        <Label text="Naručeno" />
+                        <CSTextField prefWidth="${textFieldWidth}" />
+                    </HBox>
+                    <HBox alignment="CENTER_RIGHT">
+                        <Label text="Slobodno" />
+                        <CSTextField prefWidth="${textFieldWidth}" />
+                    </HBox>
+                    <HBox alignment="CENTER_RIGHT">
+                        <Label text="Ukupno" />
+                        <CSTextField prefWidth="${textFieldWidth}" />
+                    </HBox>
+                </VBox>
+                
+                <VBox HBox.hgrow="ALWAYS">
+		            <CSTable fx:id="tblWarehouse"
+		                topLabelText="MAGACIN"
+		                DTOName="VatGroup" 
+		                topSectionVisible="true" 
+		                topLabelVisible="true"
+		                searchVisible="false"
+		                searchTooltipText=""
+		                addButtonVisible="false"
+		                editButtonVisible="false"
+		                viewButtonVisible="false"
+		                deleteButtonVisible="false">
+		                <tableColumns>
+		                    <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+		                </tableColumns>                   
+		            </CSTable>
+	
+	                <VBox styleClass="box-with-border">
+	                    <VBox HBox.hgrow="ALWAYS">
+	                       <HBox>
+	                           <padding><Insets top="0" right="15" bottom="0" left="0"/></padding>
+	                           <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+	                           <Label text="Slobodno" />                           
+	                           <Label text="Rezervisano" />                        
+	                           <Label text="Ukupno" />
+	                       </HBox>
+	                    
+	                       <HBox styleClass="box-with-border, darkblue-background" alignment="CENTER_RIGHT">
+	                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                           <Label text="REPROMARKET" />
+	                           <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+	
+	                           <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                           <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                           <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                       </HBox>
+	                    </VBox>
+	                    
+	                    <VBox>
+	                        <HBox styleClass="box-with-border, khaki-background" alignment="CENTER_RIGHT">
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <Label text="KOMISION" />
+	                            <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+	                           
+	                            <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                            <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                            <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>                       
+	                        </HBox>
+	                    </VBox>
+	                    
+	                    <VBox>
+	                       <HBox styleClass="box-with-border, lightgreen-background" alignment="CENTER_RIGHT">
+	                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                           <Label text="UKUPNO" />
+	                           <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+	                           
+	                           <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                           <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                           <CSTextField text="0" prefWidth="${shortTextFieldWidth}" validationType="NUMBER_ONLY"/>
+	                       </HBox>
+	                    </VBox>
+	                    
+	                </VBox>
+                </VBox>
+
+                
+            </HBox>
+            
+        </VBox>
+    </children>        
+</AnchorPane>

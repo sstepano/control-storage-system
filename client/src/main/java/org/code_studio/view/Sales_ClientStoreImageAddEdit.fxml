@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSPhotoView?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    prefWidth="640"
+    prefHeight="480"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+    </fx:define>
+    
+    <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor ="0">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <Label text="Putanja do slike" />
+            <CSTextField fx:id="tfImagePath" HBox.hgrow="ALWAYS" disable="true" />
+
+            <Button fx:id="btnSearch">
+                <graphic><Glyph styleClass="glyph" icon="SEARCH" textFill="BLUE" fontSize="16"/></graphic>
+            </Button>                 
+        </HBox>
+        <!-- 
+        <HBox styleClass="box-with-border" VBox.vgrow="ALWAYS">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        </HBox>
+        -->
+        
+        <CSPhotoView fx:id="pvImage" mode="2" VBox.vgrow="ALWAYS" />
+        
+		<VBox>
+		    <!-- SAVE | CANCEL BUTTONS -->
+		    <HBox spacing="10" alignment="BOTTOM_RIGHT">
+		    <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+		        <Button fx:id="btnSave" text="%button.save.text">
+		            <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+		        </Button>
+		        <Button fx:id="btnCancel" text="%button.close.text">
+		            <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+		        </Button>
+		      </HBox>
+		  </VBox>
+    </VBox>
+</AnchorPane>

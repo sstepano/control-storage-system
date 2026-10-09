@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE VBox>
+
+<?import javafx.geometry.Insets?>
+<?import java.lang.Double?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.ui.CSComboBoxSalesOfficer?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<VBox
+    prefWidth="1000"
+    prefHeight="700"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+
+    <fx:define>
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+    </fx:define>
+
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+    
+    <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        <Label text="Datum od" />
+        <CSDatePicker fx:id="dtDateFrom" defaultToday="true" />
+        <Label text="Datum do" />
+        <CSDatePicker fx:id="dtDateTo" defaultToday="true" />
+        <Label text="Referent" />
+        <CSComboBoxSalesOfficer fx:id="cbSaleOfficerName" prefWidth="120" />
+        <Button fx:id="btnPrintPerPeriod" text="Štampa za period" >
+            <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="black"/></graphic>
+        </Button>
+    </HBox>    
+    
+    <VBox VBox.vgrow="ALWAYS">
+	    <CSTable fx:id="tblClientLastPaidAmount"
+	        DTOName="ClientLastPaidAmount" 
+	        topSectionVisible="true"
+	        topLabelText="PREGLED PO REFERENTU U PERIODU"
+	        viewButtonVisible="false"
+	        addButtonVisible="false"
+	        editButtonVisible="false"
+	        deleteButtonVisible="false"
+	        tableRequestFocus="true"
+	        VBox.vgrow="ALWAYS">
+	        <tableColumns>
+	            <CSTableColumn displayName="ŠIFRA KLIJENTA" methodName="Id" />
+	            <CSTableColumn displayName="NAZIV KLIJENTA" methodName="Name" width="250" />
+	            <CSTableColumn displayName="MESTO" methodName="City" width="200" />
+	            <CSTableColumn displayName="ISPORUČENO" methodName="LastDeliveredAmt" />
+	            <CSTableColumn displayName="NAPLAĆENO" methodName="LastPaidAmt" />
+	            <CSTableColumn displayName="GRUPA KLIJENTA" methodName="ClientGroupName" />
+	        </tableColumns>                   
+	    </CSTable>
+	    <HBox styleClass="box-with-border" alignment="CENTER">
+	        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	        <Label text="Ukupno isporučeno" />
+	        <CSTextField />
+	        <Label text="Ukupno naplaćeno" />
+	        <CSTextField />
+		</HBox>	    
+	    <HBox styleClass="box-with-border" alignment="CENTER_LEFT" prefHeight="50">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <Label text="Napomena" />
+            <TextArea HBox.hgrow="SOMETIMES" prefWidth="200"></TextArea>
+            <VBox alignment="CENTER">
+                <HBox alignment="CENTER_RIGHT">
+                    <Label text="Ostvareno kontakata" />
+                    <CSTextField />
+                </HBox>
+                <HBox alignment="CENTER_RIGHT">
+                    <Label text="Nije kontaktirano" />
+                    <CSTextField />
+                </HBox>
+            </VBox>	
+	    </HBox>	    
+	    
+	    <HBox styleClass="box-with-border" alignment="CENTER_RIGHT">
+	        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		    <HBox>
+		        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	            <Button fx:id="btn1" text="Kartica klijenta" maxWidth="$maxComponentWidth"></Button>
+	        </HBox>            
+	        <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+	            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	            <Label text="Iznos obećanog plaćanja" />
+	            <CSTextField />
+	            <Button fx:id="btn2" text="Obećano plaćanje"></Button>
+		    </HBox>
+	    </HBox>		    
+	    
+    </VBox>
+
+     <!-- SAVE | CANCEL BUTTONS -->
+     <HBox spacing="10" alignment="BOTTOM_RIGHT">
+         <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+         <Button fx:id="btnSave" text="%button.save.text" visible="false">
+             <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+         </Button>
+         <Button fx:id="btnCancel" text="%button.close.text">
+             <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+         </Button>
+     </HBox>
+        
+</VBox>

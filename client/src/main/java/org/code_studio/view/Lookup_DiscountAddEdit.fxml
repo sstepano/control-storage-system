@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+    	<Integer fx:id="shortTextFieldWidth" fx:value="55" />
+        <Integer fx:id="textFieldWidth" fx:value="145" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="customTextFieldWidth" fx:value="170" />
+        <Integer fx:id="smallTableHeight" fx:value="250" />
+    </fx:define>
+
+    <VBox
+       AnchorPane.leftAnchor   ="0"
+       AnchorPane.rightAnchor  ="0"
+       AnchorPane.topAnchor    ="0"
+       AnchorPane.bottomAnchor ="0">
+       <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+
+       <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+       	   <!--
+           <HBox styleClass="box-header" alignment="CENTER">
+               <Label fx:id="lblHeader" text="RABAT"></Label>
+           </HBox>
+           -->
+           <VBox>
+               <HBox alignment="CENTER_RIGHT">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Vrsta rabata"></Label>
+                   <CSComboBox fx:id="cbDiscountGroup" prefWidth="$longTextFieldWidth" disable="true" initFactory="true" factoryMethodName="Name" />
+               </HBox>
+               <HBox alignment="CENTER_RIGHT">
+                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Grupa rabata"></Label>
+                   <CSTextField fx:id="tfDiscountEntityName" prefWidth="$longTextFieldWidth" disable="true" text="MOJ KATALOG" />
+               </HBox>
+               <HBox alignment="CENTER_RIGHT">
+                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Klijent"></Label>
+                   <CSTextField fx:id="tfClientName" prefWidth="$customTextFieldWidth" disable="true" text="SVI KLIJENTI" />
+				   <Button fx:id="btnClientSelect" text="" styleClass="btnAdd">
+				       <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-plus-circle" /></graphic>
+					   <tooltip>
+					       <Tooltip text="Klijenti" />
+					    </tooltip>
+				    </Button>
+               </HBox>
+               <HBox spacing="5" alignment="CENTER_RIGHT">
+                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Procenat rabata"></Label>
+                   <CSTextField fx:id="tfDiscountRate" prefWidth="$textFieldWidth" validationType="NUMBER_ONLY" />
+               </HBox>
+               <HBox spacing="5" alignment="CENTER_RIGHT">
+                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Datum vazenja od"></Label>
+                   <CSDatePicker fx:id="dtDateFrom" defaultToday="true" />
+               </HBox>
+               <HBox spacing="5" alignment="CENTER_RIGHT">
+                   <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Datum vazenja do"></Label>
+                   <CSDatePicker fx:id="dtDateTo" />
+               </HBox>
+           </VBox>
+       </VBox>
+
+    <CSDialogButtons fx:id="dialogButtons" />
+    </VBox>
+</AnchorPane>

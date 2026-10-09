@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    prefWidth="800"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="buttonWidth" fx:value="260" />
+        <String fx:id="buttonTextAlignment" fx:value="CENTER_LEFT" />
+        <ToggleGroup fx:id="toggleGroup1" />
+    </fx:define>
+
+    <children>
+        <HBox 
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+             <children>
+                 <VBox minWidth="250">
+                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+			           <CSTable fx:id="tblWarehouse"
+	                        topLabelText="%label.warehouselist.text"
+	                        DTOName="Warehouse" 
+	                        topSectionVisible="true"
+	                        topLabelVisible="true"
+	                        searchVisible="false"
+	                        viewButtonVisible="false"
+	                        addButtonVisible="false"
+	                        editButtonVisible="true"
+	                        deleteButtonVisible="false"
+	                        VBox.vgrow="ALWAYS">
+	                       <tableColumns>
+		                       <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+	                           <CSTableColumn displayName="NAZIV" methodName="Name" />
+	                       </tableColumns>                   
+                       </CSTable>
+                       <VBox styleClass="box-with-border" spacing="5">
+                            <HBox spacing="10" styleClass="box-header" alignment="CENTER">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <Label text="%warehousequantityform.header.label.text"></Label>
+                            </HBox>
+                            <VBox spacing="5">
+	                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                               <RadioButton toggleGroup="$toggleGroup1" text="%warehousequantityform.radiobutton1.text" />
+	                               <RadioButton toggleGroup="$toggleGroup1" text="%warehousequantityform.radiobutton2.text" />
+	                           <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.buttonprint1.text">
+	                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+	                           </Button>
+                           </VBox>
+                       </VBox>
+                       <VBox styleClass="box-with-border" spacing="5">
+                            <HBox spacing="10" styleClass="box-header" alignment="CENTER">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <Label text="%label.print.text"></Label>
+                            </HBox>
+                            <VBox spacing="5">
+                               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                   <CheckBox text="%warehousequantityform.printcheckbox1.text" />
+                                   <CheckBox text="%warehousequantityform.printcheckbox2.text" />
+                                   <CheckBox text="%warehousequantityform.printcheckbox3.text" />
+                                   <CheckBox text="%warehousequantityform.printcheckbox4.text" />
+                               <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.buttonprint2.text">
+                                   <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                               </Button>
+                           </VBox>
+                       </VBox>
+                       <VBox styleClass="box-with-border" spacing="5">
+                           <padding><Insets top="10" right="5" bottom="5" left="5"/></padding>
+	                       <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.button1.text">
+	                           <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+	                       </Button>
+                           <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.button2.text">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.button3.text">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.button4.text">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.button5.text">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                           <Button VBox.vgrow="ALWAYS" prefWidth="$buttonWidth" alignment="$buttonTextAlignment" text="%warehousequantityform.button6.text">
+                               <graphic><Glyph styleClass="glyph" icon="PRINT"/></graphic>
+                           </Button>
+                       </VBox>
+                   </VBox>
+                 <VBox HBox.hgrow="ALWAYS" spacing="5">
+                    <padding><Insets top="5" right="5" bottom="5" left="0"/></padding>
+                    <CSTable fx:id="tblItemWarehouse"
+                         DTOName="ItemWarehouse" 
+                         topLabelText="%label.warehouselist.text"
+                         searchTooltipText="Pretraga po: Šifra Artikla, Naziv Artikla"
+                         topSectionVisible="true"
+                         topLabelVisible="true"
+                         searchVisible="false"
+                         viewButtonVisible="false"
+                         addButtonVisible="false"
+                         editButtonVisible="true"
+                         deleteButtonVisible="false"
+                         VBox.vgrow="ALWAYS">
+                        <tableColumns>
+	                        <CSTableColumn displayName="ŠIFRA" methodName="ItemId" />
+	                        <CSTableColumn displayName="NAZIV" methodName="ItemName" width="500" />
+	                        <CSTableColumn displayName="KOLIČINA" methodName="Qty" />
+	                        <CSTableColumn displayName="REZERVISANO" methodName="ReservedQty" />
+	                        <CSTableColumn displayName="PRODATO" methodName="SoldQty" />
+	                        <!--
+	                        <CSTableColumn displayName="MIN.KOLIČINA ZA PRODAJU" methodName="MinForSaleQty" />
+	                        <CSTableColumn displayName="MAX.KOLIČINA ZA PRODAJU" methodName="MaxForSaleQty" />
+	                        -->
+	                        <CSTableColumn displayName="RED" methodName="RowId" tooltip="RED" />
+	                        <CSTableColumn displayName="POLICA" methodName="ShelfId" tooltip="POLICA" />
+	                        <CSTableColumn displayName="VERTIKALA" methodName="VerticalId" tooltip="VERTIKALA" />
+	                        <!--<CSTableColumn displayName="POZICIJA AKTIVNA" methodName="IsActive" /> -->
+                        </tableColumns>
+	                    <componentBarItems>
+	                        <Button fx:id="btnReservation" text="%warehousequantityform.button7.text">
+	                            <graphic><Glyph styleClass="glyph" icon="TAG"/></graphic>
+	                        </Button>
+	                    </componentBarItems>                                           
+                    </CSTable>
+                    <HBox styleClass="box-with-border" spacing="10" alignment="CENTER">
+                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                        <Label text="%label.total.text"></Label>
+                        <CSTextField fx:id="tfTotalQty" disable="true" alignment="CENTER_RIGHT" />
+                        
+                        <Label text="%label.reserved.text"></Label>
+                        <CSTextField fx:id="tfReservedQty" disable="true" alignment="CENTER_RIGHT" />
+                        
+                        <Label text="%label.free.text"></Label>
+                        <CSTextField fx:id="tfAvailableQty" disable="true" alignment="CENTER_RIGHT" />
+                    </HBox>
+                   </VBox>
+             </children>
+        </HBox>
+    </children>        
+</AnchorPane>

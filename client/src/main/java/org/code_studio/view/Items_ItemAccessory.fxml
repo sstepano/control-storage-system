@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Button?>
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    prefWidth="1000"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <children>
+        <VBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0"
+            >
+            <HBox spacing="5" VBox.vgrow="ALWAYS">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <VBox HBox.hgrow="ALWAYS">
+                    <CSTable fx:id="tblItem"
+                        VBox.vgrow="ALWAYS"
+                        DTOName="ItemS" 
+                        topLabelText="%itemaccessoryform.tblitem.label"
+                        addButtonVisible="false"
+                        viewButtonVisible="false"
+                        editButtonVisible="false"
+                        deleteButtonVisible="false"
+                        searchVisible="true"
+                        searchTooltipText="%itemaccessoryform.tblitem.searchTooltipText">
+                        <tableColumns>
+                            <CSTableColumn displayName="NAZIV" methodName="Name" />
+                        </tableColumns>
+                    </CSTable>
+                </VBox>
+	            <VBox>
+	                <CSTable fx:id="tblItemAccessory"
+	                    VBox.vgrow="ALWAYS"
+	                    DTOName="ItemAccessory"  
+	                    topLabelText="%itemaccessoryform.tblitemaccessory.label"
+                        addButtonVisible="false"
+                        viewButtonVisible="false"
+                        editButtonVisible="false"
+                        deleteButtonVisible="true"
+                        searchVisible="false"
+                        searchTooltipText="%itemaccessoryform.tblitem.searchTooltipText">
+	                    <tableColumns>
+	                        <!-- <CSTableColumn displayName="ŠIFRA" methodName="ItemId" /> -->
+	                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+	                    </tableColumns>
+	                </CSTable>
+                </VBox>
+	            <VBox HBox.hgrow="ALWAYS">
+	                <CSTable fx:id="tblItem"
+	                    VBox.vgrow="ALWAYS"
+	                    DTOName="Item"   
+	                    topLabelText="%itemaccessoryform.tblallitems.label"
+	                    addButtonVisible="false"
+	                    viewButtonVisible="false"
+	                    editButtonVisible="false"
+	                    deleteButtonVisible="false"
+	                    searchVisible="true"
+	                    searchTooltipText="%itemaccessoryform.tblitem.searchTooltipText">
+	                    <tableColumns>
+	                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+	                    </tableColumns>
+	                </CSTable>
+	            </VBox>
+	        </HBox>
+	        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+	           <padding><Insets top="5" right="10" bottom="10" left="5"/></padding>                    
+               <Button fx:id="btnClose" text="%button.close.text">
+                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+               </Button>
+	        </HBox>
+        </VBox>
+    </children>        
+</AnchorPane>

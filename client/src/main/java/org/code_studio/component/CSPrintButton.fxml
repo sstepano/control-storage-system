@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE HBox>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import java.lang.String?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.code_studio.component.CSPrintButton?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<fx:root type="javafx.scene.layout.VBox"
+	xmlns="http://javafx.com/javafx" 
+	xmlns:fx="http://javafx.com/fxml"
+	stylesheets="@../view/Main.css">
+	
+	<fx:define>
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="iconSize" fx:value="26" />
+        <Integer fx:id="printBtnWidth" fx:value="80" />
+        <Integer fx:id="printBtnHeight" fx:value="20" />
+        <Integer fx:id="printBtnHeight" fx:value="20" />
+        <Integer fx:id="minLabelWidth" fx:value="48" />
+        <!-- <String fx:id="labelStyle" fx:value="-fx-font-size:20" /> -->
+	</fx:define>
+    
+    <!-- <padding><Insets top="5" right="5" bottom="5" left="5"/></padding> -->
+
+	<CheckBox fx:id="ckbPrintWithoutDisplay" text="Direktno na štampač" visible="false" managed="false" />
+	<HBox fx:id="hbNumberOfCopies" alignment="CENTER_RIGHT"  visible="false" managed="false">
+	    <padding><Insets top="5" right="0" bottom="5" left="0"/></padding>
+	    <Label text="Br.kopija" minWidth="$minLabelWidth" />
+	    <CSTextField fx:id="tfNumberOfCopies" validationType="POSITIVE_NUMBER" text="1" HBox.hgrow="SOMETIMES" />
+	</HBox>
+    <Button fx:id="btnPrint" text="Štampa" maxWidth="$DOUBLE_MAX_VALUE" maxHeight="$DOUBLE_MAX_VALUE"  HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+        <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+    </Button>
+	
+</fx:root>

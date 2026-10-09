@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.ui.CSClientTable?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <HBox
+        AnchorPane.leftAnchor   ="0"
+        AnchorPane.rightAnchor  ="0"
+        AnchorPane.topAnchor    ="0"
+        AnchorPane.bottomAnchor ="0">
+        
+        <CSClientTable fx:id="tblClient" HBox.hgrow="NEVER" minWidth="230">
+            <tableColumns>
+                <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+                <CSTableColumn displayName="NAZIV" methodName="Name" width="200"/>
+            </tableColumns>
+        </CSClientTable>
+        <VBox HBox.hgrow="ALWAYS">
+        <padding><Insets top="5" right="5" bottom="0" left="0"/></padding>
+            <CSTable
+                fx:id="tblCalculation"
+                DTOName="Calculation"
+                VBox.vgrow="SOMETIMES"
+                topLabelText="%items_calculationelementsform.tblCalculation.label"
+                addButtonVisible="true"
+                viewButtonVisible="false"
+                editButtonVisible="true"
+                deleteButtonVisible="true"
+                searchVisible="false"
+                rowCheckboxVisible="false">
+                <tableColumns>
+                   <CSTableColumn displayName="ŠIFRA" methodName="ClientCalculationId" />
+                   <CSTableColumn displayName="NAZIV" methodName="Name" />
+                   <CSTableColumn displayName="DATUM" methodName="CreatedDate" />
+                   <CSTableColumn displayName="V" methodName="IsActive" tooltip="Važeća-Aktivna kalkulacija" conditionalFormattingParams="eq,true" />
+                   <CSTableColumn displayName="CAR" methodName="CustomsExchangeRate" tooltip="Carinski kurs" />
+                   <CSTableColumn displayName="KUP" methodName="BuyingExchangeRate" tooltip="Kupovni kurs" />
+                   <CSTableColumn displayName="PROD" methodName="SellingExchangeRate" tooltip="Prodajni kurs" />
+                   <CSTableColumn displayName="DIS" methodName="DiscountExchangeRate" tooltip="Diskontni kurs" />
+                   <CSTableColumn displayName="POR.DOB" methodName="IncomeTaxRate" tooltip="Porez na dobit" />
+                   <CSTableColumn displayName="PDV" methodName="VatRate" />
+                   <CSTableColumn displayName="CARINA" methodName="CustomsRate" />
+                   <CSTableColumn displayName="ŠPED" methodName="ForwarderRate" tooltip="Špediterski troškovi" />
+                   <CSTableColumn displayName="TRAN.TR" methodName="TransportCostRateRm" tooltip="Transportni troškovi" />
+                   <CSTableColumn displayName="BANKA" methodName="BankingCostRateRm" />
+                   <CSTableColumn displayName="OSTALO" methodName="OtherCostRateRm" />
+                </tableColumns>
+            </CSTable>
+            <VBox styleClass="box-with-border">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <HBox>
+                    <Button fx:id="btnSetActiveCalculation" text="Postavi kao vazecu" disable="true">
+                        <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                    </Button>
+                    <Button fx:id="btnAddCalculationToAllClients" text="Dodaj svim klijentima" disable="true" visible="false">
+                        <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                    </Button>
+                </HBox>
+                <HBox>
+                    <Button fx:id="btnCalculatePerSupplier" text="Preračun za dobavljača" disable="true" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </HBox>
+</AnchorPane>

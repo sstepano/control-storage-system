@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    prefWidth="640"
+    prefHeight="480"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@../view/Main.css">
+    
+    <fx:define>
+        <!--
+        <Double fx:id="actionButtonWidth" fx:value="10"  />
+        <Double fx:id="searchBoxWidth"    fx:value="200" />
+        -->
+    </fx:define>
+    
+    <VBox styleClass="hb-header, box-no-spacing" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+        <HBox>
+            <HBox HBox.hgrow="ALWAYS" styleClass="box-header, box-no-spacing">
+                <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblHeader" styleClass="header-label" text="FOTO"/>
+                </HBox>
+            </HBox>
+        </HBox>
+        <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER">
+                <ImageView fx:id="imageView"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

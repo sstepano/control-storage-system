@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<AnchorPane
+    prefWidth="1000"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <VBox
+        AnchorPane.leftAnchor   ="0"
+        AnchorPane.rightAnchor  ="0"
+        AnchorPane.topAnchor    ="0"
+        AnchorPane.bottomAnchor ="0">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        
+         <!-- Ne dozvoljavamo brisanje jer verovatno ima klijenata koji pripadaju grupama -->
+        <CSTable fx:id="tblDiscount"
+            DTOName="DiscountWithEntity" 
+            topSectionVisible="true"
+            topLabelText="POPUSTI"
+            viewButtonVisible="false"
+            VBox.vgrow="ALWAYS">
+            <tableColumns>
+                <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                <CSTableColumn displayName="KLIJENT" methodName="ClientId" />
+                <CSTableColumn displayName="DATUM VAZENJA OD" methodName="ValidFrom" />
+                <CSTableColumn displayName="DATUM VAZENJA DO" methodName="ValidTo" />
+                <CSTableColumn displayName="PROCENAT POPUSTA" methodName="DiscountRate" />
+                <CSTableColumn displayName="VRSTA POPUSTA" methodName="DiscountGroupName" />
+                <CSTableColumn displayName="NAZIV GRUPE POPUSTA" methodName="DiscountEntityName" />
+                <CSTableColumn displayName="OPIS" methodName="Description" />
+            </tableColumns>                   
+        </CSTable>
+    
+		<CSDialogButtons fx:id="dialogButtons" />
+    </VBox>
+</AnchorPane>

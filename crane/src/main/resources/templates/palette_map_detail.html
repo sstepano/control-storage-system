@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Matrix</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/palette_map_detail.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/palette_map_detail.js"></script>
+
+    <style>
+    </style>
+</head>
+<body>
+
+    <div class="toast-container">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="--bs-toast-bg: rgba(var(--bs-body-bg-rgb), 1); --bs-toast-max-width: 500px;" data-bs-autohide="false" data-bs-animation="false">
+        <div class="toast-header">
+          <strong id="toastTitle" class="me-auto">RED1: XX DUBINA: YYY VISINA: ZZ</strong>
+          <small>Detalji palete</small>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+          <div id="paletteId" style="display:none"></div>
+        </div>
+        <div class="toast-body">
+          <div>
+              Šifra palete: <span id="toast-palette-id"></span></br>
+              Šifra klijenta: <span id="toast-client-id"></span></br>
+              Naziv klijenta: <span id="toast-client-name"></span></br>
+              Dužina (cm): <span id="toast-length"></span></br>
+              Širina (cm): <span id="toast-width"></span></br>
+              Visina (cm): <span id="toast-height"></span></br>
+              Datum ulaza: <span id="toast-process-date"></span></br>
+          </div>
+          <div class="toast-buttons-container">
+              <button type="button" class="btn btn-success" id="btnSetFree">Označi kao slobodno</button>
+              <button type="button" class="btn btn-danger" id="btnSetOccupied">Označi kao zauzeto</button>
+              <button type="button" class="btn btn-secondary" id="btnSetLocked">Označi kao zaključano</button>
+          </div>
+          <div class="toast-buttons-container">
+              <button type="button" class="btn btn-primary" id="btnFetchPalette">Donesi paletu</button>
+              <!-- <button type="button" class="btn btn-danger" id="btnCloseToast">Zatvori detalje</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-detail" id="container-detail">
+        <div class="row-0" id="row-0">
+            <div class="header-data" id="wh-id1">
+                <div id="warehouseRowId" th:text="${warehouseRowId}"></div>
+            </div>
+            <div class="header-data">
+                <div>Ukupno</div><div id="totalNo">0</div>
+            </div>
+            <div class="header-data">
+                <div>Zauzeto</div><div id="occupiedNo">0</div>
+            </div>
+            <div class="header-data">
+                <div>Slobodno</div><div id="unoccupiedNo">0</div>
+            </div>
+            <div class="header-data">
+                <div>Red - X</div><div>Dubina - Y</div><div>Visina - Z</div>
+            </div>
+        </div>
+        <div class="container1" id="container1">
+            <div class="column-0"><div>7</div><div>6</div><div>5</div><div>4</div><div>3</div><div>2</div><div>1</div></div>
+        </div>
+        <div class="row-column-enum" id="row-column-enum"></div>
+    </div>
+</body>
+</html>

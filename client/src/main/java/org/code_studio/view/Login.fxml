@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">    
+    <HBox
+       AnchorPane.leftAnchor   ="0"
+       AnchorPane.rightAnchor  ="0"
+       AnchorPane.topAnchor    ="0"
+       AnchorPane.bottomAnchor ="0">
+       <VBox alignment="CENTER">
+           <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+           <Label>
+               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-file-lock2-fill" iconSize="80" iconColor="RED" /></graphic>
+           </Label>
+       </VBox>
+       <VBox>
+           <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+           <HBox spacing="10" alignment="BASELINE_RIGHT">
+               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+               <Label text="Korisničko ime"></Label>
+               <TextField fx:id="tfUsername" prefWidth="150" promptText="**********"></TextField>
+           </HBox>
+               <HBox spacing="10" alignment="BASELINE_RIGHT">
+                  <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                       <Label text="Korinička lozinka"></Label>
+                       <PasswordField fx:id="tfPassword" style="-fx-font-size:0.7em;" prefWidth="150" promptText="**********"></PasswordField>
+               </HBox>
+
+               <!-- SAVE/CANCEL BUTTONS 
+               <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                  <padding><Insets top="25" right="5" bottom="5" left="5"/></padding>
+                                       
+                <Button fx:id="btnSave" text="Prijava">
+                    <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                </Button>
+                      <Button fx:id="btnCancel" text="%button.cancel.text">
+                          <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                      </Button>
+               </HBox>
+               -->
+               
+               <CSDialogButtons fx:id="dialogButtons" saveButtonText="Prijava" />
+               
+       </VBox>
+    </HBox>
+</AnchorPane>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<AnchorPane
+    prefWidth="320"
+    maxHeight="-Infinity" 
+    maxWidth="-Infinity" 
+    minHeight="-Infinity" 
+    minWidth="-Infinity" 
+    xmlns="http://javafx.com/javafx/16" 
+    xmlns:fx="http://javafx.com/fxml/1"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+    </fx:define>
+    
+   <children>
+   <VBox AnchorPane.leftAnchor   ="0"
+         AnchorPane.rightAnchor  ="0"
+         AnchorPane.topAnchor    ="0"
+         AnchorPane.bottomAnchor ="0">
+         <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+           
+         <GridPane hgap="5" vgap="5" styleClass="box-with-border">
+         <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+         
+	         <Label text="Titula:" GridPane.rowIndex="0" GridPane.ColumnIndex="0" GridPane.Halignment="RIGHT" />
+	         <TextField fx:id="tfTitle" GridPane.rowIndex="0" GridPane.ColumnIndex="1" prefWidth="$longTextFieldWidth" GridPane.Halignment="LEFT" />
+
+             <Label text="Ime i prezime" GridPane.rowIndex="2" GridPane.ColumnIndex="0" GridPane.Halignment="RIGHT" />
+             <TextField fx:id="tfName" GridPane.rowIndex="2" GridPane.ColumnIndex="1" prefWidth="$longTextFieldWidth" GridPane.Halignment="LEFT" />
+
+             <Label text="E-Mail" GridPane.rowIndex="3" GridPane.ColumnIndex="0" GridPane.Halignment="RIGHT" />
+             <TextField fx:id="tfEmail" GridPane.rowIndex="3" GridPane.ColumnIndex="1" prefWidth="$longTextFieldWidth" GridPane.Halignment="RIGHT" />
+
+             <Label text="Telefon" GridPane.rowIndex="4" GridPane.ColumnIndex="0" GridPane.Halignment="RIGHT" />
+             <TextField fx:id="tfPhone" GridPane.rowIndex="4" GridPane.ColumnIndex="1" prefWidth="$longTextFieldWidth" GridPane.Halignment="LEFT" />
+
+             <Label text="Mobilni" GridPane.rowIndex="5" GridPane.ColumnIndex="0" GridPane.Halignment="RIGHT" />
+             <TextField fx:id="tfMobile" GridPane.rowIndex="5" GridPane.ColumnIndex="1" prefWidth="$longTextFieldWidth" GridPane.Halignment="LEFT" />
+
+             <CheckBox fx:id="ckbIncludeInCC" GridPane.rowIndex="6" GridPane.ColumnIndex="1" text="CC" />
+             <CheckBox fx:id="ckbIncludeInATT" GridPane.rowIndex="7" GridPane.ColumnIndex="1" text="ATT" />
+
+             <Label text="Napomena" GridPane.rowIndex="8" GridPane.ColumnIndex="0" />
+             <TextArea fx:id="taDescription" GridPane.rowIndex="9" GridPane.ColumnIndex="0" GridPane.columnSpan="2" />
+         </GridPane>
+         
+		 <CSDialogButtons fx:id="dialogButtons" />
+            
+      </VBox>
+   </children>
+</AnchorPane>

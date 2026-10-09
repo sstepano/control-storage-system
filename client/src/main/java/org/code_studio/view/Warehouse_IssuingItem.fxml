@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import java.lang.String?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSPhotoView?>
+<?import org.code_studio.component.CSPrintButton?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane
+    prefWidth="800"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="iconSize" fx:value="26" />
+        <Integer fx:id="printBtnWidth" fx:value="100" />
+        <Integer fx:id="printBtnHeight" fx:value="45" />
+        <Integer fx:id="btnWidth" fx:value="120" />
+        <Integer fx:id="smallTextFieldWidth" fx:value="40" />
+        <Integer fx:id="mediumTextFieldWidth" fx:value="80" />
+        <Integer fx:id="normalTextFieldWidth" fx:value="140" />
+        <Integer fx:id="minimalDateFieldWidth" fx:value="90" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+        <ToggleGroup fx:id="tgpStatus" />
+        <String fx:id="labelStyle" fx:value="-fx-font-size:20" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+           <children>
+           
+           <!-- HEADER -->
+           <HBox alignment="CENTER_LEFT" styleClass="box-with-border, box-no-spacing, box-spacing-20">
+               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+               <RadioButton text="Za rad" toggleGroup="${tgpStatus}" selected="true" />
+               <RadioButton text="Započeto odvajanje" toggleGroup="${tgpStatus}" />
+               <RadioButton text="Završeno odvajanje" toggleGroup="${tgpStatus}" />
+               <RadioButton text="Započeto skeniranje" toggleGroup="${tgpStatus}" />
+               <RadioButton text="Završeno skeniranje" toggleGroup="${tgpStatus}" />
+               <RadioButton text="Započeto pakovanje" toggleGroup="${tgpStatus}" />
+               <RadioButton text="Završeno pakovanje" toggleGroup="${tgpStatus}" />
+           </HBox>
+           <HBox>
+               <padding><Insets top="0" right="0" bottom="0" left="0"/></padding>
+               <VBox HBox.hgrow="ALWAYS">
+               	<HBox>
+               	    <TextArea fx:id="taBlueField" styleClass="blue-field-large-text" wrapText="true" editable="false" HBox.hgrow="SOMETIMES" />
+               		<VBox styleClass="box-with-border, font-size-1em, bold, padding-0px" alignment="CENTER" minWidth="400" HBox.hgrow="SOMETIMES">
+                		<padding><Insets top="0" right="0" bottom="0" left="0"/></padding>
+                		<HBox alignment="CENTER">
+	                 		<padding><Insets top="-2" right="5" bottom="-2" left="5"/></padding>
+	                 		<Label fx:id="lblClientName" style="${labelStyle}" styleClass="green-text" wrapText="true" />
+                		</HBox>
+                	<!-- 
+                 	<HBox alignment="CENTER_LEFT">
+                 		<padding><Insets top="-2" right="5" bottom="-2" left="5"/></padding>
+						<Label fx:id="lblClientFullName" style="${labelStyle}" wrapText="true" styleClass="blue-text" />			                    	    
+               	    </HBox>
+               	    <HBox alignment="CENTER_LEFT">
+                 		<padding><Insets top="-2" right="5" bottom="-2" left="5"/></padding>
+               	    	<Label fx:id="lblClientAddress" style="${labelAddressStyle}" />
+             	    </HBox>
+             	    -->
+               	</VBox>
+               	</HBox>
+               </VBox>
+           </HBox>
+           
+           <VBox spacing="5">
+               <!-- TransferOrder -->
+               <CSTable 
+                   fx:id="tblTransferOrder"
+                   dTOName="TransferOrder" 
+                   VBox.vgrow="ALWAYS" 
+                   topLabelText="PRENOSNICE"
+                   viewButtonVisible="false"
+                   addButtonVisible="false"
+                   editButtonVisible="false"
+                   deleteButtonVisible="false"
+                   searchVisible="true"
+                   searchRequestFocus="true"
+                   searchTooltipText="Pretraga po ŠIFRI/BARKODU fakture">
+                   <tableColumns>
+                       <CSTableColumn displayName="PREN" methodName="Id" />
+                       <CSTableColumn displayName="FAKTURA" methodName="InvoiceId" />
+                       <CSTableColumn displayName="OTPR" methodName="DispatchNote" />
+                       <CSTableColumn displayName="OTVORENO" methodName="TransferOrderDate" />
+                       <CSTableColumn displayName="ZATVORENO" methodName="DeliveredDate" width="105" />
+                       <CSTableColumn displayName="OBRADIO" methodName="InvoiceVerifiedByUserName" width="120" />
+                       <CSTableColumn displayName="IZ" methodName="WarehouseIdOrigin" />
+                       <CSTableColumn displayName="U" methodName="WarehouseIdDestination" />
+                       <CSTableColumn displayName="ROK" methodName="DueDate" width="105" />
+                       <CSTableColumn displayName="UZETO U RAD" methodName="TransferOrderDate" width="105" /> <!-- TODO uzeti pravu kolonu-->
+                       <CSTableColumn displayName="URAĐENO" methodName="DeliveredDate" width="105" />
+                       <CSTableColumn displayName="ISPORUČENO" methodName="DeliveredDate" width="105" />
+                   </tableColumns>       
+               </CSTable>
+               
+               <!-- TransferOrderDetail -->
+               <CSTable 
+                   fx:id="tblTransferOrderDetail"
+                   dTOName="TransferOrderDetail" 
+                   VBox.vgrow="ALWAYS" 
+                   topLabelText="DETALJI PRENOSNICE"
+                   topSectionVisible="false">
+                   <tableColumns>
+                       <CSTableColumn displayName="ŠIFRA ARTIKLA" methodName="ItemCode" />
+                       <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="400" />
+                       <CSTableColumn displayName="KOLIČINA" methodName="Qty" />
+                       <CSTableColumn displayName="IZDATO" methodName="IssuedQty" />
+                       <CSTableColumn displayName="RAZLIKA" methodName="QtyDifference" conditionalFormattingParams="neq,0,4,0,red"/> 
+                       <CSTableColumn displayName="IZ" methodName="WarehouseIdOrigin" />
+                       <!-- <CSTableColumn displayName="OSTATAK" methodName="Id" /> TODO -->
+                       <CSTableColumn displayName="U" methodName="WarehouseIdDestination" />
+                       <!-- <CSTableColumn displayName="PO PRIJEMU" methodName="Id" />  TODO -->
+                       <CSTableColumn displayName="BARKOD" methodName="Barcode" />
+                   </tableColumns>
+               </CSTable>
+           </VBox>
+           
+           <!-- TOTALS -->
+           <HBox styleClass="box-with-border, darkkhaki-background" spacing="10" alignment="CENTER">
+               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+               <Label text="UKUPNA KOLIČINA:"></Label>
+               <CSTextField fx:id="tfTotalQty" prefWidth="$smallTextFieldWidth" validationType="NUMBER_ONLY" disable="true" />
+               <Label text="UKUPNO IZDATO:"></Label>
+               <CSTextField fx:id="tfTotalIssuedQty" prefWidth="$smallTextFieldWidth" validationType="NUMBER_ONLY" disable="true" />
+           </HBox>
+           
+           <!-- TOTAL | PRINT BUTTON -->
+           <HBox spacing="5">
+               <!-- PRENOSNICA -->
+               <VBox spacing="5" styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+                   <HBox styleClass="box-header" alignment="CENTER">
+                       <Label text="PRENOSNICA"></Label>
+                   </HBox>
+                   <VBox>
+                       <GridPane hgap="5" vgap="5" >
+                           <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                           <!--
+                           <Button fx:id="btnControl" text="Kontrola" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="0" GridPane.columnIndex="0" disable="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2m-marker-check" iconSize="$iconSize" iconColor="GREEN"/></graphic>
+                           </Button>
+                           -->
+                           <CSPrintButton fx:id="btnPrint" reportName="transfer_order_differences" printWithoutDisplayVisible="true" numberOfCopiesVisible="true" printWithoutDisplaySelected="true" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                           <CSPrintButton fx:id="btnPrintDifferences" text="Razlike" reportName="transfer_order_differences" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                           <Button fx:id="btnManualIssuing" text="Skeniranje artikala" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="0" GridPane.columnIndex="2" wrapText="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2b-barcode-scan" iconSize="$iconSize" iconColor="RED"/></graphic>
+                           </Button>
+                           
+                           <Button fx:id="btnSeparationStarted" text="Započeto odvajanje" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="1" GridPane.columnIndex="0" wrapText="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-sitemap" iconSize="$iconSize" iconColor="RED"/></graphic>
+                           </Button>
+                           <Button fx:id="btnSeparationCompleted" text="Završeno odvajanje" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="2" GridPane.columnIndex="0" wrapText="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2s-sitemap" iconSize="$iconSize" iconColor="GREEN"/></graphic>
+                           </Button>
+                           
+                           <Button fx:id="btnScanningStarted" text="Započeto skeniranje" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="1" GridPane.columnIndex="1" wrapText="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2q-qrcode-scan" iconSize="$iconSize" iconColor="RED"/></graphic>
+                           </Button>
+                           <Button fx:id="btnScanningCompleted" text="Završeno skeniranje" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="2" GridPane.columnIndex="1" wrapText="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2q-qrcode-scan" iconSize="$iconSize" iconColor="GREEN"/></graphic>
+                           </Button>                           
+                           
+                           <Button fx:id="btnPackingStarted" text="Započeto pakovanje" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="1" GridPane.columnIndex="2" wrapText="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-package-variant" iconSize="$iconSize" iconColor="RED"/></graphic>
+                           </Button>
+                           <Button fx:id="btnPackingCompleted" text="Završeno pakovanje" prefWidth="$btnWidth" prefHeight="$btnWidth" GridPane.rowIndex="2" GridPane.columnIndex="2" wrapText="true">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-package-variant" iconSize="$iconSize" iconColor="GREEN"/></graphic>
+                           </Button>
+                      </GridPane>
+                   </VBox>
+               </VBox>
+
+               <!-- DNEVNIK -->
+               <VBox spacing="5" styleClass="box-with-border" HBox.hgrow="ALWAYS" disable="false">
+                   <HBox styleClass="box-header" alignment="CENTER">
+                       <Label text="DNEVNIK"></Label>
+                   </HBox>
+                   <HBox>
+                       <VBox>
+                           <GridPane hgap="5" vgap="5" >
+                               <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                               <CSDatePicker prefWidth="120" GridPane.rowIndex="0" GridPane.columnIndex="0" defaultToday="true" />
+                               <CheckBox text="Prodaja RM" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                               <CheckBox text="Interne prenosnice" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                               
+                               <CheckBox text="Odjava komisiona" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                               <CheckBox text="Prijem RM" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                               
+                               <CheckBox text="Prenos komisionima" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                           </GridPane>
+                       
+                           <HBox HBox.hgrow="ALWAYS">
+                               <padding><Insets top="0" right="5" bottom="0" left="5"/></padding>
+                               <Button fx:id="btnPrintDailyDiary" text="Dnevnik" prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+                               </Button>
+                               <Button fx:id="btnPrintDailyWarehouseDiary" text="Dnevnik magacina" prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+                               </Button>
+                               <Button fx:id="btnPrintDailyItemDiary" text="Dnevnik po artiklu" prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+                               </Button>
+                               <Button fx:id="btnPrintDomDeclarationTransfer" text="DOM dekl. prenos" prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+                               </Button>
+                           </HBox>
+                       
+                           <HBox>
+                               <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+                               <Button fx:id="btnPrintDomDeclaration" text="DOM dekl." prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+                               </Button>
+                               <Button fx:id="btnPrintCountRows" text="Broji stavke" prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+                               </Button>
+                               <Button fx:id="btnPrintEmptyWorking" text="Blanko u radu" prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2p-printer" iconSize="$iconSize" iconColor="BLUE"/></graphic>
+                               </Button>
+                               <Button fx:id="btnTransferToGeneralLedger" text="-> FIN" prefWidth="$printBtnWidth" minHeight="$printBtnHeight" wrapText="true">
+                                   <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2b-book-arrow-right" iconSize="$iconSize" iconColor="RED"/></graphic>
+                               </Button>
+                           </HBox>
+                       </VBox>
+                   </HBox>
+               </VBox> 
+               
+               <!-- ITEM PHOTO -->
+               <CSPhotoView fx:id="pvItemPhoto" />              
+               
+            </HBox>
+           </children>
+        </VBox>
+    </children>        
+</AnchorPane>

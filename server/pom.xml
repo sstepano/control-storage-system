@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.4.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<description>Repromarket API Server</description>
+	<groupId>org.code_studio</groupId>
+	<artifactId>repromarket-server</artifactId>
+	<version>1.0.0</version>
+	<name>repromarket-server</name>
+	<properties>
+	    <java.version>24</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.12.6</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt-impl</artifactId>
+		    <version>0.12.6</version>
+		    <scope>runtime</scope>
+		</dependency>
+		<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+		    <version>0.12.6</version>
+		    <scope>runtime</scope>
+		</dependency>
+	    <dependency>
+	      <groupId>org.mariadb.jdbc</groupId>
+	      <artifactId>mariadb-java-client</artifactId>
+	    </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>5.2.5</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>5.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.code_studio</groupId>
+			<artifactId>repromarket-database</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+       <dependency>
+          <groupId>org.springdoc</groupId>
+          <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+          <version>2.7.0</version>
+       </dependency>
+	</dependencies>
+
+	<build>
+	    <finalName>${project.artifactId}</finalName>
+		<plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+					<execution> <!-- needed for finalName of the jar -->
+						<id>repackage</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+                </executions>
+            </plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <configuration>
+				    <source>${java.version}</source>
+				    <target>${java.version}</target>
+			        <enablePreview>false</enablePreview> <!-- enables preview features of the currently selected java -->
+			        <parameters>true</parameters> <!-- required from Spring 6.x and Java 22, stores info about method parameters -->
+			    </configuration>
+			</plugin>
+		</plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include> **/*.class</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include> **/*.*</include>
+                </includes>
+            </resource>
+            <!-- properties file outside JAR -->
+             <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>server.properties</include>
+                </includes>
+                <targetPath>${project.build.directory}</targetPath>
+            </resource>
+        </resources>
+	</build>
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Palette Barcode" pageWidth="250" pageHeight="100" columnWidth="210" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="574e8c49-b613-44c1-bc77-f32a840e6add">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="common\data_adapter\offer_detail.jrdax"/>
+	<property name="com.jaspersoft.studio.report.description" value="Prints barcodes of selected document palettes"/>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="COMMON_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[System.getProperty("reports_common_dir") != null
+? System.getProperty("reports_common_dir")
+: "../../reports/common/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="REPORT_CONFIG" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="JSON_HEADER_URL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{JSON_HEADER_URL}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="json">
+		<![CDATA[]]>
+	</queryString>
+	<title>
+		<band height="60">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<componentElement>
+				<reportElement x="0" y="0" width="210" height="60" uuid="d6551d13-3476-421e-ac63-bf0171388413">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="true" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{REPORT_CONFIG}.get(0)]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+		</band>
+	</title>
+</jasperReport>

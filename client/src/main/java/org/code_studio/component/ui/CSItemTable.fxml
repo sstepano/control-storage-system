@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE VBox>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+
+<fx:root
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    type="javafx.scene.layout.VBox"
+    stylesheets="@CSItemTable.css">
+
+    <fx:define>
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="60" />
+    </fx:define>
+
+    <CSTable fx:id="csTable"
+        DTOName="Item"
+        VBox.vgrow="ALWAYS"
+        topLabelText="ARTIKLI"
+        topLabelVisible="true"
+        addButtonVisible="false"
+        viewButtonVisible="false"
+        editButtonVisible="false"
+        deleteButtonVisible="false"
+        searchVisible="true"
+        searchTooltipText="Pretraga po: Šifra, Naziv">
+        <componentBarItems>
+            <CheckBox fx:id="ckbShowInStockOnly" text="Samo na stanju" />
+        </componentBarItems>
+        <tableColumns>
+            <CSTableColumn displayName="ŠIFRA" methodName="Code" width="100" />
+            <CSTableColumn displayName="NAZIV" methodName="FullName" />
+            <CSTableColumn displayName="RM-D/S" methodName="GrossPriceRmDPlusSpec" width="30" tooltip="RM DIS/SPEC" />
+            <CSTableColumn displayName="DIS-N/S" methodName="NetPriceRmDPlusSpec" tooltip="DIS NETO/SPEC" />
+            <CSTableColumn displayName="DIS-B/S" methodName="GrossPriceDPlusSpec" tooltip="DIS BRUTO/SPEC" />
+            <CSTableColumn displayName="NETO-D/S" methodName="NetPriceDFakPlusSpec" tooltip="NETO DIS/SPEC" />
+            <CSTableColumn displayName="BRUTO-D/S" methodName="GrossPriceDFakPlusSpec" tooltip="BRUTO DIS/SPEC" />
+            <CSTableColumn displayName="PAKOVANJE" methodName="Packaging" tooltip="MB:Masterbox|CB:Cardbox|PL:Palette|CT:Container" />
+        </tableColumns>
+    </CSTable>
+
+</fx:root>

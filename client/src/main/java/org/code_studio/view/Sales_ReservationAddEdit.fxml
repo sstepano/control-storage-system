@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="smallTextFieldWidth" fx:value="80" />
+        <Integer fx:id="dateFieldWidth" fx:value="110" />
+        <Integer fx:id="textFieldWidth" fx:value="200" />
+        <ToggleGroup fx:id="tgpSaleType" />
+        <ToggleGroup fx:id="tgpPrice" />
+        <Integer fx:id="longComboBoxWidth" fx:value="200" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                        
+                        <!-- KLIJENT HEADER -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="KLIJENT"></Label>
+                            </HBox>
+                            
+	                        <!-- KLIJENT INFO -->
+	                        <VBox>
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <GridPane hgap="5" vgap="5">
+	                            
+	                                 <columnConstraints>
+	                                     <ColumnConstraints />
+	                                     <ColumnConstraints prefWidth="${smallTextFieldWidth}" />
+	                                 </columnConstraints>
+	                            
+	                                <Label text="Šifra" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                                <TextField GridPane.rowIndex="0" GridPane.columnIndex="1" />
+	                                
+	                                <Label text="Naziv" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+	                                <TextField GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.columnSpan="3"/>
+	
+	                                <Label text="Pun naziv" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+	                                <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="5" />
+	
+	                                <Label text="P.broj" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+	                                <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" />
+	
+	                                <Label text="Mesto" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+	                                <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" />
+	                                
+	                                <Label text="Zemlja" GridPane.rowIndex="2" GridPane.columnIndex="4" />
+	                                <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" />
+	                                
+	                                <Label text="Adresa" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+	                                <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="5" />
+	                            </GridPane>
+	                        </VBox>
+	                        
+	                        <!-- PRODAVNICA HEADER -->
+                            <HBox styleClass="box-header, box-header-top-border" alignment="CENTER">
+                                <Label text="PRODAVNICA"></Label>
+                            </HBox>
+	                        
+	                        <!-- PRODAVNICA INFO -->
+	                        <VBox>
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <GridPane hgap="5" vgap="5">
+	                            
+	                                 <columnConstraints>
+	                                     <ColumnConstraints />
+	                                     <ColumnConstraints prefWidth="${textFieldWidth}" />
+	                                 </columnConstraints>
+	                            
+	                                <Label text="Naziv" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                                <TextField GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+	                                
+	                                <Label text="Mesto" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+	                                <TextField GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.hgrow="ALWAYS" />
+	
+	                                <Label text="Adresa" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+	                                <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" />
+	                            </GridPane>
+	                        </VBox>
+	                        
+                            <!-- DOSTAVNE ADRESE HEADER -->
+                            <HBox styleClass="box-header, box-header-top-border" alignment="CENTER">
+                                <Label text="DOSTAVNE ADRESE | MAGACIN | REZERVACIJE"></Label>
+                            </HBox>
+                            
+                            <!-- DOSTAVNE ADRESE INFO -->
+                            <VBox>
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <GridPane hgap="5" vgap="5">
+                                
+                                     <columnConstraints>
+                                         <ColumnConstraints />
+                                         <ColumnConstraints />
+                                     </columnConstraints>
+                                
+                                    <Label text="Pošta" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                    <CSComboBox GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="${longComboBoxWidth}" GridPane.hgrow="ALWAYS" />
+                                    
+                                    <Label text="Isporuka" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                                    <CSComboBox GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="${longComboBoxWidth}" />
+
+                                    <Label text="Magacin" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                    <CSComboBox GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="${longComboBoxWidth}" />
+
+                                    <Label text="Vrsta rez." GridPane.rowIndex="1" GridPane.columnIndex="2" disable="true"/>
+                                    <ComboBox GridPane.rowIndex="1" GridPane.columnIndex="3" prefWidth="${longComboBoxWidth}" disable="true">
+                                        <items>
+	                                        <FXCollections fx:factory="observableArrayList">
+	                                            <String fx:value="Veleprodaja" />
+	                                            <String fx:value="Maloprodaja" />
+	                                            <String fx:value="MP Diskont" />
+	                                            <String fx:value="Komision" />
+	                                        </FXCollections>
+                                        </items>
+                                    </ComboBox>
+                                </GridPane>
+                            </VBox>
+
+                            <!-- NACIN PRODAJE, CENA i MAGACIN -->
+							<HBox>
+							    <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES" disable="true">
+		                            <HBox styleClass="box-header" alignment="CENTER">
+		                                <Label text="NAČIN PRODAJE"></Label>
+		                            </HBox>
+		                            <GridPane hgap="5" vgap="5">
+		                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                                <RadioButton toggleGroup="${tgpSaleType}" text="Veleprodaja" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+		                                <RadioButton toggleGroup="${tgpSaleType}" text="VP Diskont" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+		                                <RadioButton toggleGroup="${tgpSaleType}" text="Komisiona prenosnica" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+		                                <RadioButton toggleGroup="${tgpSaleType}" text="Maloprodaja" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+		                                <RadioButton toggleGroup="${tgpSaleType}" text="MP Diskont" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+		                                <RadioButton toggleGroup="${tgpSaleType}" text="Odjava komisiona" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+		                            </GridPane>							    
+							    </VBox>
+							    <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+									<HBox styleClass="box-header" alignment="CENTER">
+									    <Label text="VODEĆA VRSTA CENE"></Label>
+									</HBox>
+		                            <GridPane hgap="5" vgap="5">
+		                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                                <RadioButton toggleGroup="${tgpPrice}" text="Obična" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+		                                <RadioButton toggleGroup="${tgpPrice}" text="Specijalna" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+		                                <RadioButton toggleGroup="${tgpPrice}" text="Slobodna" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+		                                <RadioButton toggleGroup="${tgpPrice}" text="DOM" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+		                            </GridPane>
+	                            </VBox>
+                            </HBox> <!-- CENE NACIN PRODAJE CONTAINER END -->
+                            
+                            <!-- PREDRACUN RACUN OTPREMNICA -->
+                            <HBox>
+                                <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+                                    <HBox styleClass="box-header" alignment="CENTER">
+                                        <Label text="PREDRAČUN"></Label>
+                                    </HBox>
+                                    <GridPane hgap="5" vgap="5">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        
+                                        <columnConstraints>
+                                            <ColumnConstraints />
+                                            <ColumnConstraints prefWidth="${dateFieldWidth}" />
+                                        </columnConstraints>
+                                        
+                                        <Label text="Broj" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                        <CSTextField text="0000" disable="true" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                                        <Label text="Datum" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                        <CSDatePicker GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                                        <Label text="Valuta" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                        <CSDatePicker GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                                    </GridPane>                             
+                                </VBox>
+                                <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+                                    <HBox styleClass="box-header" alignment="CENTER">
+                                        <Label text="RAČUN"></Label>
+                                    </HBox>
+                                    <GridPane hgap="5" vgap="5">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        
+                                        <columnConstraints>
+                                            <ColumnConstraints />
+                                            <ColumnConstraints prefWidth="${dateFieldWidth}" />
+                                        </columnConstraints>
+                                        
+                                        <Label text="Broj" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                        <CSTextField text="0000" disable="true" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                                        <Label text="Datum" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                        <CSDatePicker GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                                        <Label text="Valuta" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                        <CSDatePicker GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                                    </GridPane>
+                                </VBox>
+                               <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+                                    <HBox styleClass="box-header" alignment="CENTER">
+                                        <Label text="OTPREMNICA"></Label>
+                                    </HBox>
+                                    <GridPane hgap="5" vgap="5">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        
+                                        <columnConstraints>
+                                            <ColumnConstraints />
+                                            <ColumnConstraints prefWidth="${dateFieldWidth}" />
+                                        </columnConstraints>
+                                        
+                                        <Label text="Broj knjige" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                        <CSTextField text="0000" disable="true" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                                        <Label text="Otpremnica" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                        <CSTextField text="0000" disable="true" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                                        <Label text="Datum" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                        <CSDatePicker GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                                    </GridPane>
+                                </VBox>
+                            </HBox> <!-- CENE NACIN PRODAJE CONTAINER END -->
+
+                            <VBox HBox.hgrow="NEVER">
+                                <HBox>
+                                    <VBox styleClass="box-with-border">
+		                                <HBox styleClass="box-header" alignment="CENTER">
+		                                    <Label text="USLOVI PRODAJE"></Label>
+		                                </HBox>
+	                                    <GridPane hgap="5" vgap="5">
+	                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                                    <columnConstraints>
+		                                        <ColumnConstraints />
+		                                        <ColumnConstraints prefWidth="${smallTextFieldWidth}" />
+	                                            <ColumnConstraints />
+                                                <ColumnConstraints prefWidth="${dateFieldWidth}" />
+		                                    </columnConstraints>
+		                                    
+	                                        <Label text="Avans" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                                        <CSTextField GridPane.rowIndex="0" GridPane.columnIndex="1" />
+	                                        <Label text="Rabat" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+	                                        <CSTextField GridPane.rowIndex="0" GridPane.columnIndex="3" />
+                                            <Label text="Rok" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                            <CSTextField GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                                            
+                                            <Label text="Datum" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                                            <CSDatePicker GridPane.rowIndex="1" GridPane.columnIndex="3" />
+                                            
+                                            <CheckBox text="Inostrani kupac" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                                            <Label text="Kurs €" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                                            <CSTextField GridPane.rowIndex="2" GridPane.columnIndex="3" />
+		                                </GridPane>
+                                    </VBox>
+                                    <VBox styleClass="box-with-border, box-no-spacing">
+                                        <HBox styleClass="box-header" alignment="CENTER">
+                                            <Label text="NAPOMENA"></Label>
+                                        </HBox>
+	                                    <TextArea HBox.hgrow="ALWAYS" wrapText="true" maxHeight="100" maxWidth="265"/>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                            
+                        </VBox> <!-- KRAJ CELOG VBOX-a -->
+                        
+
+                        <!-- SAVE | CANCEL BUTTONS -->
+                        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <children>                    
+                               <Button fx:id="btnSave" text="%button.save.text">
+                                   <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                               </Button>
+                               <Button fx:id="btnCancel" text="%button.cancel.text">
+                                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                               </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

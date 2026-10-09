@@ -1,0 +1,11 @@
+.root {
+    -fx-font-size: 1.3em;
+}
+
+#tfWarehouseId {
+	-fx-text-fill: RED;
+}
+
+#tfCountingId {
+	-fx-text-fill: GREEN;
+}

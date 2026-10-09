@@ -1,0 +1,353 @@
+2026-05-26 14:35:31.279 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-05-26 14:35:31.291 ERROR o.code_studio.ComPortSchedulerTask - <tcpserver><err> Barcode communication - Unable to open COM port: COM3. Barcode functionality will be DISABLED until COM port gets connected
+2026-05-26 14:35:31.497 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-05-26 14:35:31.816 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-05-26 14:35:31.828 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-05-26 14:35:31.948 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-05-26 14:35:33.130 ERROR o.s.i.i.t.c.TcpNetServerConnectionFactory - Error on ServerSocket; port = 18196
+java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:511)
+	at java.base/sun.nio.ch.Net.bind(Net.java:500)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:630)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:326)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:178)
+	at java.base/javax.net.DefaultServerSocketFactory.createServerSocket(ServerSocketFactory.java:200)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.createServerSocket(TcpNetServerConnectionFactory.java:226)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.setupServerSocket(TcpNetServerConnectionFactory.java:143)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.run(TcpNetServerConnectionFactory.java:118)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 14:35:33.147 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1139)
+	at java.base/java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock.lockInterruptibly(ReentrantReadWriteLock.java:784)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainSharedConnection(AbstractClientConnectionFactory.java:135)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:125)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 14:35:33.149 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection closed: 127.0.0.1:18196:63861:2da75a66-5747-4738-aefd-c552b390c489
+2026-05-26 14:35:33.150 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+org.springframework.messaging.MessagingException: Connection Factory not started
+	at org.springframework.integration.ip.tcp.connection.AbstractConnectionFactory.getTaskExecutor(AbstractConnectionFactory.java:552)
+	at org.springframework.integration.ip.tcp.connection.TcpNetClientConnectionFactory.buildNewConnection(TcpNetClientConnectionFactory.java:65)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.doObtain(AbstractClientConnectionFactory.java:182)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainNewConnection(AbstractClientConnectionFactory.java:162)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:130)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 14:35:33.257 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 33378 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 33378 or configure this application to listen on another port.
+
+2026-05-26 17:51:15.184 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-05-26 17:51:15.191 ERROR o.code_studio.ComPortSchedulerTask - <tcpserver><err> Barcode communication - Unable to open COM port: COM3. Barcode functionality will be DISABLED until COM port gets connected
+2026-05-26 17:51:15.351 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-05-26 17:51:15.547 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-05-26 17:51:15.556 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-05-26 17:51:15.648 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-05-26 17:51:16.656 ERROR o.s.i.i.t.c.TcpNetServerConnectionFactory - Error on ServerSocket; port = 18196
+java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:511)
+	at java.base/sun.nio.ch.Net.bind(Net.java:500)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:630)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:326)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:178)
+	at java.base/javax.net.DefaultServerSocketFactory.createServerSocket(ServerSocketFactory.java:200)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.createServerSocket(TcpNetServerConnectionFactory.java:226)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.setupServerSocket(TcpNetServerConnectionFactory.java:143)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.run(TcpNetServerConnectionFactory.java:118)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:51:16.676 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1139)
+	at java.base/java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock.lockInterruptibly(ReentrantReadWriteLock.java:784)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainSharedConnection(AbstractClientConnectionFactory.java:135)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:125)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:51:16.678 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection closed: 127.0.0.1:18196:65323:5fea5141-80ea-47f5-8bdd-ab16c1e5fa2b
+2026-05-26 17:51:16.679 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+org.springframework.messaging.MessagingException: Connection Factory not started
+	at org.springframework.integration.ip.tcp.connection.AbstractConnectionFactory.getTaskExecutor(AbstractConnectionFactory.java:552)
+	at org.springframework.integration.ip.tcp.connection.TcpNetClientConnectionFactory.buildNewConnection(TcpNetClientConnectionFactory.java:65)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.doObtain(AbstractClientConnectionFactory.java:182)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainNewConnection(AbstractClientConnectionFactory.java:162)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:130)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:51:16.761 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 33378 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 33378 or configure this application to listen on another port.
+
+2026-05-26 17:51:55.898 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-05-26 17:51:55.903 ERROR o.code_studio.ComPortSchedulerTask - <tcpserver><err> Barcode communication - Unable to open COM port: COM3. Barcode functionality will be DISABLED until COM port gets connected
+2026-05-26 17:51:56.084 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-05-26 17:51:56.370 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-05-26 17:51:56.385 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-05-26 17:51:56.505 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-05-26 17:51:57.721 ERROR o.s.i.i.t.c.TcpNetServerConnectionFactory - Error on ServerSocket; port = 18196
+java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:511)
+	at java.base/sun.nio.ch.Net.bind(Net.java:500)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:630)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:326)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:178)
+	at java.base/javax.net.DefaultServerSocketFactory.createServerSocket(ServerSocketFactory.java:200)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.createServerSocket(TcpNetServerConnectionFactory.java:226)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.setupServerSocket(TcpNetServerConnectionFactory.java:143)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.run(TcpNetServerConnectionFactory.java:118)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:51:57.750 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection closed: 127.0.0.1:18196:65338:b1528711-0e08-41f9-b837-1747c1fb2766
+2026-05-26 17:51:57.753 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+org.springframework.messaging.MessagingException: Connection Factory not started
+	at org.springframework.integration.ip.tcp.connection.AbstractConnectionFactory.getTaskExecutor(AbstractConnectionFactory.java:552)
+	at org.springframework.integration.ip.tcp.connection.TcpNetClientConnectionFactory.buildNewConnection(TcpNetClientConnectionFactory.java:65)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.doObtain(AbstractClientConnectionFactory.java:182)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainNewConnection(AbstractClientConnectionFactory.java:162)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:130)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:51:57.865 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 33378 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 33378 or configure this application to listen on another port.
+
+2026-05-26 17:56:03.231 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-05-26 17:56:03.237 ERROR o.code_studio.ComPortSchedulerTask - <tcpserver><err> Barcode communication - Unable to open COM port: COM3. Barcode functionality will be DISABLED until COM port gets connected
+2026-05-26 17:56:03.482 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-05-26 17:56:03.746 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-05-26 17:56:03.763 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-05-26 17:56:03.889 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-05-26 17:56:05.214 ERROR o.s.i.i.t.c.TcpNetServerConnectionFactory - Error on ServerSocket; port = 18196
+java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:511)
+	at java.base/sun.nio.ch.Net.bind(Net.java:500)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:630)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:326)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:178)
+	at java.base/javax.net.DefaultServerSocketFactory.createServerSocket(ServerSocketFactory.java:200)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.createServerSocket(TcpNetServerConnectionFactory.java:226)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.setupServerSocket(TcpNetServerConnectionFactory.java:143)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.run(TcpNetServerConnectionFactory.java:118)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:56:05.227 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1139)
+	at java.base/java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock.lockInterruptibly(ReentrantReadWriteLock.java:784)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainSharedConnection(AbstractClientConnectionFactory.java:135)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:125)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:56:05.240 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+org.springframework.messaging.MessagingException: Connection Factory not started
+	at org.springframework.integration.ip.tcp.connection.AbstractConnectionFactory.getTaskExecutor(AbstractConnectionFactory.java:552)
+	at org.springframework.integration.ip.tcp.connection.TcpNetClientConnectionFactory.buildNewConnection(TcpNetClientConnectionFactory.java:65)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.doObtain(AbstractClientConnectionFactory.java:182)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainNewConnection(AbstractClientConnectionFactory.java:162)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:130)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:56:05.331 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 33378 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 33378 or configure this application to listen on another port.
+
+2026-05-26 17:56:36.933 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-05-26 17:56:36.937 ERROR o.code_studio.ComPortSchedulerTask - <tcpserver><err> Barcode communication - Unable to open COM port: COM3. Barcode functionality will be DISABLED until COM port gets connected
+2026-05-26 17:56:37.428 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-05-26 17:56:37.828 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-05-26 17:56:37.844 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-05-26 17:56:38.014 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-05-26 17:56:39.734 ERROR o.s.i.i.t.c.TcpNetServerConnectionFactory - Error on ServerSocket; port = 18196
+java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:511)
+	at java.base/sun.nio.ch.Net.bind(Net.java:500)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:630)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:326)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:178)
+	at java.base/javax.net.DefaultServerSocketFactory.createServerSocket(ServerSocketFactory.java:200)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.createServerSocket(TcpNetServerConnectionFactory.java:226)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.setupServerSocket(TcpNetServerConnectionFactory.java:143)
+	at org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory.run(TcpNetServerConnectionFactory.java:118)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:56:39.763 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1139)
+	at java.base/java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock.lockInterruptibly(ReentrantReadWriteLock.java:784)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainSharedConnection(AbstractClientConnectionFactory.java:135)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:125)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:56:39.795 ERROR o.s.i.i.t.c.ClientModeConnectionManager - Could not establish connection using bean 'tcpClient'; defined in: 'class path resource [org/code_studio/TcpClientConfig.class]'; from source: 'org.code_studio.TcpClientConfig.tcpClient()', host=localhost, port=18196
+org.springframework.messaging.MessagingException: Connection Factory not started
+	at org.springframework.integration.ip.tcp.connection.AbstractConnectionFactory.getTaskExecutor(AbstractConnectionFactory.java:552)
+	at org.springframework.integration.ip.tcp.connection.TcpNetClientConnectionFactory.buildNewConnection(TcpNetClientConnectionFactory.java:65)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.doObtain(AbstractClientConnectionFactory.java:182)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainNewConnection(AbstractClientConnectionFactory.java:162)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.obtainConnection(AbstractClientConnectionFactory.java:130)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:120)
+	at org.springframework.integration.ip.tcp.connection.AbstractClientConnectionFactory.getConnection(AbstractClientConnectionFactory.java:42)
+	at org.springframework.integration.ip.tcp.connection.ClientModeConnectionManager.run(ClientModeConnectionManager.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-26 17:56:39.878 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 33378 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 33378 or configure this application to listen on another port.
+
+2026-05-26 17:57:28.385 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Trying to open COM port for Barcode communication
+2026-05-26 17:57:28.541 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS channel: /app/topic
+2026-05-26 17:57:28.769 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> TCP server started on port: 18196
+2026-05-26 17:57:28.776 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><info> TCP client has been created for server: localhost:18196
+2026-05-26 17:57:28.848 INFO  o.c.WebSocketServerConfig$$SpringCGLIB$$0 - <wsserver><info> Created WS server on endpoint: /ws
+2026-05-26 17:57:29.698 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><info> Connection established: 127.0.0.1:65465:18196:e61b8132-c652-40f0-b951-8f512811b511
+2026-05-26 17:57:29.698 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpclient><info> Connection established: 127.0.0.1:18196:65465:1c044483-61e3-45c7-8348-f9811b4a4d7a
+2026-05-26 17:57:29.701 INFO  o.c.CraneClientConnectedListener - <tcpsvr><info> CraneClientConnectedEvent detected
+2026-05-26 17:57:29.728 INFO  o.code_studio.ComPortSchedulerTask - <tcpserver><info> Barcode communication enabled. COM port open: COM3
+2026-05-26 17:57:29.749 WARN  o.c.ApplicationReadyListener - <tcpsvr><info> Message Flow Automation Debug is ENABLED
+2026-05-26 17:57:29.755 INFO  o.c.controller.TcpMessageController - <tcpclient><send> LVS1UST1DA560026052026175729????????01???????001
+2026-05-26 17:57:29.765 INFO  o.c.CraneClientConnectedListener - <tcpclient><send> DAYSTART message sent to Crane server
+2026-05-26 17:57:29.780 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><recv> LVS1UST1DA560026052026175729????????01???????001
+2026-05-26 17:57:29.806 WARN  o.c.m.IncomingMessageProcessor - MessageProcessor::handleError->StatusCode.STATUSUNKNOWN
+2026-05-26 17:57:29.811 INFO  o.c.m.IncomingMessageProcessor - SENDER LVS1 | RECEIVER UST1 | MESSAGETYPE DAYSTART | ORDINAL 56 | ERRORCODE OK | SOURCE 26052026 | TARGET 175729 | REPORTPOINT RPUNKNOWN | LETYPE LEUNKNOWN | STATUSCODE AUTOMATIONENABLED | USERDATA null | RAWMESSAGE LVS1UST1DA560026052026175729????????01???????001
+2026-05-26 17:57:32.836 INFO  o.c.controller.TcpMessageController - <tcpclient><send> UST1LVS111570026052026175729????????01???????001
+2026-05-26 17:57:32.845 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><recv> LVS1UST1DA560026052026175729????????01???????001
+2026-05-26 17:57:32.847 INFO  o.c.TcpServerConfig$$SpringCGLIB$$0 - <tcpserver><recv> UST1LVS111570026052026175729????????01???????001
+2026-05-26 17:57:32.852 WARN  o.c.m.IncomingMessageProcessor - MessageProcessor::handleError->StatusCode.STATUSUNKNOWN
+2026-05-26 17:57:32.853 INFO  o.c.m.IncomingMessageProcessor - SENDER UST1 | RECEIVER LVS1 | MESSAGETYPE DAYSTART | ORDINAL 57 | ERRORCODE OK | SOURCE 26052026 | TARGET 175732 | REPORTPOINT RPUNKNOWN | LETYPE LEUNKNOWN | STATUSCODE AUTOMATIONENABLED | USERDATA null | RAWMESSAGE UST1LVS111570026052026175729????????01???????001
+2026-05-26 17:57:32.863 INFO  o.c.TcpClientConfig$$SpringCGLIB$$0 - <tcpclient><recv> LVS1UST1AA570026052026175729????????01???????001

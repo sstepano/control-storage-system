@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <VBox
+        AnchorPane.leftAnchor   ="0"
+        AnchorPane.rightAnchor  ="0"
+        AnchorPane.topAnchor    ="0"
+        AnchorPane.bottomAnchor ="0"
+        spacing="5">
+        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        <HBox VBox.vgrow="ALWAYS">
+            <CSTable fx:id="tblBankAccount"
+                minWidth="250"
+                DTOName="BankAccount"   
+                topLabelText="RAČUNI"
+                addButtonVisible="false"
+                viewButtonVisible="false"
+                editButtonVisible="false"
+                deleteButtonVisible="false">
+                <tableColumns>
+                    <CSTableColumn displayName="RAČUN" methodName="AccountNumber" width="130" />
+                    <CSTableColumn displayName="BANKA" methodName="BankName" />
+                </tableColumns>
+            </CSTable>
+            <CSTable 
+                HBox.hgrow="ALWAYS"
+                fx:id="tblBankStatement"
+                DTOName="BankStatement"
+                topLabelText="IZVODI"
+                addButtonVisible="true"
+                viewButtonVisible="false"
+                editButtonVisible="true"
+                deleteButtonVisible="true">
+                <tableColumns>
+                    <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+                    <CSTableColumn displayName="GODINA" methodName="Year"/>
+                    <CSTableColumn displayName="RBR" methodName="BankStatementNumber" tooltip="Redni broj izvoda u godini" />
+                    <CSTableColumn displayName="DATUM IZV." methodName="BankStatementDate" tooltip="Datum izvoda" />
+                    <CSTableColumn displayName="IZNOS UPLATE" methodName="Amount" />
+                    <CSTableColumn displayName="ZAPOČETO VREME" methodName="CreatedDate" />
+                    <CSTableColumn displayName="OTVORIO" methodName="CreatedBy" />
+                    <CSTableColumn displayName="KNJIŽEN" methodName="BookingDate" />
+                    <CSTableColumn displayName="KNJIŽIO" methodName="BookedBy" />
+                </tableColumns>
+                <componentBarItems>
+                    <Button fx:id="btnBookStatement" text="KNJIŽENJE" style="-fx-text-fill: #ff0000;">
+                        <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="BLACK"/></graphic>
+                     </Button>
+                </componentBarItems>
+	        </CSTable>
+        </HBox>
+        <CSTable fx:id="tblBankStatementDetail"
+            DTOName="BankStatementDetail"
+            topLabelText="STAVKE IZVODA"
+            addButtonVisible="true"
+            viewButtonVisible="false"
+            editButtonVisible="true"
+            deleteButtonVisible="true">
+            <tableColumns>
+                <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+                <CSTableColumn displayName="RBR" methodName="DetailOrdinalNumber" />
+                <CSTableColumn displayName="DATUM IZVODA" methodName="ValueDate" />
+                <CSTableColumn displayName="ŠIFRA KLIJENTA" methodName="ClientId" />
+                <CSTableColumn displayName="NAZIV KLIJENTA" methodName="ClientName" width="180"/>
+                <CSTableColumn displayName="A" methodName="Id" />
+                <CSTableColumn displayName="IZNOS UPLATE" methodName="Amount" />
+                <CSTableColumn displayName="RAČUN" methodName="ClientAccountNumber" width="180"/>
+            </tableColumns>
+        </CSTable>
+        <CSTable fx:id="tblBankStatementDetailAnalytics"
+            DTOName="BankStatementDetailAnalytics"
+            topLabelText="ANALITIKA IZVODA"
+            addButtonVisible="false"
+            viewButtonVisible="false"
+            editButtonVisible="false"
+            deleteButtonVisible="false">
+            <tableColumns>
+                <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+                <CSTableColumn displayName="NAZIV" methodName="Name" width="200"/>
+            </tableColumns>
+        </CSTable>  
+        <HBox styleClass="box-with-border" alignment="CENTER_RIGHT">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <Label text="UKUPNO" />
+            <CSTextField fx:id="tfTotalAmt" validationType="MONEY"  text="0.00"/>
+        </HBox>    
+    </VBox>
+</AnchorPane>

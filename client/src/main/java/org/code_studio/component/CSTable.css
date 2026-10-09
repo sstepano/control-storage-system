@@ -1,0 +1,178 @@
+/* AKO ZELIMO TABELU SA RAZLICITIM SVAKIM DRUGIM REDOM, OTKOMENTARISATI OVO */
+.table-row-cell:even {
+    -fx-background-color: -gk-table-cell-border, derive(-gk-background, 20%);
+}
+
+
+/* OVO SE APPLY-uje kada imamo praznu tabelu */
+.table-view {
+    /* OVO JE BOJA IZ RM PROGRAMA KAO BACKGROUND TABELA rgb(239,239,192); */
+    -fx-background-color: -gk-background;
+}
+
+
+.table-view:focused {
+    -fx-background-color: -gk-focus-color, -fx-focus-color, -gk-background;
+    -fx-background-insets: -0.3, -0.3, 1;
+    -fx-background-radius: 1, 0, 0;
+}
+
+
+.table-cell {
+    -fx-border-color: transparent -gk-table-cell-border transparent transparent;
+    /* Ovo u kombinaciji sa -fx-cell-size:14px daje najuzi moguci prikaz reda u tabeli */
+    -fx-padding: -2 1 0 1;  /* ovo kontrolise prazan prostor u celijama tabele top right bottom left */
+     -fx-font-size: 1.1em;  /* ne svidja mi se kako izgleda ako povecam font */
+}
+
+.table-row-cell {
+    -fx-background: -gk-background;
+    -fx-background-color: -gk-table-cell-border, -fx-background;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-cell-size: -gk-table-cell-height;
+}
+
+/* SELECTED TABLE ROW */
+.table-row-cell:selected {
+    -fx-background-color: -gk-accent;
+}
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: -gk-focused-text-base-color;
+}
+
+.table-row-cell .check-box {
+	-fx-font-size: 0.9em;
+}
+
+.table-row-cell:empty {
+    -fx-border-width: 0;
+    -fx-background: -gk-background;
+    -fx-background-color: -fx-background, -fx-background;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+    -fx-background-color: null;
+}
+
+.table-row-cell:filled:hover {
+	-fx-background-color: -gk-highlight;
+}
+
+.table-row-cell:filled:hover .table-cell {
+    -fx-text-fill: -gk-accent;
+    -fx-border-color: transparent -gk-table-cell-border -gk-table-cell-border transparent;
+}
+
+
+#borderPane {
+    -fx-border-width: 1px;
+    -fx-border-color: -gk-border-color;
+    -fx-background-color: -fx-color;
+}
+
+#btnSearch, #btnAdd, #btnView, #btnEdit, #btnDelete, #btnRefresh, #btnSearch:hover, #btnAdd:hover, #btnView:hover, #btnEdit:hover, #btnDelete:hover, #btnRefresh:hover {
+    -fx-background-radius: 3;
+    -fx-background-insets: 0, 0.75;
+}
+
+#btnSearch {
+    -fx-background-color: -gk-border-color, -gk-ok-button-background-color;
+}
+
+#btnSearch:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-ok-button-background-color, 25%);
+}
+
+#btnAdd {
+    -fx-background-color: -gk-border-color, -gk-add-button-background-color;
+}
+
+#btnAdd:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-add-button-background-color, 25%);
+}
+
+#btnView {
+    -fx-background-color: -gk-border-color, -gk-view-button-background-color;
+}
+
+#btnView:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-view-button-background-color, 25%);
+}
+
+#btnEdit {
+    -fx-background-color: -gk-border-color, -gk-edit-button-background-color;
+}
+
+#btnEdit:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-edit-button-background-color, 25%);
+}
+
+#btnDelete {
+    -fx-background-color: -gk-border-color, -gk-delete-button-background-color;
+}
+
+#btnDelete:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-delete-button-background-color, 25%);
+}
+
+#btnRefresh {
+    -fx-background-color: -gk-border-color, -gk-refresh-button-background-color;
+}
+
+#btnRefresh:hover {
+    -fx-background-color: -gk-border-color, derive(-gk-refresh-button-background-color, 25%);
+}
+
+
+.column-center-right {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+/*** TESTIRANJE BOJENJA REDA U TABELI
+.table-row-cell:up 
+{
+    -fx-background-color: #007054; 
+}
+***/
+
+/* HIGHLIGHTED ROW */
+.highlighted-red {
+	-fx-background-color: -gk-table-cell-border, RED;
+	-fx-border-color: transparent -gk-table-cell-border -gk-table-cell-border transparent;
+	-fx-text-fill: LIGHTYELLOW;
+	-fx-padding: -3 0 0 0;
+}
+
+.highlighted-red .table-cell {
+    -fx-background-color: -gk-table-cell-border, RED; 
+    -fx-text-fill: LIGHTYELLOW;
+    -fx-padding: -3 0 0 0;
+}
+
+.highlighted-green {
+	-fx-background-color: -gk-table-cell-border, GREEN;
+	-fx-border-color: transparent -gk-table-cell-border -gk-table-cell-border transparent;
+	-fx-text-fill: LIGHTYELLOW;
+	-fx-padding: -3 0 0 0;
+}
+
+.highlighted-green .table-cell {
+    -fx-background-color: -gk-table-cell-border, GREEN; 
+    -fx-text-fill: LIGHTYELLOW;
+    -fx-padding: -3 0 0 0;
+}
+
+.highlighted-orange {
+	-fx-background-color: -gk-table-cell-border, ORANGE;
+	-fx-border-color: transparent -gk-table-cell-border -gk-table-cell-border transparent;
+    -fx-text-fill: LIGHTYELLOW;
+    -fx-padding: -3 0 0 0;
+}
+
+.highlighted-orange .table-cell {
+    -fx-background-color: -gk-table-cell-border, ORANGE; 
+    -fx-text-fill: LIGHTYELLOW;
+    -fx-padding: -3 0 0 0;
+}

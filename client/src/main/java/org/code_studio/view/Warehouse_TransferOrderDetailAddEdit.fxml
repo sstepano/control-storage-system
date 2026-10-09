@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Spinner?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.ui.CSItemWarehouseTable?>
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<AnchorPane
+    prefWidth="1000"
+    prefHeight="650"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="textFieldWidth" fx:value="75" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="smallTableHeight" fx:value="250" />
+    </fx:define>
+    
+    <children>
+        <VBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0">
+                <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>
+                <HBox>
+                    <VBox HBox.hgrow="SOMETIMES">
+                        <CSItemWarehouseTable fx:id="tblWarehouseOrigin" />
+                        <CSItemWarehouseTable fx:id="tblWarehouseDestination" />
+                    </VBox>
+
+                    <VBox>
+                        <CSTable fx:id="tblTransferOrderDetail"
+                            VBox.vgrow="ALWAYS"
+                            DTOName="TransferOrderDetail"
+                            topLabelText="SASTAV PRENOSNICE"
+                            addButtonVisible="true"
+                            viewButtonVisible="false"
+                            editButtonVisible="true"
+                            deleteButtonVisible="true">
+                            <tableColumns>
+		                        <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+		                        <CSTableColumn displayName="ŠIFRA ARTIKLA" methodName="ItemId" />
+		                        <CSTableColumn displayName="KOLIČINA" methodName="Qty" />
+		                        <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="400" />
+                            </tableColumns>
+                        </CSTable>
+                    </VBox>
+                </HBox>
+
+				<CSDialogButtons fx:id="dialogButtons" saveButtonVisible="false" />
+
+        </VBox>
+
+    </children>        
+</AnchorPane>

@@ -1,0 +1,11 @@
+.root {
+    -fx-font-size: 1.3em;
+}
+
+#tblTransferOrderDetail .table-cell {
+     -fx-font-size: 1.8em;
+}
+
+#tblTransferOrderDetail .table-row-cell {
+    -fx-cell-size: 30px;
+}

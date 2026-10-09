@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsonDataAdapter class="net.sf.jasperreports.data.json.JsonDataAdapterImpl">
+  <name>client</name>
+  <dataFile type="repositoryDataLocation">
+    <location>D:\dev\jasper-reports-ws\client.json</location>
+  </dataFile>
+  <selectExpression>$P{JSON_INPUT_1}</selectExpression>
+  <locale>en_US</locale>
+  <timeZone>Europe/Prague</timeZone>
+  <useConnection>true</useConnection>
+  <language>json</language>
+</jsonDataAdapter>

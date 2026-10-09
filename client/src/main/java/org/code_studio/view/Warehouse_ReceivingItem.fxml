@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+
+<AnchorPane
+    prefWidth="1024"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="glyphFontSize" fx:value="24" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="longButtonWidth" fx:value="200" />
+    </fx:define>    
+    
+    <children>
+        <VBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0"
+            spacing="5"
+            >
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <HBox spacing="5">
+                <CSTable fx:id="tblBillOfReceipt"
+                    HBox.hgrow="ALWAYS"
+                    DTOName="BillOfReceipt"  
+                    topLabelText="PRIJEMNICA"
+                    addButtonVisible="true"
+                    viewButtonVisible="false"
+                    editButtonVisible="true"
+                    deleteButtonVisible="true">
+                    <tableColumns>
+                        <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                        <CSTableColumn displayName="GOD" methodName="Year" tooltip="Godina" />
+                        <CSTableColumn displayName="V" methodName="BillOfReceiptType" tooltip="Vrsta" />
+                        <CSTableColumn displayName="DAT.POR." methodName="BillOfReceiptDate" tooltip="Datum porudžbenice" />
+                        <CSTableColumn displayName="BR.POR." methodName="OrderDescription" tooltip="Broj porudžbenice" />
+                        <CSTableColumn displayName="DAT.PRIJEMA" methodName="LastModifiedDate" tooltip="Datum prijema" />
+                        <CSTableColumn displayName="NAZIV" methodName="ClientName" width="200" />
+                        <CSTableColumn displayName="OBRADIO" methodName="LastModifiedUserName" width="120"/>
+                    </tableColumns>
+                </CSTable>
+                <VBox spacing="5" minWidth="305" maxWidth="305">
+                    <TextArea styleClass="blue-field" wrapText="true" VBox.vgrow="ALWAYS"/>
+                    <HBox spacing="5">
+                        <Button fx:id="btn1" prefWidth="$buttonWidth" text="Provera">
+                            <graphic><Glyph styleClass="glyph" icon="CHECK_SQUARE" textFill="RED" fontSize="$glyphFontSize"/></graphic>
+                        </Button>
+                        <Button fx:id="btn1" prefWidth="$buttonWidth" text="Upis napomene">
+                            <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="GREEN" fontSize="$glyphFontSize"/></graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </HBox>
+            <HBox>
+                <CSTable fx:id="tblBillOfReceiptDetail"
+                    HBox.hgrow="ALWAYS"
+                    DTOName="BillOfReceiptDetail" 
+                    topLabelText="STAVKE PRIJEMNICE"
+                    addButtonVisible="false"
+                    viewButtonVisible="false"
+                    editButtonVisible="true"
+                    deleteButtonVisible="false">
+                    <tableColumns>
+                        <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                        <CSTableColumn displayName="KOLIČINA" methodName="Quantity" />
+                        <CSTableColumn displayName="MAGACIN" methodName="WarehouseName" width="200" />
+                        <CSTableColumn displayName="RED" methodName="RowId" />
+                        <CSTableColumn displayName="POLICA" methodName="ShelfId" />
+                        <CSTableColumn displayName="VERTIKALA" methodName="VerticalId" />
+                        <CSTableColumn displayName="PRIJEM RED" methodName="ReceiveRowId" />
+                        <CSTableColumn displayName="PRIJEM POLICA" methodName="ReceiveShelfId" />
+                        <CSTableColumn displayName="PRIJEM VERTIKALA" methodName="ReceiveVerticalId" />
+                        <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="400" />
+                    </tableColumns>
+                </CSTable>
+	        </HBox>
+	        <HBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <!-- <CheckBox text="Direktno na štampač" /> -->
+                <Button fx:id="btnPrint" prefWidth="$buttonWidth" text="Štampa">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Overa">
+                    <graphic><Glyph styleClass="glyph" icon="CHECK_SQUARE" textFill="RED" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Prebaci u FK">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+	        </HBox>
+        </VBox>
+    </children>        
+</AnchorPane>

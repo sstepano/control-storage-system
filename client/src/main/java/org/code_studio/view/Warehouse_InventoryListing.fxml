@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.code_studio.component.ui.CSComboBoxEnumerator?>
+
+<AnchorPane
+    prefWidth="800"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+ 
+    <fx:define>
+        <Integer fx:id="iconSize" fx:value="26" />
+        <Integer fx:id="btnWidth" fx:value="180" />
+        <Integer fx:id="longComboBoxWidth" fx:value="200" />
+        <ToggleGroup fx:id="tgpStatus" />
+    </fx:define>
+    
+    
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+      
+               <!-- MAIN TABLE -->
+               <VBox VBox.vgrow="ALWAYS">
+                   <HBox>
+			           <HBox alignment="CENTER_LEFT" styleClass="box-with-border, box-spacing-10">
+			               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+			               <RadioButton text="Za rad" toggleGroup="${tgpStatus}" />
+			               <RadioButton text="U radu" toggleGroup="${tgpStatus}" selected="true" />
+			               <RadioButton text="Završeno" toggleGroup="${tgpStatus}" />
+			               <RadioButton text="Sve" toggleGroup="${tgpStatus}" />
+	                   </HBox>
+		               <HBox alignment="CENTER_LEFT" styleClass="box-with-border">
+		                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                   <Label text="Popisivač" />
+	                       <CSComboBoxEnumerator fx:id="cbEnumerator" mode="0" prefWidth="$longComboBoxWidth" />
+	                   </HBox>
+	                   <HBox HBox.hgrow="ALWAYS"></HBox> <!-- FILLER -->
+	                   <HBox alignment="CENTER_LEFT" styleClass="box-with-border">
+	                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                           <Button fx:id="btnInventoryListingVerification" text="Verifikacija popisa" prefWidth="$btnWidth">
+                               <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2b-barcode-scan" iconSize="$iconSize" iconColor="RED"/></graphic>
+                           </Button>
+	                   </HBox>
+                   </HBox>
+                   <CSTable 
+                       fx:id="tblInventoryListing"
+                       DTOName="InventoryListing"  
+                       topLabelText="NALOG ZA POPIS ZALIHA"
+                       addButtonVisible="true"
+                       viewButtonVisible="false"
+                       editButtonVisible="true"
+                       deleteButtonVisible="true"
+                       searchVisible="false"
+                       reverseItemsOrder="true" 
+                       VBox.vgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="ID" methodName="Id" />
+                           <CSTableColumn displayName="ŠIFRA MAGACINA" methodName="WarehouseId" />
+                           <CSTableColumn displayName="BROJANJE" methodName="CountingNbr" />
+                           <CSTableColumn displayName="POPISIVAČ" methodName="EnumeratorUsername" />
+                           <CSTableColumn displayName="STATUS" methodName="StatusName" />
+                           <CSTableColumn displayName="NALOG KREIRAO" methodName="CreatedByUsername" width="200" />
+                           <CSTableColumn displayName="DATUM NALOGA" methodName="CreatedDate" />
+                       </tableColumns>
+                   </CSTable>
+                   <CSTable 
+                       fx:id="tblInventoryListingDetail"
+                       DTOName="InventoryListingDetail"  
+                       topLabelText="DETALJI NALOGA ZA POPIS ZALIHA"
+                       addButtonVisible="true"
+                       viewButtonVisible="false"
+                       editButtonVisible="true"
+                       deleteButtonVisible="true"
+                       searchVisible="true"
+                       searchTooltipText="Pretraga po: BARKOD, ŠIFRA ARTIKLA, RASPORED"
+                       reverseItemsOrder="true"
+                       VBox.vgrow="ALWAYS">
+                       <tableColumns>
+                           <CSTableColumn displayName="ID" methodName="Id" />
+                           <CSTableColumn displayName="ŠIFRA MAGACINA" methodName="WarehouseId" />
+                           <CSTableColumn displayName="POPISIVAČ" methodName="EnumeratorUsername" />
+                           <CSTableColumn displayName="RED" methodName="RowId" width="30" />
+                           <CSTableColumn displayName="DUBINA" methodName="ShelfId" />
+                           <CSTableColumn displayName="VISINA" methodName="VerticalId" />
+                           <CSTableColumn displayName="BARKOD" methodName="ItemBarcode" />
+                           <CSTableColumn displayName="ŠIFRA ARTIKLA" methodName="ItemId" />
+                           <CSTableColumn displayName="POPISANA KOLIČINA" methodName="CountedQty" />
+                           <CSTableColumn displayName="DATUM POPISA" methodName="CreatedDate" width="100" />
+                       </tableColumns>
+                       <componentBarItems>
+                           <Label fx:id="lblWarehouseIdAndName" />
+                       </componentBarItems>
+                   </CSTable>
+               </VBox>
+        </VBox>
+</AnchorPane>

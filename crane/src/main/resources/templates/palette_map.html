@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Mapa paleta</title>
+	    
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link href="css/palette_map.css" rel="stylesheet"> 
+	    
+	    <script src="js/jquery.min.js"></script>    
+	    <script src="js/bootstrap.bundle.min.js"></script>
+		 
+	    <script src="js/palette_map.js"></script>
+	</head>
+	<body>
+	
+		<div id="container-main">
+			
+			    <!-- Modal -->
+			    <div id="modalDetail" class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			      <div class="modal-dialog modal-fullscreen">
+			        <div class="modal-content">
+
+			          <div class="modal-header">
+			            <h6 class="modal-title" id="modalTitle">Detalji mape paleta</h6>
+			            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			          </div>
+
+			          <div id="modalBody" class="modal-body">
+			            ...
+			          </div>
+			          
+			          <!--
+			          <div class="modal-footer">
+			            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+			          </div>
+			          -->
+			          
+			        </div>
+			      </div>
+			    </div>
+			    
+				<div class="container-detail" id="container-detail">
+				<div class="row-0" id="row-0">
+				    <!-- Row A: Contains your Left and Right metrics cards -->
+				    <div class="header-top-row">
+				        <div class="header-data">
+				            <span>Ukupno paleta u magacinu:</span>
+				            <span id="occupiedNo1"></span>					
+				        </div>
+				        <div class="header-data">
+				            <span>Ukupno slobodno:</span>
+				            <span id="unoccupiedNo1"></span>					
+				        </div>
+				    </div>
+
+					<!-- Row B: Sits directly beneath Row A, aligned to the left edge -->
+					<div class="header-bottom-row">
+					    <div class="header-data-broken">
+					        <!-- This span will float right on top of the border line -->
+					        <span class="fieldset-label">Broj paleta za unos</span>
+					        <span id="enteredNo">
+								<input type="text" id="palletesNo" class="form-control text-primary w-25">		
+							</span>					
+					    </div>
+					</div>
+				</div>
+				</div>
+				
+				<div class="wh-row-container" id="containerRowNumber1">
+				    <div class="wh-row">
+						<div class="wh-row-info-visina-transparent">8</div>
+						<div class="wh-row-info-visina">7</div>
+						<div class="wh-row-info-visina">6</div>
+						<div class="wh-row-info-visina">5</div>
+						<div class="wh-row-info-visina">4</div>
+						<div class="wh-row-info-visina">3</div>
+						<div class="wh-row-info-visina">2</div>
+						<div class="wh-row-info-visina">1</div>
+						<div class="wh-row-info-transparent">81</div>
+					</div>
+				</div>	
+		
+		
+			<div class="wh-row-container">
+			    <div class="wh-row" id="wh-row-81">
+			        <div class="wh-row-info-visina">81</div>
+			        
+			        <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+			        <div th:each="currentId : ${#numbers.sequence(817, 811, -1)}" 
+			             th:id="${currentId}" 
+			             class="wh-row-info start color-target">
+			            
+			        </div>
+			        
+			        <div id="81" class="wh-row-link unoccupied"></div>
+			    </div>
+			</div>
+
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">8</div>
+			    </div>
+			</div>		
+			
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-82">
+				    <div class="wh-row-info-visina">82</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(827, 821, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="82" class="wh-row-link unoccupied"></div>
+				</div>
+				<div class="wh-row" id="wh-row-71">
+				    <div class="wh-row-info-visina">71</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(717, 711, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="71" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">7</div>
+			    </div>
+			</div>			
+			
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-72">
+				    <div class="wh-row-info-visina">72</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(727, 721, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="72" class="wh-row-link unoccupied"></div>
+				</div>
+				<div class="wh-row" id="wh-row-61">
+				    <div class="wh-row-info-visina">61</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(617, 611, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="61" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">6</div>
+			    </div>
+			</div>		
+			
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-62">
+				    <div class="wh-row-info-visina">62</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(627, 621, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="62" class="wh-row-link unoccupied"></div>
+				</div>
+				<div class="wh-row" id="wh-row-51">
+				    <div class="wh-row-info-visina">51</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(517, 511, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="51" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+			
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">5</div>
+			    </div>
+			</div>			
+
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-52">
+				    <div class="wh-row-info-visina">52</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(527, 521, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="52" class="wh-row-link unoccupied"></div>
+				</div>
+				<div class="wh-row" id="wh-row-41">
+				    <div class="wh-row-info-visina">41</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(417, 411, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="41" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">4</div>
+			    </div>
+			</div>			
+			
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-42">
+				    <div class="wh-row-info-visina">42</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(427, 421, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="42" class="wh-row-link unoccupied"></div>
+				</div>
+				<div class="wh-row" id="wh-row-31">
+				    <div class="wh-row-info-visina">31</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(317, 311, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="31" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">3</div>
+			    </div>
+			</div>			
+			
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-32">
+				    <div class="wh-row-info-visina">32</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(327, 321, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="32" class="wh-row-link unoccupied"></div>
+				</div>
+				<div class="wh-row" id="wh-row-21">
+				    <div class="wh-row-info-visina">21</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(217, 211, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="21" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">2</div>
+			    </div>
+			</div>		
+			
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-22">
+				    <div class="wh-row-info-visina">22</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(227, 221, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="22" class="wh-row-link unoccupied"></div>
+				</div>
+				<div class="wh-row" id="wh-row-11">
+				    <div class="wh-row-info-visina">11</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(117, 111, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="11" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+
+			<!-- Combined Divider Column: Exactly the width of the number, vertically centered at half-height -->
+			<div class="wh-row-container is-divider">
+			    <div class="wh-row is-divider-layout">
+			        <div class="wh-row-info-between-rows">1</div>
+			    </div>
+			</div>			
+			
+			<div class="wh-row-container">
+				<div class="wh-row" id="wh-row-12">
+				    <div class="wh-row-info-visina">12</div>
+				    
+				    <!-- #numbers.sequence(start, end, step) creates a loop from 817 down to 811 -->
+				    <div th:each="currentId : ${#numbers.sequence(127, 121, -1)}" 
+				         th:id="${currentId}" 
+				         class="wh-row-info start color-target">
+				        
+				    </div>
+				    
+				    <div id="12" class="wh-row-link unoccupied"></div>
+				</div>
+			</div>
+
+			<div class="wh-row-container" id="containerRowNumber2">
+			    <div class="wh-row">
+					<div class="wh-row-info-visina-transparent">8</div>
+					<div class="wh-row-info-visina">7</div>
+					<div class="wh-row-info-visina">6</div>
+					<div class="wh-row-info-visina">5</div>
+					<div class="wh-row-info-visina">4</div>
+					<div class="wh-row-info-visina">3</div>
+					<div class="wh-row-info-visina">2</div>
+					<div class="wh-row-info-visina">1</div>
+					<div class="wh-row-info-transparent">81</div>
+				</div>
+			</div>
+	
+        </div>
+    </body>
+
+</html>

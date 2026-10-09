@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="btnWidth" fx:value="160" />
+        <Integer fx:id="smallTextFieldWidth" fx:value="75" />
+        <Integer fx:id="mediumTextFieldWidth" fx:value="120" />
+        <Integer fx:id="longTextFieldWidth" fx:value="300" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+        <ToggleGroup fx:id="tgpFirst" />
+        <ToggleGroup fx:id="tgpSecond" />
+    </fx:define>
+
+    <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor ="0">
+        <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>
+        
+        <CSTable fx:id="mainTable"
+            topLabelText="AŽURIRANJE BROJA ISPORUČENIH"
+            DTOName="VatGroup" 
+            topSectionVisible="true" 
+            topLabelVisible="true"
+            searchVisible="false" 
+            addButtonVisible="true"
+            viewButtonVisible="false"
+            editButtonVisible="true"
+            deleteButtonVisible="true"
+            VBox.vgrow="ALWAYS">
+            <tableColumns>
+                <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+            </tableColumns>                   
+        </CSTable>
+
+    </VBox>
+
+</AnchorPane>

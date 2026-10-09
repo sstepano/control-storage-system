@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.CheckBox?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSPhotoView?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="btnWidth" fx:value="160" />
+        <Integer fx:id="smallTextFieldWidth" fx:value="75" />
+        <Integer fx:id="mediumTextFieldWidth" fx:value="120" />
+        <Integer fx:id="longTextFieldWidth" fx:value="300" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+        <ToggleGroup fx:id="tgpFirst" />
+        <ToggleGroup fx:id="tgpSecond" />
+    </fx:define>
+
+    <children>
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor ="0">
+            <padding><Insets top="5" right="5" bottom="0" left="5"/></padding>
+            
+            <HBox styleClass="box-with-border" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <Label text="Šifra klijenta" />
+                <CSTextField fx:id="tfClientId" prefWidth="${smallTextFieldWidth}" disable="true"/>
+                
+                <Label text="Naziv klijenta" />
+                <CSTextField fx:id="tfClientName" prefWidth="${longTextFieldWidth}" disable="true"/>
+            </HBox>
+            
+            <CSTable fx:id="tblClientStoreImage"
+                maxHeight="250"
+                topLabelText="FOTOGRAFIJE"
+                DTOName="ClientStoreImage" 
+                topSectionVisible="true" 
+                topLabelVisible="true"
+                searchVisible="false" 
+                viewButtonVisible="false"
+                VBox.vgrow="NEVER">
+                <tableColumns>
+                    <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                    <CSTableColumn displayName="NAZIV SLIKE" methodName="ImagePath" width="500"/>
+                </tableColumns>                   
+            </CSTable>
+           	<CSPhotoView fx:id="phvStoreImage" mode="1" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </children>        
+</AnchorPane>
+

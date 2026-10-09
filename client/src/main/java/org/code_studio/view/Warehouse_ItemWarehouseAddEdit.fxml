@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="textFieldWidth" fx:value="50" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                    
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <children>                    
+                                <Label text="Šifra magacina"></Label>
+                                <TextField fx:id="tfWarehouseId" prefWidth="200" disable="true" alignment="CENTER_RIGHT"></TextField>
+                            </children>
+                        </HBox>
+                        <!-- Ukljucicu ove info kada Bane bude trazio
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <children>                    
+                                <Label text="Naziv magacina"></Label>
+                                <TextField fx:id="tfWarehouseName" prefWidth="200" disable="true" alignment="CENTER_RIGHT"></TextField>
+                            </children>
+                        </HBox>
+                        -->
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <children>
+                                <Label text="Šifra artikla"></Label>
+                                <TextField fx:id="tfItemId" prefWidth="200" disable="true" alignment="CENTER_RIGHT"></TextField>
+                            </children>
+                        </HBox>
+                        <!--
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <children>
+                                <Label text="Naziv artikla"></Label>
+                                <TextField fx:id="tfItemName" prefWidth="200" disable="true"></TextField>
+                            </children>
+                        </HBox>
+                        -->
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <children>                    
+                                <Label text="Šifra klijenta"></Label>
+                                <TextField fx:id="tfItemClientId" prefWidth="200" disable="true" alignment="CENTER_RIGHT"></TextField>
+                            </children>
+                        </HBox>
+                        
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="SA POZICIJE"></Label>
+                            </HBox>
+                            <HBox>
+		                        <HBox spacing="10" alignment="CENTER_LEFT">
+		                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                            <children>
+		                                <Label text="Red"></Label>
+		                                <TextField fx:id="tfFromRowId" prefWidth="$textFieldWidth" disable="true"></TextField>
+		                            </children>
+		                        </HBox>
+		                        <HBox spacing="10" alignment="CENTER_LEFT">
+		                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                            <children>
+		                                <Label text="Polica"></Label>
+		                                <TextField fx:id="tfFromShelfId" prefWidth="$textFieldWidth" disable="true"></TextField>
+		                            </children>
+		                        </HBox>
+		                        <HBox spacing="10" alignment="CENTER_LEFT">
+		                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                            <children>
+		                                <Label text="Vertikala"></Label>
+		                                <TextField fx:id="tfFromVerticalId" prefWidth="$textFieldWidth" disable="true"></TextField>
+		                            </children>
+		                        </HBox>
+	                        </HBox>
+                        </VBox>
+                        
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="NA POZICIJU"></Label>
+                            </HBox>
+                            <HBox>
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Red"></Label>
+                                        <TextField fx:id="tfToRowId" prefWidth="$textFieldWidth"></TextField>
+                                    </children>
+                                </HBox>
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Polica"></Label>
+                                        <TextField fx:id="tfToShelfId" prefWidth="$textFieldWidth"></TextField>
+                                    </children>
+                                </HBox>
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                    <children>
+                                        <Label text="Vertikala"></Label>
+                                        <TextField fx:id="tfToVerticalId" prefWidth="$textFieldWidth"></TextField>
+                                    </children>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                        <VBox spacing="10" alignment="CENTER_RIGHT" styleClass="box-with-border">
+	                        <HBox spacing="10" alignment="CENTER_RIGHT">
+	                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <children>
+	                                <Label text="KOLIČINA ZA PRENOS:"></Label>
+								    <Spinner fx:id="spTotal" editable="true" prefWidth="100">
+								        <valueFactory>
+								            <SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="999999"/>
+								        </valueFactory>
+								    </Spinner>
+	                            </children>
+	                        </HBox>
+                        </VBox>
+
+                        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <children>                    
+                               <Button fx:id="btnSave" text="%button.save.text">
+                                   <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                               </Button>
+                               <Button fx:id="btnCancel" text="%button.cancel.text">
+                                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                               </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.code_studio</groupId>
+  <artifactId>repromarket-database</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <properties>
+        <java.version>24</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+   	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.4.4.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.opencsv</groupId>
+		    <artifactId>opencsv</artifactId>
+		    <version>5.9</version>
+		</dependency>
+	</dependencies>
+    <build>
+        <finalName>${project.artifactId}</finalName> 
+        <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <enablePreview>false</enablePreview> <!-- enables preview features of the currently selected java, but we must add it in Launch4j also -->
+                </configuration>
+            </plugin>
+	    </plugins>
+    </build>
+    
+</project>
+

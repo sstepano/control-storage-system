@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<AnchorPane
+    prefWidth="1000"
+    prefHeight="700"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="comboBoxWidth" fx:value="150" />
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="60" />
+        <ToggleGroup fx:id="tgpActiveInactive" />
+        <ToggleGroup fx:id="tgpWarehouseType" />
+    </fx:define> 
+    
+    <children>
+        <VBox 
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+             <children>
+		           <CSTable fx:id="mainTable"
+                        topLabelText="MAGACINI"
+                        DTOName="Warehouse" 
+                        topSectionVisible="true" 
+                        topLabelVisible="true"
+                        searchVisible="false" 
+                        viewButtonVisible="false"
+                        tableRequestFocus="true"
+                        VBox.vgrow="ALWAYS">
+                       <tableColumns>
+	                       <!-- =<CSTableColumn displayName="ŠIFRA" methodName="Id" /> 
+	                        I dalje drzimo ID u bazi, dok useru prikazujemo WAREHOUSE_NUMBER kao sifru,
+	                        tako da user moze da menja redosled po numberu, a ID svakako ne moze da kontrolise
+	                       -->
+	                       <CSTableColumn displayName="ŠIFRA" methodName="WarehouseNumber" conditionalFormattingParams="eq,true,11,0,green" />
+                           <CSTableColumn displayName="NAZIV" methodName="Name" conditionalFormattingParams="eq,true,11,0,green" />
+                           <CSTableColumn displayName="AKTIVAN" methodName="IsActive" tooltip="AKTIVAN" />
+                           <CSTableColumn displayName="MP" methodName="IsRetail" tooltip="MALOPRODAJA" />
+                           <CSTableColumn displayName="MP RB" methodName="RetailSerialNo" tooltip="MALOPRODAJA REDNI BROJ" conditionalFormattingParams="gt,0" />
+                           <CSTableColumn displayName="VP" methodName="IsWholesale" tooltip="VELEPRODAJA" />
+                           <CSTableColumn displayName="VP RB" methodName="WholesaleSerialNo" tooltip="VELEPRODAJA REDNI BROJ" conditionalFormattingParams="gt,0" />
+                           <CSTableColumn displayName="DMP" methodName="IsDiscountRetail" tooltip="DISKONT MALOPRODAJA" />
+                           <CSTableColumn displayName="DMP RB" methodName="DiscountRetailSerialNo" tooltip="DISKONT MALOPRODAJA REDNI BROJ" conditionalFormattingParams="gt,0" />
+                           <CSTableColumn displayName="DVP" methodName="IsDiscountWholesale" tooltip="DISKONT VELEPRODAJA" />
+                           <CSTableColumn displayName="DVP RB" methodName="DiscountWholesaleSerialNo" tooltip="DISKONT VELEPRODAJA REDNI BROJ" conditionalFormattingParams="gt,0" />
+                           <CSTableColumn displayName="KM" methodName="IsCommission" tooltip="KOMISION" />
+                           <CSTableColumn displayName="KM RB" methodName="CommissionSerialNo" tooltip="KOMISION REDNI BROJ" conditionalFormattingParams="gt,0" />
+                           <CSTableColumn displayName="U PONUDI" methodName="IsOfferred" />
+                           <CSTableColumn displayName="INTERNET" methodName="IsInternet" />
+                       </tableColumns> 
+                       <componentBarItems>
+		                   <HBox fx:id="hbActiveInactive" styleClass="box-with-border">
+		                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                       <RadioButton fx:id="rbAll" toggleGroup="$tgpActiveInactive" text="Svi" />
+		                       <RadioButton fx:id="rbActive" toggleGroup="$tgpActiveInactive" text="Aktivni" selected="true" />
+		                       <RadioButton fx:id="rbInactive" toggleGroup="$tgpActiveInactive" text="Neaktivni" />
+		                   </HBox>
+		                   <HBox fx:id="hbWarehouseType" styleClass="box-with-border">
+		                       <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                       <RadioButton fx:id="rbAllTypes" toggleGroup="$tgpWarehouseType" text="Svi" />
+		                       <RadioButton fx:id="rbRegular" toggleGroup="$tgpWarehouseType" text="Regularni" />
+		                       <RadioButton fx:id="rbCommission" toggleGroup="$tgpWarehouseType" text="Komisioni" selected="true" />
+		                   </HBox>
+                       </componentBarItems>                  
+                   </CSTable>
+                   <CSDialogButtons fx:id="dialogButtons" />
+             </children>
+        </VBox>
+    </children>        
+</AnchorPane>

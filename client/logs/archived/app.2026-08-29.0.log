@@ -1,0 +1,419 @@
+2026-08-29 09:18:40.153 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 09:18:40.939 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/318/0
+2026-08-29 09:20:50.047 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableByDocumentId/10/0
+2026-08-29 09:20:54.255 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableByDocumentId/10/0
+2026-08-29 09:21:28.209 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/319/0
+2026-08-29 09:21:28.606 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/320/0
+2026-08-29 09:25:22.564 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 09:25:45.124 ERROR org.code_studio.rest.CSRestService - 400: http://localhost:33377/api/v1/item/allByClientIdPageable/0/50008
+2026-08-29 09:25:53.921 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/321/0
+2026-08-29 09:25:54.088 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/item/allPageableByNameAndClientId/aq/50008/0
+2026-08-29 09:25:54.565 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/322/0
+2026-08-29 09:40:13.374 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 09:40:43.813 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/323/0
+2026-08-29 09:40:43.931 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/item/allPageableByNameAndClientId/zx/50008/0
+2026-08-29 09:40:44.262 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/324/0
+2026-08-29 10:01:56.825 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 10:02:24.989 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/325/0
+2026-08-29 10:02:25.129 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/item/allPageableByNameAndClientId/z/50008/0
+2026-08-29 10:02:25.448 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/326/0
+2026-08-29 10:23:25.676 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 10:23:49.165 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/327/0
+2026-08-29 10:23:49.296 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/item/allPageableByNameAndClientId/qw/50008/0
+2026-08-29 10:23:49.580 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/328/0
+2026-08-29 11:04:25.624 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 11:04:53.751 ERROR org.code_studio.main.Common - {}
+javafx.fxml.LoadException: 
+/C:/Users/Srba/Documents/workspace-spring-tools-for-eclipse-5.1.1.RELEASE/Repromarket/repromarket-source-code/repromarket-source-code/client/target/classes/org/code_studio/view/Dobanovci_PaletteGroupAddEdit.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2692)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2662)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at org.code_studio.main.Common.displayForm(Common.java:190)
+	at org.code_studio.controller.Dobanovci_GoodsInController.lambda$14(Dobanovci_GoodsInController.java:342)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Node.fireEvent(Node.java:9005)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1934)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:560)
+	at com.sun.glass.ui.View.notifyMouse(View.java:946)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	... 51 common frames omitted
+Caused by: java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.unoccupiedPaletteSpaces" is null
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.setCraneProperties(Dobanovci_PaletteGroupAddEditController.java:252)
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.initialize(Dobanovci_PaletteGroupAddEditController.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 58 common frames omitted
+2026-08-29 11:05:14.699 ERROR org.code_studio.main.Common - {}
+javafx.fxml.LoadException: 
+/C:/Users/Srba/Documents/workspace-spring-tools-for-eclipse-5.1.1.RELEASE/Repromarket/repromarket-source-code/repromarket-source-code/client/target/classes/org/code_studio/view/Dobanovci_PaletteGroupAddEdit.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2692)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2662)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at org.code_studio.main.Common.displayForm(Common.java:190)
+	at org.code_studio.controller.Dobanovci_GoodsInController.lambda$14(Dobanovci_GoodsInController.java:342)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Node.fireEvent(Node.java:9005)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1934)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:560)
+	at com.sun.glass.ui.View.notifyMouse(View.java:946)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	... 51 common frames omitted
+Caused by: java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.unoccupiedPaletteSpaces" is null
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.setCraneProperties(Dobanovci_PaletteGroupAddEditController.java:252)
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.initialize(Dobanovci_PaletteGroupAddEditController.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 58 common frames omitted
+2026-08-29 11:05:24.408 ERROR org.code_studio.main.Common - {}
+javafx.fxml.LoadException: 
+/C:/Users/Srba/Documents/workspace-spring-tools-for-eclipse-5.1.1.RELEASE/Repromarket/repromarket-source-code/repromarket-source-code/client/target/classes/org/code_studio/view/Dobanovci_PaletteGroupAddEdit.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2692)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2662)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at org.code_studio.main.Common.displayForm(Common.java:190)
+	at org.code_studio.controller.Dobanovci_GoodsInController.lambda$14(Dobanovci_GoodsInController.java:342)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Node.fireEvent(Node.java:9005)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1934)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:560)
+	at com.sun.glass.ui.View.notifyMouse(View.java:946)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	... 51 common frames omitted
+Caused by: java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.unoccupiedPaletteSpaces" is null
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.setCraneProperties(Dobanovci_PaletteGroupAddEditController.java:252)
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.initialize(Dobanovci_PaletteGroupAddEditController.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 58 common frames omitted
+2026-08-29 11:05:31.320 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 11:05:35.056 ERROR org.code_studio.main.Common - {}
+javafx.fxml.LoadException: 
+/C:/Users/Srba/Documents/workspace-spring-tools-for-eclipse-5.1.1.RELEASE/Repromarket/repromarket-source-code/repromarket-source-code/client/target/classes/org/code_studio/view/Dobanovci_PaletteGroupAddEdit.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2692)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2662)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at org.code_studio.main.Common.displayForm(Common.java:190)
+	at org.code_studio.controller.Dobanovci_GoodsInController.lambda$14(Dobanovci_GoodsInController.java:342)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Node.fireEvent(Node.java:9005)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1934)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:560)
+	at com.sun.glass.ui.View.notifyMouse(View.java:946)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	... 51 common frames omitted
+Caused by: java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.unoccupiedPaletteSpaces" is null
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.setCraneProperties(Dobanovci_PaletteGroupAddEditController.java:252)
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.initialize(Dobanovci_PaletteGroupAddEditController.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 58 common frames omitted
+2026-08-29 11:06:30.519 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 11:06:34.885 ERROR org.code_studio.main.Common - {}
+javafx.fxml.LoadException: 
+/C:/Users/Srba/Documents/workspace-spring-tools-for-eclipse-5.1.1.RELEASE/Repromarket/repromarket-source-code/repromarket-source-code/client/target/classes/org/code_studio/view/Dobanovci_PaletteGroupAddEdit.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2692)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2662)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at org.code_studio.main.Common.displayForm(Common.java:190)
+	at org.code_studio.controller.Dobanovci_GoodsInController.lambda$14(Dobanovci_GoodsInController.java:342)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Node.fireEvent(Node.java:9005)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1934)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:560)
+	at com.sun.glass.ui.View.notifyMouse(View.java:946)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	... 51 common frames omitted
+Caused by: java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.unoccupiedPaletteSpaces" is null
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.setCraneProperties(Dobanovci_PaletteGroupAddEditController.java:252)
+	at org.code_studio.controller.Dobanovci_PaletteGroupAddEditController.initialize(Dobanovci_PaletteGroupAddEditController.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 58 common frames omitted
+2026-08-29 11:07:14.815 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 11:23:46.068 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 11:24:21.598 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/329/0
+2026-08-29 11:24:22.038 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/330/0
+2026-08-29 12:28:15.961 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 12:28:42.647 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/331/0
+2026-08-29 12:28:43.109 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/332/0
+2026-08-29 12:40:40.123 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 12:41:13.107 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/333/0
+2026-08-29 12:41:13.494 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/334/0
+2026-08-29 13:12:12.508 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 13:12:52.061 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/335/0
+2026-08-29 13:12:52.514 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/336/0
+2026-08-29 13:19:38.068 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 13:20:08.792 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/337/0
+2026-08-29 13:20:09.554 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/338/0
+2026-08-29 16:31:42.882 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 16:32:03.609 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableByDocumentId/11/0
+2026-08-29 16:32:17.615 ERROR org.code_studio.rest.CSRestService - 400: http://localhost:33377/api/v1/item/allByClientIdPageable/0/50008
+2026-08-29 16:32:28.156 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/339/0
+2026-08-29 16:32:28.541 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/340/0
+2026-08-29 16:39:07.137 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 16:39:42.931 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/341/0
+2026-08-29 16:39:43.382 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/342/0
+2026-08-29 18:45:37.899 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 18:46:01.259 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/343/0
+2026-08-29 18:46:01.717 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/344/0
+2026-08-29 19:35:08.755 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 19:35:56.284 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/345/0
+2026-08-29 19:35:57.103 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/346/0
+2026-08-29 20:52:12.088 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allInputByClientId/50008
+2026-08-29 20:52:28.033 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/347/0
+2026-08-29 20:52:28.579 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteItem/allPageableByPaletteId/348/0

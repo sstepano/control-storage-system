@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.ui.CSClientTable?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<AnchorPane
+    prefWidth="800"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="100" />
+        <Integer fx:id="longTextFieldWidth" fx:value="200" />
+        <Integer fx:id="comboBoxWidth" fx:value="160" />
+        <Integer fx:id="datePickerWidth" fx:value="110" />
+    </fx:define>
+    
+    <children>
+        <VBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0"
+           spacing="5">
+               <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+               <HBox VBox.vgrow="ALWAYS" spacing="5">
+                   <!-- CLIENT TABLE -->
+                   <CSClientTable fx:id="tblClient" />
+                   
+                   <!-- CENTRAL AREA -->
+                   <VBox HBox.hgrow="ALWAYS" spacing="5">
+	                   <HBox styleClass="box-with-border">
+	                       <HBox alignment="CENTER_LEFT" spacing="5">
+	                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+		                       <Label text="Način prodaje" />
+		                       <CSComboBox fx:id="cbSaleType" initFactory="true" factoryMethodName="Name" prefWidth="$comboBoxWidth" />
+		                       <Label text="Period od" />
+		                       <CSDatePicker defaultToday="true" prefWidth="$datePickerWidth" />
+		                       <Label text="do" />
+		                       <CSDatePicker defaultToday="true" prefWidth="$datePickerWidth" />
+	                       </HBox>
+	                       <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS" spacing="5">
+	                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                           <Button fx:id="btnReservation" text="%warehousequantityform.button7.text">
+	                               <graphic><Glyph styleClass="glyph" icon="TAG"/></graphic>
+	                           </Button>
+	                       </HBox>
+	                   </HBox>
+                   
+	                   <!-- MAIN TABLE -->
+	                   <CSTable 
+	                       fx:id="tblSalePlanner"
+	                       DTOName="Item"  
+	                       topLabelText="PREGLED RAČUNA"
+                           viewButtonVisible="false"
+                           addButtonVisible="false"
+                           editButtonVisible="false"
+                           deleteButtonVisible="false"
+	                       VBox.vgrow="ALWAYS">
+	                       <tableColumns>
+	                           <CSTableColumn displayName="ŠIFRA" methodName="Code" />
+	                           <CSTableColumn displayName="NAZIV" methodName="Name" />
+	                           <CSTableColumn displayName="RM-D SPEC" methodName="GrossPriceRmD" />
+	                           <CSTableColumn displayName="DIS NETO SPEC" methodName="NetPriceRmD" />
+	                           <CSTableColumn displayName="DIS BRUTO SPEC" methodName="GrossPriceD" />
+	                           <CSTableColumn displayName="NETO-D SPEC" methodName="NetPriceDFak" />
+	                           <CSTableColumn displayName="BRUTO-D SPEC" methodName="GrossPriceDFak" />
+	                           <CSTableColumn displayName="OPIS" methodName="Purpose" width="400" />
+	                           <CSTableColumn displayName="TEHNIČKE KARAKTERISTIKE" methodName="TechnicalCharacteristics" width="400" />
+	                       </tableColumns>
+	                   </CSTable>
+                       <!-- DETAIL TABLE -->
+                       <CSTable 
+                           fx:id="tblSalePlanner"
+                           DTOName="Item"  
+                           topLabelText="DETALJI"
+                           viewButtonVisible="false"
+                           addButtonVisible="false"
+                           editButtonVisible="false"
+                           deleteButtonVisible="false"
+                           VBox.vgrow="ALWAYS">
+                           <tableColumns>
+                               <CSTableColumn displayName="ŠIFRA" methodName="Code" />
+                               <CSTableColumn displayName="NAZIV" methodName="Name" />
+                               <CSTableColumn displayName="RM-D SPEC" methodName="GrossPriceRmD" />
+                               <CSTableColumn displayName="DIS NETO SPEC" methodName="NetPriceRmD" />
+                               <CSTableColumn displayName="DIS BRUTO SPEC" methodName="GrossPriceD" />
+                               <CSTableColumn displayName="NETO-D SPEC" methodName="NetPriceDFak" />
+                               <CSTableColumn displayName="BRUTO-D SPEC" methodName="GrossPriceDFak" />
+                               <CSTableColumn displayName="OPIS" methodName="Purpose" width="400" />
+                               <CSTableColumn displayName="TEHNIČKE KARAKTERISTIKE" methodName="TechnicalCharacteristics" width="400" />
+                           </tableColumns>
+                       </CSTable>
+                    </VBox>
+               </HBox>
+               
+               <!-- NAPOMENA -->
+               <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                   <HBox styleClass="box-header" alignment="CENTER">
+                       <Label text="DODATNI DETALJI I NAPOMENE"></Label>
+                   </HBox>
+                   <VBox>
+                       <HBox spacing="5">
+                           <padding><Insets top="0" right="5" bottom="5" left="5"/></padding>
+
+	                       <!-- DETAIL TABLE -->
+	                       <CSTable 
+	                           fx:id="tblSalePlanner"
+	                           DTOName="Item"  
+	                           topLabelText="SASTAV PRENOSNICE"
+	                           viewButtonVisible="false"
+                               addButtonVisible="false"
+                               editButtonVisible="false"
+                               deleteButtonVisible="false"
+	                           HBox.hgrow="ALWAYS">
+	                           <tableColumns>
+	                               <CSTableColumn displayName="ŠIFRA" methodName="Code" />
+	                               <CSTableColumn displayName="NAZIV" methodName="Name" />
+	                               <CSTableColumn displayName="RM-D SPEC" methodName="GrossPriceRmD" />
+	                               <CSTableColumn displayName="DIS NETO SPEC" methodName="NetPriceRmD" />
+	                               <CSTableColumn displayName="DIS BRUTO SPEC" methodName="GrossPriceD" />
+	                               <CSTableColumn displayName="NETO-D SPEC" methodName="NetPriceDFak" />
+	                               <CSTableColumn displayName="BRUTO-D SPEC" methodName="GrossPriceDFak" />
+	                               <CSTableColumn displayName="OPIS" methodName="Purpose" width="400" />
+	                               <CSTableColumn displayName="TEHNIČKE KARAKTERISTIKE" methodName="TechnicalCharacteristics" width="400" />
+	                           </tableColumns>
+	                       </CSTable>
+	                       <GridPane hgap="5" vgap="5" HBox.hgrow="NEVER">
+						       <columnConstraints>
+							       <ColumnConstraints maxWidth="110"/>
+							       <ColumnConstraints maxWidth="100"/>
+							   </columnConstraints>
+	                           <Label text="Stavki" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                           <TextField text="0" alignment="CENTER_RIGHT" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                               <Label text="Neto vrednost" alignment="CENTER_RIGHT" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                               <TextField text="0,00" alignment="CENTER_RIGHT" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                               <Label text="PDV" alignment="CENTER_RIGHT" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                               <TextField text="0,00" alignment="CENTER_RIGHT" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                               <Label text="UKUPNO" alignment="CENTER_RIGHT" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                               <TextField text="0,00" alignment="CENTER_RIGHT" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+	                       </GridPane>
+	                       <HBox HBox.hgrow="NEVER" prefWidth="400">
+                               <TextArea HBox.hgrow="SOMETIMES" />
+                               <TextArea styleClass="blue-field" HBox.hgrow="SOMETIMES" />
+                           </HBox>
+                       </HBox>
+                   </VBox>
+               </VBox>
+               
+               <!--
+               <!- STAMPA -                    
+               <HBox spacing="5" styleClass="box-with-border" alignment="CENTER_LEFT">
+                   <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <Label text="Mesec:"></Label>
+                   <TextField fx:id="tfWarehouseId" prefWidth="$shortTextFieldWidth" disable="true" />
+                   <Label text="Godina:"></Label>
+                   <TextField fx:id="tfWarehouseId" prefWidth="$shortTextFieldWidth" disable="true" />
+
+                   <Button fx:id="btnPrintMonthlyReview" text="%saleplannerform.button1.text">
+                       <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="BLACK"/></graphic>
+                   </Button>
+                   <Button fx:id="btnPrintReviewBySalesman" text="%saleplannerform.button2.text">
+                       <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="BLACK"/></graphic>
+                   </Button>                   
+               </HBox>
+               
+
+               <!- SAVE | CANCEL BUTTONS 
+               <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                  <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                   <children>                    
+                      <Button fx:id="btnSave" text="%orderForm.button2.text">
+                          <graphic><Glyph styleClass="glyph" icon="CHECK_CIRCLE" textFill="GREEN"/></graphic>
+                      </Button>
+                      <Button fx:id="btnCancel" text="%button.cancel.text">
+                          <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                      </Button>
+                   </children>
+               </HBox>
+               -->
+
+        </VBox>
+    </children>        
+</AnchorPane>

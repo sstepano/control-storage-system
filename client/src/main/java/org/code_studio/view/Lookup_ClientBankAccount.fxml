@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE VBox>
+
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.ui.CSClientBankAccountTable?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<VBox
+    prefWidth="1000"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+    <CSClientBankAccountTable 
+        fx:id="tblClientBankAccount"
+        VBox.vgrow="ALWAYS">
+        <tableColumns>
+            <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+            <CSTableColumn displayName="BROJ RAČUNA" methodName="AccountNumber" width="150" />
+            <CSTableColumn displayName="NAZIV KLIJENTA" methodName="ClientName" width="250" />
+            <CSTableColumn displayName="NAZIV BANKE" methodName="BankName" width="150" />
+            <CSTableColumn displayName="IBAN" methodName="Iban" width="150" />
+            <CSTableColumn displayName="NAPOMENA" methodName="Note" width="230" />
+        </tableColumns>
+    </CSClientBankAccountTable>
+	<CSDialogButtons fx:id="dialogButtons" saveButtonVisible="false" cancelButtonText="Zatvori" />
+</VBox>

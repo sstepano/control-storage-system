@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sockjs.min.js"></script>
+    <script src="js/stomp.min.js"></script>
+
+    <link href="css/crane.css" rel="stylesheet">
+    <script src="js/crane.js"></script>
+
+    <title>LVS1 -> UST1</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <div class="p-3 bg-dark text-white">
+            <div class="container">
+                <h2>LVS1 -> UST1</h2>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row py-2">
+
+            <div class="col px-0" style="margin-left:10px">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">Client / Server Communication</div>
+                    <div class="card-body">
+                        <div class="input-group mb-3 form-floating">
+                            <input type="text" id="tfMessage" class="form-control text-primary">
+                            <label class="text-primary" for="tfMessage">Telegram</label>
+                            <button class="btn btn-primary" type="button" id="btnSend">
+                                Send
+                            </button>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control text-primary bg-white" id="taConsole" readonly></textarea>
+                            <label class="text-primary" for="taConsole">Log (sent / received telegrams)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">Coordinate Converter LVS->UST</div>
+                    <div class="card-body">
+
+                        <!--
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+                                <label class="form-check-label" for="inlineRadio1">LVS - UST</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">UST - LVS</label>
+                            </div>
+                        </div>
+                        -->
+
+                        <div class="input-group form-floating mb-3">
+                            <input type="text" id="tfRMCoordinates" class="form-control" placeholder="">
+                            <label class="text-primary" for="tfRMCoordinates">RM format: xxyyyzz</label>
+                            <button class="btn btn-primary" type="button" id="btnConvert">Convert</button>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" id="tfCraneCoordinates" class="form-control bg-white" placeholder="" readonly>
+                            <label class="text-primary" for="tfCraneCoordinates">Crane format: xxxyyzz</label>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="mt-auto px-3 py-2 bg-dark text-white">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            Controller
+        </div>
+    </footer>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

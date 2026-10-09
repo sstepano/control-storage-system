@@ -1,0 +1,365 @@
+/* 1. Global Reset & Box Sizing */
+* { 
+  margin: 0; 
+  padding: 0; 
+  font-family: Arial, Helvetica, sans-serif; 
+  box-sizing: border-box; 
+}
+
+/* 2. Primary Screen Container */
+#container-main {
+  border: 2px solid red; 
+  height: 98vh; 
+  width: 99%;
+  display: flex;
+  justify-content: center; /* Keeps your columns perfectly distributed side-by-side */
+  align-items: flex-end;   /* Aligns the warehouse rows neatly to the bottom */
+  gap: 5px;
+  overflow: hidden; 
+  position: relative;      /* Crucial: Allows absolute positioning for row-0 */
+  padding-bottom: 2vh;     /* Gives columns room at the bottom */
+  background-color: lightblue;
+}
+
+/* 3. Top Master Header Container Layer (Vertical Stack) */
+.row-0 {
+    border: 0px solid green;
+    display: flex !important;       
+    flex-direction: column !important; /* CHANGED: Forces child blocks to stack down vertically */
+    position: absolute !important;   
+    top: 10px !important;             
+    left: 0 !important;
+	right: 0 !important;              
+    width: auto !important;          
+    z-index: 1000 !important;        
+    pointer-events: none;            
+    gap: 5px;                          /* Adds breathing room between the top and bottom rows */
+}
+
+/* Row A Layout Setup */
+.header-top-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;    /* Maintains the left and right edge boundaries */
+    padding-left: 0px;                 /* Dynamic padding will continue to be injected here */
+    padding-right: 0px;                /* Dynamic padding will continue to be injected here */
+}
+
+/* Row B Layout Setup */
+.header-bottom-row {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;       /* Snaps the lower card perfectly to the left side */
+    padding-left: 20px;                 /* Dynamic padding will continue to be injected here */
+	padding-right: 20px;
+}
+
+/* Uniform layout for all individual information card containers */
+.row-0 .header-data {
+    pointer-events: auto;            
+    /*border: 1px solid black;*/
+    width: auto;                  
+    min-width: 250px;             
+    height: 60px;                 
+    margin: 5px 0px;                
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;          
+    gap: 10px;                    
+    font-size: x-large;
+    /*background-color: white;*/
+    padding: 0 20px;              
+}
+
+/* Custom variation of the data card designed to support overlapping absolute elements */
+.row-0 .header-data-broken {
+    pointer-events: auto;            
+    border: 1px solid black;
+    width: auto;                  
+    min-width: 250px;             
+    height: 60px;                 
+    margin: 15px 0px 5px 0px; /* Increased top margin slightly to accommodate the overlapping text */
+    align-items: center;
+    justify-content: left;
+    display: flex;
+    flex-direction: row;          
+    /*background-color: white;*/
+    padding: 0 20px;
+    position: relative;        /* CRUCIAL: Serves as the structural anchor point for the label */
+}
+
+/* The label that physically breaks the top border line */
+.row-0 .fieldset-label {
+    position: absolute;
+    top: -12px;                /* Pulls the text up precisely onto the border line */
+    left: 15px;                /* Visual padding from the left edge */
+    background-color: lightblue;   /* MATCHES parent page background: visually "erases" the black line underneath */
+    padding: 0 8px;            /* Adds safety space on left/right so border line doesn't crash into characters */
+    font-size: 0.85rem;        /* Smaller label footprint for a clean design look */
+    font-weight: bold;
+    color: #333;               /* Softer charcoal black appearance */
+    /*text-transform: uppercase;*/ /* Clean corporate aesthetic look */
+    letter-spacing: 0.5px;
+}
+
+/* Target numbers specifically inside this custom box */
+#enteredNo {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+/* 4. Layout Track Containers */
+.wh-row-container {
+  display: flex;
+  height: 70vh; /* Scaled to fit exactly below your 110px header cards */
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+/* 5. The Grid Setup */
+.wh-row {
+  width: auto; 
+  height: 100%; 
+  display: grid;
+  /* Automatically divides into equal vertical cells with space for link footer */
+  grid-template-rows: repeat(8, 1fr) auto; 
+  justify-content: center;
+  align-content: center;
+  row-gap: 1px;
+}
+
+/* 6. Center Marker Separator */
+.vertical-line {
+  height: 100vh;
+  position: absolute; /* Reverted to your working absolute layer marker placement */
+  border-right: 5px dashed black;
+  top: 0;
+  z-index: 1;
+}
+
+/* 7. Individual Warehouse Slots */
+.wh-row-info, 
+.wh-row-info-visina, 
+.wh-row-info-visina-transparent, 
+.wh-row-link, 
+.wh-row-info-transparent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 55px; 
+  padding: 5px;
+}
+
+/* Styled Slots */
+.wh-row-info {
+  color: black;
+  border: 1px solid black;
+  /*background: white;*/
+}
+
+/* Reduced Ordinal Numbers Style (Top numbers 81, 82, 71...) */
+.wh-row-info-visina {
+  color: #555555;                  /* Slightly darker gray for better bold readability */
+  font-size: 0.85rem;        
+  font-weight: bold !important;     /* CHANGED: Forces the numbers to be extra bold */
+  
+  /* ==========================================================================
+     PULLS TOP NUMBERS CLOSER TO THE FIRST ROW:
+     Strips the bottom padding completely and uses a tight line-height to eliminate 
+     the whitespace between the text baseline and the first row of cells.
+     ========================================================================== */
+  padding-top: 5px !important;     /* Retains clean spacing from the top layout edge */
+  padding-bottom: 0px !important;  /* REMOVED: Shaves off the bottom buffer entirely */
+  line-height: 1 !important;       /* Minimizes default browser font text-box heights */
+  align-items: flex-end !important;/* Pushes the number text right down to the cell border */
+}
+
+/* 1. Targets the LEFT vertical numbers inside your first column container */
+#containerRowNumber1 .wh-row-info-visina {
+  align-items: center !important;     /* FIXED: Vertically centers the number next to its row */
+  justify-content: flex-end !important; /* Retained: Keeps them snapped close to the first column edge */
+  padding-right: 4px !important;      /* Tweak this to move them closer or further from the rack */
+  line-height: normal !important;     /* Restores default clean font spacing */
+  font-size: 0.75rem;                 /* Clean size for side panel visibility */
+  font-weight: normal !important;
+}
+
+/* 2. Targets the RIGHT vertical numbers inside your last column container (if applicable) */
+.wh-row-container:last-child .wh-row-info-visina {
+  align-items: center !important;     /* FIXED: Vertically centers the number next to its row */
+  justify-content: flex-start !important; /* Retained: Keeps them snapped close to the last column edge */
+  padding-left: 4px !important;       /* Tweak this to move them closer or further from the rack */
+  line-height: normal !important;
+  font-size: 0.75rem;
+  font-weight: normal !important;
+}
+
+.wh-row-info-visina-transparent {
+  color: transparent;
+  font-size: 0.75rem;
+}
+
+/* 1. Parent Container: Blocks stretching and strips all padding/margins */
+.wh-row-container-divider {
+  display: flex !important;
+  flex: 0 0 auto !important;       /* Prevents the column from expanding at all */
+  width: min-content !important;   /* Collapses the container down to the content width */
+  margin: 0px !important;          /* Removes any outer separation spacing */
+  padding: 0px !important;         /* Removes all inner layout buffers */
+  height: 70vh;              
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2. Inner Row Wrapper: Shifts layout strategy to perfect dead-center alignment */
+.wh-row-divider-layout {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;             /* Vertically centers the number exactly at half-height */
+  justify-content: center;         /* Horizontally centers the number */
+  width: min-content !important;   /* Collapses tightly to the content */
+  height: 100%;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+/* ==========================================================================
+   MODIFIER CLASSES (Only overrides rules to change width and display styles)
+   ========================================================================== */
+
+   /* ==========================================================================
+      MODIFIER CLASSES (Keeps tight width, stretches height exactly like image)
+      ========================================================================== */
+
+	  /* Divider Container: Keeps your precise narrow width and handles track heights */
+	  .wh-row-container.is-divider {
+	    flex: 0 0 auto !important;       
+	    width: min-content !important;   
+	    background-color: transparent !important; 
+	    align-items: stretch !important; 
+	    height: 70vh !important;         
+	    margin-top: 0px !important;      
+	    
+	    /* Restored: keeps the rack columns perfectly flush against the divider channel */
+	    margin-left: -5px !important;    
+	    margin-right: -5px !important;   
+	  }
+
+	  /* Divider Inner Layout Wrapper */
+	  .wh-row.is-divider-layout {
+	    display: grid !important;        
+	    grid-template-rows: repeat(9, 1fr) !important; 
+	    width: min-content !important;   
+	    height: 100% !important;                    
+	    row-gap: 1px;                    
+	  }
+
+	  /* Cell Number Content: Restored exactly from two steps back */
+	  .wh-row-info-between-rows {
+	    color: black;            
+	    font-size: 0.85rem;        
+	    font-weight: bold;
+	    text-align: center;
+	    background-color: cadetblue;     
+	    
+	    min-width: 0px !important;       
+	    padding: 0px !important;         
+	    margin: 0px !important;          
+	    
+	    /* FROM TWO STEPS BACK: Your excellent narrow 14px width */
+	    width: 14px !important;   
+	    
+	    /* ==========================================================================
+	       THE VISUAL EDGE ALIGNMENT LOCK:
+	       - grid-row: 2 / 9 tracks the block from grid line 2 (below row 7).
+	       - height: calc(100% - 15px) trims the bottom edge up away from the square row.
+	       - transform: translateY(4px) is the exact nudge you liked from two steps back.
+	       ========================================================================== */
+	    grid-row: 2 / 9 !important;      
+	    height: calc(100% - 15px) !important; 
+	    transform: translateY(4px) !important; 
+
+	    display: flex !important;
+	    align-items: center;             
+	    justify-content: center;         
+	    line-height: 1;                  
+	    
+	    border-left: 1px solid #5f9ea0;
+	    border-right: 1px solid #5f9ea0;
+	  }
+	  /* Bottom Nav Links (Turned into Squares & Pushed Slightly Down) */
+	  .wh-row-link {
+	    color: black;
+	    border: 1px solid black;
+	    /*background: white;*/
+	    font-size: 0.8rem;         
+	    font-weight: bold;
+	    
+	    /* PERFECT SQUARE TRANSFORM: Matches height to min-width */
+	    min-width: 55px;
+	    height: 55px !important;   
+	    
+	    /* PUSH SLIGHTLY DOWN */
+	    margin-top: 25px !important; 
+	    
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    text-align: center;
+	    padding: 5px;
+	    transition: color 0.2s ease;
+	  }
+
+	  /* Match the transparent spacer block at the bottom of row 1 to prevent layout breaks */
+	  .wh-row-info-transparent {
+	    color: transparent;
+	    min-width: 55px;
+	    height: 55px !important;   
+	    margin-top: 25px !important; 
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    padding: 5px;
+	  }
+
+	  .wh-row-link:hover {
+	    cursor: pointer;
+	    color: red;
+	  }
+
+/* 8. Status Colors (Text converted from white to black) */
+.unoccupied { background-color: #2ecc71; color: black; } 
+.occupied   { background-color: #e74c3c; color: black; } 
+.processing { background-color: burlywood; color: black; } 
+.locked     { background-color: darkslategrey; color: black; }
+
+.start { background-color:chartreuse; color: black; }
+.low { background-color: #e65565;}
+.high { background-color: #fdd49e;}
+/*.color-target {
+    background-color: var(--dynamic-bg, #2ecc71); 
+}
+*/
+
+/* Triggers automatically when the mouse rolls over the div */
+.color-target:hover {
+    /*cursor: pointer; */         /* Changes mouse cursor to a clicking hand */
+    color: #2c3e50;           /* Changes text color */
+    font-weight: bold !important;        /* Makes text stand out */
+    transform: scale(1.2);   /* Slightly pops the element outward */
+    transition: all 0.2s ease;/* Makes the movement smooth */
+}
+
+/* 9. Bootstrap Modal Tweaks */
+.modal-body {
+    overflow-y: hidden !important;
+}
+
+.modal-header {
+	background-color: lightgrey;
+}
+
+.container-detail { margin: 0; padding:0; font-family: Arial, Helvetica, sans-serif; }

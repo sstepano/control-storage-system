@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+
+<AnchorPane
+    prefWidth="1024"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <!-- <Integer fx:id="glyphFontSize" fx:value="36" />  -->
+        <Integer fx:id="buttonWidth" fx:value="150" />
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="60" />
+        <ToggleGroup fx:id="tgpDocumentStatus" />
+    </fx:define>    
+    
+    <children>
+        <HBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0"
+            spacing="5">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <VBox>
+            <HBox>
+            <VBox minWidth="250">
+                <HBox>
+                    <Label text="Org. jedinica" minWidth="65" />
+                    <CSComboBox fx:id="cbDivision" initFactory="true" factoryMethodName="Name" HBox.hgrow="SOMETIMES" maxWidth="$maxComponentWidth" />
+                </HBox>
+                <CSTable fx:id="tblClient"
+                	VBox.vgrow="ALWAYS"
+                    DTOName="Client" 
+                    topLabelText="KLIJENTI"
+                    topLabelVisible="true"
+                    addButtonVisible="true"
+                    viewButtonVisible="false"
+                    editButtonVisible="false"
+                    deleteButtonVisible="false"
+                    searchVisible="true"
+                    searchTooltipText="Pretraga po: Šifra, Naziv">
+                    <!-- TODO: SEARCH CU DA URADIM TEK KADA ZAVRSIM CEO PROGRAM. NOVI REQUESTI CE BITI POSTPONOVANI SVI!!! -->
+                    <tableColumns>
+                        <CSTableColumn displayName="ŠIFRA" methodName="Id"/>
+                        <CSTableColumn displayName="NAZIV" methodName="Name" width="200"/>
+                    </tableColumns>
+                </CSTable>
+	            <HBox styleClass="box-with-border" alignment="CENTER_RIGHT">
+	            	<padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                <Label text="Stanje paleta" />
+	                <CSTextField fx:id="tfStoredPaletteCountByClientId" prefWidth="$shortTextFieldWidth" validationType="NUMBER_ONLY" text="0" disable="true" />
+	            </HBox> 
+             </VBox>
+                    <VBox>
+                        <HBox styleClass="box-with-border">
+                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <RadioButton fx:id="rbDocumentOutPreparing" toggleGroup="$tgpDocumentStatus" text="Priprema" selected="true" />
+                            <RadioButton fx:id="rbDocumentOutStarted" toggleGroup="$tgpDocumentStatus" text="Pokrenut izlaz" />
+                            <RadioButton fx:id="rbDocumentProcessing" toggleGroup="$tgpDocumentStatus" text="Na kranu" />
+                            <RadioButton fx:id="rbDocumentAll" toggleGroup="$tgpDocumentStatus" text="Svi" />
+                        </HBox>
+	                    <CSTable fx:id="tblPaletteDocument"
+	                    	VBox.vgrow="ALWAYS"
+	                        minWidth="300"
+	                        HBox.hgrow="SOMETIMES"
+	                        DTOName="PaletteDocument"  
+	                        topLabelText="DOKUMENTA"
+	                        addButtonVisible="true"
+	                        viewButtonVisible="false"
+	                        editButtonVisible="true"
+	                        deleteButtonVisible="true">
+	                        <!--
+	                        <componentBarItems>
+	                             <Label text="Status" />
+	                             <CSComboBox fx:id="cbOrderStatus" />
+	                        </componentBarItems>
+	                        -->
+	                        <tableColumns>
+	                            <CSTableColumn displayName="ŠIFRA" methodName="Id" width="50" />
+	                            <CSTableColumn displayName="VRSTA" methodName="PaletteDocumentTypeName" />
+	                            <CSTableColumn displayName="STATUS" methodName="PaletteDocumentStatusName" />
+	                            <CSTableColumn displayName="DATUM" methodName="CreateDate" />
+	                        </tableColumns>
+	                    </CSTable>
+		                <HBox HBox.hgrow="ALWAYS" styleClass="box-with-border, box-padding-5" alignment="CENTER">
+                            <Button fx:id="btnWarehouseGraphicDisplay" text="Mapa paleta">
+                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2h-home-map-marker" iconColor="BLUE" /></graphic>
+                            </Button>
+		                </HBox>
+                    </VBox>            
+                </HBox>
+	                    <CSTable fx:id="tblPaletteItemByClientId"
+	                        HBox.hgrow="ALWAYS"
+	                        DTOName="PaletteItem" 
+	                        topLabelText="SVI ARTIKLI KLIJENTA"
+	                        addButtonVisible="false"
+	                        viewButtonVisible="false"
+	                        editButtonVisible="false"
+	                        deleteButtonVisible="false">
+	                        <tableColumns>
+	                            <!-- <CSTableColumn displayName="ŠIFRA" methodName="Id" /> -->
+	                            <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+	                            <CSTableColumn displayName="ŠIFRA PALETE" methodName="PaletteId" />
+	                            <CSTableColumn displayName="KOLIČINA" methodName="Quantity" />
+	                            <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="350" />
+	                            <CSTableColumn displayName="OPIS PALETE" methodName="Description" width="400" />
+	                        </tableColumns>
+	                    </CSTable> 
+                        <CSTable fx:id="tblPaletteByItemId"
+                            HBox.hgrow="ALWAYS"
+                            DTOName="Palette"  
+                            topLabelText="PALETE KOJE SADRŽE ARTIKAL"
+                            addButtonVisible="false"
+                            viewButtonVisible="false"
+                            editButtonVisible="false"
+                            deleteButtonVisible="false"
+                            searchVisible="true"
+                            searchTooltipText="Pretraga po: Šifra palete, Naziv palete, Šifra artikla, Naziv artikla">
+                            <tableColumns>
+                                <CSTableColumn displayName="ID" methodName="Id" />
+                                <CSTableColumn displayName="ŠIFRA" methodName="PaletteCode" />
+                                <CSTableColumn displayName="STATUS" methodName="PaletteStatusName" width="80" />
+                                <CSTableColumn displayName="ŠIFRA PALETE KLIJENTA" methodName="ClientPaletteCode" />
+                                <CSTableColumn displayName="RED" methodName="RowId" width="30" />
+                                <CSTableColumn displayName="DUBINA" methodName="ShelfId" />
+                                <CSTableColumn displayName="VISINA" methodName="VerticalId" />
+                                <CSTableColumn displayName="NAZIV" methodName="Name" />
+                                <CSTableColumn displayName="BARKOD" methodName="Barcode" />
+                                <CSTableColumn displayName="DUŽINA (cm)" methodName="Length" />
+                                <CSTableColumn displayName="ŠIRINA (cm)" methodName="Width" />
+                                <CSTableColumn displayName="VISINA (cm)" methodName="Height" />
+                            </tableColumns>
+                        </CSTable>
+                        <HBox styleClass="box-with-border, box-padding-5" alignment="CENTER">
+                          	<Button fx:id="btnPaletteMarkForExitConsist" text="Prebaci paletu" disable="true">
+                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2c-chevron-down" iconColor="GREEN" /></graphic>
+                            </Button>
+                            <Button fx:id="btnAllPalettesMarkForExitConsist" text="Prebaci sve palete" disable="true">
+                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2c-chevron-double-down" iconColor="GREEN" /></graphic>
+                            </Button>
+                        </HBox>                        	                                   
+            </VBox>
+            
+                    <VBox HBox.hgrow="ALWAYS">
+                        <CSTable fx:id="tblPalette"
+                            HBox.hgrow="ALWAYS"
+                            DTOName="Palette"  
+                            topLabelText="PALETE KLIJENTA NA STANJU"
+                            addButtonVisible="false"
+                            viewButtonVisible="false"
+                            editButtonVisible="false"
+                            deleteButtonVisible="false"
+                            searchVisible="true"
+                            searchTooltipText="Pretraga po: Šifra palete, Naziv palete, Šifra artikla, Naziv artikla">
+                            <tableColumns>
+                                <CSTableColumn displayName="ID" methodName="Id" />
+                                <CSTableColumn displayName="ŠIFRA" methodName="PaletteCode" />
+                                <CSTableColumn displayName="STATUS" methodName="PaletteStatusName" width="80" />
+                                <CSTableColumn displayName="ŠIFRA PALETE KLIJENTA" methodName="ClientPaletteCode" />
+                                <CSTableColumn displayName="RED" methodName="RowId" width="30" />
+                                <CSTableColumn displayName="DUBINA" methodName="ShelfId" />
+                                <CSTableColumn displayName="VISINA" methodName="VerticalId" />
+                                <CSTableColumn displayName="NAZIV" methodName="Name" />
+                                <CSTableColumn displayName="BARKOD" methodName="Barcode" />
+                                <CSTableColumn displayName="DUŽINA (cm)" methodName="Length" />
+                                <CSTableColumn displayName="ŠIRINA (cm)" methodName="Width" />
+                                <CSTableColumn displayName="VISINA (cm)" methodName="Height" />
+                            </tableColumns>
+                        </CSTable>
+                        <HBox styleClass="box-with-border, box-padding-5" alignment="CENTER">
+                          	<Button fx:id="btnPaletteMarkForExit" text="Prebaci paletu" disable="true">
+                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2c-chevron-down" iconColor="GREEN" /></graphic>
+                            </Button>
+                            <Button fx:id="btnAllPalettesMarkForExit" text="Prebaci sve palete" disable="true">
+                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2c-chevron-double-down" iconColor="GREEN" /></graphic>
+                            </Button>
+                        </HBox>
+                        <CSTable fx:id="tblPaletteByDocumentId"
+                            HBox.hgrow="ALWAYS"
+                            DTOName="Palette"  
+                            topLabelText="PALETE - PRIPREMA IZLAZA"
+                            addButtonVisible="false"
+                            viewButtonVisible="false"
+                            editButtonVisible="false"
+                            deleteButtonVisible="true"
+                            searchVisible="false"
+                            searchTooltipText="Pretraga po: Šifra palete, Naziv palete, Šifra artikla, Naziv artikla">
+                            <tableColumns>
+                                <CSTableColumn displayName="ID" methodName="Id" />
+                                <CSTableColumn displayName="ŠIFRA" methodName="PaletteCode" />
+                                <CSTableColumn displayName="STATUS" methodName="PaletteStatusName" width="80" />
+                                <CSTableColumn displayName="ŠIFRA PALETE KLIJENTA" methodName="ClientPaletteCode" />
+                                <CSTableColumn displayName="RED" methodName="RowId" width="30" />
+                                <CSTableColumn displayName="DUBINA" methodName="ShelfId" />
+                                <CSTableColumn displayName="VISINA" methodName="VerticalId" />
+                                <CSTableColumn displayName="NAZIV" methodName="Name" />
+                                <CSTableColumn displayName="BARKOD" methodName="Barcode" />
+                                <CSTableColumn displayName="DUŽINA (cm)" methodName="Length" />
+                                <CSTableColumn displayName="ŠIRINA (cm)" methodName="Width" />
+                                <CSTableColumn displayName="VISINA (cm)" methodName="Height" />
+                            </tableColumns>
+                        </CSTable>
+                        <HBox styleClass="box-with-border, box-padding-5" alignment="CENTER">
+                            <!--
+                            <Button fx:id="btnMultiplePalettesAdd" text="Izlaz grupe paleta">
+                                <graphic><Glyph styleClass="glyph" icon="LIST_OL" textFill="black"/></graphic>
+                            </Button>
+                            -->
+                            <Button fx:id="btnPaletteExport" text="Pokreni izlaz paleta" disable="true">
+                                <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="mdi2c-chevron-double-left" iconColor="RED" /></graphic>
+                            </Button>
+                        </HBox>
+	                    <CSTable fx:id="tblPaletteItem"
+	                        HBox.hgrow="ALWAYS"
+	                        DTOName="PaletteItem" 
+	                        topLabelText="ARTIKLI"
+	                        addButtonVisible="false"
+	                        viewButtonVisible="false"
+	                        editButtonVisible="false"
+	                        deleteButtonVisible="false">
+	                        <tableColumns>
+	                            <!-- <CSTableColumn displayName="ŠIFRA" methodName="Id" /> -->
+	                            <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+	                            <CSTableColumn displayName="ŠIFRA PALETE" methodName="PaletteId" />
+	                            <CSTableColumn displayName="KOLIČINA" methodName="Quantity" />
+	                            <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="350" />
+	                            <CSTableColumn displayName="OPIS PALETE" methodName="Description" width="400" />
+	                        </tableColumns>
+	                    </CSTable>
+		                <CSTable fx:id="tblCraneQueue"
+		                    VBox.vgrow="SOMETIMES"
+		                    DTOName="CraneQueue"  
+		                    topLabelText="PALETE U PROCESU IZLAZA"
+		                    addButtonVisible="false"
+		                    viewButtonVisible="false"
+		                    editButtonVisible="false"
+		                    deleteButtonVisible="false"
+		                    refreshButtonVisible="true"
+		                    searchVisible="false"
+		                    searchTooltipText="Pretraga po: Šifra palete, Naziv palete, Šifra artikla, Naziv artikla">
+		                    <tableColumns>
+		                        <CSTableColumn displayName="ŠIFRA PALETE" methodName="PaletteCode" />
+		                        <CSTableColumn displayName="KRAN" methodName="CraneId" />
+		                        <CSTableColumn displayName="POZICIJA" methodName="CurrentPosition" />
+		                        <CSTableColumn displayName="SLEDEĆA POZ." methodName="NextPosition" />
+		                        <CSTableColumn displayName="STATUS" methodName="LastStatus" />
+		                        <CSTableColumn displayName="VREME" methodName="ModifiedDatetime" />
+		                    </tableColumns>
+		                </CSTable>
+                
+                    </VBox>
+
+
+        </HBox>
+    </children>        
+</AnchorPane>

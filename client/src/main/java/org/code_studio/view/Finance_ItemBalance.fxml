@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+
+<AnchorPane
+    prefWidth="1024"
+    prefHeight="600"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="glyphFontSize" fx:value="24" />
+        <Integer fx:id="buttonWidth" fx:value="170" />
+        <Integer fx:id="smallTextFieldWidth" fx:value="75" />
+        <ToggleGroup fx:id="tgpBalanceType" />
+    </fx:define>    
+    
+    <children>
+        <VBox
+            AnchorPane.leftAnchor   ="0"
+            AnchorPane.rightAnchor  ="0"
+            AnchorPane.topAnchor    ="0"
+            AnchorPane.bottomAnchor ="0"
+            spacing="5">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            
+            <!-- TOP ROW TABLES -->
+            <HBox spacing="5">
+                <CSTable fx:id="tblItemWarehouse"
+                    HBox.hgrow="SOMETIMES"
+                    DTOName="ItemWarehouse"  
+                    topLabelText="ARTIKLI"
+                    addButtonVisible="false"
+                    viewButtonVisible="false"
+                    editButtonVisible="false"
+                    deleteButtonVisible="false">
+                    <tableColumns>
+                        <CSTableColumn displayName="ŠIFRA" methodName="ItemId" />
+                        <CSTableColumn displayName="NAZIV ARTIKLA" methodName="ItemName" width="205" />
+                        <CSTableColumn displayName="SLOBODNO" methodName="AvailableQty" />
+                        <CSTableColumn displayName="REZERVISANO" methodName="ReservedQty" />
+                        <CSTableColumn displayName="UKUPNO" methodName="Qty" />
+                    </tableColumns>
+                </CSTable>
+                <CSTable fx:id="tblItemWarehouseSupplies"
+                    HBox.hgrow="SOMETIMES"
+                    DTOName="ItemWarehouse"  
+                    topLabelText="ZALIHE"
+                    addButtonVisible="false"
+                    viewButtonVisible="false"
+                    editButtonVisible="false"
+                    deleteButtonVisible="false">
+                    <componentBarItems>
+                        <Button fx:id="btn1" prefWidth="$buttonWidth" text="Rezervacije">
+                            <graphic><Glyph styleClass="glyph" icon="TAG" textFill="BLACK" /></graphic>
+                        </Button>
+                    </componentBarItems>
+                    <tableColumns>
+                    	<CSTableColumn displayName="MAG" methodName="WarehouseId" />
+                    	<CSTableColumn displayName="RED" methodName="RowId" />
+                    	<CSTableColumn displayName="POLICA" methodName="ShelfId" />
+                    	<CSTableColumn displayName="VERTIKALA" methodName="VerticalId" />
+                        <CSTableColumn displayName="SLOBODNO" methodName="AvailableQty" />
+                        <CSTableColumn displayName="REZERVISANO" methodName="ReservedQty" />
+                        <CSTableColumn displayName="UKUPNO" methodName="Qty" />
+                    </tableColumns>
+                </CSTable>
+            </HBox>
+
+            <!-- MIDDLE ROW TABLES -->
+            <HBox spacing="5">
+                <CSTable fx:id="tblWarehouse"
+                    HBox.hgrow="NEVER"
+                    DTOName="Warehouse" 
+                    topLabelText="MAGACIN"
+                    addButtonVisible="false"
+                    viewButtonVisible="false"
+                    editButtonVisible="false"
+                    deleteButtonVisible="false">
+                    <tableColumns>
+                    	<CSTableColumn displayName="ŠIFRA" methodName="Id" />
+                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+                    </tableColumns>
+                </CSTable>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <CSTable fx:id="tblItemBalance"
+                        HBox.hgrow="ALWAYS"
+                        DTOName="ItemBalance" 
+                        topLabelText="ULAZ - IZLAZ ZA MAGACIN: NAZIV MAGACINA"
+                        addButtonVisible="false"
+                        viewButtonVisible="false"
+                        editButtonVisible="false"
+                        deleteButtonVisible="false">
+                        <tableColumns>
+                            <CSTableColumn displayName="PREN" methodName="Id" />
+                            <CSTableColumn displayName="DATUM" methodName="TransferOrderDate" />
+                            <CSTableColumn displayName="ULAZ" methodName="InQty" />
+                            <CSTableColumn displayName="IZLAZ" methodName="OutQty" />
+                            <CSTableColumn displayName="IZ MAGACINA" methodName="WarehouseIdOrigin" />
+                            <CSTableColumn displayName="U MAGACIN" methodName="WarehouseIdDestination" />
+                            
+                        </tableColumns>
+                    </CSTable>
+                    <HBox styleClass="box-with-border" spacing="5" alignment="CENTER_LEFT">
+                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                        <HBox alignment="CENTER_LEFT">
+	                        <RadioButton fx:id="rbCurrentYearBalance" toggleGroup="$tgpBalanceType" selected="true" text="Tekuća godina" />
+	                        <RadioButton fx:id="rbCompleteBalance" toggleGroup="$tgpBalanceType" text="Cela kartica" />
+                        </HBox>
+                        
+                        <HBox HBox.hgrow="ALWAYS"></HBox>
+                        
+                        <HBox alignment="CENTER_RIGHT">
+	                        <Label text="ULAZ:" />
+	                        <TextField fx:id="tfInQty" text="0" alignment="CENTER_RIGHT" prefWidth="$smallTextFieldWidth" />
+	                        <Label text="IZLAZ:" />
+	                        <TextField fx:id="tfOutQty" text="0" alignment="CENTER_RIGHT" prefWidth="$smallTextFieldWidth" />
+	                        <Label text="STANJE:" />
+	                        <TextField fx:id="tfQty" text="0" alignment="CENTER_RIGHT" prefWidth="$smallTextFieldWidth" />
+                        </HBox>
+                    </HBox>
+                </VBox>
+	        </HBox>
+
+            <!-- BOTTOM ROW BUTTONS -->
+	        <HBox spacing="5" alignment="CENTER_RIGHT" styleClass="box-with-border">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Kontrola-Zalihe-Promet">
+                    <graphic><Glyph styleClass="glyph" icon="PRINT" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+                <Button fx:id="btn1" prefWidth="$buttonWidth" text="Štampa kartice">
+                    <graphic><Glyph styleClass="glyph" icon="ENVELOPE" textFill="BLACK" fontSize="$glyphFontSize"/></graphic>
+                </Button>
+	        </HBox>
+        </VBox>
+    </children>        
+</AnchorPane>

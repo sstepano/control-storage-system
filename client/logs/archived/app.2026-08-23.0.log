@@ -1,0 +1,15 @@
+2026-08-23 17:53:05.542 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allOutputByClientId/50008
+2026-08-23 17:53:06.043 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableByDocumentId/4/0
+2026-08-23 17:53:06.176 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableStoredByClientId/50008/0
+2026-08-23 17:53:19.131 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allOutputByClientId/50001
+2026-08-23 17:53:19.150 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteDocument/allPageableByClientIdAndStatusIdAndTypeIdOrderByIdDesc/50001/1/2/0
+2026-08-23 17:53:19.203 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableStoredByClientId/50001/0
+2026-08-23 17:53:22.352 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allOutputByClientId/50008
+2026-08-23 17:53:23.173 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableByDocumentId/4/0
+2026-08-23 17:53:23.212 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableStoredByClientId/50008/0
+2026-08-23 17:53:28.542 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allOutputByClientId/50001
+2026-08-23 17:53:28.552 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/paletteDocument/allPageableByClientIdAndStatusIdAndTypeIdOrderByIdDesc/50001/1/2/0
+2026-08-23 17:53:28.572 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableStoredByClientId/50001/0
+2026-08-23 17:53:32.750 DEBUG o.code_studio.rest.CSRestService$1 - 404: http://localhost:33377/api/v1/craneQueue/allOutputByClientId/50008
+2026-08-23 17:53:32.799 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableByDocumentId/4/0
+2026-08-23 17:53:32.825 INFO  org.code_studio.rest.CSRestService - 404: http://localhost:33377/api/v1/palette/allPageableStoredByClientId/50008/0

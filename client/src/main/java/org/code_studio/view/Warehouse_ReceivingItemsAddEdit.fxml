@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.code_studio.component.CSTable?>
+<?import org.code_studio.component.CSTableColumn?>
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="smallTextFieldWidth" fx:value="120" />
+        <Integer fx:id="dateFieldWidth" fx:value="110" />
+        <Integer fx:id="textFieldWidth" fx:value="200" />
+        <ToggleGroup fx:id="tgpSaleType" />
+        <ToggleGroup fx:id="tgpPrice" />
+        <Integer fx:id="longComboBoxWidth" fx:value="200" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+           <padding><Insets top="5" right="0" bottom="5" left="0"/></padding>
+            <children>
+                <VBox>
+	                <CSTable fx:id="tblClient"
+	                    VBox.vgrow="ALWAYS"
+	                    DTOName="Client"  
+	                    topLabelText="DOBAVLJACI"
+	                    addButtonVisible="false"
+	                    viewButtonVisible="false"
+	                    editButtonVisible="false"
+	                    deleteButtonVisible="false"
+	                    autoSelectFirstRow="false">
+	                    <columnResizePolicy><CSTable fx:constant="LASTCOLUMN_RESIZE_POLICY"/></columnResizePolicy>
+	                    <tableColumns>
+	                        <CSTableColumn displayName="ŠIFRA" methodName="Id" />
+	                        <CSTableColumn displayName="NAZIV" methodName="Name" />
+	                    </tableColumns>
+	                </CSTable>
+                </VBox>
+            
+                <VBox>
+                    <padding><Insets left="0" right="5"></Insets></padding>
+                    <children>
+                        
+                        <!-- KLIJENT HEADER -->
+                        <VBox spacing="0" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="KLIJENT"></Label>
+                            </HBox>
+                            
+	                        <!-- KLIJENT INFO -->
+	                        <VBox>
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <GridPane hgap="5" vgap="5">
+	                            
+	                                 <columnConstraints>
+	                                     <ColumnConstraints />
+	                                     <ColumnConstraints prefWidth="${smallTextFieldWidth}" />
+	                                 </columnConstraints>
+	                            
+	                                <Label text="Šifra" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                                <TextField fx:id="tfId" GridPane.rowIndex="0" GridPane.columnIndex="1" disable="true" />
+	                                
+	                                <Label text="Naziv" minWidth="40" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+	                                <TextField fx:id="tfName" GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.columnSpan="3" disable="true" />
+	
+	                                <Label text="Pun naziv" minWidth="60" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+	                                <TextField fx:id="tfFullName" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="5" disable="true" />
+	
+	                                <Label text="P.broj" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+	                                <TextField fx:id="tfPOBox" GridPane.rowIndex="2" GridPane.columnIndex="1" disable="true" />
+	
+	                                <Label text="Mesto" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+	                                <TextField fx:id="tfCity" GridPane.rowIndex="2" GridPane.columnIndex="3" disable="true" />
+	                                
+	                                <Label text="Zemlja" minWidth="40" GridPane.rowIndex="2" GridPane.columnIndex="4" />
+	                                <TextField fx:id="tfCountry" GridPane.rowIndex="2" GridPane.columnIndex="5" disable="true" />
+	                                
+	                                <Label text="Adresa" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+	                                <TextField fx:id="tfAddress" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="5" disable="true" />
+	                            </GridPane>
+	                        </VBox>
+	                        
+	                        <!-- PRODAVNICA HEADER -->
+                            <HBox styleClass="box-header, box-header-top-border" alignment="CENTER">
+                                <Label text="PORUDŽBENICA"></Label>
+                            </HBox>
+	                        
+	                        <!-- DATUM I ROK ISPORUKE -->
+	                        <VBox>
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <GridPane hgap="5" vgap="5">
+	                                 <!--
+	                                 <columnConstraints>
+	                                     <ColumnConstraints />
+	                                     <ColumnConstraints prefWidth="${textFieldWidth}" />
+	                                 </columnConstraints>
+	                                 -->
+	                            
+	                                <Label text="Šifra" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                                <TextField fx:id="tfOrderId" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" prefWidth="${smallTextFieldWidth}" disable="true" />
+
+                                    <Label text="Datum prijema" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                                    <CSDatePicker fx:id="dtOrderReceiveDate" defaultToday="true" GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.hgrow="NEVER" prefWidth="$dateFieldWidth" />
+                                    
+	                                <Label text="Godina" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+	                                <TextField fx:id="tfOrderYear" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.hgrow="NEVER" prefWidth="${smallTextFieldWidth}" disable="true" />	                                
+                                
+                                    <Label text="Broj porudžbenice" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="tfOrderNumber" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.hgrow="NEVER" prefWidth="${smallTextFieldWidth}" />
+                                    
+                                    <Label text="Datum porudžbenice" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                                    <CSDatePicker fx:id="dtOrderDate" defaultToday="true" GridPane.rowIndex="2" GridPane.columnIndex="3" GridPane.hgrow="NEVER" prefWidth="$dateFieldWidth" />
+                                    
+	                            </GridPane>
+	                        </VBox>
+                            
+
+                            <!-- NACIN PRODAJE, CENA i MAGACIN -->
+							<HBox>
+							    <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+		                            <HBox styleClass="box-header" alignment="CENTER">
+		                                <Label text="NAPOMENA"></Label>
+		                            </HBox>
+		                            
+		                            <TextArea fx:id="taDescription" />
+							    </VBox>
+							 </HBox>
+
+                        </VBox> <!-- KRAJ CELOG VBOX-a -->
+                        
+
+                        <!-- SAVE | CANCEL BUTTONS -->
+                        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <children>                    
+                               <Button fx:id="btnSave" text="%button.save.text">
+                                   <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                               </Button>
+                               <Button fx:id="btnCancel" text="%button.cancel.text">
+                                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                               </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

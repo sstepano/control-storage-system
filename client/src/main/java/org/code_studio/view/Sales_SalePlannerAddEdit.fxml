@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<AnchorPane
+    prefWidth="430"
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="shortTextFieldWidth" fx:value="50" />
+        <Integer fx:id="textFieldWidth" fx:value="110" />
+        <Integer fx:id="longComboBoxWidth" fx:value="330" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                        
+                        <!-- RM INDIKATORI -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="DETALJI ROKOVNIKA"></Label>
+                            </HBox>
+                            
+                            
+                            <GridPane hgap="5" vgap="5">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.Halignment="RIGHT">
+                                    <Label text="Šifra klijenta" />
+                                    <CSTextField fx:id="tfClientId" disable="true" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnClientChoose" text="" styleClass="btnAdd">
+                                        <graphic><FontIcon styleClass="glyph-ikonli" iconLiteral="bi-plus-circle" /></graphic>
+                                    </Button>
+                                </HBox>
+                                
+                                <Label GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Referent" />
+                                <TextField fx:id="tfSaleOfficer" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" />
+
+                                <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.Halignment="LEFT" alignment="CENTER_LEFT" spacing="5">
+                                    <Label text="Dana" />
+                                    <CSDatePicker fx:id="dtEventDay" prefWidth="$textFieldWidth" />
+
+                                    <Label text="U" />
+                                    <CSTextField fx:id="tfEventTime" validationType="TIME" prefWidth="$shortTextFieldWidth" HBox.hgrow="NEVER"/>
+
+                                    <Label text="Plan" />
+                                    <CSDatePicker fx:id="dtEventPlanDay" prefWidth="$textFieldWidth" />
+                                </HBox>
+                                
+                                <HBox GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2">
+	                                <CheckBox fx:id="ckbIsCame" text="Došao" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsCalledTo" text="Zvao" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsWentTo" text="Teren" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsCalled" text="Pozvan" prefWidth="$textFieldWidth" />
+                                </HBox>
+                                <HBox GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2">
+	                                <CheckBox fx:id="ckbIsMail" text="Mail" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsPayment" text="Naplata" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsSale" text="Prodaja" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsCalledToPayment" text="Telefon-Naplata" prefWidth="$textFieldWidth" />
+                                </HBox>
+                                <HBox GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="2">
+	                                <CheckBox fx:id="ckbIsWentToCooperation" text="Teren-Saradnja" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsWentToInvoice" text="Teren-Faktura" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsWentToPayment" text="Teren-Naplata" prefWidth="$textFieldWidth" />
+	                                <CheckBox fx:id="ckbIsWTF" text="TP ???" prefWidth="$textFieldWidth" />
+                                </HBox>                                
+
+                                <Label GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Vrsta obaveze" />
+                                <CSComboBox fx:id="cbSalePlannerType" initFactory="true" factoryMethodName="Name" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.Halignment="LEFT" prefWidth="$longComboBoxWidth" />
+
+                                <Label GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Kontaktirao" />
+                                <CSComboBox fx:id="cbSaleOfficerContacted" initFactory="true" factoryMethodName="Name" GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.Halignment="LEFT" prefWidth="$longComboBoxWidth" />
+
+                                <Label GridPane.rowIndex="8" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Isporučeno" />
+                                <CSTextField fx:id="tfDeliveredAmount" validationType="MONEY" GridPane.rowIndex="8" GridPane.columnIndex="1" GridPane.Halignment="LEFT" prefWidth="$textFieldWidth" disable="true" />
+
+                                <Label GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Naplaćeno" />
+                                <CSTextField fx:id="tfChargedAmount" validationType="MONEY" GridPane.rowIndex="9" GridPane.columnIndex="1" GridPane.Halignment="LEFT" prefWidth="$textFieldWidth" disable="true" />
+
+                                <Label fx:id="lblContactWith" GridPane.rowIndex="10" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Kontakt sa" />
+                                <CSComboBox fx:id="cbContactWith" initFactory="true" factoryMethodName="Name" GridPane.rowIndex="10" GridPane.columnIndex="1" GridPane.Halignment="LEFT" prefWidth="$longComboBoxWidth" />
+
+                                <Label GridPane.rowIndex="11" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Telefon" />
+                                <CSTextField fx:id="tfPhone" editable="false" GridPane.rowIndex="11" GridPane.columnIndex="1" GridPane.Halignment="LEFT" />
+                            </GridPane>
+
+                            <VBox alignment="CENTER_LEFT" styleClass="box-with-border">
+                                <HBox styleClass="box-header" alignment="CENTER">
+                                    <Label text="NAPOMENA" />
+                                </HBox>
+                                <HBox>
+                                    <TextArea fx:id="taDescription" HBox.hgrow="ALWAYS" wrapText="true" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                        
+		 				<CSDialogButtons fx:id="dialogButtons" />
+
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

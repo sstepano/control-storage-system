@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSComboBox?>
+
+<?import org.code_studio.component.CSDatePicker?>
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+<?import org.controlsfx.glyphfont.Glyph?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Double  fx:id="maxComponentWidth" fx:value="1.7976931348623157E308" />
+        <Integer fx:id="shortTextFieldWidth" fx:value="100" />
+        <Integer fx:id="textFieldWidth" fx:value="110" />
+        <Integer fx:id="longTextFieldWidth" fx:value="250" />
+        <Integer fx:id="shortDatePickerWidth" fx:value="100" />
+        <Integer fx:id="datePickerWidth" fx:value="100" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                        
+                        <!-- RM INDIKATORI -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="ARTIKAL NA PALETI"></Label>
+                            </HBox>
+                            
+                            <GridPane hgap="5" vgap="5">
+                                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                <Label GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Šifra palete" />
+                                <TextField fx:id="tfPaletteId" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.Halignment="LEFT" disable="true" maxWidth="$shortTextFieldWidth" />
+
+                                <Label GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Šifra artikla" />
+                                <TextField fx:id="tfItemId" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$shortTextFieldWidth" disable="true" text="AUTO"/>
+                                <Button fx:id="btnItemList" text="Lista artikala" GridPane.rowIndex="1" GridPane.columnIndex="2" focusTraversable="false" maxWidth="$maxComponentWidth">
+                                    <graphic><Glyph styleClass="glyph" icon="BARCODE" textFill="black"/></graphic>
+                                </Button>
+                                
+                                <Label GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Naziv artikla" />
+                                <TextField fx:id="tfItemName" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.Halignment="LEFT" prefWidth="$longTextFieldWidth" GridPane.columnSpan="2" />
+
+                                <Label GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Količina" />
+                                <CSTextField fx:id="tfQuantity" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$shortTextFieldWidth" validationType="NUMBER_ONLY" />
+                                
+                                <Label GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Težina" />
+                                <CSTextField fx:id="tfWeight" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$shortTextFieldWidth" validationType="NUMBER_ONLY" />
+
+                                <Label GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Datum isteka" />
+                                <CSDatePicker fx:id="dtExpiryDate" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.Halignment="LEFT" maxWidth="$shortTextFieldWidth"  />
+                                
+                                <Label GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.Halignment="RIGHT" text="Opis" />
+                                <TextArea fx:id="taDescription" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.Halignment="LEFT" maxWidth="$longTextFieldWidth" maxHeight="80" />
+                            </GridPane>
+                        </VBox>
+                        
+                        <!-- SAVE | CANCEL BUTTONS -
+                        <HBox spacing="10" alignment="BOTTOM_RIGHT">
+                           <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                            <children>                    
+                               <Button fx:id="btnSave" text="%button.save.text" disable="true">
+                                   <graphic><Glyph styleClass="glyph" icon="SAVE" textFill="black"/></graphic>
+                               </Button>
+                               <Button fx:id="btnCancel" text="%button.cancel.text">
+                                   <graphic><Glyph styleClass="glyph" icon="CLOSE" textFill="black"/></graphic>
+                               </Button>
+                            </children>
+                        </HBox>
+                        -->
+                        <CSDialogButtons fx:id="dialogButtons" />
+                        
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>

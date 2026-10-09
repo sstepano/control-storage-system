@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AnchorPane>
+
+<?import java.lang.Integer?>
+<?import java.lang.Double?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import org.code_studio.component.CSComboBox?>
+<?import org.code_studio.component.CSTextField?>
+<?import org.code_studio.component.CSDatePicker?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import org.code_studio.component.ui.CSDialogButtons?>
+
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx" 
+    xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@Main.css">
+    
+    <fx:define>
+        <Integer fx:id="smallTextFieldWidth" fx:value="80" />
+        <Integer fx:id="dateFieldWidth" fx:value="90" />
+        <Integer fx:id="textFieldWidth" fx:value="200" />
+        <ToggleGroup fx:id="tgpSaleType" />
+        <ToggleGroup fx:id="tgpPrice" />
+        <Integer fx:id="longComboBoxWidth" fx:value="200" />
+        <Double fx:id="DOUBLE_MAX_VALUE" fx:value="1.7976931348623157E308" />
+    </fx:define>
+    
+    <children>
+        <HBox
+           AnchorPane.leftAnchor   ="0"
+           AnchorPane.rightAnchor  ="0"
+           AnchorPane.topAnchor    ="0"
+           AnchorPane.bottomAnchor ="0">
+            <children>
+                <VBox spacing="15">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <children>
+                        
+                        <!-- KLIJENT HEADER -->
+                        <VBox spacing="5" alignment="CENTER_LEFT" styleClass="box-with-border">
+                            <HBox styleClass="box-header" alignment="CENTER">
+                                <Label text="KLIJENT"></Label>
+                            </HBox>
+                            
+	                        <!-- KLIJENT INFO -->
+	                        <VBox disable="true">
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <GridPane hgap="5" vgap="5">
+	                            
+	                                 <columnConstraints>
+	                                     <ColumnConstraints />
+	                                     <ColumnConstraints prefWidth="${smallTextFieldWidth}" />
+	                                 </columnConstraints>
+	                            
+	                                <Label text="Šifra" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                                <CSTextField fx:id="tfClientId" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+	                                
+	                                <Label text="Naziv" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+	                                <CSTextField fx:id="tfClientName" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.columnSpan="3"/>
+	
+	                                <Label text="Pun naziv" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+	                                <CSTextField fx:id="tfClientFullName" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="5" />
+	
+	                                <Label text="P.broj" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+	                                <CSTextField fx:id="tfClientPOBox" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+	
+	                                <Label text="Mesto" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+	                                <CSTextField fx:id="tfClientCityName" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+	                                
+	                                <Label text="Zemlja" GridPane.rowIndex="2" GridPane.columnIndex="4" />
+	                                <CSTextField fx:id="tfClientCountryName" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.columnIndex="5" />
+	                                
+	                                <Label text="Adresa" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+	                                <CSTextField fx:id="tfClientAddress" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="5" />
+	                            </GridPane>
+	                        </VBox>
+	                        
+                            <HBox styleClass="box-header, box-header-top-border" alignment="CENTER">
+                                <Label text="DATUM I ROK ISPORUKE"></Label>
+                            </HBox>
+	                        <VBox>
+	                            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+	                            <GridPane hgap="5" vgap="5" alignment="CENTER">
+	                                <Label text="Datum ponude" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+	                                <CSDatePicker fx:id="dtOfferDate" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" prefWidth="$dateFieldWidth" defaultToday="true" />
+	                                
+	                                <Label text="Važnost ponude" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+	                                <CSDatePicker fx:id="dtOfferExpirationDate" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.hgrow="NEVER" prefWidth="$dateFieldWidth" defaultToday="true" />
+
+	                                <Label text="Avans" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+	                                <CSTextField fx:id="tfAdvancePaymentAmt" validationType="MONEY" GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.hgrow="NEVER" prefWidth="${smallTextFieldWidth}" />
+	                                
+	                                <CheckBox fx:id="ckbReserveItems" text="Rezerviši artikle" GridPane.rowIndex="1" GridPane.columnIndex="3" selected="false" />
+	                                
+									<!-- Nemamo procenat rabata u headeru, sve je u detaljima
+                                    <Label text="Rabat(%)" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                                    <CSTextField fx:id="tfDiscountRate" validationType="MONEY" GridPane.rowIndex="1" GridPane.columnIndex="3" GridPane.hgrow="NEVER" prefWidth="${smallTextFieldWidth}" />
+                                    -->
+
+                                    <Label text="Rok isporuke (dana)" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+                                    <CSTextField fx:id="tfDeliveryDays" validationType="NUMBER_ONLY" GridPane.rowIndex="0" GridPane.columnIndex="5" GridPane.hgrow="NEVER" prefWidth="${smallTextFieldWidth}" />
+	                            </GridPane>
+	                        </VBox>
+	                        
+							<HBox>
+							    <VBox styleClass="box-with-border" HBox.hgrow="SOMETIMES">
+		                            <HBox styleClass="box-header" alignment="CENTER">
+		                                <Label text="NASLOV DOKUMENTA I NAPOMENA"></Label>
+		                            </HBox>
+		                            <VBox styleClass="box-padding-5">
+		                                <HBox>
+		                                    <Label text="Naslov dokumenta"></Label>
+		                                    <CSTextField fx:id="tfOfferHeader" HBox.hgrow="ALWAYS"/>    
+		                                </HBox>
+		                                <Label text="Napomena"></Label>
+		                                <TextArea fx:id="taDescription" styleClass="box-with-border" />
+		                            </VBox>
+							    </VBox>
+							 </HBox>
+
+                        </VBox>
+                        
+                        <CSDialogButtons fx:id="dialogButtons" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>        
+</AnchorPane>
